@@ -1,0 +1,22 @@
+{{outlet}}
+{{#freestyle-usage 'foo-special'
+    title='Foo -- Special'
+    highlightJsTheme='hybrid'
+}}
+  {{x-foo status='special'}}
+{{/freestyle-usage}}
+{{#freestyle-usage 'foo-normal'
+    title='Foo -- Normal'
+    highlightJsTheme='hybrid'
+}}
+  {{x-foo status='normal'}}
+{{/freestyle-usage}}
+{{#freestyle-usage 'fp' title='Freestyle Palette'}}
+  {{freestyle-palette
+      title='Dummy App Color Palette'
+      description='This component displays the color palette specified in freestyle/palette.json'
+  }}
+{{/freestyle-usage}}
+{{#freestyle-usage 'fpi' title="Freestyle Palette Item"}}
+  {{freestyle-palette-item color=color}}
+{{/freestyle-usage}}

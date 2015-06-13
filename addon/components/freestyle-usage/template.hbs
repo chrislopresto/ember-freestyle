@@ -1,0 +1,19 @@
+{{#if title}}
+  <div class="FreestyleUsage-title">
+    {{title}}
+  </div>
+{{/if}}
+<div class="FreestyleUsage-rendered">
+  <div class="FreestyleUsage-subtitle">Rendered</div>
+  {{yield}}
+</div>
+{{#if snippetName}}
+  <div class="FreestyleUsage-usage">
+    <div class="FreestyleUsage-subtitle">Usage</div>
+    <div class="FreestyleUsage-codeSnippet FreestyleUsage-codeSnippet--{{highlightJsTheme}}">
+      {{code-snippet name=snippetHbs}}
+      {{code-snippet name=snippetJs}}
+      {{code-snippet name=snippetScss}}
+    </div>
+  </div>
+{{/if}}

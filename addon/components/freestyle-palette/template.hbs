@@ -1,0 +1,8 @@
+<div class='FreestylePalette'>
+  <div class='FreestylePalette-title'>{{title}}</div>
+  <div class='FreestylePalette-description'>{{description}}</div>
+  {{#each colors as |color|}}
+    {{freestyle-palette-item color=color}}
+  {{/each}}
+  {{yield}}
+</div>

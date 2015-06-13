@@ -1,0 +1,9 @@
+{
+  "freestyle": {
+    "usage": {
+      "border": "solid 1px #cecece",
+      "border-radius": "5px",
+      "background-color": "rgba(#eee, .5)"
+    }
+  }
+}

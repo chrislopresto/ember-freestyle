@@ -1,0 +1,33 @@
+// {{#freestyle-usage 'fpi'}}
+$freestylePaletteItemBorderColor: #cecece;
+
+.FreestylePaletteItem {
+  display: inline-block;
+  border: solid 1px $freestylePaletteItemBorderColor;
+  margin: 0 5px 5px 0;
+
+  &-color {
+    height: 90px;
+    width: 160px;
+  }
+
+  &-info {
+    border-top: solid 1px $freestylePaletteItemBorderColor;
+    padding: 5px;
+    background-color: #fff;
+  }
+
+  &-hex {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
+  &-name {
+    font-size: 11px;
+    margin-top: 0;
+    color: gray;
+  }
+
+}
+// {{/freestyle-usage}}

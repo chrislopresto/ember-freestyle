@@ -1,0 +1,26 @@
+.x-Foo {
+  background-color: #58504A;
+  border: solid 5px #89DAFF;
+  color: #DBB1BC;
+  font-size: .9rem;
+  max-width: 90%;
+  padding: 20px;
+  width: 400px;
+
+  &-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  &-description {
+    border: solid 1px #89daff;
+    padding: 10px;
+    font-size: .8rem;
+
+    &--special {
+      background-color: white;
+      color: #212121;
+    }
+  }
+}

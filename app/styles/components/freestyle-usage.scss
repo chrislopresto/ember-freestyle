@@ -1,0 +1,55 @@
+$freestyleUsageBorderColor: #cecece;
+$freestyleUsageMaxWidth: 900px;
+
+.FreestyleUsage {
+  border: map-get-deep($freestyle, 'usage', 'border');
+  border-radius: map-get-deep($freestyle, 'usage', 'border-radius');
+  margin: 10px;
+  background-color: map-get-deep($freestyle, 'usage', 'background-color');
+  max-width: $freestyleUsageMaxWidth;
+
+  &-title {
+    text-transform: uppercase;
+    background-color: #cecece;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  &-subtitle {
+    font-size: .8rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+  }
+
+  &-rendered {
+    padding: 10px;
+  }
+
+  &-usage {
+    padding: 10px;
+  }
+
+  &-codeSnippet {
+    pre {
+      margin-top: 0;
+      border-radius: 2px;
+    }
+
+    &--tomorrow-night {
+      @import '../ember-freestyle/highlight.js/tomorrow-night';
+    }
+
+    &--zenburn {
+      @import '../ember-freestyle/highlight.js/zenburn';
+    }
+
+    &--hybrid {
+      @import '../ember-freestyle/highlight.js/hybrid';
+    }
+
+    &--atelier-cave-dark {
+      @import '../ember-freestyle/highlight.js/atelier-cave-dark';
+    }
+  }
+}
