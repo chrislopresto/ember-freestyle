@@ -1,0 +1,58 @@
+// 1. Avoid the IE 10-11 `min-height` bug.
+// 2. Set `flex-shrink` to `0` to prevent some browsers from
+//    letting these items shrink to smaller than their content's default
+//    minimum size. See http://bit.ly/1Mn35US for details.
+// 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
+
+.FreestyleGuide {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 320px;
+
+  &-header,
+  &-footer {
+    flex: none;
+  }
+
+  &-body {
+    background-color: freestyle-color('background');
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+
+    @include mappy-bp(large) {
+      flex-direction: row;
+    }
+  }
+
+  &-content {
+    margin-top: 1.5rem;
+
+    @include mappy-bp(large) {
+      flex: 1;
+      margin: 0;
+    }
+  }
+
+  &-nav {
+    background-color: freestyle-color('background');
+    order: -1;
+
+    @include mappy-bp(large) {
+      border-right: solid 1px freestyle-color('secondary');
+    }
+  }
+
+  &-aside {
+    text-align: center;
+  }
+
+  &-nav,
+  &-aside {
+    @include mappy-bp(large) {
+      flex: 0 0 18rem;
+    }
+  }
+}

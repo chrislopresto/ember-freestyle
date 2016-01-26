@@ -1,0 +1,50 @@
+$freestyleCollectionMaxWidth: 1000px !default;
+
+.FreestyleCollection {
+  max-width: $freestyleCollectionMaxWidth;
+
+  &-variantList {
+    display: flex;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 48px;
+    margin: 1rem;
+    white-space: nowrap;
+
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &-variantListItem {
+    flex-grow: 1;
+    display: block;
+    float: left;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    letter-spacing: .8px;
+    width: 15%;
+    min-width: 120px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover,
+    &--active {
+      color: freestyle-color('primary');
+      border-bottom: solid 3px freestyle-color('primary');
+    }
+  }
+
+  &-variant {
+    display: inline;
+  }
+}

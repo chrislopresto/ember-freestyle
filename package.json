@@ -22,7 +22,9 @@
     "ember-ajax": "0.7.1",
     "ember-cli": "2.3.0-beta.1",
     "ember-cli-app-version": "^1.0.0",
+    "ember-cli-autoprefixer": "0.5.0",
     "ember-cli-dependency-checker": "^1.2.0",
+    "ember-cli-font-awesome": "1.4.0",
     "ember-cli-github-pages": "0.0.6",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-inject-live-reload": "^1.3.1",
@@ -34,8 +36,10 @@
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
+    "ember-normalize": "0.0.9",
     "ember-resolver": "^2.0.3",
     "ember-suave": "1.2.3",
+    "ember-truth-helpers": "1.2.0",
     "ember-try": "~0.0.8",
     "node-sass": "sass/node-sass#ec18ef5e0993c8ea53ac247bdd74c471f238326c",
     "node-sass-json-importer": "^1.0.5"
@@ -44,7 +48,6 @@
     "ember-addon"
   ],
   "dependencies": {
-    "broccoli-browserify": "^0.1.0",
     "broccoli-flatiron": "0.0.0",
     "broccoli-funnel": "^1.0.1",
     "broccoli-json-module": "0.0.1",
@@ -54,9 +57,11 @@
     "broccoli-writer": "^0.1.1",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.1",
+    "ember-remarkable": "chrislopresto/ember-remarkable#highlightjs-css-compatibility",
     "es6-promise": "^3.0.2",
     "glob": "^6.0.4",
-    "highlight.js": "^9.1.0"
+    "highlight.js": "^9.1.0",
+    "mappy-breakpoints": "^0.2.1"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

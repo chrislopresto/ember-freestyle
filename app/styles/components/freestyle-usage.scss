@@ -1,39 +1,36 @@
 $freestyleUsageBorderColor: #cecece;
-$freestyleUsageMaxWidth: 900px;
+$freestyleUsageMaxWidth: 1000px !default;
 
 .FreestyleUsage {
-  border: map-get-deep($freestyle, 'usage', 'border');
-  border-radius: map-get-deep($freestyle, 'usage', 'border-radius');
-  margin: 10px;
-  background-color: map-get-deep($freestyle, 'usage', 'background-color');
   max-width: $freestyleUsageMaxWidth;
 
   &-title {
     text-transform: uppercase;
-    background-color: #cecece;
-    color: white;
     font-weight: bold;
-    padding: 10px;
+    padding: 1rem 1rem 0;
   }
 
-  &-subtitle {
-    font-size: .8rem;
-    font-weight: bold;
-    padding-bottom: 5px;
+  &-notes {
+    font-size: .9rem;
   }
 
   &-rendered {
-    padding: 10px;
+    padding: 1rem;
   }
 
   &-usage {
-    padding: 10px;
+    padding-bottom: 10px;
   }
 
-  &-codeSnippet {
+  &-snippet {
     pre {
       margin-top: 0;
       border-radius: 2px;
+      font-size: .8rem;
+
+      &.hljs {
+        padding: .5rem 1rem;
+      }
     }
 
     &--tomorrow-night {
@@ -50,6 +47,31 @@ $freestyleUsageMaxWidth: 900px;
 
     &--atelier-cave-dark {
       @import '../ember-freestyle/highlight.js/atelier-cave-dark';
+    }
+
+    &--solarized-light {
+      @import '../ember-freestyle/highlight.js/solarized-light';
+    }
+
+    &--docco {
+      @import '../ember-freestyle/highlight.js/docco';
+    }
+
+    &--monokai-sublime {
+      @import '../ember-freestyle/highlight.js/monokai-sublime';
+    }
+  }
+
+  &--inline {
+    border-bottom: none;
+    display: inline-block;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    width: 100%;
+
+    @include mappy-bp(large) {
+      max-width: inherit;
+      width: auto;
     }
   }
 }
