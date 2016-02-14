@@ -1,0 +1,10 @@
+{
+  "FreestyleBreakpoints": {
+    "small": "320px",
+    "medium": "480px",
+    "large": "600px",
+    "huge": "1024px",
+    "giant": "1280px",
+    "monstrous": "1600px"
+  }
+}

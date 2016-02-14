@@ -1,0 +1,28 @@
+.FreestyleMenu {
+  list-style: none;
+  padding-left: 20px;
+  font-size: 14px;
+
+  &-item {
+    text-transform: uppercase;
+    padding-top: .6rem;
+  }
+
+  &-itemLink {
+    text-decoration: none;
+    color: freestyle-color('foreground');
+
+    &.active {
+      color: freestyle-color('primary');
+    }
+
+    &:hover {
+      color: freestyle-color('accent');
+    }
+  }
+
+  &-submenu {
+    list-style: none;
+    padding-left: 20px;
+  }
+}

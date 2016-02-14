@@ -1,0 +1,11 @@
+.FreestyleSection {
+  &-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem 0 .4rem;
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    border-bottom: solid 1px #ccc;
+    max-width: calc(1000px - 1rem);
+  }
+}

@@ -1,0 +1,60 @@
+.FreestyleNotes {
+  pre {
+    margin-top: 0;
+    border-radius: 2px;
+    font-size: .8rem;
+
+    &.hljs {
+      padding: .5rem 1rem;
+    }
+  }
+
+  &--tomorrow-night {
+    @import '../ember-freestyle/highlight.js/tomorrow-night';
+  }
+
+  &--zenburn {
+    @import '../ember-freestyle/highlight.js/zenburn';
+  }
+
+  &--hybrid {
+    @import '../ember-freestyle/highlight.js/hybrid';
+  }
+
+  &--atelier-cave-dark {
+    @import '../ember-freestyle/highlight.js/atelier-cave-dark';
+  }
+
+  &--solarized-light {
+    @import '../ember-freestyle/highlight.js/solarized-light';
+  }
+
+  &--docco {
+    @import '../ember-freestyle/highlight.js/docco';
+  }
+
+  &--monokai-sublime {
+    @import '../ember-freestyle/highlight.js/monokai-sublime';
+  }
+
+  &-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      padding: 0 1rem;
+    }
+
+    // Appropriating h6 as snippet title
+    h6 {
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: .5rem 1rem .2rem;
+      font-size: .7rem;
+      margin: 0;
+    }
+  }
+}

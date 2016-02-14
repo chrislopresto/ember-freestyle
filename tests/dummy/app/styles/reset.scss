@@ -1,0 +1,18 @@
+// $base-font-size
+// - defines the root html, body (directly below)
+// - is used by _mappy-breakpoints
+$base-font-size: 16px;
+
+html,
+body {
+  font-size: $base-font-size;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@import 'normalize';

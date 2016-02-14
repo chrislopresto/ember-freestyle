@@ -1,6 +1,16 @@
 import Ember from 'ember';
 
+const { computed, inject } = Ember;
+
 export default Ember.Controller.extend({
-  section: null, // must be explicly set to null here for (query-params section=null) to work
-  queryParams: ['section']
+  emberFreestyle: inject.service(),
+
+  queryParams: ['l', 'n', 'c', 's', 'ss'],
+
+  l: computed.alias('emberFreestyle.showLabels'),
+  n: computed.alias('emberFreestyle.showNotes'),
+  c: computed.alias('emberFreestyle.showCode'),
+
+  s: computed.alias('emberFreestyle.section'),
+  ss: computed.alias('emberFreestyle.subsection')
 });

@@ -7,7 +7,6 @@ var stew = require('broccoli-stew');
 var path = require('path');
 var fs   = require('fs');
 var mergeTrees = require('broccoli-merge-trees');
-var browserify = require('broccoli-browserify');
 var flatiron = require('broccoli-flatiron');
 var snippetFinder = require('./snippet-finder');
 var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
@@ -49,37 +48,36 @@ module.exports = {
     return this.app.options.snippetSearchPaths || ['app'];
   },
 
-  treeForVendor: function(tree){
-    // Package up the highlight.js source from its node module.
+  treeForStyles: function(tree) {
+    tree = this._super.treeForStyles.apply(this, [tree]);
 
-    var src = this.treeGenerator(path.join(require.resolve('highlight.js'), '..', '..'));
-
-    var highlight = browserify(src, {
-      outputFile: 'highlight.js',
-      require: [['./lib/index.js', {expose: 'highlight.js'}]]
-    });
-    return mergeTrees([highlight, tree]);
-  },
-
-  treeForStyles: function() {
-    var stylesPath = path.join(__dirname, 'app', 'styles');
-    var stylesTree = new Funnel(this.treeGenerator(stylesPath), {
+    var mappyBreakpointsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('mappy-breakpoints/package.json'))), {
       srcDir: '/',
-      destDir: '/app/styles'
+      destDir: '/app/styles/ember-freestyle',
+      files: [
+        '_mappy-breakpoints.scss'
+      ]
     });
 
-    var highlightJsTree = new Funnel(unwatchedTree('node_modules/highlight.js/styles'), {
-      srcDir: '/',
+    var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
+      srcDir: '/styles',
       destDir: '/app/styles/ember-freestyle/highlight.js'
     });
-    highlightJsTree = stew.mv(highlightJsTree, 'app/styles/ember-reveal-js/highlight.js/{zenburn,tomorrow-night,hybrid,atelier-cave-dark}.css', 'app/styles/ember-reveal-js/highlight.js/');
     highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
 
-    return mergeTrees([stylesTree, highlightJsTree]);
+    return mergeTrees([mappyBreakpointsTree, highlightJsTree, tree], {
+      overwrite: true
+    });
   },
 
   included: function(app) {
-    app.import('vendor/highlight.js');
+    if (app.import) {
+      this.importFreestyleBowerDependencies(app);
+    }
+  },
+
+  importFreestyleBowerDependencies: function(app) {
+    app.import(app.bowerDirectory + '/remarkable/dist/remarkable.js');
   },
 
   isDevelopingAddon: function() {

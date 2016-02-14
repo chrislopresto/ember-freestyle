@@ -1,13 +1,7 @@
-<div class="x-Foo">
-  <div class="x-Foo-title">Foo</div>
+<div class="x-Foo x-Foo--{{status}}">
+  <div class="x-Foo-title">Example Foo</div>
   <p>This is a component in the dummy app</p>
-  {{#if special}}
-    <div class="x-Foo-description x-Foo-description--special">
-      Status: special
-    </div>
-  {{else}}
-    <div class="x-Foo-description x-Foo-description--normal">
-      Status: decidedly not special
-    </div>
-  {{/if}}
+  <div class="x-Foo-description x-Foo-description--special">
+    Status: {{status}}
+  </div>
 </div>

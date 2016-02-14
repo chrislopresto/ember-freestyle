@@ -1,12 +1,16 @@
 import Ember from 'ember';
 import layout from './template';
 
-const { computed } = Ember;
+const { computed, inject } = Ember;
 
 let FreestyleUsage = Ember.Component.extend({
   layout,
   classNames: ['FreestyleUsage'],
-  emberCli: Ember.inject.service(),
+  classNameBindings: ['inline:FreestyleUsage--inline'],
+  emberFreestyle: inject.service(),
+  showLabels: computed.alias('emberFreestyle.showLabels'),
+  showNotes: computed.alias('emberFreestyle.showNotes'),
+  showCode: computed.alias('emberFreestyle.showCode'),
   snippetHbs: computed('snippetName', function() {
     return `${this.get('snippetName')}.hbs`;
   }),
@@ -16,7 +20,14 @@ let FreestyleUsage = Ember.Component.extend({
   snippetScss: computed('snippetName', function() {
     return `${this.get('snippetName')}.scss`;
   }),
-  highlightJsTheme: 'zenburn'
+  snippetNotes: computed('snippetName', function() {
+    return `${this.get('snippetName')}:notes.js`;
+  }),
+  defaultTheme: computed.alias('emberFreestyle.defaultTheme'),
+  // highlightJsTheme - passed in
+  computedTheme: computed('defaultTheme', 'highlightJsTheme', function() {
+    return this.get('highlightJsTheme') || this.get('defaultTheme');
+  })
 });
 
 FreestyleUsage.reopenClass({

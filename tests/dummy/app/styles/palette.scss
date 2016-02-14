@@ -1,0 +1,30 @@
+@import 'palette.json';
+
+$FreestylePalette-baseKey: 'base' !default;
+$FreestylePalette-opacities: (
+  'light': 0.8,
+  'dark': 0.4,
+  'darker': 0.3
+);
+
+@function freestyle-color(
+  $name: 'primary',
+  $variant: $FreestylePalette-baseKey,
+  $opacity: 1
+) {
+  $color: null;
+
+  $colorVariants: map-get($FreestylePalette, $name);
+
+  @if $colorVariants {
+    $color: map-get($colorVariants, $variant);
+  }
+
+  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($FreestylePalette-opacities, $opacity));
+
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+
+  @return $color;
+}

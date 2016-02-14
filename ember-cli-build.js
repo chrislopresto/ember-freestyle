@@ -3,13 +3,20 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 var jsonImporter = require('node-sass-json-importer');
 
 module.exports = function(defaults) {
-  var app = new EmberAddon({
+  var app = new EmberAddon(defaults, {
     // Add options here
     sassOptions: {
       importer: jsonImporter,
       includePaths: [
         'freestyle'
       ]
+    },
+    emberCliFontAwesome: {
+      useScss: true
+    },
+    autoprefixer: {
+      browsers: ['last 2 version', '> 10%'],
+      cascade: false
     },
     snippetSearchPaths: ['tests/dummy/app', 'app/styles']
   });

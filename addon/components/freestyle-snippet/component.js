@@ -1,47 +1,53 @@
-import Ember from "ember";
-import Snippets from "../../snippets";
+import Ember from 'ember';
+import layout from './template';
 
-/* global require */
-var Highlight = require('highlight.js');
+const { computed, inject } = Ember;
+
+/* global hljs */
 
 export default Ember.Component.extend({
-  tagName: 'pre',
-  classNameBindings: ['language'],
+  layout,
   unindent: true,
+  emberFreestyle: inject.service(),
 
-  _unindent: function(src) {
+  _unindent(src) {
     if (!this.get('unindent')) {
       return src;
     }
-    var match, min, lines = src.split("\n");
-    for (var i = 0; i < lines.length; i++) {
+    let match;
+    let min;
+    let lines = src.split('\n');
+    for (let i = 0; i < lines.length; i++) {
       match = /^\s*/.exec(lines[i]);
       if (match && (typeof min === 'undefined' || min > match[0].length)) {
         min = match[0].length;
       }
     }
     if (typeof min !== 'undefined' && min > 0) {
-      src = src.replace(new RegExp("(\\n|^)\\s{" + min + "}", 'g'), "$1");
+      src = src.replace(new RegExp(`(\\n|^)\\s{${min}}`, 'g'), '$1');
     }
     return src;
   },
 
-  source: Ember.computed('name', function(){
+  source: computed('name', function() {
     return this._unindent(
-      (Snippets[this.get('name')] || "")
+      (this.get('emberFreestyle.snippets')[this.get('name')] || '')
         .replace(/^(\s*\n)*/, '')
         .replace(/\s*$/, '')
     );
   }),
 
-  didInsertElement: function() {
+  didInsertElement() {
     if (this.get('source')) {
-      Highlight.highlightBlock(this.get('element'));
+      hljs.highlightBlock(this.$('pre')[0]);
     }
   },
 
-  language: Ember.computed('name', function(){
-    var m = /\.(\w+)$/i.exec(this.get('name'));
+  language: computed('name', function() {
+    let m = /\.(\w+)$/i.exec(this.get('name'));
+    if (this.get('name').indexOf(':notes:') >= 0) {
+      return 'markdown';
+    }
     if (m) {
       switch (m[1].toLowerCase()) {
       case 'js':
@@ -54,6 +60,8 @@ export default Ember.Component.extend({
         return 'scss';
       case 'less':
         return 'less';
+      case 'md':
+        return 'markdown';
       }
     }
   })

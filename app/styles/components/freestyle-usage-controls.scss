@@ -1,0 +1,43 @@
+.FreestyleUsageControls {
+  display: flex;
+  height: 48px;
+  margin: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+  &-control {
+    flex-basis: 33.33%;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: solid 3px freestyle-color('secondary');
+
+    &:hover {
+      border-bottom: solid 3px freestyle-color('primary');
+    }
+
+    &--active {
+      border-bottom: solid 3px freestyle-color('primary');
+
+      &:hover {
+        border-bottom: solid 3px freestyle-color('secondary');
+      }
+    }
+  }
+  &-cta {
+    padding: 12px 0;
+    width: 100%;
+    display: inline-block;
+    color: freestyle-color('secondary');
+
+    &:hover {
+      color: freestyle-color('primary');
+    }
+
+    &--active {
+      color: freestyle-color('primary');
+
+      &:hover {
+        color: freestyle-color('secondary');
+      }
+    }
+  }
+}
