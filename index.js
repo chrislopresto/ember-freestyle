@@ -18,10 +18,16 @@ module.exports = {
   name: 'ember-freestyle',
 
   treeForApp: function(tree) {
-    var freestyleTree = jsonModule('freestyle');
-    freestyleTree = stew.mv(freestyleTree, 'freestyle');
+    var freestyleTree;
+    var treesToMerge = [tree];
 
-    var snippets= mergeTrees(this.snippetPaths().filter(function(path){
+    if (fs.existsSync('freestyle')) {
+      freestyleTree = jsonModule('freestyle');
+      freestyleTree = stew.mv(freestyleTree, 'freestyle');
+      treesToMerge.push(freestyleTree);
+    }
+
+    var snippets = mergeTrees(this.snippetPaths().filter(function(path){
       return fs.existsSync(path);
     }));
 
@@ -36,16 +42,23 @@ module.exports = {
     snippets = flatiron(snippets, {
       outputFile: 'snippets.js'
     });
+    treesToMerge.push(snippets);
 
-    return mergeTrees([tree, freestyleTree, snippets]);
+    return mergeTrees(treesToMerge);
   },
 
   snippetPaths: function() {
-    return this.app.options.snippetPaths || ['snippets'];
+    if (this.app) {
+      return this.app.options.snippetPaths || ['snippets'];
+    }
+    return ['snippets'];
   },
 
   snippetSearchPaths: function() {
-    return this.app.options.snippetSearchPaths || ['app'];
+    if (this.app) {
+      return this.app.options.snippetSearchPaths || ['app'];
+    }
+    return ['app'];
   },
 
   treeForStyles: function(tree) {
@@ -70,14 +83,26 @@ module.exports = {
     });
   },
 
-  included: function(app) {
-    if (app.import) {
-      this.importFreestyleBowerDependencies(app);
+  included: function(app, parentAddon) {
+    var target = app || parentAddon;
+    if (target.import) {
+      this.importFreestyleBowerDependencies(target);
     }
+
+    this.app.import(app.bowerDirectory + '/remarkable/dist/remarkable.js');
+    this.app.import(app.bowerDirectory + '/highlightjs/highlight.pack.js');
+    this.app.import('vendor/ember-remarkable/shim.js', {
+      type: 'vendor',
+      exports: { 'remarkable': ['default'] }
+    });
+    this.app.import('vendor/ember-remarkable/highlightjs-shim.js', {
+      type: 'vendor',
+      exports: { 'hljs': ['default'] }
+    });
   },
 
-  importFreestyleBowerDependencies: function(app) {
-    app.import(app.bowerDirectory + '/remarkable/dist/remarkable.js');
+  importFreestyleBowerDependencies: function(target) {
+    target.import(target.bowerDirectory + '/remarkable/dist/remarkable.js');
   },
 
   isDevelopingAddon: function() {

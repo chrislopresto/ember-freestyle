@@ -11,9 +11,6 @@ module.exports = function(defaults) {
         'freestyle'
       ]
     },
-    emberCliFontAwesome: {
-      useScss: true
-    },
     autoprefixer: {
       browsers: ['last 2 version', '> 10%'],
       cascade: false

@@ -3,7 +3,7 @@ import layout from './template';
 
 export default Ember.Component.extend({
   layout,
-  tagName: '',
+  classNames: ['FreestyleGuide'],
 
   showNav: true,
   showAside: false,
