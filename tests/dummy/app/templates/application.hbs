@@ -1,4 +1,7 @@
-{{#freestyle-guide}}
+{{#freestyle-guide
+    title='Ember Freestyle'
+    subtitle='Living Style Guide'
+}}
 
   {{#freestyle-section name='Foo Things' as |section|}}
     {{#freestyle-collection activeKey='normal' as |collection|}}
@@ -9,7 +12,7 @@
           class='FreestyleCollection-variant'
       }}
         {{#freestyle-usage 'foo-normal'
-            title='Foo Normal'
+            title='Normal'
             inline=(eq collection.activeKey 'all')
         }}
           {{x-foo status='normal'}}
@@ -22,7 +25,7 @@
           class='FreestyleCollection-variant'
       }}
         {{#freestyle-usage 'foo-special'
-            title='Foo Special'
+            title='Special'
             inline=(eq collection.activeKey 'all')
         }}
           {{x-foo status='special'}}
@@ -35,7 +38,7 @@
           class='FreestyleCollection-variant'
       }}
         {{#freestyle-usage 'foo-hyper'
-            title='Foo Hyper'
+            title='Hyper'
             inline=(eq collection.activeKey 'all')
         }}
           {{x-foo status='hyper'}}
@@ -48,7 +51,7 @@
           class='FreestyleCollection-variant'
       }}
         {{#freestyle-usage 'foo-classic'
-            title='Foo Classic'
+            title='Classic'
             inline=(eq collection.activeKey 'all')
         }}
           {{x-foo status='classic'}}
@@ -61,7 +64,7 @@
           class='FreestyleCollection-variant'
       }}
         {{#freestyle-usage 'foo-elegant'
-            title='Foo Elegant'
+            title='Elegant'
             inline=(eq collection.activeKey 'all')
         }}
           {{x-foo status='elegant'}}
@@ -74,7 +77,7 @@
           class='FreestyleCollection-variant'
       }}
         {{#freestyle-usage 'foo-tasteful'
-            title='Foo Tasteful'
+            title='Tasteful'
             inline=(eq collection.activeKey 'all')
         }}
           {{x-foo status='tasteful'}}

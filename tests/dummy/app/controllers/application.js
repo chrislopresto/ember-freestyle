@@ -10,12 +10,10 @@ export default FreestyleController.extend({
   /* BEGIN-FREESTYLE-USAGE fpi:notes
 ### A few notes regarding freestyle-palette-item
 
-This is something to concsider.
-
 - Accepts a color object
 - Looks very nice
 
-And another thing.
+And another thing...
 
 ###### Markdown note demonstrating prettified code
 
