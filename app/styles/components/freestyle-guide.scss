@@ -4,6 +4,8 @@
 //    minimum size. See http://bit.ly/1Mn35US for details.
 // 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
 
+$FreestyleGuide-maxWidth: 1200px !default;
+
 .FreestyleGuide {
   display: flex;
   height: 100%;
@@ -14,6 +16,45 @@
   &-header,
   &-footer {
     flex: none;
+    display: flex;
+  }
+
+  &-header {
+    border-bottom: solid 1px freestyle-color('secondary');
+    padding: .5rem 1rem;
+    align-items: top;
+  }
+
+  &-cta {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.4rem;
+    flex-basis: 20px;
+    text-align: center;
+    align-self: center;
+
+    &:hover {
+      color: freestyle-color('primary');
+    }
+  }
+
+  &-titleContainer {
+    flex-grow: 1;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  &-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    @include mappy-bp(large) {
+      font-size: 1.9rem;
+    }
+  }
+
+  &-subtitle {
+    margin: 0 auto;
   }
 
   &-body {
@@ -47,10 +88,18 @@
 
   &-aside {
     text-align: center;
+    order: -1;
+
+    @include mappy-bp(large) {
+      border-left: solid 1px freestyle-color('secondary');
+      order: 1;
+    }
   }
 
   &-nav,
   &-aside {
+    padding: 1rem;
+
     @include mappy-bp(large) {
       flex: 0 0 18rem;
     }

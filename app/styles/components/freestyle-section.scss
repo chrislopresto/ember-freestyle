@@ -6,6 +6,7 @@
     margin: 0 1rem;
     font-size: 1.5rem;
     border-bottom: solid 1px #ccc;
-    max-width: calc(1000px - 1rem);
+    // TODO: Calculate from $FreestyleGuide-maxWidth
+    max-width: calc(1200px - 1rem);
   }
 }

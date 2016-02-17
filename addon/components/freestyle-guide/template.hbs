@@ -1,11 +1,29 @@
 <div class="FreestyleGuide Route-search">
+  <header class="FreestyleGuide-header">
+    <a class="FreestyleGuide-cta FreestyleGuide-cta--nav {{unless showNav 'FreestyleGuide-cta--active'}}" title="Show Nav" onclick={{action 'toggleNav'}}>
+      {{fa-icon 'bars'}}
+    </a>
+    <div class="FreestyleGuide-titleContainer">
+      <div class="FreestyleGuide-title">{{title}}</div>
+      <div class="FreestyleGuide-subtitle">{{subtitle}}</div>
+    </div>
+    {{!-- <a class="FreestyleGuide-cta FreestyleGuide-cta--aside {{unless showAside 'FreestyleGuide-cta--active'}}" title="Show Aside" onclick={{action 'toggleAside'}}>
+      {{fa-icon 'ellipsis-v'}}
+    </a> --}}
+  </header>
   <main class="FreestyleGuide-body">
     <article class="FreestyleGuide-content">
       {{yield}}
     </article>
-    <nav class="FreestyleGuide-nav">
-      {{freestyle-usage-controls}}
-      {{freestyle-menu}}
-    </nav>
+    {{#if showNav}}
+      <nav class="FreestyleGuide-nav">
+        {{freestyle-usage-controls}}
+        {{freestyle-menu}}
+      </nav>
+    {{/if}}
+    {{#if showAside}}
+      <aside class="FreestyleGuide-aside">
+      </aside>
+    {{/if}}
   </main>
 </div>

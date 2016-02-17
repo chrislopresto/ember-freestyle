@@ -1,7 +1,7 @@
-$freestyleCollectionMaxWidth: 1000px !default;
+$FreestyleCollection-maxWidth: $FreestyleGuide-maxWidth !default;
 
 .FreestyleCollection {
-  max-width: $freestyleCollectionMaxWidth;
+  max-width: $FreestyleCollection-maxWidth;
 
   &-variantList {
     display: flex;

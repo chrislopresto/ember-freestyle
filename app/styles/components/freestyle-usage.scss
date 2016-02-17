@@ -1,8 +1,8 @@
-$freestyleUsageBorderColor: #cecece;
-$freestyleUsageMaxWidth: 1000px !default;
+$FreestyleUsage-borderColor: #cecece;
+$FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
 
 .FreestyleUsage {
-  max-width: $freestyleUsageMaxWidth;
+  max-width: $FreestyleUsage-maxWidth;
 
   &-title {
     text-transform: uppercase;
@@ -25,7 +25,6 @@ $freestyleUsageMaxWidth: 1000px !default;
   &-snippet {
     pre {
       margin-top: 0;
-      border-radius: 2px;
       font-size: .8rem;
 
       &.hljs {
