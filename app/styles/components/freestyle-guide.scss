@@ -32,9 +32,11 @@ $FreestyleGuide-maxWidth: 1200px !default;
     flex-basis: 20px;
     text-align: center;
     align-self: center;
+  }
 
+  &-ctaIcon {
     &:hover {
-      color: freestyle-color('primary');
+      fill: freestyle-color('primary');
     }
   }
 
@@ -80,28 +82,25 @@ $FreestyleGuide-maxWidth: 1200px !default;
   &-nav {
     background-color: freestyle-color('background');
     order: -1;
+    padding: 1rem;
 
     @include mappy-bp(large) {
       border-right: solid 1px freestyle-color('secondary');
+      flex: 0 0 18rem;
     }
   }
 
   &-aside {
-    text-align: center;
-    order: -1;
+    order: -2;
+    position: fixed;
+    right: .5rem;
+    background: #fff;
+    margin-right: .5rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 
     @include mappy-bp(large) {
       border-left: solid 1px freestyle-color('secondary');
       order: 1;
-    }
-  }
-
-  &-nav,
-  &-aside {
-    padding: 1rem;
-
-    @include mappy-bp(large) {
-      flex: 0 0 18rem;
     }
   }
 }

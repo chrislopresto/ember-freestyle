@@ -1,17 +1,23 @@
 <div class="FreestyleUsageControls">
-  <div class="FreestyleUsageControls-control {{if showLabels 'FreestyleUsageControls-control--active'}}">
-    <a class="FreestyleUsageControls-cta {{if showLabels 'FreestyleUsageControls-cta--active'}}" title="Show Labels" onclick={{action 'toggleUsage' 'labels'}}>
-      {{fa-icon 'ellipsis-h'}}
-    </a>
+  <div class="FreestyleUsageControls-header">
+    Settings
   </div>
-  <div class="FreestyleUsageControls-control {{if showNotes 'FreestyleUsageControls-control--active'}}">
-    <a class="FreestyleUsageControls-cta {{if showNotes 'FreestyleUsageControls-cta--active'}}" title="Show Notes" onclick={{action 'toggleUsage' 'notes'}}>
-      {{fa-icon 'comment'}}
-    </a>
+  <div class="FreestyleUsageControls-item">
+    <div class="FreestyleUsageControls-itemControl">
+      {{input type="checkbox" checked=showLabels}}
+    </div>
+    <div class="FreestyleUsageControls-itemLabel">Show Labels</div>
   </div>
-  <div class="FreestyleUsageControls-control {{if showCode 'FreestyleUsageControls-control--active'}}">
-    <a class="FreestyleUsageControls-cta {{if showCode 'FreestyleUsageControls-cta--active'}}" title="Show Code" onclick={{action 'toggleUsage' 'code'}}>
-      {{fa-icon 'code'}}
-    </a>
+  <div class="FreestyleUsageControls-item">
+    <div class="FreestyleUsageControls-itemControl">
+      {{input type="checkbox" checked=showNotes}}
+    </div>
+    <div class="FreestyleUsageControls-itemLabel">Show Notes</div>
+  </div>
+  <div class="FreestyleUsageControls-item">
+    <div class="FreestyleUsageControls-itemControl">
+      {{input type="checkbox" checked=showCode}}
+    </div>
+    <div class="FreestyleUsageControls-itemLabel">Show Code</div>
   </div>
 </div>
