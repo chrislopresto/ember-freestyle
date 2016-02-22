@@ -6,7 +6,7 @@
   {{#freestyle-section name='Foo Things' as |section|}}
     {{#freestyle-collection activeKey='normal' as |collection|}}
 
-      {{#freestyle-collection/variant
+      {{#freestyle-variant
           collection=collection
           key='normal'
           class='FreestyleCollection-variant'
@@ -17,9 +17,9 @@
         }}
           {{x-foo status='normal'}}
         {{/freestyle-usage}}
-      {{/freestyle-collection/variant}}
+      {{/freestyle-variant}}
 
-      {{#freestyle-collection/variant
+      {{#freestyle-variant
           collection=collection
           key='special'
           class='FreestyleCollection-variant'
@@ -30,9 +30,9 @@
         }}
           {{x-foo status='special'}}
         {{/freestyle-usage}}
-      {{/freestyle-collection/variant}}
+      {{/freestyle-variant}}
 
-      {{#freestyle-collection/variant
+      {{#freestyle-variant
           collection=collection
           key='hyper'
           class='FreestyleCollection-variant'
@@ -43,9 +43,9 @@
         }}
           {{x-foo status='hyper'}}
         {{/freestyle-usage}}
-      {{/freestyle-collection/variant}}
+      {{/freestyle-variant}}
 
-      {{#freestyle-collection/variant
+      {{#freestyle-variant
           collection=collection
           key='classic'
           class='FreestyleCollection-variant'
@@ -56,9 +56,9 @@
         }}
           {{x-foo status='classic'}}
         {{/freestyle-usage}}
-      {{/freestyle-collection/variant}}
+      {{/freestyle-variant}}
 
-      {{#freestyle-collection/variant
+      {{#freestyle-variant
           collection=collection
           key='elegant'
           class='FreestyleCollection-variant'
@@ -69,9 +69,9 @@
         }}
           {{x-foo status='elegant'}}
         {{/freestyle-usage}}
-      {{/freestyle-collection/variant}}
+      {{/freestyle-variant}}
 
-      {{#freestyle-collection/variant
+      {{#freestyle-variant
           collection=collection
           key='tasteful'
           class='FreestyleCollection-variant'
@@ -82,7 +82,7 @@
         }}
           {{x-foo status='tasteful'}}
         {{/freestyle-usage}}
-      {{/freestyle-collection/variant}}
+      {{/freestyle-variant}}
 
     {{/freestyle-collection}}
 
