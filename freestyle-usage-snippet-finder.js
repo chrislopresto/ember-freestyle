@@ -97,8 +97,10 @@ SnippetFinder.prototype.write = function (readTree, destDir) {
   return readTree(this.inputTree).then(findFiles).then(function(files) {
     files.forEach(function(filename) {
       var freestyleUsageSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-usage');
+      var freestyleNoteSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-note');
+      var componentSnippets = naiveMerge(freestyleUsageSnippets, freestyleNoteSnippets);
       var commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
-      var snippets = naiveMerge(freestyleUsageSnippets, commentSnippets);
+      var snippets = naiveMerge(componentSnippets, commentSnippets);
       for (var name in snippets){
         fs.writeFileSync(path.join(destDir, name)+path.extname(filename),
                          snippets[name]);
