@@ -11,6 +11,15 @@
           key='normal'
           class='FreestyleCollection-variant'
       }}
+        {{#freestyle-note 'foo-normal:notes'}}
+#### Another Note About Normal
+
+This comment is coming from a freestyle-note component.
+        {{/freestyle-note}}
+        {{#freestyle-annotation}}
+          <h4>A Note About Normal</h4>
+          <p>This comment is coming from a freestyle-annotation component.</p>
+        {{/freestyle-annotation}}
         {{#freestyle-usage 'foo-normal'
             title='Normal'
             inline=(eq collection.activeKey 'all')

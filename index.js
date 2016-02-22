@@ -8,7 +8,6 @@ var path = require('path');
 var fs   = require('fs');
 var mergeTrees = require('broccoli-merge-trees');
 var flatiron = require('broccoli-flatiron');
-var snippetFinder = require('./snippet-finder');
 var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
 
 var Funnel = require('broccoli-funnel');
@@ -30,10 +29,6 @@ module.exports = {
     var snippets = mergeTrees(this.snippetPaths().filter(function(path){
       return fs.existsSync(path);
     }));
-
-    snippets = mergeTrees(this.snippetSearchPaths().map(function(path){
-      return snippetFinder(path);
-    }).concat(snippets));
 
     snippets = mergeTrees(this.snippetSearchPaths().map(function(path){
       return freestyleUsageSnippetFinder(path);

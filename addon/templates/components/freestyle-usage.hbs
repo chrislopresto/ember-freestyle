@@ -8,7 +8,10 @@
 </div>
 {{#if (and snippetName showNotes)}}
   <div class="FreestyleUsage-notes">
-    {{freestyle-notes name=snippetNotes theme=computedTheme}}
+    {{freestyle-notes name=snippetNotesJs theme=computedTheme}}
+  </div>
+  <div class="FreestyleUsage-notes">
+    {{freestyle-notes name=snippetNotesHbs theme=computedTheme}}
   </div>
 {{/if}}
 {{#if (and snippetName showCode)}}
