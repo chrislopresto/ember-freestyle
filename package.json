@@ -60,7 +60,8 @@
     "es6-promise": "^3.0.2",
     "glob": "^6.0.4",
     "highlight.js": "^9.1.0",
-    "mappy-breakpoints": "^0.2.1"
+    "mappy-breakpoints": "^0.2.1",
+    "ember-truth-helpers": "1.2.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
