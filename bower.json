@@ -9,7 +9,7 @@
     "jquery": "1.11.3",
     "loader.js": "^3.5.0",
     "normalize.css": "3.0.3",
-    "remarkable": "~1.6.1",
-    "highlightjs": "~9.1.0"
+    "remarkable": "1.6.2",
+    "highlightjs": "9.1.0"
   }
 }
