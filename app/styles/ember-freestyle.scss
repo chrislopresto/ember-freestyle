@@ -1,3 +1,8 @@
+@import 'reset';
+@import 'mixins';
+@import 'breakpoints';
+@import 'palette';
+
 @import "components/freestyle-guide";
 @import "components/freestyle-collection";
 @import "components/freestyle-annotation";
