@@ -41,9 +41,7 @@
     "ember-suave": "1.2.3",
     "ember-truth-helpers": "1.2.0",
     "ember-try": "~0.1.2",
-    "loader.js": "^4.0.0",
-    "node-sass": "sass/node-sass#11c96eee55d00c65d1ad1fddf6111bbb731aa789",
-    "node-sass-json-importer": "chrislopresto/node-sass-json-importer#3fb198306aaab34f6eaf6c13e251adb43383970c"
+    "loader.js": "^4.0.0"
   },
   "keywords": [
     "ember-addon"
@@ -59,11 +57,13 @@
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.1",
     "ember-remarkable": "chrislopresto/ember-remarkable#highlightjs-css-compatibility",
+    "ember-truth-helpers": "1.2.0"
     "es6-promise": "^3.0.2",
     "glob": "^6.0.4",
     "highlight.js": "^9.1.0",
     "mappy-breakpoints": "^0.2.1",
-    "ember-truth-helpers": "1.2.0"
+    "node-sass": "sass/node-sass#11c96eee55d00c65d1ad1fddf6111bbb731aa789",
+    "node-sass-json-importer": "chrislopresto/node-sass-json-importer#3fb198306aaab34f6eaf6c13e251adb43383970c"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
