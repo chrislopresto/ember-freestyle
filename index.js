@@ -79,6 +79,8 @@ module.exports = {
   },
 
   included: function(app, parentAddon) {
+    this._super.included(app);
+
     var target = app || parentAddon;
     if (target.import) {
       this.importFreestyleBowerDependencies(target);
