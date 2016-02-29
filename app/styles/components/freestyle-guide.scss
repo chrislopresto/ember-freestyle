@@ -20,7 +20,7 @@ $FreestyleGuide-maxWidth: 1200px !default;
   }
 
   &-header {
-    border-bottom: solid 1px freestyle-color('secondary');
+    border-bottom: solid 1px $FreestyleGuide-color--secondary;
     padding: .5rem 1rem;
     align-items: top;
   }
@@ -36,7 +36,7 @@ $FreestyleGuide-maxWidth: 1200px !default;
 
   &-ctaIcon {
     &:hover {
-      fill: freestyle-color('primary');
+      fill: $FreestyleGuide-color--primary;
     }
   }
 
@@ -60,7 +60,7 @@ $FreestyleGuide-maxWidth: 1200px !default;
   }
 
   &-body {
-    background-color: freestyle-color('background');
+    background-color: $FreestyleGuide-color--background;
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
@@ -80,12 +80,12 @@ $FreestyleGuide-maxWidth: 1200px !default;
   }
 
   &-nav {
-    background-color: freestyle-color('background');
+    background-color: $FreestyleGuide-color--background;
     order: -1;
     padding: 1rem;
 
     @include mappy-bp(large) {
-      border-right: solid 1px freestyle-color('secondary');
+      border-right: solid 1px $FreestyleGuide-color--secondary;
       flex: 0 0 18rem;
     }
   }
@@ -99,7 +99,7 @@ $FreestyleGuide-maxWidth: 1200px !default;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 
     @include mappy-bp(large) {
-      border-left: solid 1px freestyle-color('secondary');
+      border-left: solid 1px $FreestyleGuide-color--secondary;
       order: 1;
     }
   }

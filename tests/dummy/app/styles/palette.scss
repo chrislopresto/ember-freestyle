@@ -28,3 +28,11 @@ $FreestylePalette-opacities: (
 
   @return $color;
 }
+
+// Wire up variables to provide a mechanism for consuming apps to override
+// without using freestyle.json files or hash maps
+$FreestyleGuide-color--primary: freestyle-color('primary') !default;
+$FreestyleGuide-color--accent: freestyle-color('accent') !default;
+$FreestyleGuide-color--secondary: freestyle-color('secondary') !default;
+$FreestyleGuide-color--foreground: freestyle-color('foreground') !default;
+$FreestyleGuide-color--background: freestyle-color('background') !default;

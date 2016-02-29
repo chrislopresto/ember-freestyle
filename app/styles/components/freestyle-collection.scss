@@ -39,8 +39,8 @@ $FreestyleCollection-maxWidth: $FreestyleGuide-maxWidth !default;
 
     &:hover,
     &--active {
-      color: freestyle-color('primary');
-      border-bottom: solid 3px freestyle-color('primary');
+      color: $FreestyleGuide-color--primary;
+      border-bottom: solid 3px $FreestyleGuide-color--primary;
     }
   }
 
