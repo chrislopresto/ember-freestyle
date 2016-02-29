@@ -5,7 +5,7 @@ const { computed, inject } = Ember;
 
 export default Ember.Component.extend({
   layout,
-  tagName: '',
+  classNames: ['FreestyleSection'],
 
   emberFreestyle: inject.service(),
   show: computed('emberFreestyle.section', 'name', function() {
