@@ -1,6 +1,6 @@
 {
   "name": "ember-freestyle",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Create a living styleguide for your Ember app.",
   "directories": {
     "doc": "doc",
