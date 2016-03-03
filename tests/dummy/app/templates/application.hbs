@@ -4,7 +4,7 @@
 }}
 
   {{#freestyle-section name='Foo Things' as |section|}}
-    {{#freestyle-collection activeKey='normal' as |collection|}}
+    {{#freestyle-collection title='Foo Collection' defaultKey='normal' as |collection|}}
 
       {{#freestyle-variant
           collection=collection
@@ -97,11 +97,22 @@ This comment is coming from a freestyle-note component.
 
   {{/freestyle-section}}
 
+  {{#freestyle-section name='Another' as |section|}}
+
+    {{#freestyle-subsection name='A' section=section}}
+
+      {{#freestyle-usage 'a1' title='a1'}}
+      {{/freestyle-usage}}
+
+    {{/freestyle-subsection}}
+
+  {{/freestyle-section}}
+
   {{#freestyle-section name='Visual Style' as |section|}}
 
     {{#freestyle-subsection name='Typography' section=section}}
 
-      {{#freestyle-usage title='Typography Town'}}
+      {{#freestyle-usage 'typography-town' title='Typography Town'}}
       {{/freestyle-usage}}
 
     {{/freestyle-subsection}}

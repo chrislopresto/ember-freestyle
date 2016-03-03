@@ -5,7 +5,7 @@ let FreestyleNote = Ember.Component.extend({
 });
 
 FreestyleNote.reopenClass({
-  positionalParams: ['snippetName']
+  positionalParams: ['slug']
 });
 
 export default FreestyleNote;

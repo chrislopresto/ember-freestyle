@@ -11,9 +11,10 @@ export default Ember.Service.extend({
 
   defaultTheme: 'zenburn',
 
-  // must be explicly set to null here for (query-params section=null) to work
+  // must be explicly set to null here for (query-params s=null ss=null f=null) to work
   section: null,
   subsection: null,
+  focus: null,
 
   // menu - tree structure of named sections with named subsections
 
