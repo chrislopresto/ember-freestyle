@@ -6,7 +6,7 @@
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
     "normalize.css": "3.0.3",
-    "remarkable": "~1.6.1",
-    "highlightjs": "~9.1.0"
+    "remarkable": "1.6.2",
+    "highlightjs": "9.1.0"
   }
 }
