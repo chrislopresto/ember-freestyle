@@ -16,7 +16,7 @@ export default Ember.Component.extend({
     this._super(...arguments);
     Ember.run.schedule('afterRender', () => {
       this.set('focus', this.get('emberFreestyle.focus'));
-    })
+    });
   },
 
   actions: {
