@@ -19,14 +19,13 @@ export default Ember.Component.extend({
     return this.get('key') || this.get('defaultKey');
   }),
 
-  variants: Ember.A(['all']),
-
   registerVariant(variantKey) {
     Ember.run.next(() => {
-      let variants = this.get('variants');
+      let variants = this.get('variants') || Ember.A(['all']);
       if (!variants.contains(variantKey)) {
         variants.pushObject(variantKey);
       }
+      this.set('variants', variants);
     });
   },
 

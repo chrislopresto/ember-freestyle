@@ -101,8 +101,31 @@ This comment is coming from a freestyle-note component.
 
     {{#freestyle-subsection name='A' section=section}}
 
-      {{#freestyle-usage 'a1' title='a1'}}
-      {{/freestyle-usage}}
+      {{#freestyle-collection title='Foo Collection' defaultKey='all' as |collection|}}
+
+        {{#freestyle-variant
+            collection=collection
+            key='a1'
+            class='FreestyleCollection-variant'
+        }}
+
+          {{#freestyle-usage 'a1' title='a1'}}
+          {{/freestyle-usage}}
+
+        {{/freestyle-variant}}
+
+        {{#freestyle-variant
+            collection=collection
+            key='a2'
+            class='FreestyleCollection-variant'
+        }}
+
+          {{#freestyle-usage 'a2' title='a2'}}
+          {{/freestyle-usage}}
+
+        {{/freestyle-variant}}
+
+      {{/freestyle-collection}}
 
     {{/freestyle-subsection}}
 
