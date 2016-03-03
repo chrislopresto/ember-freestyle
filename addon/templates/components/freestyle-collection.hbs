@@ -1,8 +1,15 @@
 <div class='FreestyleCollection'>
-  {{freestyle-variant-list
-    variants=variants
-    activeKey=activeKey
-    onClickVariant=(action 'setActiveKey')
-  }}
+  {{#if (and title showLabels)}}
+    <div class="FreestyleCollection-title">
+      {{title}}
+    </div>
+  {{/if}}
+  {{#if showVariantList}}
+    {{freestyle-variant-list
+      variants=variants
+      activeKey=activeKey
+      onClickVariant=(action 'setKey')
+    }}
+  {{/if}}
   {{yield this}}
 </div>

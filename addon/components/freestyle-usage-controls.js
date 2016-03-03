@@ -12,10 +12,20 @@ export default Ember.Component.extend({
   showNotes: computed.alias('emberFreestyle.showNotes'),
   showCode: computed.alias('emberFreestyle.showCode'),
 
+  didInsertElement() {
+    this._super(...arguments);
+    Ember.run.schedule('afterRender', () => {
+      this.set('focus', this.get('emberFreestyle.focus'));
+    })
+  },
+
   actions: {
     toggleUsage(usageType) {
       let usageProperty = `emberFreestyle.show${capitalize(usageType)}`;
       this.toggleProperty(usageProperty);
+    },
+    setFocus() {
+      this.set('emberFreestyle.focus', this.get('focus'));
     }
   }
 });

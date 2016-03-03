@@ -3,6 +3,12 @@ $FreestyleCollection-maxWidth: $FreestyleGuide-maxWidth !default;
 .FreestyleCollection {
   max-width: $FreestyleCollection-maxWidth;
 
+  &-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem 1rem 0;
+  }
+
   &-variantList {
     display: flex;
     position: relative;

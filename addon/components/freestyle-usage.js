@@ -11,30 +11,44 @@ let FreestyleUsage = Ember.Component.extend({
   showLabels: computed.alias('emberFreestyle.showLabels'),
   showNotes: computed.alias('emberFreestyle.showNotes'),
   showCode: computed.alias('emberFreestyle.showCode'),
-  snippetHbs: computed('snippetName', function() {
-    return `${this.get('snippetName')}.hbs`;
+  showUsage: computed('emberFreestyle.focus', 'slug', function() {
+    let slug = this.get('slug');
+    let focus = this.get('emberFreestyle.focus');
+    if (focus && slug) {
+      return slug.match(focus);
+    }
+    return true;
   }),
-  snippetJs: computed('snippetName', function() {
-    return `${this.get('snippetName')}.js`;
+  snippetHbs: computed('slug', function() {
+    return `${this.get('slug')}.hbs`;
   }),
-  snippetScss: computed('snippetName', function() {
-    return `${this.get('snippetName')}.scss`;
+  snippetJs: computed('slug', function() {
+    return `${this.get('slug')}.js`;
   }),
-  snippetNotesJs: computed('snippetName', function() {
-    return `${this.get('snippetName')}:notes.js`;
+  snippetScss: computed('slug', function() {
+    return `${this.get('slug')}.scss`;
   }),
-  snippetNotesHbs: computed('snippetName', function() {
-    return `${this.get('snippetName')}:notes.hbs`;
+  snippetNotesJs: computed('slug', function() {
+    return `${this.get('slug')}:notes.js`;
+  }),
+  snippetNotesHbs: computed('slug', function() {
+    return `${this.get('slug')}:notes.hbs`;
   }),
   defaultTheme: computed.alias('emberFreestyle.defaultTheme'),
   // highlightJsTheme - passed in
   computedTheme: computed('defaultTheme', 'highlightJsTheme', function() {
     return this.get('highlightJsTheme') || this.get('defaultTheme');
-  })
+  }),
+
+  actions: {
+    setFocus() {
+      this.set('emberFreestyle.focus', this.get('slug'));
+    }
+  }
 });
 
 FreestyleUsage.reopenClass({
-  positionalParams: ['snippetName']
+  positionalParams: ['slug']
 });
 
 export default FreestyleUsage;

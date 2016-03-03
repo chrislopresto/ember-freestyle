@@ -73,4 +73,15 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
       width: auto;
     }
   }
+
+  &-focusCta {
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    fill: $FreestyleGuide-color--secondary;
+
+    &:hover {
+      fill: $FreestyleGuide-color--primary;
+    }
+  }
 }
