@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { computed } = Ember;
+
 export default Ember.Service.extend({
   // Each json config file in the freestyle directory is injected
   // as a property on this service by the ember-freestyle
@@ -15,6 +17,8 @@ export default Ember.Service.extend({
   section: null,
   subsection: null,
   focus: null,
+
+  notFocused: computed.not('focus'),
 
   // menu - tree structure of named sections with named subsections
 

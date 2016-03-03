@@ -13,6 +13,8 @@ export default Ember.Component.extend({
     return Ember.isBlank(section) || (this.get('name') === section);
   }),
 
+  showName: computed.and('emberFreestyle.notFocused', 'name'),
+
   willRender() {
     this._super(...arguments);
     this.get('emberFreestyle').registerSection(this.get('name'));
