@@ -1,7 +1,9 @@
 <div class="FreestyleUsageControls">
-  <div class="FreestyleUsageControls-header">
-    Settings
-  </div>
+  {{#if showHeader}}
+    <div class="FreestyleUsageControls-header">
+      Settings
+    </div>
+  {{/if}}
   <div class="FreestyleUsageControls-item">
     <div class="FreestyleUsageControls-itemControl">
       {{input type="checkbox" checked=showLabels}}
@@ -20,10 +22,12 @@
     </div>
     <div class="FreestyleUsageControls-itemLabel">Show Code</div>
   </div>
-  <div class="FreestyleUsageControls-item FreestyleUsageControls-item--focus">
-    <div class="FreestyleUsageControls-itemControl">
-      {{input class="FreestyleUsageControls-input--focus" value=focus}}
-      <button class="FreestyleUsageControls-button" onclick={{action 'setFocus'}}>Focus</button>
+  {{#if showFocus}}
+    <div class="FreestyleUsageControls-item FreestyleUsageControls-item--focus">
+      <div class="FreestyleUsageControls-itemControl">
+        {{input class="FreestyleUsageControls-input--focus" value=focus}}
+        <button class="FreestyleUsageControls-button" onclick={{action 'setFocus'}}>Focus</button>
+      </div>
     </div>
-  </div>
+  {{/if}}
 </div>

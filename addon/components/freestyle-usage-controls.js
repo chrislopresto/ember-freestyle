@@ -12,6 +12,9 @@ export default Ember.Component.extend({
   showNotes: computed.alias('emberFreestyle.showNotes'),
   showCode: computed.alias('emberFreestyle.showCode'),
 
+  showHeader: true,
+  showFocus: true,
+
   didInsertElement() {
     this._super(...arguments);
     Ember.run.schedule('afterRender', () => {

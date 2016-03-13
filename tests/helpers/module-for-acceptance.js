@@ -1,3 +1,4 @@
+// jscs:disable
 import { module } from 'qunit';
 import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
@@ -21,3 +22,4 @@ export default function(name, options = {}) {
     }
   });
 }
+// jscs:enable
