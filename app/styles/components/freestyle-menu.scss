@@ -14,10 +14,12 @@
 
     &.active {
       color: $FreestyleGuide-color--primary;
+      text-decoration: none;
     }
 
     &:hover {
       color: $FreestyleGuide-color--accent;
+      text-decoration: none;
     }
   }
 

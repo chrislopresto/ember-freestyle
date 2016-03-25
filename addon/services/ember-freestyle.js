@@ -11,6 +11,8 @@ export default Ember.Service.extend({
   showNotes: true,
   showCode: true,
 
+  showMenu: true,
+
   defaultTheme: 'zenburn',
 
   // must be explicitly set to null here for (query-params s=null ss=null f=null) to work
