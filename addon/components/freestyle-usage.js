@@ -19,6 +19,9 @@ let FreestyleUsage = Ember.Component.extend({
     }
     return true;
   }),
+  snippetUsage: computed('slug', function() {
+    return `${this.get('slug')}:usage.hbs`;
+  }),
   snippetHbs: computed('slug', function() {
     return `${this.get('slug')}.hbs`;
   }),

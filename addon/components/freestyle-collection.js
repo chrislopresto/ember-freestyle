@@ -5,7 +5,7 @@ const { computed, inject } = Ember;
 
 export default Ember.Component.extend({
   layout,
-  tagName: '',
+  classNames: ['FreestyleCollection'],
 
   emberFreestyle: inject.service(),
   showLabels: computed.and('emberFreestyle.notFocused', 'emberFreestyle.showLabels'),

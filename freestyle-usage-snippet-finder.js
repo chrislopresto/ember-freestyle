@@ -52,6 +52,10 @@ function extractHbsComponentSnippets(fileContent, componentName) {
         matched = true;
         inside = m[0].indexOf('}}') >= 0; // curlies closed }}
         name = m[1];
+        // TODO: Cleanup freestyle-notes vs freestyle-usage disambiguation here
+        if (name.indexOf(':notes') < 0) {
+           name += ':usage';
+        }
       }
     }
   });

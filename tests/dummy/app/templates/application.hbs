@@ -97,45 +97,16 @@ This comment is coming from a freestyle-note component.
 
   {{/freestyle-section}}
 
-  {{#freestyle-section name='Another' as |section|}}
-
-    {{#freestyle-subsection name='A' section=section}}
-
-      {{#freestyle-collection title='Foo Collection' defaultKey='all' as |collection|}}
-
-        {{#freestyle-variant
-            collection=collection
-            key='a1'
-            class='FreestyleCollection-variant'
-        }}
-
-          {{#freestyle-usage 'a1' title='a1'}}
-          {{/freestyle-usage}}
-
-        {{/freestyle-variant}}
-
-        {{#freestyle-variant
-            collection=collection
-            key='a2'
-            class='FreestyleCollection-variant'
-        }}
-
-          {{#freestyle-usage 'a2' title='a2'}}
-          {{/freestyle-usage}}
-
-        {{/freestyle-variant}}
-
-      {{/freestyle-collection}}
-
-    {{/freestyle-subsection}}
-
-  {{/freestyle-section}}
-
   {{#freestyle-section name='Visual Style' as |section|}}
 
     {{#freestyle-subsection name='Typography' section=section}}
 
-      {{#freestyle-usage 'typography-town' title='Typography Town'}}
+      {{#freestyle-usage 'typography-times' title='Times New Roman'}}
+        {{freestyle-typeface fontFamily='Times New Roman'}}
+      {{/freestyle-usage}}
+
+      {{#freestyle-usage 'typography-helvetica' title='Helvetica'}}
+        {{freestyle-typeface fontFamily='Helvetica'}}
       {{/freestyle-usage}}
 
     {{/freestyle-subsection}}
@@ -151,7 +122,7 @@ This comment is coming from a freestyle-note component.
 
       {{#freestyle-usage 'fpi'
           title="Freestyle Palette Item"
-          hbsTitle="Template - application.hbs"
+          usageTitle="Template - application.hbs"
           jsTitle="Controller - application.js"
           scssTitle="SCSS - freestyle-palette-item.scss"
       }}
