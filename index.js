@@ -59,21 +59,13 @@ module.exports = {
   treeForStyles: function(tree) {
     tree = this._super.treeForStyles.apply(this, [tree]);
 
-    var mappyBreakpointsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('mappy-breakpoints/package.json'))), {
-      srcDir: '/',
-      destDir: '/app/styles/ember-freestyle',
-      files: [
-        '_mappy-breakpoints.scss'
-      ]
-    });
-
     var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
       srcDir: '/styles',
       destDir: '/app/styles/ember-freestyle/highlight.js'
     });
     highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
 
-    return mergeTrees([mappyBreakpointsTree, highlightJsTree, tree], {
+    return mergeTrees([highlightJsTree, tree], {
       overwrite: true
     });
   },

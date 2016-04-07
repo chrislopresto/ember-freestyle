@@ -68,7 +68,7 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
     padding-bottom: 0;
     width: 100%;
 
-    @include mappy-bp(large) {
+    @include freestyle-breakpoint(large) {
       max-width: inherit;
       width: auto;
     }
