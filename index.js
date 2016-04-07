@@ -17,14 +17,7 @@ module.exports = {
   name: 'ember-freestyle',
 
   treeForApp: function(tree) {
-    var freestyleTree;
     var treesToMerge = [tree];
-
-    if (fs.existsSync('freestyle')) {
-      freestyleTree = jsonModule('freestyle');
-      freestyleTree = stew.mv(freestyleTree, 'freestyle');
-      treesToMerge.push(freestyleTree);
-    }
 
     var snippets = mergeTrees(this.snippetPaths().filter(function(path){
       return fs.existsSync(path);
