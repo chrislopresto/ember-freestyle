@@ -1,4 +1,29 @@
-@import 'palette.json';
+$FreestylePalette: (
+  'primary': (
+    'name': "cyan",
+    'description': "something toply cyanish",
+    'base': #00bcd4,
+    'light': #b2ebf2,
+    'dark': #0097a7
+  ),
+  'accent': (
+    'name': "amber",
+    'base': #ffc107
+  ),
+  'secondary': (
+    'name': "grey-ish",
+    'base': #b6b6b6
+  ),
+  'foreground': (
+    'name': "black-ish",
+    'base': #212121,
+    'light': #727272
+  ),
+  'background': (
+    'name': "white",
+    'base': #ffffff
+  )
+);
 
 $FreestylePalette-baseKey: 'base' !default;
 $FreestylePalette-opacities: (
@@ -23,6 +48,7 @@ $FreestylePalette-opacities: (
   $alpha: if(type-of($opacity) == 'number', $opacity, map-get($FreestylePalette-opacities, $opacity));
 
   @if $alpha {
+    @debug 'ca' $color $alpha;
     $color: rgba($color, $alpha);
   }
 
