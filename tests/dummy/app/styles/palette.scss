@@ -48,7 +48,6 @@ $FreestylePalette-opacities: (
   $alpha: if(type-of($opacity) == 'number', $opacity, map-get($FreestylePalette-opacities, $opacity));
 
   @if $alpha {
-    @debug 'ca' $color $alpha;
     $color: rgba($color, $alpha);
   }
 
