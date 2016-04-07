@@ -61,7 +61,6 @@
     "es6-promise": "^3.0.2",
     "glob": "^6.0.4",
     "highlight.js": "^9.1.0",
-    "mappy-breakpoints": "^0.2.1",
     "node-sass": "sass/node-sass#11c96eee55d00c65d1ad1fddf6111bbb731aa789",
     "node-sass-json-importer": "chrislopresto/node-sass-json-importer#3fb198306aaab34f6eaf6c13e251adb43383970c"
   },
