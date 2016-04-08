@@ -17,14 +17,32 @@ This installation process is opinionated in order to get you going quickly. We w
     - Add a `freestyle` template in your app
     - Add a `freestyle` controller in your app
     - Add an `app.scss` file with the required SCSS
-        - You can type `n` to decline this.
-        - The only part you actually need is `@import 'ember-freestyle';`
+        - You can type `n` to decline this as long as you add `@import 'ember-freestyle';` somewhere in your SCSS
 
     *Note:* Ember CLI versions < 0.2.3 should use `ember install:addon` instead of `ember install`
 
 1. Add `this.route('freestyle');` to your `router.js` file
 1. Navigate to `/freestyle`. You should now see something like:
     ![](public/freestyle-generated.png)
+
+## Customizing the Colors in Ember Freestyle's Own UI
+
+If you wish to change things like the color of UI elements like the lines that divide the `freestyle-guide` header and body or the colors of active links, you can do so by overriding any of the following SCSS variables *before* importing the `ember-freestyle` SCSS partial in your application's SCSS:
+
+- `$FreestyleGuide-color--primary`
+- `$FreestyleGuide-color--accent`
+- `$FreestyleGuide-color--secondary`
+- `$FreestyleGuide-color--foreground`
+- `$FreestyleGuide-color--background`
+
+##### Example
+
+This SCSS will change the default (teal) UI elements to red in your application.
+
+```scss
+$FreestyleGuide-color--primary: #ff0000;
+@import 'ember-freestyle';
+```
 
 ## Running
 
