@@ -1,6 +1,5 @@
 /* jshint node: true */
 'use strict';
-var jsonModule = require('broccoli-json-module');
 var mergeTrees = require('broccoli-merge-trees');
 var stew = require('broccoli-stew');
 
