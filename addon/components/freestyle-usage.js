@@ -43,6 +43,10 @@ let FreestyleUsage = Ember.Component.extend({
     return this.get('highlightJsTheme') || this.get('defaultTheme');
   }),
 
+  hasLabels: computed.and('showLabels', 'title'),
+  hasNotes: computed.and('showNotes', 'slug'),
+  hasCode: computed.and('showCode', 'slug'),
+
   actions: {
     setFocus() {
       this.set('emberFreestyle.focus', this.get('slug'));
