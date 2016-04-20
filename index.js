@@ -1,6 +1,5 @@
 /* jshint node: true */
 'use strict';
-var jsonModule = require('broccoli-json-module');
 var mergeTrees = require('broccoli-merge-trees');
 var stew = require('broccoli-stew');
 
@@ -68,23 +67,18 @@ module.exports = {
 
     var target = app || parentAddon;
     if (target.import) {
-      this.importFreestyleBowerDependencies(target);
+      target.import(target.bowerDirectory + '/remarkable/dist/remarkable.js');
+      target.import(target.bowerDirectory + '/highlightjs/highlight.pack.js');
+      target.import('vendor/ember-remarkable/shim.js', {
+        type: 'vendor',
+        exports: { 'remarkable': ['default'] }
+      });
+      target.import('vendor/ember-remarkable/highlightjs-shim.js', {
+        type: 'vendor',
+        exports: { 'hljs': ['default'] }
+      });
     }
 
-    this.app.import(app.bowerDirectory + '/remarkable/dist/remarkable.js');
-    this.app.import(app.bowerDirectory + '/highlightjs/highlight.pack.js');
-    this.app.import('vendor/ember-remarkable/shim.js', {
-      type: 'vendor',
-      exports: { 'remarkable': ['default'] }
-    });
-    this.app.import('vendor/ember-remarkable/highlightjs-shim.js', {
-      type: 'vendor',
-      exports: { 'hljs': ['default'] }
-    });
-  },
-
-  importFreestyleBowerDependencies: function(target) {
-    target.import(target.bowerDirectory + '/remarkable/dist/remarkable.js');
   },
 
   isDevelopingAddon: function() {

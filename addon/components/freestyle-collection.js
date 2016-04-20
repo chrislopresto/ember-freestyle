@@ -9,6 +9,7 @@ export default Ember.Component.extend({
 
   emberFreestyle: inject.service(),
   showLabels: computed.and('emberFreestyle.notFocused', 'emberFreestyle.showLabels'),
+  hasLabels: computed.and('showLabels', 'title'),
   showVariantList: computed.not('emberFreestyle.focus'),
 
   defaultKey: 'all',

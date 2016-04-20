@@ -14,6 +14,7 @@ export default Ember.Component.extend({
   }),
 
   showName: computed.and('emberFreestyle.notFocused', 'name'),
+  hasName: computed.and('showName', 'name'),
 
   willRender() {
     this._super(...arguments);

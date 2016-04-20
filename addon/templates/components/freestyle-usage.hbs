@@ -1,5 +1,5 @@
 {{#if showUsage}}
-  {{#if (and title showLabels)}}
+  {{#if hasLabels}}
     <div class="FreestyleUsage-title">
       {{title}}
       <span class="FreestyleUsage-focusCta" onclick={{action 'setFocus'}}>
@@ -11,7 +11,7 @@
   <div class="FreestyleUsage-rendered">
     {{yield}}
   </div>
-  {{#if (and slug showNotes)}}
+  {{#if hasNotes}}
     <div class="FreestyleUsage-notes">
       {{freestyle-notes name=snippetNotesJs theme=computedTheme}}
     </div>
@@ -19,7 +19,7 @@
       {{freestyle-notes name=snippetNotesHbs theme=computedTheme}}
     </div>
   {{/if}}
-  {{#if (and slug showCode)}}
+  {{#if hasCode}}
     <div class="FreestyleUsage-usage">
       <div class="FreestyleUsage-snippet FreestyleUsage-snippet--{{computedTheme}}">
         {{freestyle-snippet name=snippetUsage title=usageTitle}}

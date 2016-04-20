@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/freestyle-palette';
 
-const { computed, inject } = Ember;
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   tagName: '',
