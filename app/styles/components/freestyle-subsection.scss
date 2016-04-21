@@ -1,0 +1,11 @@
+.FreestyleSubsection {
+  &-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1rem 0 .4rem;
+    margin: 0 1rem;
+    font-size: 1.3rem;
+    // TODO: Calculate from $FreestyleGuide-maxWidth
+    max-width: calc(1200px - 1rem);
+  }
+}
