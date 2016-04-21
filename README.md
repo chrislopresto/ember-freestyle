@@ -44,6 +44,19 @@ $FreestyleGuide-color--primary: #ff0000;
 @import 'ember-freestyle';
 ```
 
+## Working within an Addon 
+ 
+* Generator puts scss import, template, and component in wrong place 
+* ember-freestyle needs to be a dependency, not a devDependency 
+* Tell the build where to search for snippets 
+  * In ember-cli-build.js: 
+``` 
+var app = new EmberAddon(defaults, { 
+ // ... 
+ snippetSearchPaths: ['tests/dummy/app', 'app/styles'] 
+}); 
+``` 
+
 ## Running
 
 * `ember server`
