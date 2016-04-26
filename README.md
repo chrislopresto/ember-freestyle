@@ -140,10 +140,6 @@ var app = new EmberAddon(defaults, {
 });
 ```
 
-When running `ember install ember-freestyle` within an addon, the generator will attempt to put the freestyle
-template, controller, and scss import in the wrong place. This is a known issue... please do help fix it if you
-are so inclined.
-
 ## Running
 
 * `ember server`
