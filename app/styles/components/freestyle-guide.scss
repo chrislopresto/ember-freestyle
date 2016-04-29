@@ -5,33 +5,37 @@
 // 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
 
 $FreestyleGuide-maxWidth: 1200px !default;
+$FreestyleGuide-asideBackgroundColor: #fff;
+$FreestyleGuide-shadow1: rgba(0, 0, 0, .16);
+$FreestyleGuide-shadow2: rgba(0, 0, 0, .12);
+$FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1, 0 2px 10px 0 $FreestyleGuide-shadow2;
 
 .FreestyleGuide {
   display: flex;
-  height: 100%;
   flex-direction: column;
+  height: 100%;
   min-height: 100vh;
   min-width: 320px;
 
   &-header,
   &-footer {
-    flex: none;
     display: flex;
+    flex: none;
   }
 
   &-header {
+    align-items: top;
     border-bottom: solid 1px $FreestyleGuide-color--secondary;
     padding: .5rem 1rem;
-    align-items: top;
   }
 
   &-cta {
+    align-self: center;
     cursor: pointer;
     display: inline-block;
-    font-size: 1.4rem;
     flex-basis: 20px;
+    font-size: 1.4rem;
     text-align: center;
-    align-self: center;
   }
 
   &-ctaIcon {
@@ -91,12 +95,12 @@ $FreestyleGuide-maxWidth: 1200px !default;
   }
 
   &-aside {
+    background: $FreestyleGuide-asideBackgroundColor;
+    box-shadow: $FreestyleGuide-boxShadow;
+    margin-right: .5rem;
     order: -2;
     position: fixed;
     right: .5rem;
-    background: #fff;
-    margin-right: .5rem;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 
     @include freestyle-breakpoint(large) {
       border-left: solid 1px $FreestyleGuide-color--secondary;

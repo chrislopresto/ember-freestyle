@@ -1,7 +1,7 @@
 .FreestyleNotes {
   pre {
-    margin-top: 0;
     font-size: .8rem;
+    margin-top: 0;
 
     &.hljs {
       padding: .5rem 1rem;
@@ -49,11 +49,11 @@
 
     // Appropriating h6 as snippet title
     h6 {
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: .5rem 1rem .2rem;
       font-size: .7rem;
+      font-weight: bold;
       margin: 0;
+      padding: .5rem 1rem .2rem;
+      text-transform: uppercase;
     }
   }
 }

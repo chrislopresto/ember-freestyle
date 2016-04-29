@@ -1,9 +1,11 @@
 // BEGIN-FREESTYLE-USAGE fpi
 $freestylePaletteItemBorderColor: #cecece;
+$FreestylePaletteItem-backgroundColor: #fff;
+$FreestylePaletteItem-color: #808080;
 
 .FreestylePaletteItem {
-  display: inline-block;
   border: solid 1px $freestylePaletteItemBorderColor;
+  display: inline-block;
   margin: 0 5px 5px 0;
 
   &-color {
@@ -12,21 +14,21 @@ $freestylePaletteItemBorderColor: #cecece;
   }
 
   &-info {
+    background-color: $FreestylePaletteItem-backgroundColor;
     border-top: solid 1px $freestylePaletteItemBorderColor;
     padding: 5px;
-    background-color: #fff;
   }
 
   &-hex {
-    font-weight: bold;
     font-size: 12px;
+    font-weight: bold;
     margin-bottom: 0;
   }
 
   &-name {
+    color: $FreestylePaletteItem-color;
     font-size: 11px;
     margin-top: 0;
-    color: gray;
   }
 
 }

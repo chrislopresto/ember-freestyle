@@ -3,6 +3,15 @@ import layout from '../templates/components/freestyle-snippet';
 
 const { computed, inject } = Ember;
 
+const LANGUAGES = {
+  js: 'javascript',
+  hbs: 'handlebars',
+  css: 'css',
+  scss: 'scss',
+  less: 'less',
+  md: 'markdown'
+};
+
 /* global hljs */
 
 export default Ember.Component.extend({
@@ -10,13 +19,13 @@ export default Ember.Component.extend({
   unindent: true,
   emberFreestyle: inject.service(),
 
-  _unindent(src) {
+  _unindent(snippet) {
     if (!this.get('unindent')) {
-      return src;
+      return snippet;
     }
-    let match;
-    let min;
-    let lines = src.split('\n');
+    let match, min;
+    let unindentedSnippet = snippet;
+    let lines = unindentedSnippet.split('\n');
     for (let i = 0; i < lines.length; i++) {
       match = /^\s*/.exec(lines[i]);
       if (match && (typeof min === 'undefined' || min > match[0].length)) {
@@ -24,9 +33,9 @@ export default Ember.Component.extend({
       }
     }
     if (typeof min !== 'undefined' && min > 0) {
-      src = src.replace(new RegExp(`(\\n|^)\\s{${min}}`, 'g'), '$1');
+      unindentedSnippet = unindentedSnippet.replace(new RegExp(`(\\n|^)\\s{${min}}`, 'g'), '$1');
     }
-    return src;
+    return unindentedSnippet;
   },
 
   source: computed('name', function() {
@@ -44,25 +53,12 @@ export default Ember.Component.extend({
   },
 
   language: computed('name', function() {
-    let m = /\.(\w+)$/i.exec(this.get('name'));
+    let key = /\.(\w+)$/i.exec(this.get('name'));
+
     if (this.get('name').indexOf(':notes') >= 0) {
       return 'markdown';
     }
-    if (m) {
-      switch (m[1].toLowerCase()) {
-      case 'js':
-        return 'javascript';
-      case 'hbs':
-        return 'handlebars';
-      case 'css':
-        return 'css';
-      case 'scss':
-        return 'scss';
-      case 'less':
-        return 'less';
-      case 'md':
-        return 'markdown';
-      }
-    }
+
+    return LANGUAGES[key];
   })
 });

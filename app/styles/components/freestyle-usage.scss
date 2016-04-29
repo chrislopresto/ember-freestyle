@@ -5,9 +5,9 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
   max-width: $FreestyleUsage-maxWidth;
 
   &-title {
-    text-transform: uppercase;
     font-weight: bold;
     padding: 1rem 1rem 0;
+    text-transform: uppercase;
   }
 
   &-notes {
@@ -24,8 +24,8 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
 
   &-snippet {
     pre {
-      margin-top: 0;
       font-size: .8rem;
+      margin-top: 0;
 
       &.hljs {
         padding: .5rem 1rem;
@@ -62,7 +62,7 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
   }
 
   &--inline {
-    border-bottom: none;
+    border-bottom: 0;
     display: inline-block;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -76,9 +76,9 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
 
   &-focusCta {
     cursor: pointer;
+    fill: $FreestyleGuide-color--secondary;
     position: relative;
     top: 1px;
-    fill: $FreestyleGuide-color--secondary;
 
     &:hover {
       fill: $FreestyleGuide-color--primary;
