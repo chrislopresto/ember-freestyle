@@ -1,8 +1,8 @@
 .x-Foo {
   background-color: #58504a;
+  border-color: #89daff;
   border-style: solid;
   border-width: 4px;
-  border-color: #89daff;
   color: #dbb1bc;
   font-size: .9rem;
   max-width: 90%;
@@ -16,8 +16,8 @@
 
   &-description {
     border: solid 1px #89daff;
-    padding: 10px;
     font-size: .8rem;
+    padding: 10px;
   }
 
   &--special {
