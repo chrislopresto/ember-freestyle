@@ -10,13 +10,13 @@ export default Ember.Component.extend({
 
   unindent: true,
 
-  _unindent(src) {
+  _unindent(snippet) {
     if (!this.get('unindent')) {
-      return src;
+      return snippet;
     }
-    let match;
-    let min;
-    let lines = src.split('\n');
+    let match, min;
+    let unindentedSnippet = snippet;
+    let lines = unindentedSnippet.split('\n');
     for (let i = 0; i < lines.length; i++) {
       match = /^\s*/.exec(lines[i]);
       if (match && (typeof min === 'undefined' || min > match[0].length)) {
@@ -24,9 +24,9 @@ export default Ember.Component.extend({
       }
     }
     if (typeof min !== 'undefined' && min > 0) {
-      src = src.replace(new RegExp(`(\\n|^)\\s{${min}}`, 'g'), '$1');
+      unindentedSnippet = unindentedSnippet.replace(new RegExp(`(\\n|^)\\s{${min}}`, 'g'), '$1');
     }
-    return src;
+    return unindentedSnippet;
   },
 
   text: computed('name', function() {

@@ -14,6 +14,8 @@ test('it has a base background color', function(assert) {
 
   this.render(hbs`{{freestyle-palette-item color=color}}`);
 
-  let backgroundColorStyle = `style="background-color: #abcdef;"`;
-  assert.ok(this.$().html().indexOf(backgroundColorStyle) > -1);
+  let backgroundColorStyle = 'style="background-color: #abcdef;"';
+  assert.ok(this.$()
+    .html()
+    .indexOf(backgroundColorStyle) > -1);
 });
