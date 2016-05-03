@@ -1,8 +1,10 @@
 # [WIP] Ember Freestyle [![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
 
-Ember Freestyle is an Ember addon that allows you to quickly create a living styleguide for your Ember app.
+Ember Freestyle is an Ember addon that allows you to quickly create a living styleguide for your Ember app. Whereas
+other living style guide projects showcase current CSS using dummy HTML, Ember Freestyle presents existing Ember
+components from your app in a dedicated living style guide.
 
-*This is a work in progress.*
+*This is a work in progress. Collaboration is welcomed.*
 
 ## Installation
 
@@ -25,6 +27,86 @@ This installation process is opinionated in order to get you going quickly. We w
 1. Navigate to `/freestyle`. You should now see something like:
     ![](public/freestyle-generated.png)
 
+## Introduction
+
+### Anatomy of a Basic Style Guide
+
+Here is a simple style guide, where `{{loading-spinner}}` is a hypothetical component **in your application**.
+
+```hbs
+{{#freestyle-guide title="My Living Style Guide" subtitle="Showcasing My App's Components"}}
+  {{#freestyle-section name="UI Elements"}}
+    {{#freestyle-usage "loading-spinner" title="Loading Spinner"}}
+      {{loading-spinner}}
+    {{/freestyle-usage}}
+  {{/freestyle-section}}
+{{/freestyle-guide}}
+```
+
+### Components
+
+Here's a brief rundown of the components Ember Freestyle provides for adding a living style guide in your app:
+
+#### freestyle-guide
+
+The `freestyle-guide` component provides the user interface for a style guide. It includes a header section and
+navigation controls.
+
+#### freestyle-usage
+
+The `freestyle-usage` component is the workhorse. Wrap your application's components with a `freestyle-usage`
+component, being sure to provide a unique slug (positional param) as follows:
+
+```hbs
+{{#freestyle-usage "globally-unique-slug" title="Title To Display In Style Guide"}}
+  {{x-foo propa="aaa" propb="bbb"}}
+{{/freestyle-usage}}
+```
+
+The snippet above will render your app's `x-foo` component as well as a handlebars snippet demonstrating how to use it.
+
+#### freestyle-section
+
+Optionally group your `freestyle-usage`-wrapped components into sections using the `freestyle-section` component. The
+`freestyle-section` component registers itself in order to appear in the navigation provided by the `freestyle-guide`
+component.
+
+#### freestyle-subsection
+
+Optionally divide your style guide sections into subsections using the `freestyle-subsection` component.
+
+```hbs
+{{#freestyle-guide title="My Living Style Guide" subtitle="Showcasing My App's Components"}}
+  {{#freestyle-section name='Visual Style' as |section|}}
+    {{#freestyle-subsection name='Typography' section=section}}
+      {{#freestyle-usage 'visual-style-typography-foo' title='Foo Typography'}}
+        {{x-foo-typography}}
+      {{/freestyle-usage}}
+    {{/freestyle-subsection}}
+    {{#freestyle-subsection name='Colors' section=section}}
+      {{#freestyle-usage 'visual-style-colors-fie' title='Fie Colors'}}
+        {{x-fie-colors}}
+      {{/freestyle-usage}}
+    {{/freestyle-subsection}}
+  {{/freestyle-section}}
+{{/freestyle-guide}}
+```
+
+The snippet above will create a style guide with one 'Visual Style' section with separate subsections for
+'Typography' and 'Colors'. Your app's `x-foo-typography` and `x-fie-colors` components would show up in the
+appropriate subsections.
+
+**NOTE:** For subsection navigation to work properly, the `freestyle-section` component must yield itself as Showcasing
+in the above snippet. This limitation will be removed in a forthcoming release.
+
+#### freestyle-collection + freestyle-variant
+
+Documentation coming soon...
+
+#### freestyle-note + freestyle-annotation
+
+Documentation coming soon...
+
 ## Customizing the Colors in Ember Freestyle's Own UI
 
 If you wish to change things like the color of UI elements like the lines that divide the `freestyle-guide` header and body or the colors of active links, you can do so by overriding any of the following SCSS variables *before* importing the `ember-freestyle` SCSS partial in your application's SCSS:
@@ -44,18 +126,23 @@ $FreestyleGuide-color--primary: #ff0000;
 @import 'ember-freestyle';
 ```
 
-## Working within an Addon 
- 
-* Generator puts scss import, template, and component in wrong place 
-* ember-freestyle needs to be a dependency, not a devDependency 
-* Tell the build where to search for snippets 
-  * In ember-cli-build.js: 
-``` 
-var app = new EmberAddon(defaults, { 
- // ... 
- snippetSearchPaths: ['tests/dummy/app', 'app/styles'] 
-}); 
-``` 
+## Using Ember Freestyle Within an Addon
+
+When using Ember Freestyle within an addon, you will need to tell teh build where to search for code snippets
+as follows:
+
+##### ember-cli-build.js
+
+```javascript
+var app = new EmberAddon(defaults, {
+  // ...
+  snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+});
+```
+
+When running `ember install ember-freestyle` within an addon, the generator will attempt to put the freestyle
+template, controller, and scss import in the wrong place. This is a known issue... please do help fix it if you
+are so inclined.
 
 ## Running
 
