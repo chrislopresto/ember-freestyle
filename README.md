@@ -128,7 +128,7 @@ $FreestyleGuide-color--primary: #ff0000;
 
 ## Using Ember Freestyle Within an Addon
 
-When using Ember Freestyle within an addon, you will need to tell teh build where to search for code snippets
+When using Ember Freestyle within an addon, you will need to tell the build where to search for code snippets
 as follows:
 
 ##### ember-cli-build.js
