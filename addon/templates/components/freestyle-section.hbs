@@ -4,5 +4,7 @@
       {{name}}
     </div>
   {{/if}}
-  {{yield name}}
+  {{yield (hash
+    subsection=(component 'freestyle-subsection' section=name)
+  )}}
 {{/if}}

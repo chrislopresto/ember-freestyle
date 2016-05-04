@@ -81,17 +81,18 @@ Optionally divide your style guide sections into subsections using the `freestyl
 
 ```hbs
 {{#freestyle-guide title="My Living Style Guide" subtitle="Showcasing My App's Components"}}
-  {{#freestyle-section name='Visual Style' as |section|}}
-    {{#freestyle-subsection name='Typography' section=section}}
+  {{#freestyle-section name='Visual Style' as |fsg|}}
+    {{#fsg.subsection name='Typography'}}
       {{#freestyle-usage 'visual-style-typography-foo' title='Foo Typography'}}
         {{x-foo-typography}}
       {{/freestyle-usage}}
-    {{/freestyle-subsection}}
-    {{#freestyle-subsection name='Colors' section=section}}
+    {{/fsg.subsection}}
+
+    {{#fsg.subsection name='Colors'}}
       {{#freestyle-usage 'visual-style-colors-fie' title='Fie Colors'}}
         {{x-fie-colors}}
       {{/freestyle-usage}}
-    {{/freestyle-subsection}}
+    {{/fsg.subsection}}
   {{/freestyle-section}}
 {{/freestyle-guide}}
 ```
