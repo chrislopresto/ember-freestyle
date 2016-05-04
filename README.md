@@ -6,6 +6,10 @@ components from your app in a dedicated living style guide.
 
 *This is a work in progress. Collaboration is welcomed.*
 
+## Live Demo
+
+http://chrislopresto.github.io/ember-freestyle/
+
 ## Installation
 
 This installation process is opinionated in order to get you going quickly. We want to make everything much easier to use in the near future. Please report any problems, and as always, PRs are welcome.

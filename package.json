@@ -64,6 +64,7 @@
     "highlight.js": "^9.3.0"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://chrislopresto.github.io/ember-freestyle/"
   }
 }
