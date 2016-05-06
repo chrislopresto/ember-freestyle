@@ -1,18 +1,46 @@
 /*jshint node:true*/
-
-var path                 = require('path');
-var fs                   = require('fs-extra');
-var chalk                = require('chalk');
-var addFreestyleRoutes    = require('../../lib/utilities/freestyle-routes-generator').addFreestyleRoutes;
+var path               = require('path');
+var fs                 = require('fs-extra');
+var chalk              = require('chalk');
+var addFreestyleRoutes = require('../../lib/utilities/freestyle-routes-generator').addFreestyleRoutes;
 
 module.exports = {
   description: 'Scaffold Freestyle',
 
-  locals: function(options) {
-    console.log('locals', options);
+  fileMapTokens: function() {
     return {
-      isAddon: options.isAddon,
-    }
+      __templateName__: function(options){
+        if (options.pod) {
+          return "template";
+        }
+        return options.dasherizedModuleName;
+      },
+      __templatePath__: function(options) {
+        if (options.pod) {
+          return path.join(options.podPath,  options.dasherizedModuleName);
+        }
+        return 'templates';
+      },
+      __controllerName__: function(options){
+        if (options.pod) {
+          return "controller";
+        }
+        return options.dasherizedModuleName;
+      },
+      __controllerPath__: function(options) {
+        if (options.pod) {
+          return path.join(options.podPath, options.dasherizedModuleName);
+        }
+        return 'controllers';
+      },
+      __root__: function(options) {
+        if (options.inAddon) {
+          return path.join('tests', 'dummy', 'app');
+        }
+
+        return 'app';
+      }
+    };
   },
 
   afterInstall: function(options) {
