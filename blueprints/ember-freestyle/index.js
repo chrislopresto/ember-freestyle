@@ -5,18 +5,6 @@ module.exports = {
 
   normalizeEntityName: function() {},
 
-  fileMapTokens: function() {
-    return {
-      __root__: function(options) {
-        if (options.inAddon) {
-          return path.join('tests', 'dummy');
-        }
-
-        return '/';
-      }
-    };
-  },
-
   afterInstall: function() {
     var bowerPackages = [
       { name: 'remarkable', target: '1.6.2' },
