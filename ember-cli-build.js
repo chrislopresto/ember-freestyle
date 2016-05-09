@@ -9,7 +9,9 @@ module.exports = function(defaults) {
       browsers: ['last 2 version', '> 10%'],
       cascade: false
     },
-    snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+    freestyle: {
+      snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+    }
   });
 
   /*

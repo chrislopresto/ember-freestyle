@@ -167,7 +167,9 @@ as follows:
 ```javascript
 var app = new EmberAddon(defaults, {
   // ...
-  snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+  freestyle: {
+    snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+  }
 });
 ```
 
