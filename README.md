@@ -29,7 +29,7 @@ This installation process is opinionated in order to get you going quickly. We w
 
 1. Add `this.route('freestyle');` to your `router.js` file
 1. Navigate to `/freestyle`. You should now see something like:
-    ![](public/freestyle-generated.png)
+    ![](doc/freestyle-generated.png)
 
 ## Introduction
 
@@ -170,6 +170,12 @@ var app = new EmberAddon(defaults, {
   snippetSearchPaths: ['tests/dummy/app', 'app/styles']
 });
 ```
+
+## Generating the Changelog
+
+This project uses [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) to generate its changelog.
+
+`github_changelog_generator --future-release=x.y.z`
 
 ## Running
 
