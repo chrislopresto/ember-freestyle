@@ -29,7 +29,7 @@ This installation process is opinionated in order to get you going quickly. We w
 
 1. Add `this.route('freestyle');` to your `router.js` file
 1. Navigate to `/freestyle`. You should now see something like:
-    ![](public/freestyle-generated.png)
+    ![](doc/freestyle-generated.png)
 
 ## Introduction
 
