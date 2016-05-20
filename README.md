@@ -171,6 +171,12 @@ var app = new EmberAddon(defaults, {
 });
 ```
 
+## Generating the Changelog
+
+This project uses [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) to generate its changelog.
+
+`github_changelog_generator --future-release=x.y.z`
+
 ## Running
 
 * `ember server`
