@@ -105,7 +105,34 @@ in the above snippet. This limitation will be removed in a forthcoming release.
 
 #### freestyle-collection + freestyle-variant
 
-Documentation coming soon...
+Use the `freestyle-collection` component with nested `freestyle-variant` components to present multiple versions
+of a component. This is very useful for presenting and testing a component in each state it must handle
+in your application.
+
+By default, variants will be stacked. If you wish to view variants side by side, set the `inline` property of
+`freestyle-collection` to true.
+
+```hbs
+{{#freestyle-collection title='Foo Component In Every State' defaultKey='with-icon' inline=true as |collection|}}
+  {{#freestyle-variant collection=collection key='no-num'}}
+    {{#freestyle-usage "foo-foo-no-num" title="Information"}}
+      {{foo-foo title="Information"}}
+    {{/freestyle-usage}}
+  {{/freestyle-variant}}
+
+  {{#freestyle-variant collection=collection key='with-num'}}
+    {{#freestyle-usage "foo-foo-people" title="People"}}
+      {{foo-foo title="People" num=55}}
+    {{/freestyle-usage}}
+  {{/freestyle-variant}}
+
+  {{#freestyle-variant collection=collection key='with-icon'}}
+    {{#freestyle-usage "foo-foo-twitter" title="Twitter"}}
+      {{foo-foo title="Twitter" icon="twitter"}}
+    {{/freestyle-usage}}
+  {{/freestyle-variant}}
+{{/freestyle-collection}}
+```
 
 #### freestyle-note + freestyle-annotation
 

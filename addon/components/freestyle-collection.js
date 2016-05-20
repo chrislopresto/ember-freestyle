@@ -6,6 +6,7 @@ const { computed, inject } = Ember;
 export default Ember.Component.extend({
   layout,
   classNames: ['FreestyleCollection'],
+  classNameBindings: ['inline:FreestyleCollection--inline'],
 
   emberFreestyle: inject.service(),
   showLabels: computed.and('emberFreestyle.notFocused', 'emberFreestyle.showLabels'),
