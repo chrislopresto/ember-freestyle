@@ -11,8 +11,8 @@
       {{/link-to}}
       {{#each section.subsections as |subsection|}}
         <ul class="FreestyleMenu-submenu">
-          <li class="FreestyleMenu-item">
-            {{#link-to (query-params s=section.name ss=subsection.name) class="FreestyleMenu-itemLink"}}
+          <li class="FreestyleMenu-submenuItem">
+            {{#link-to (query-params s=section.name ss=subsection.name) class="FreestyleMenu-submenuItemLink"}}
               {{subsection.name}}
             {{/link-to}}
           </li>

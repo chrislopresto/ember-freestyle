@@ -8,9 +8,16 @@ export default Ember.Component.extend({
   classNames: ['FreestyleSubsection'],
 
   emberFreestyle: inject.service(),
-  show: computed('emberFreestyle.subsection', 'name', function() {
-    let subsection = this.get('emberFreestyle.subsection');
-    return Ember.isBlank(subsection) || (this.get('name') === subsection);
+  show: computed('section', 'emberFreestyle.section', 'emberFreestyle.subsection', 'name', function() {
+    let focusedSection = this.get('emberFreestyle.section');
+    let showSection = Ember.isBlank(focusedSection) || (this.get('section') === focusedSection);
+
+    if (!showSection) {
+      return false;
+    }
+
+    let focusedSubsection = this.get('emberFreestyle.subsection');
+    return Ember.isBlank(focusedSubsection) || (this.get('name') === focusedSubsection);
   }),
 
   showName: computed.and('emberFreestyle.notFocused', 'name'),
