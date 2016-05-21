@@ -136,7 +136,37 @@ By default, variants will be stacked. If you wish to view variants side by side,
 
 #### freestyle-note + freestyle-annotation
 
-Documentation coming soon...
+_TODO:_ [Simplify Technique for Including Notes](https://github.com/chrislopresto/ember-freestyle/issues/61)
+
+Use the `freestyle-note` component to add a markdown note for a specific `freestyle-usage`. Note that the `freestyle-note` slug must match the `freestyle-usage` slug followed by `:notes`.
+
+```hbs
+{{#freestyle-usage "globally-unique-slug" title="Title To Display In Style Guide"}}
+  {{x-foo propa="aaa" propb="bbb"}}
+{{/freestyle-usage}}
+{{#freestyle-note "globally-unique-slug:notes"}}
+  # Contextual Markdown Note for x-foo
+
+  You can write helpful _markdown_ notes explaining how the
+  `x-foo` component works.
+{{/freestyle-note}}
+```
+
+Use the `freestyle-annotation` component to add a general purpose note.
+
+```hbs
+{{#freestyle-annotation}}
+<h1>Contextual HTML Note for Anything in the Freestyle Guide</h1>
+
+<p>
+  You can write helpful HTML notes explaining anything in the
+  Freestyle guide.
+</p>
+{{/freestyle-annotation}}
+```
+
+Both the `freestyle-note` and `freestyle-annotation` components respect the
+`Show Notes` usage controls preference.
 
 ## Customizing the Colors in Ember Freestyle's Own UI
 
