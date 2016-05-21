@@ -3,12 +3,14 @@
   list-style: none;
   padding-left: 1rem;
 
-  &-item {
+  &-item,
+  &-submenuItem {
     padding-top: .6rem;
     text-transform: uppercase;
   }
 
-  &-itemLink {
+  &-itemLink,
+  &-submenuItemLink {
     color: $FreestyleGuide-color--foreground;
     text-decoration: none;
 
