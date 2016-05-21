@@ -36,24 +36,22 @@
     @import '../ember-freestyle/highlight.js/monokai-sublime';
   }
 
-  &-content {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-      padding: 0 1rem;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    padding: 0 1rem;
+  }
 
-    // Appropriating h6 as snippet title
-    h6 {
-      font-size: .7rem;
-      font-weight: bold;
-      margin: 0;
-      padding: .5rem 1rem .2rem;
-      text-transform: uppercase;
-    }
+  // Appropriating h6 as snippet title
+  h6 {
+    font-size: .7rem;
+    font-weight: bold;
+    margin: 0;
+    padding: .5rem 1rem .2rem;
+    text-transform: uppercase;
   }
 }
