@@ -30,5 +30,10 @@ test('navigating directly to a subsection', function(assert) {
     assert.equal(sectionFooThings.subsections().count, 2);
     assert.equal(sectionFooThings.subsections(0).text, 'Foo Subsection A');
     assert.equal(sectionFooThings.subsections(1).text, 'Foo Subsection B');
+
+    let sectionVisualStyle = freestyleGuide.menu.sections(2);
+    assert.equal(sectionVisualStyle.subsections().count, 2);
+    assert.equal(sectionVisualStyle.subsections(0).text, 'Typography');
+    assert.equal(sectionVisualStyle.subsections(1).text, 'Color');
   });
 });

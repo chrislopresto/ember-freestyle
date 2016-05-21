@@ -9,8 +9,8 @@ export default Ember.Component.extend({
 
   emberFreestyle: inject.service(),
   show: computed('emberFreestyle.section', 'name', function() {
-    let section = this.get('emberFreestyle.section');
-    return Ember.isBlank(section) || (this.get('name') === section);
+    let focusedSection = this.get('emberFreestyle.section');
+    return Ember.isBlank(focusedSection) || (this.get('name') === focusedSection);
   }),
 
   showName: computed.and('emberFreestyle.notFocused', 'name'),
