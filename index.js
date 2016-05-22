@@ -1,11 +1,9 @@
-/* jshint node: true */
+/* globals require, module */
 'use strict';
 var mergeTrees = require('broccoli-merge-trees');
 var stew = require('broccoli-stew');
-
 var path = require('path');
 var fs   = require('fs');
-var mergeTrees = require('broccoli-merge-trees');
 var flatiron = require('broccoli-flatiron');
 var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
 
@@ -17,13 +15,14 @@ module.exports = {
 
   treeForApp: function(tree) {
     var treesToMerge = [tree];
+    var self = this;
 
-    var snippets = mergeTrees(this.snippetPaths().filter(function(path){
+    var snippets = mergeTrees(this.snippetPaths().filter(function(path) {
       return fs.existsSync(path);
     }));
 
-    snippets = mergeTrees(this.snippetSearchPaths().map(function(path){
-      return freestyleUsageSnippetFinder(path);
+    snippets = mergeTrees(this.snippetSearchPaths().map(function(path) {
+      return freestyleUsageSnippetFinder(path, self.ui);
     }).concat(snippets));
 
     snippets = flatiron(snippets, {
