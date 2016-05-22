@@ -36,14 +36,16 @@ module.exports = {
 
   snippetPaths: function() {
     if (this.app) {
-      return this.app.options.snippetPaths || ['snippets'];
+      var freestyleOptions = this.app.options.freestyle || {};
+      return freestyleOptions.snippetPaths || ['snippets'];
     }
     return ['snippets'];
   },
 
   snippetSearchPaths: function() {
     if (this.app) {
-      return this.app.options.snippetSearchPaths || ['app'];
+      var freestyleOptions = this.app.options.freestyle || {};
+      return freestyleOptions.snippetSearchPaths || ['app'];
     }
     return ['app'];
   },
