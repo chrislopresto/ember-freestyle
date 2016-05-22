@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* globals require, module */
 
 var Writer = require('broccoli-writer');
 var glob = require('glob');
@@ -26,15 +26,16 @@ function findFiles(srcDir) {
   });
 }
 
-function extractHbsComponentSnippets(fileContent, componentName) {
+function extractHbsComponentSnippets(fileContent, componentName, ui) {
   var matched = false;
   var inside = false;
   var content = [];
   var output = {};
   var name;
-  fileContent.split("\n").forEach(function(line){
+  fileContent.split("\n").forEach(function(line) {
     if (matched) {
       if (inside) {
+        // Test for start of closing curlies {{/
         if (new RegExp('\\{\\{\\/' + componentName).test(line)) {
           matched = false;
           inside = false;
@@ -47,14 +48,22 @@ function extractHbsComponentSnippets(fileContent, componentName) {
         inside = line.indexOf('}}') >= 0; // curlies closed }}
       }
     } else {
+      // Test for start of opening curlies {{#freestyle-usage 'name'
       var m = new RegExp('\\{\\{#' + componentName + '\\s+[\'|"](\\S+)[\'|"].*').exec(line);
       if (m) {
         matched = true;
         inside = m[0].indexOf('}}') >= 0; // curlies closed }}
         name = m[1];
         // TODO: Cleanup freestyle-notes vs freestyle-usage disambiguation here
-        if (name.indexOf(':notes') < 0) {
-           name += ':usage';
+        if (name.indexOf(':notes') >= 0) {
+          if (output[name]) {
+            ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
+          }
+        } else {
+          if (output[name + ':usage']) {
+            ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
+          }
+          name += ':usage';
         }
       }
     }
@@ -87,21 +96,23 @@ function extractCommentSnippets(fileContent) {
   return output;
 }
 
-function SnippetFinder(inputTree){
+function SnippetFinder(inputTree, ui) {
   if (!(this instanceof SnippetFinder)){
-    return new SnippetFinder(inputTree);
+    return new SnippetFinder(inputTree, ui);
   }
   this.inputTree = inputTree;
+  this.ui = ui;
 }
 
 SnippetFinder.prototype = Object.create(Writer.prototype);
 SnippetFinder.prototype.constructor = SnippetFinder;
 
 SnippetFinder.prototype.write = function (readTree, destDir) {
+  var self = this;
   return readTree(this.inputTree).then(findFiles).then(function(files) {
     files.forEach(function(filename) {
-      var freestyleUsageSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-usage');
-      var freestyleNoteSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-note');
+      var freestyleUsageSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-usage', self.ui);
+      var freestyleNoteSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-note', self.ui);
       var componentSnippets = naiveMerge(freestyleUsageSnippets, freestyleNoteSnippets);
       var commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
       var snippets = naiveMerge(componentSnippets, commentSnippets);
