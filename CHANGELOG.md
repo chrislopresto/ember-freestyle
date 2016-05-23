@@ -1,10 +1,27 @@
 # Change Log
 
-## [0.2.11](https://github.com/chrislopresto/ember-freestyle/tree/0.2.11) (2016-05-20)
-[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.10...0.2.11)
+## [0.2.12](https://github.com/chrislopresto/ember-freestyle/tree/0.2.12) (2016-05-23)
+[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.11...0.2.12)
 
 **Closed issues:**
 
+- Scope freestyle options to avoid conflicts [\#50](https://github.com/chrislopresto/ember-freestyle/issues/50)
+- Menu not generated properly when page initially loaded for a specific section or subsection [\#12](https://github.com/chrislopresto/ember-freestyle/issues/12)
+- Warn if duplicate freestyle-usage slugs are detected [\#11](https://github.com/chrislopresto/ember-freestyle/issues/11)
+- Create README [\#10](https://github.com/chrislopresto/ember-freestyle/issues/10)
+
+**Merged pull requests:**
+
+- Warn if duplicate slugs are detected [\#62](https://github.com/chrislopresto/ember-freestyle/pull/62) ([chrislopresto](https://github.com/chrislopresto))
+- Fix Menu When Page Loaded While Section or Subsection Focused [\#60](https://github.com/chrislopresto/ember-freestyle/pull/60) ([chrislopresto](https://github.com/chrislopresto))
+- Scope freestyle options for safekeeping [\#51](https://github.com/chrislopresto/ember-freestyle/pull/51) ([chrislopresto](https://github.com/chrislopresto))
+
+## [v0.2.11](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.11) (2016-05-20)
+[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.10...v0.2.11)
+
+**Closed issues:**
+
+- Add CHANGELOG [\#56](https://github.com/chrislopresto/ember-freestyle/issues/56)
 - File ignored by default. Use "--ignore-pattern '!node\_modules/\*'" to override [\#54](https://github.com/chrislopresto/ember-freestyle/issues/54)
 - Inlining variants doesn't work [\#53](https://github.com/chrislopresto/ember-freestyle/issues/53)
 - Subsection navigation not present [\#52](https://github.com/chrislopresto/ember-freestyle/issues/52)
@@ -13,6 +30,7 @@
 **Merged pull requests:**
 
 - Update ember-cli-eslint [\#59](https://github.com/chrislopresto/ember-freestyle/pull/59) ([chrislopresto](https://github.com/chrislopresto))
+- Add changelog [\#58](https://github.com/chrislopresto/ember-freestyle/pull/58) ([chrislopresto](https://github.com/chrislopresto))
 - Display freestyle-collection variants inline [\#57](https://github.com/chrislopresto/ember-freestyle/pull/57) ([chrislopresto](https://github.com/chrislopresto))
 - Add live demo url [\#46](https://github.com/chrislopresto/ember-freestyle/pull/46) ([chrislopresto](https://github.com/chrislopresto))
 - Add subsection header [\#44](https://github.com/chrislopresto/ember-freestyle/pull/44) ([chrislopresto](https://github.com/chrislopresto))
