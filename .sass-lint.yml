@@ -7,3 +7,4 @@ files:
     ignore:
       - '**/x-foo.scss'
       - '**/reset.scss'
+      - '**/freestyle-palette-item.scss'

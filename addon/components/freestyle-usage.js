@@ -37,6 +37,9 @@ let FreestyleUsage = Ember.Component.extend({
   snippetNotesHbs: computed('slug', function() {
     return `${this.get('slug')}:notes.hbs`;
   }),
+  snippetNotesScss: computed('slug', function() {
+    return `${this.get('slug')}:notes.scss`;
+  }),
   defaultTheme: computed.alias('emberFreestyle.defaultTheme'),
   // highlightJsTheme - passed in
   computedTheme: computed('defaultTheme', 'highlightJsTheme', function() {

@@ -6,6 +6,7 @@ const { computed, inject } = Ember;
 export default Ember.Component.extend({
   layout,
   classNames: ['FreestyleSection'],
+  classNameBindings: ['show:FreestyleSection--showing:FreestyleSection--hidden'],
 
   emberFreestyle: inject.service(),
   show: computed('emberFreestyle.section', 'name', function() {
