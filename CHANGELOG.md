@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.2.12](https://github.com/chrislopresto/ember-freestyle/tree/0.2.12) (2016-05-23)
+## [0.2.12](https://github.com/chrislopresto/ember-freestyle/tree/0.2.12) (2016-05-24)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.11...0.2.12)
 
 **Closed issues:**
@@ -12,6 +12,7 @@
 
 **Merged pull requests:**
 
+- Support SCSS Note Snippets [\#63](https://github.com/chrislopresto/ember-freestyle/pull/63) ([chrislopresto](https://github.com/chrislopresto))
 - Warn if duplicate slugs are detected [\#62](https://github.com/chrislopresto/ember-freestyle/pull/62) ([chrislopresto](https://github.com/chrislopresto))
 - Fix Menu When Page Loaded While Section or Subsection Focused [\#60](https://github.com/chrislopresto/ember-freestyle/pull/60) ([chrislopresto](https://github.com/chrislopresto))
 - Scope freestyle options for safekeeping [\#51](https://github.com/chrislopresto/ember-freestyle/pull/51) ([chrislopresto](https://github.com/chrislopresto))
