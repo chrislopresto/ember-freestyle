@@ -11,4 +11,8 @@ $FreestyleSection-borderColor: #ccc;
     padding: 1rem 0 .4rem;
     text-transform: uppercase;
   }
+
+  &--hidden {
+    display: none;
+  }
 }
