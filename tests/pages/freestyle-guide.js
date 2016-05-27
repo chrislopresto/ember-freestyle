@@ -1,12 +1,15 @@
 import PageObject, {
   collection,
   clickable,
+  clickOnText,
   text,
-  visitable
+  visitable,
+  contains
 } from 'ember-cli-page-object';
 
 export default PageObject.create({
-  visit: visitable('/?s=Foo%20Things'),
+  visit: visitable('/'),
+  visitFooThings: visitable('/?s=Foo%20Things'),
 
   header: {
     scope: '.FreestyleGuide-header',
@@ -34,5 +37,54 @@ export default PageObject.create({
         })
       }
     })
+  },
+
+  content: {
+    scope: '.FreestyleGuide-content',
+
+    sections: collection({
+      itemScope: '.FreestyleSection',
+
+      item: {
+        text: text('.FreestyleSection-name'),
+
+        subsections: collection({
+          itemScope: '.FreestyleSubsection',
+
+          item: {
+            text: text('.FreestyleSubsection-name'),
+            collections: collection({
+              itemScope: '.FreestyleCollection',
+
+              item: {
+                title: text('.FreestyleCollection-title'),
+                activeVariantListItemLabel: contains('.FreestyleCollection-variantListItem--active'),
+
+                variantListItems: collection({
+                  itemScope: '.FreestyleCollection-variantListItem',
+                  selectVariant: clickOnText('.FreestyleCollection-variantListItem'),
+
+                  item: {
+                    text: text()
+                  }
+                }),
+
+                variants: collection({
+                  itemScope: '.FreestyleVariant',
+
+                  item: {
+                    contains: contains(),
+                    usageTitle: text('.FreestyleUsage-title'),
+                    annotationContains: contains('.FreestyleAnnotation')
+                  }
+                })
+              }
+            })
+
+          }
+        })
+      }
+    })
   }
+
 });
