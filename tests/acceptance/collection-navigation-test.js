@@ -31,7 +31,7 @@ test('verifying variantListItem selection', (assert) => {
       let renderedUsageTitles = variantListItems[k];
       renderedUsageTitles.forEach((title, idx) => {
         if (title) {
-          assert.ok(fooCollection.variants(idx).usageTitle, title);
+          assert.equal(fooCollection.variants(idx).usageTitle, title);
         } else {
           assert.equal(fooCollection.variants(idx).text, title);
         }
