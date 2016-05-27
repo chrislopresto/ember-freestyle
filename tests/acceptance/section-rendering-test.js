@@ -1,3 +1,4 @@
+/* global expect */
 import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import freestyleGuide from '../pages/freestyle-guide';
@@ -9,6 +10,7 @@ moduleForAcceptance('Acceptance | section rendering', {
 });
 
 test('verifying guide sections', (assert) => {
+  expect(3);
   andThen(() => {
     assert.equal(freestyleGuide.content.sections().count, 2);
     assert.equal(freestyleGuide.content.sections(0).text, 'Foo Things');
@@ -17,6 +19,7 @@ test('verifying guide sections', (assert) => {
 });
 
 test('verifying guide subsections', (assert) => {
+  expect(6);
   andThen(() => {
     let sectionFooThings = freestyleGuide.content.sections(0);
     assert.equal(sectionFooThings.subsections().count, 2);

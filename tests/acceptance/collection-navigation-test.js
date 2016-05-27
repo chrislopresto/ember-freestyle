@@ -1,40 +1,31 @@
+/* global expect */
 import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import freestyleGuide from '../pages/freestyle-guide';
+import Ember from 'ember';
 
-let fooCollection;
-
-let variantListItems = {
-  normal:   ['Normal', '', '', '', '', ''],
-  special:  ['', 'Special', '', '', '', ''],
-  hyper:    ['', '', 'Hyper', '', '', ''  ],
-  classic:  ['', '', '', 'Classic', '', ''],
-  elegant:  ['', '', '', '', 'Elegant', '' ],
-  tasteful: ['', '', '', '', '', 'Tasteful']
-};
+let variantKeys = Ember.A(['normal', 'special', 'hyper', 'classic', 'elegant', 'tasteful']);
 
 moduleForAcceptance('Acceptance | collection navigation', {
   beforeEach() {
     freestyleGuide.visit();
-    andThen(() => {
-      fooCollection = freestyleGuide.content.sections(0).subsections(0).collections(0);
-    });
   }
 });
 
 test('verifying variantListItem selection', (assert) => {
-  Object.keys(variantListItems).forEach((k) => {
+  expect(36);
 
-    fooCollection.variantListItems().selectVariant(k);
+  let fooCollection = freestyleGuide.content.sections(0).subsections(0).collections(0);
 
+  variantKeys.forEach((activeVariant, idx) => {
+    fooCollection.variantListItems().selectVariant(activeVariant);
     andThen(() => {
-      let renderedUsageTitles = variantListItems[k];
-      renderedUsageTitles.forEach((title, idx) => {
-        if (title) {
-          assert.equal(fooCollection.variants(idx).usageTitle, title);
-        } else {
-          assert.equal(fooCollection.variants(idx).text, title);
-        }
+      assert.equal(fooCollection.variants(idx).usageTitle.toLowerCase(), activeVariant);
+      variantKeys.reject((each) => {
+        return each === activeVariant;
+      }).map((otherVariant) => {
+        let otherIndex = variantKeys.indexOf(otherVariant);
+        assert.equal(fooCollection.variants(otherIndex).text, '');
       });
     });
   });

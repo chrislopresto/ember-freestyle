@@ -1,6 +1,8 @@
+/* global expect */
 import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import freestyleGuide from '../pages/freestyle-guide';
+import Ember from 'ember';
 
 moduleForAcceptance('Acceptance | collection rendering', {
   beforeEach() {
@@ -9,6 +11,7 @@ moduleForAcceptance('Acceptance | collection rendering', {
 });
 
 test('verifying freestyle collection', (assert) => {
+  expect(19);
   andThen(() => {
     let sectionFooThings = freestyleGuide.content.sections(0);
     assert.equal(sectionFooThings.subsections(0).collections().count, 1);
@@ -30,16 +33,13 @@ test('verifying freestyle collection', (assert) => {
     assert.ok(fooCollection.activeVariantListItemLabel('normal'));
     assert.equal(fooCollection.variants().count, 6);
 
-    // which displays only the normal variant
+    // which displays only the (first) normal variant
     assert.ok(fooCollection.variants(0).annotationContains('A Note About Normal'));
+    assert.equal(fooCollection.variants(0).usageTitle, 'Normal');
 
-    let renderedUsageTitles = ['Normal', '', '', '', '', ''];
-    renderedUsageTitles.forEach((title, idx) => {
-      if (title) {
-        assert.equal(fooCollection.variants(idx).usageTitle, title);
-      } else {
-        assert.equal(fooCollection.variants(idx).text, title);
-      }
+    // and all others are empty
+    Ember.A([1,2,3,4,5]).forEach((idx) => {
+      assert.equal(fooCollection.variants(idx).text, '');
     });
   });
 });
