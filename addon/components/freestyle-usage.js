@@ -11,7 +11,7 @@ let FreestyleUsage = Ember.Component.extend({
   showLabels: computed.alias('emberFreestyle.showLabels'),
   showNotes: computed.alias('emberFreestyle.showNotes'),
   showCode: computed.alias('emberFreestyle.showCode'),
-  showUsage: computed('emberFreestyle.focus', 'slug', function() {
+  show: computed('emberFreestyle.focus', 'slug', function() {
     let slug = this.get('slug');
     let focus = this.get('emberFreestyle.focus');
     if (focus && slug) {
