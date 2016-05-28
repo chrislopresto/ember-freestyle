@@ -7,6 +7,21 @@ import Ember from 'ember';
 // Stub freestyle service
 const FreestyleStub = Ember.Service.extend();
 
+let notesSnippets = {
+  'componentA:notes.js': 'JS notes for component A',
+  'componentA:notes.hbs': 'HBS notes for component A',
+  'componentA:notes.scss': 'SCSS notes for component A'
+};
+
+let codeSnippets = {
+  'componentA:usage.hbs': 'HBS USAGE for component A',
+  'componentA.hbs': 'HBS code for component A',
+  'componentA.js': 'JS CODE for component A',
+  'componentA.scss': 'SCSS code for component A'
+};
+
+let allSnippets = Ember.merge(notesSnippets, codeSnippets);
+
 moduleForComponent('freestyle-usage', 'Integration | Component | freestyle usage', {
   integration: true,
 
@@ -68,12 +83,7 @@ test('it renders the notes snippets', function(assert) {
   expect(4);
   this.set('emberFreestyle.showNotes', true);
 
-  let snippets = {
-    'componentA:notes.js': 'JS notes for component A',
-    'componentA:notes.hbs': 'HBS notes for component A',
-    'componentA:notes.scss': 'SCSS notes for component A'
-  };
-  this.set('emberFreestyle.snippets', snippets);
+  this.set('emberFreestyle.snippets', notesSnippets);
 
   this.render(hbs`
     {{#freestyle-usage 'componentA'}}
@@ -91,12 +101,12 @@ test('it renders only the notes snippets that have content', function(assert) {
   expect(4);
   this.set('emberFreestyle.showNotes', true);
 
-  let snippets = {
+  let incompleteNotesSnippets = {
     'componentA:notes.js': 'JS notes for component A',
     // no content for 'componentA:notes.hbs'
     'componentA:notes.scss': 'SCSS notes for component A'
   };
-  this.set('emberFreestyle.snippets', snippets);
+  this.set('emberFreestyle.snippets', incompleteNotesSnippets);
 
   this.render(hbs`
     {{#freestyle-usage 'componentA'}}
@@ -114,11 +124,6 @@ test('it does not render the notes snippets if the guide is set to not show note
   expect(1);
   this.set('emberFreestyle.showNotes', false);
 
-  let notesSnippets = {
-    'componentA:notes.js': 'JS notes for component A',
-    'componentA:notes.hbs': 'HBS notes for component A',
-    'componentA:notes.scss': 'SCSS notes for component A'
-  };
   this.set('emberFreestyle.snippets', notesSnippets);
 
   this.render(hbs`
@@ -134,12 +139,6 @@ test('it renders the code snippets', function(assert) {
   expect(5);
   this.set('emberFreestyle.showCode', true);
 
-  let codeSnippets = {
-    'componentA:usage.hbs': 'HBS USAGE for component A',
-    'componentA.hbs': 'HBS code for component A',
-    'componentA.js': 'JS CODE for component A',
-    'componentA.scss': 'SCSS code for component A'
-  };
   this.set('emberFreestyle.snippets', codeSnippets);
 
   this.render(hbs`
@@ -159,13 +158,13 @@ test('it renders only the code snippets that have content', function(assert) {
   expect(5);
   this.set('emberFreestyle.showCode', true);
 
-  let codeSnippets = {
+  let incompleteCodeSnippets = {
     'componentA:usage.hbs': 'HBS USAGE for component A',
     'componentA.hbs': 'HBS code for component A',
     // no content for 'componentA.js'
     'componentA.scss': 'SCSS code for component A'
   };
-  this.set('emberFreestyle.snippets', codeSnippets);
+  this.set('emberFreestyle.snippets', incompleteCodeSnippets);
 
   this.render(hbs`
     {{#freestyle-usage 'componentA'}}
@@ -184,12 +183,6 @@ test('it does not render the code snippets if the guide is set to not show code'
   expect(1);
   this.set('emberFreestyle.showCode', false);
 
-  let codeSnippets = {
-    'componentA:usage.hbs': 'HBS USAGE for component A',
-    'componentA.hbs': 'HBS code for component A',
-    'componentA.js': 'JS CODE for component A',
-    'componentA.scss': 'SCSS code for component A'
-  };
   this.set('emberFreestyle.snippets', codeSnippets);
 
   this.render(hbs`
@@ -204,17 +197,7 @@ test('it does not render the code snippets if the guide is set to not show code'
 test('it does not render anything if slug does not match the focus', function(assert) {
   expect(4);
 
-  let snippets = {
-    'componentA:notes.js': 'JS notes for component A',
-    'componentA:notes.hbs': 'HBS notes for component A',
-    'componentA:notes.scss': 'SCSS notes for component A',
-    'componentA:usage.hbs': 'HBS USAGE for component A',
-    'componentA.hbs': 'HBS code for component A',
-    'componentA.js': 'JS CODE for component A',
-    'componentA.scss': 'SCSS code for component A'
-  };
-
-  this.set('emberFreestyle.snippets', snippets);
+  this.set('emberFreestyle.snippets', allSnippets);
   this.set('emberFreestyle.showCode', true);
   this.set('emberFreestyle.showNotes', true);
   this.set('emberFreestyle.showLabels', true);
