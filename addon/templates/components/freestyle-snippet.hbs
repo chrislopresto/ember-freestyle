@@ -4,5 +4,9 @@
   </div>
 {{/if}}
 {{#if source}}
-<pre class={{language}}>{{source}}</pre>
+  {{#if (eq language 'markdown') }}
+    {{md-text text=source class="FreestyleNotes-content"}}    
+  {{else}}
+    <pre class={{language}}>{{source}}</pre>
+  {{/if}}
 {{/if}}
