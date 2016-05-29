@@ -32,32 +32,292 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
       }
     }
 
-    &--tomorrow-night {
-      @import '../ember-freestyle/highlight.js/tomorrow-night';
-    }
-
     &--zenburn {
       @import '../ember-freestyle/highlight.js/zenburn';
     }
 
-    &--hybrid {
-      @import '../ember-freestyle/highlight.js/hybrid';
+    &--xt256 {
+      @import '../ember-freestyle/highlight.js/xt256';
     }
 
-    &--atelier-cave-dark {
-      @import '../ember-freestyle/highlight.js/atelier-cave-dark';
+    &--xcode {
+      @import '../ember-freestyle/highlight.js/xcode';
+    }
+
+    &--vs {
+      @import '../ember-freestyle/highlight.js/vs';
+    }
+
+    &--tomorrow {
+      @import '../ember-freestyle/highlight.js/tomorrow';
+    }
+
+    &--tomorrow-night {
+      @import '../ember-freestyle/highlight.js/tomorrow-night';
+    }
+
+    &--tomorrow-night-eighties {
+      @import '../ember-freestyle/highlight.js/tomorrow-night-eighties';
+    }
+
+    &--tomorrow-night-bright {
+      @import '../ember-freestyle/highlight.js/tomorrow-night-bright';
+    }
+
+    &--tomorrow-night-blue {
+      @import '../ember-freestyle/highlight.js/tomorrow-night-blue';
+    }
+
+    &--sunburst {
+      @import '../ember-freestyle/highlight.js/sunburst';
     }
 
     &--solarized-light {
       @import '../ember-freestyle/highlight.js/solarized-light';
     }
 
-    &--docco {
-      @import '../ember-freestyle/highlight.js/docco';
+    &--solarized-dark {
+      @import '../ember-freestyle/highlight.js/solarized-dark';
+    }
+
+    &--school-book {
+      @import '../ember-freestyle/highlight.js/school-book';
+    }
+
+    &--rainbow {
+      @import '../ember-freestyle/highlight.js/rainbow';
+    }
+
+    &--railscasts {
+      @import '../ember-freestyle/highlight.js/railscasts';
+    }
+
+    &--qtcreator-light {
+      @import '../ember-freestyle/highlight.js/qtcreator_light';
+    }
+
+    &--qtcreator-dark {
+      @import '../ember-freestyle/highlight.js/qtcreator_dark';
+    }
+
+    &--pojoaque {
+      @import '../ember-freestyle/highlight.js/pojoaque';
+    }
+
+    &--paraiso-light {
+      @import '../ember-freestyle/highlight.js/paraiso-light';
+    }
+
+    &--paraiso-dark {
+      @import '../ember-freestyle/highlight.js/paraiso-dark';
+    }
+
+    &--obsidian {
+      @import '../ember-freestyle/highlight.js/obsidian';
+    }
+
+    &--monokai {
+      @import '../ember-freestyle/highlight.js/monokai';
     }
 
     &--monokai-sublime {
       @import '../ember-freestyle/highlight.js/monokai-sublime';
+    }
+
+    &--mono-blue {
+      @import '../ember-freestyle/highlight.js/mono-blue';
+    }
+
+    &--magula {
+      @import '../ember-freestyle/highlight.js/magula';
+    }
+
+    &--kimbie-light {
+      @import '../ember-freestyle/highlight.js/kimbie.light';
+    }
+
+    &--kimbie-dark {
+      @import '../ember-freestyle/highlight.js/kimbie.dark';
+    }
+
+    &--ir-black {
+      @import '../ember-freestyle/highlight.js/ir-black';
+    }
+
+    &--idea {
+      @import '../ember-freestyle/highlight.js/idea';
+    }
+
+    &--hybrid {
+      @import '../ember-freestyle/highlight.js/hybrid';
+    }
+
+    &--hopscotch {
+      @import '../ember-freestyle/highlight.js/hopscotch';
+    }
+
+    &--gruvbox-light {
+      @import '../ember-freestyle/highlight.js/gruvbox-light';
+    }
+
+    &--gruvbox-dark {
+      @import '../ember-freestyle/highlight.js/gruvbox-dark';
+    }
+
+    &--grayscale {
+      @import '../ember-freestyle/highlight.js/grayscale';
+    }
+
+    &--googlecode {
+      @import '../ember-freestyle/highlight.js/googlecode';
+    }
+
+    &--github {
+      @import '../ember-freestyle/highlight.js/github';
+    }
+
+    &--github-gist {
+      @import '../ember-freestyle/highlight.js/github-gist';
+    }
+
+    &--foundation {
+      @import '../ember-freestyle/highlight.js/foundation';
+    }
+
+    &--far {
+      @import '../ember-freestyle/highlight.js/far';
+    }
+
+    &--dracula {
+      @import '../ember-freestyle/highlight.js/dracula';
+    }
+
+    &--docco {
+      @import '../ember-freestyle/highlight.js/docco';
+    }
+
+    &--default {
+      @import '../ember-freestyle/highlight.js/default';
+    }
+
+    &--darkula {
+      @import '../ember-freestyle/highlight.js/darkula';
+    }
+
+    &--dark {
+      @import '../ember-freestyle/highlight.js/dark';
+    }
+
+    &--color-brewer {
+      @import '../ember-freestyle/highlight.js/color-brewer';
+    }
+
+    &--codepen-embed {
+      @import '../ember-freestyle/highlight.js/codepen-embed';
+    }
+
+    &--brown-paper {
+      @import '../ember-freestyle/highlight.js/brown-paper';
+    }
+
+    &--atelier-sulphurpool-light {
+      @import '../ember-freestyle/highlight.js/atelier-sulphurpool-light';
+    }
+
+    &--atelier-sulphurpool-dark {
+      @import '../ember-freestyle/highlight.js/atelier-sulphurpool-dark';
+    }
+
+    &--atelier-seaside-light {
+      @import '../ember-freestyle/highlight.js/atelier-seaside-light';
+    }
+
+    &--atelier-seaside-dark {
+      @import '../ember-freestyle/highlight.js/atelier-seaside-dark';
+    }
+
+    &--atelier-savanna-light {
+      @import '../ember-freestyle/highlight.js/atelier-savanna-light';
+    }
+
+    &--atelier-savanna-dark {
+      @import '../ember-freestyle/highlight.js/atelier-savanna-dark';
+    }
+
+    &--atelier-plateau-light {
+      @import '../ember-freestyle/highlight.js/atelier-plateau-light';
+    }
+
+    &--atelier-plateau-dark {
+      @import '../ember-freestyle/highlight.js/atelier-plateau-dark';
+    }
+
+    &--atelier-lakeside-light {
+      @import '../ember-freestyle/highlight.js/atelier-lakeside-light';
+    }
+
+    &--atelier-lakeside-dark {
+      @import '../ember-freestyle/highlight.js/atelier-lakeside-dark';
+    }
+
+    &--atelier-heath-light {
+      @import '../ember-freestyle/highlight.js/atelier-heath-light';
+    }
+
+    &--atelier-heath-dark {
+      @import '../ember-freestyle/highlight.js/atelier-heath-dark';
+    }
+
+    &--atelier-forest-light {
+      @import '../ember-freestyle/highlight.js/atelier-forest-light';
+    }
+
+    &--atelier-forest-dark {
+      @import '../ember-freestyle/highlight.js/atelier-forest-dark';
+    }
+
+    &--atelier-estuary-light {
+      @import '../ember-freestyle/highlight.js/atelier-estuary-light';
+    }
+
+    &--atelier-estuary-dark {
+      @import '../ember-freestyle/highlight.js/atelier-estuary-dark';
+    }
+
+    &--atelier-dune-light {
+      @import '../ember-freestyle/highlight.js/atelier-dune-light';
+    }
+
+    &--atelier-dune-dark {
+      @import '../ember-freestyle/highlight.js/atelier-dune-dark';
+    }
+
+    &--atelier-cave-light {
+      @import '../ember-freestyle/highlight.js/atelier-cave-light';
+    }
+
+    &--atelier-cave-dark {
+      @import '../ember-freestyle/highlight.js/atelier-cave-dark';
+    }
+
+    &--ascetic {
+      @import '../ember-freestyle/highlight.js/ascetic';
+    }
+
+    &--arta {
+      @import '../ember-freestyle/highlight.js/arta';
+    }
+
+    &--arduino-light {
+      @import '../ember-freestyle/highlight.js/arduino-light';
+    }
+
+    &--androidstudio {
+      @import '../ember-freestyle/highlight.js/androidstudio';
+    }
+
+    &--agate {
+      @import '../ember-freestyle/highlight.js/agate';
     }
   }
 
