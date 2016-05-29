@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   classNames: ['FreestyleGuide'],
 
   emberFreestyle: inject.service(),
+  highlightJsTheme: computed.alias('emberFreestyle.defaultTheme'),
 
   showMenu: computed.alias('emberFreestyle.showMenu'),
   showAside: false,
