@@ -47,9 +47,9 @@ export default Ember.Component.extend({
   }),
 
   didInsertElement() {
-    let [pre] = this.$('pre');
-    if (pre && this.get('source')) {
-      hljs.highlightBlock(pre);
+    let pre = this.$('pre');
+    if (pre[0] && this.get('source')) {
+      hljs.highlightBlock(pre[0]);
     }
   },
 
