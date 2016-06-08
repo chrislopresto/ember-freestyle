@@ -7,9 +7,6 @@
       </span>
     </div>
   {{/if}}
-  <div class="FreestyleUsage-rendered">
-    {{yield}}
-  </div>
   {{#if hasNotes}}
     <div class="FreestyleUsage-notes">
       <div class="FreestyleUsage-snippet FreestyleUsage-snippet--{{computedTheme}}">
@@ -23,6 +20,9 @@
       </div>
     </div>
   {{/if}}
+  <div class="FreestyleUsage-rendered">
+    {{yield}}
+  </div>
   {{#if hasCode}}
     <div class="FreestyleUsage-usage">
       <div class="FreestyleUsage-snippet FreestyleUsage-snippet--{{computedTheme}}">
