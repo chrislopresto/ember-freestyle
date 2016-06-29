@@ -60,10 +60,10 @@ function extractHbsComponentSnippets(fileContent, componentName, ui) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
           }
         } else {
-          if (output[name + ':usage']) {
+          if (output[name + '_usage']) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
           }
-          name += ':usage';
+          name += '_usage';
         }
       }
     }
