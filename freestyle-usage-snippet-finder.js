@@ -117,8 +117,8 @@ SnippetFinder.prototype.write = function (readTree, destDir) {
       var commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
       var snippets = naiveMerge(componentSnippets, commentSnippets);
       for (var name in snippets){
-        var filename = name.replace(":notes", "_notes").replace(":usage", "_usage"); // replace : in order to have windows friendly filenames
-        fs.writeFileSync(path.join(destDir, name)+path.extname(filename),
+        var windowsFriendlyName = name.replace(":notes", "_notes").replace(":usage", "_usage"); // replace : in order to have windows friendly filenames
+        fs.writeFileSync(path.join(destDir, windowsFriendlyName)+path.extname(filename),
                          snippets[name]);
       }
     });
