@@ -10,6 +10,6 @@ export default Ember.Component.extend({
   attributeBindings: ['fontFamilyStyle:style'],
 
   fontFamilyStyle: computed('fontFamily', function() {
-    return htmlSafe(`font-family: "${this.get('fontFamily')}";`);
+    return htmlSafe(`font-family: ${this.get('fontFamily')};`);
   })
 });
