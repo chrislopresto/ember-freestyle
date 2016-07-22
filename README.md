@@ -145,13 +145,13 @@ By default, variants will be stacked. If you wish to view variants side by side,
 
 _TODO:_ [Simplify Technique for Including Notes](https://github.com/chrislopresto/ember-freestyle/issues/61)
 
-Use the `freestyle-note` component to add a markdown note for a specific `freestyle-usage`. Note that the `freestyle-note` slug must match the `freestyle-usage` slug followed by `_notes`.
+Use the `freestyle-note` component to add a markdown note for a specific `freestyle-usage`. Note that the `freestyle-note` slug must match the `freestyle-usage` slug followed by `--notes`.
 
 ```hbs
 {{#freestyle-usage "globally-unique-slug" title="Title To Display In Style Guide"}}
   {{x-foo propa="aaa" propb="bbb"}}
 {{/freestyle-usage}}
-{{#freestyle-note "globally-unique-slug_notes"}}
+{{#freestyle-note "globally-unique-slug--notes"}}
   # Contextual Markdown Note for x-foo
 
   You can write helpful _markdown_ notes explaining how the
