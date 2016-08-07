@@ -9,9 +9,9 @@ Hey look... these are `markdown` notes:
 END-FREESTYLE-USAGE */
 
 // BEGIN-FREESTYLE-USAGE fpi
-$freestylePaletteItemBorderColor: #cecece;
-$FreestylePaletteItem-backgroundColor: #fff;
-$FreestylePaletteItem-color: #808080;
+$freestylePaletteItemBorderColor: #cecece !default;
+$FreestylePaletteItem-backgroundColor: #fff !default;
+$FreestylePaletteItem-color: #2F4F4F !default;
 
 .FreestylePaletteItem {
   border: solid 1px $freestylePaletteItemBorderColor;
