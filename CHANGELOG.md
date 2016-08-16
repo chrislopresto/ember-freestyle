@@ -1,7 +1,24 @@
 # Change Log
 
-## [0.2.12](https://github.com/chrislopresto/ember-freestyle/tree/0.2.12) (2016-05-24)
-[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.11...0.2.12)
+## [0.2.13](https://github.com/chrislopresto/ember-freestyle/tree/0.2.13) (2016-08-16)
+[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.12...0.2.13)
+
+**Closed issues:**
+
+- freestyle.css not loading in fresh ember-cli project [\#71](https://github.com/chrislopresto/ember-freestyle/issues/71)
+- Allow notes to be placed before component and code example [\#69](https://github.com/chrislopresto/ember-freestyle/issues/69)
+- Inline snippets not rendering [\#30](https://github.com/chrislopresto/ember-freestyle/issues/30)
+- The Broccoli Plugin: \[BroccoliMergeTrees\] failed with: [\#20](https://github.com/chrislopresto/ember-freestyle/issues/20)
+
+**Merged pull requests:**
+
+- a11y & template linting fixes [\#77](https://github.com/chrislopresto/ember-freestyle/pull/77) ([sivakumar-kailasam](https://github.com/sivakumar-kailasam))
+- Return false for `isDevelopingAddon` [\#74](https://github.com/chrislopresto/ember-freestyle/pull/74) ([elidupuis](https://github.com/elidupuis))
+- Move rendered component next to its corresponding code snippet [\#70](https://github.com/chrislopresto/ember-freestyle/pull/70) ([vine77](https://github.com/vine77))
+- Add some better test coverage before refactoring. [\#66](https://github.com/chrislopresto/ember-freestyle/pull/66) ([migbar](https://github.com/migbar))
+
+## [v0.2.12](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.12) (2016-05-24)
+[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.11...v0.2.12)
 
 **Closed issues:**
 
