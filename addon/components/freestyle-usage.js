@@ -20,7 +20,7 @@ let FreestyleUsage = Ember.Component.extend({
     return true;
   }),
   snippetUsage: computed('slug', function() {
-    return `${this.get('slug')}:usage.hbs`;
+    return `${this.get('slug')}_usage.hbs`;
   }),
   snippetHbs: computed('slug', function() {
     return `${this.get('slug')}.hbs`;
@@ -32,13 +32,13 @@ let FreestyleUsage = Ember.Component.extend({
     return `${this.get('slug')}.scss`;
   }),
   snippetNotesJs: computed('slug', function() {
-    return `${this.get('slug')}:notes.js`;
+    return `${this.get('slug')}_notes.js`;
   }),
   snippetNotesHbs: computed('slug', function() {
-    return `${this.get('slug')}:notes.hbs`;
+    return `${this.get('slug')}_notes.hbs`;
   }),
   snippetNotesScss: computed('slug', function() {
-    return `${this.get('slug')}:notes.scss`;
+    return `${this.get('slug')}_notes.scss`;
   }),
   defaultTheme: computed.alias('emberFreestyle.defaultTheme'),
   // highlightJsTheme - passed in
