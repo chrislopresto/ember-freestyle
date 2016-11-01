@@ -3,7 +3,6 @@
   "dependencies": {
     "ember": "~2.8.0",
     "ember-cli-shims": "0.1.1",
-    "normalize.css": "3.0.3",
     "remarkable": "1.6.2",
     "highlightjs": "9.1.0"
   }
