@@ -68,16 +68,13 @@ module.exports = {
 
     var target = app || parentAddon;
     if (target.import) {
-      target.import(target.bowerDirectory + '/remarkable/dist/remarkable.js');
       target.import(target.bowerDirectory + '/highlightjs/highlight.pack.js');
-      target.import('vendor/ember-remarkable/shim.js', {
-        type: 'vendor',
-        exports: { 'remarkable': ['default'] }
-      });
-      target.import('vendor/ember-remarkable/highlightjs-shim.js', {
+      target.import('vendor/ember-freestyle/highlightjs-shim.js', {
         type: 'vendor',
         exports: { 'hljs': ['default'] }
       });
+      target.import(target.bowerDirectory + '/markdown-it/dist/markdown-it.min.js');
+      target.import('vendor/shims/markdown-it.js');
     }
 
   },
