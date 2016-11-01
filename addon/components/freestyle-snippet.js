@@ -53,12 +53,13 @@ export default Ember.Component.extend({
   },
 
   language: computed('name', function() {
-    let key = /\.(\w+)$/i.exec(this.get('name'));
-
     if (this.get('name').indexOf(':notes') >= 0) {
       return 'markdown';
     }
 
-    return LANGUAGES[key];
+    let match = /\.(\w+)$/i.exec(this.get('name'));
+    if (match) {
+      return LANGUAGES[match[1]];
+    }
   })
 });
