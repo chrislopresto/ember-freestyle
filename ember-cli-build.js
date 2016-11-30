@@ -10,7 +10,16 @@ module.exports = function(defaults) {
       cascade: false
     },
     freestyle: {
-      snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+      snippetSearchPaths: ['tests/dummy/app', 'app/styles'],
+      theme: {
+        colors: {
+          primary: '#00bcd4',
+          accent: '#ffc107',
+          secondary: '#b6b6b6',
+          foreground: '#212121',
+          background: '#fff'
+        }
+      }
     }
   });
 

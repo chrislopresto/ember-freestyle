@@ -1,0 +1,35 @@
+// TODO: Replace with actual breakpoint system
+$FreestyleBreakpoints: (
+  large: 600px
+);
+
+@mixin freestyle-breakpoint($name: 'large') {
+  @media (min-width: map-get($FreestyleBreakpoints, $name)) {
+    @content
+  }
+};
+
+// Default Ember Freestyle Palette
+$FreestyleColors-primary: #0d47a1 !default;
+$FreestyleColors-accent: #ffc107 !default;
+$FreestyleColors-secondary: #b6b6b6 !default;
+$FreestyleColors-foreground: #212121 !default;
+$FreestyleColors-background: #fff !default;
+
+@import 'config';
+
+@import 'components/freestyle-guide';
+@import 'components/freestyle-collection';
+@import 'components/freestyle-variant';
+@import 'components/freestyle-annotation';
+@import 'components/freestyle-usage-controls';
+@import 'components/freestyle-palette';
+@import 'components/freestyle-palette-item';
+@import 'components/freestyle-note';
+@import 'components/freestyle-notes';
+@import 'components/freestyle-usage';
+@import 'components/freestyle-section';
+@import 'components/freestyle-subsection';
+@import 'components/freestyle-menu';
+@import 'components/freestyle-snippet';
+@import 'components/freestyle-typeface';

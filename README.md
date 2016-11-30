@@ -170,23 +170,27 @@ Use the `freestyle-annotation` component to add a general purpose note.
 Both the `freestyle-note` and `freestyle-annotation` components respect the
 `Show Notes` usage controls preference.
 
-## Customizing the Colors in Ember Freestyle's Own UI
+## Customizing Ember Freestyle's Own UI
 
-If you wish to change things like the color of UI elements like the lines that divide the `freestyle-guide` header and body or the colors of active links, you can do so by overriding any of the following SCSS variables *before* importing the `ember-freestyle` SCSS partial in your application's SCSS:
+If you wish to change things like the color of UI elements like the lines that divide the `freestyle-guide` header and body or the colors of active links, you can do so by overriding theme settings in your Freestyle configuration.
 
-- `$FreestyleGuide-color--primary`
-- `$FreestyleGuide-color--accent`
-- `$FreestyleGuide-color--secondary`
-- `$FreestyleGuide-color--foreground`
-- `$FreestyleGuide-color--background`
+TODO fully document available variables?
 
 ##### Example
 
-This SCSS will change the default (teal) UI elements to red in your application.
+This configuration will change the default (teal) UI elements to red in your application, and raise the maximum width of the entire style guide to 1400px.
 
-```scss
-$FreestyleGuide-color--primary: #ff0000;
-@import 'ember-freestyle';
+```js
+freestyle: {
+  theme: {
+    guide: {
+      maxWidth: '1400px'
+    },
+    colors: {
+      primary: '#ff0000'
+    }
+  }
+}
 ```
 
 ## Using Ember Freestyle Within an Addon
