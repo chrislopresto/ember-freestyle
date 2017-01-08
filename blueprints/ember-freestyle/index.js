@@ -19,8 +19,8 @@ module.exports = {
 
   afterInstall: function() {
     var bowerPackages = [
-      { name: 'remarkable', target: '1.6.2' },
-      { name: 'highlightjs', target: '9.1.0' }
+      { name: 'highlightjs', target: '9.7.0' },
+      { name: 'markdown-it', target: '8.0.1' }
     ];
 
     return this.addBowerPackagesToProject(bowerPackages);

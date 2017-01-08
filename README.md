@@ -21,7 +21,7 @@ This installation process is opinionated in order to get you going quickly. We w
     This will do the following:
 
     - Install the `ember-freestyle` addon itself
-    - Install additional highlight.js and remarkable dependencies (which will eventually be made optional)
+    - Install additional markdown-it dependency (which may eventually be made optional)
     - Add a `freestyle` template in your app
     - Add a `freestyle` controller in your app
     - Add an `app.scss` file with the required SCSS

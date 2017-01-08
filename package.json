@@ -39,6 +39,7 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
+    "ember-markdown-it": "0.0.5",
     "ember-normalize": "1.0.0",
     "ember-resolver": "^2.0.3",
     "eslint-config-ember": "0.3.0",
@@ -57,11 +58,10 @@
     "broccoli-writer": "^0.1.1",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-htmlbars": "^1.0.3",
-    "ember-remarkable": "chrislopresto/ember-remarkable#highlightjs-css-compatibility-3.2.0",
     "ember-truth-helpers": "1.2.0",
     "es6-promise": "^3.1.2",
     "glob": "^6.0.4",
-    "highlight.js": "^9.3.0"
+    "highlight.js": "^9.7.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
