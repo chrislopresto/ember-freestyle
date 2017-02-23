@@ -23,6 +23,7 @@ export default Ember.Component.extend({
 
   registerVariant(variantKey) {
     Ember.run.next(() => {
+      if (this.isDestroyed) { return; }
       let variants = this.get('variants') || Ember.A(['all']);
       if (!variants.includes(variantKey)) {
         variants.pushObject(variantKey);
