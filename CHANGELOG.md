@@ -1,7 +1,31 @@
-# Change Log
+# Release Notes
 
-## [0.2.13](https://github.com/chrislopresto/ember-freestyle/tree/0.2.13) (2016-08-16)
-[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.12...0.2.13)
+## [v0.2.14](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.14) (2017-02-24)
+[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.13...v0.2.14)
+
+**Closed issues:**
+
+- ENUMERABLE\#CONTAINS in Ember v.2.8+ [\#91](https://github.com/chrislopresto/ember-freestyle/issues/91)
+- Support usage indirection [\#90](https://github.com/chrislopresto/ember-freestyle/issues/90)
+- Does not work with ember-hammertime [\#82](https://github.com/chrislopresto/ember-freestyle/issues/82)
+- does not work on windows due to use of colon in filenames [\#72](https://github.com/chrislopresto/ember-freestyle/issues/72)
+
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+
+- Fix 'calling set on destroyed object' error [\#97](https://github.com/chrislopresto/ember-freestyle/pull/97) ([thomblake](https://github.com/thomblake))
+- Update to ember-cli-github-pages 0.1.2 [\#96](https://github.com/chrislopresto/ember-freestyle/pull/96) ([chrislopresto](https://github.com/chrislopresto))
+- Update ember-truth-helpers to 1.3.0 [\#95](https://github.com/chrislopresto/ember-freestyle/pull/95) ([zlotnika](https://github.com/zlotnika))
+- Use `includes` instead of `contains`, which is deprecated in ember 2.8+ [\#94](https://github.com/chrislopresto/ember-freestyle/pull/94) ([lukemelia](https://github.com/lukemelia))
+- Update ember-cli-eslint. [\#93](https://github.com/chrislopresto/ember-freestyle/pull/93) ([LucasHill](https://github.com/LucasHill))
+- Update remarkable and ember-remarkable [\#86](https://github.com/chrislopresto/ember-freestyle/pull/86) ([chrislopresto](https://github.com/chrislopresto))
+- Update ember-normalize [\#85](https://github.com/chrislopresto/ember-freestyle/pull/85) ([chrislopresto](https://github.com/chrislopresto))
+- Fix\(freestyle-menu\): Reset f queryParam in menu [\#83](https://github.com/chrislopresto/ember-freestyle/pull/83) ([fsmanuel](https://github.com/fsmanuel))
+- Update to Ember 2.8 and Ember CLI 2.8 [\#79](https://github.com/chrislopresto/ember-freestyle/pull/79) ([chrislopresto](https://github.com/chrislopresto))
+- Fix snippet language detection [\#76](https://github.com/chrislopresto/ember-freestyle/pull/76) ([wagenet](https://github.com/wagenet))
+- change notes and usage seperator from colon to underscore in order ma… [\#73](https://github.com/chrislopresto/ember-freestyle/pull/73) ([zidjian257](https://github.com/zidjian257))
+
+## [v0.2.13](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.13) (2016-08-16)
+[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.12...v0.2.13)
 
 **Closed issues:**
 
@@ -10,7 +34,7 @@
 - Inline snippets not rendering [\#30](https://github.com/chrislopresto/ember-freestyle/issues/30)
 - The Broccoli Plugin: \[BroccoliMergeTrees\] failed with: [\#20](https://github.com/chrislopresto/ember-freestyle/issues/20)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - a11y & template linting fixes [\#77](https://github.com/chrislopresto/ember-freestyle/pull/77) ([sivakumar-kailasam](https://github.com/sivakumar-kailasam))
 - Return false for `isDevelopingAddon` [\#74](https://github.com/chrislopresto/ember-freestyle/pull/74) ([elidupuis](https://github.com/elidupuis))
@@ -27,7 +51,7 @@
 - Warn if duplicate freestyle-usage slugs are detected [\#11](https://github.com/chrislopresto/ember-freestyle/issues/11)
 - Create README [\#10](https://github.com/chrislopresto/ember-freestyle/issues/10)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Support SCSS Note Snippets [\#63](https://github.com/chrislopresto/ember-freestyle/pull/63) ([chrislopresto](https://github.com/chrislopresto))
 - Warn if duplicate slugs are detected [\#62](https://github.com/chrislopresto/ember-freestyle/pull/62) ([chrislopresto](https://github.com/chrislopresto))
@@ -45,7 +69,7 @@
 - Subsection navigation not present [\#52](https://github.com/chrislopresto/ember-freestyle/issues/52)
 - The package handlebars@4.0.5 does not satisfy its siblings' peerDependencies requirements! [\#39](https://github.com/chrislopresto/ember-freestyle/issues/39)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Update ember-cli-eslint [\#59](https://github.com/chrislopresto/ember-freestyle/pull/59) ([chrislopresto](https://github.com/chrislopresto))
 - Add changelog [\#58](https://github.com/chrislopresto/ember-freestyle/pull/58) ([chrislopresto](https://github.com/chrislopresto))
@@ -65,7 +89,7 @@
 
 - Allow freestyle to work within an Addon [\#32](https://github.com/chrislopresto/ember-freestyle/issues/32)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Support nested addon usage [\#34](https://github.com/chrislopresto/ember-freestyle/pull/34) ([chrislopresto](https://github.com/chrislopresto))
 
@@ -76,7 +100,7 @@
 
 - Provide default Ember Freestyle color palette as overridable SCSS variables [\#27](https://github.com/chrislopresto/ember-freestyle/issues/27)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Provide default Ember Freestyle color palette [\#28](https://github.com/chrislopresto/ember-freestyle/pull/28) ([chrislopresto](https://github.com/chrislopresto))
 
@@ -89,7 +113,7 @@
 - Remove mappy-bp dependency [\#21](https://github.com/chrislopresto/ember-freestyle/issues/21)
 - Blueprint for scaffolding on ember install [\#18](https://github.com/chrislopresto/ember-freestyle/issues/18)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Add blueprint to set up most things on install [\#26](https://github.com/chrislopresto/ember-freestyle/pull/26) ([chrislopresto](https://github.com/chrislopresto))
 - Remove json config experiments [\#25](https://github.com/chrislopresto/ember-freestyle/pull/25) ([chrislopresto](https://github.com/chrislopresto))
@@ -99,7 +123,7 @@
 ## [v0.2.7](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.7) (2016-03-30)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.6...v0.2.7)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Talk Tweak Town [\#19](https://github.com/chrislopresto/ember-freestyle/pull/19) ([chrislopresto](https://github.com/chrislopresto))
 
@@ -115,7 +139,7 @@
 ## [v0.2.3](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.3) (2016-03-03)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.2...v0.2.3)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Add ability to focus on usage components [\#9](https://github.com/chrislopresto/ember-freestyle/pull/9) ([chrislopresto](https://github.com/chrislopresto))
 - add bower dependencies to parent project [\#7](https://github.com/chrislopresto/ember-freestyle/pull/7) ([andrewfan](https://github.com/andrewfan))
@@ -123,7 +147,7 @@
 ## [v0.2.2](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.2) (2016-02-29)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.1...v0.2.2)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Make friendlier for consuming apps [\#8](https://github.com/chrislopresto/ember-freestyle/pull/8) ([chrislopresto](https://github.com/chrislopresto))
 - add missing ember-truth-helpers dependency [\#5](https://github.com/chrislopresto/ember-freestyle/pull/5) ([andrewfan](https://github.com/andrewfan))
@@ -131,26 +155,26 @@
 ## [v0.2.1](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.1) (2016-02-22)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.0...v0.2.1)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Improve Note Components [\#4](https://github.com/chrislopresto/ember-freestyle/pull/4) ([chrislopresto](https://github.com/chrislopresto))
 
 ## [v0.2.0](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.0) (2016-02-22)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.1.1...v0.2.0)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Avoid pod structure for better compatibility [\#3](https://github.com/chrislopresto/ember-freestyle/pull/3) ([chrislopresto](https://github.com/chrislopresto))
 
 ## [v0.1.1](https://github.com/chrislopresto/ember-freestyle/tree/v0.1.1) (2016-02-21)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.1.0...v0.1.1)
 
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Standardize dependencies [\#2](https://github.com/chrislopresto/ember-freestyle/pull/2) ([chrislopresto](https://github.com/chrislopresto))
 
 ## [v0.1.0](https://github.com/chrislopresto/ember-freestyle/tree/v0.1.0) (2016-02-14)
-**Merged pull requests:**
+**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
 
 - Wire up freestyle-usage-controls [\#1](https://github.com/chrislopresto/ember-freestyle/pull/1) ([chrislopresto](https://github.com/chrislopresto))
 
