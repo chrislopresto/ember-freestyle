@@ -114,7 +114,7 @@ end
 
 def publish_gh_pages
   puts "Publishing gh_pages..."
-  execute "Publish gh_pages", "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -"
+  execute "Publish gh_pages", "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout - ; git push; git checkout master"
   puts "Publishing gh_pages complete!"
 end
 
