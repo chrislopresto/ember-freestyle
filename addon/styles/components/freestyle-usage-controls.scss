@@ -11,7 +11,7 @@ $FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1, 
   width: 200px;
 
   &-header {
-    color: $FreestyleGuide-color--primary;
+    color: $FreestyleColors-primary;
     font-weight: bold;
     margin-bottom: .3rem;
     text-transform: uppercase;
@@ -42,10 +42,10 @@ $FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1, 
   }
 
   &-button {
-    background-color: $FreestyleGuide-color--primary;
+    background-color: $FreestyleColors-primary;
     border: 0;
     box-shadow: $FreestyleUsageControls-boxShadow;
-    color: $FreestyleGuide-color--background;
+    color: $FreestyleColors-background;
     cursor: pointer;
     font-size: .6rem;
     padding: .4rem 1rem;

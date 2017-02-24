@@ -11,16 +11,16 @@
 
   &-itemLink,
   &-submenuItemLink {
-    color: $FreestyleGuide-color--foreground;
+    color: $FreestyleColors-foreground;
     text-decoration: none;
 
     &.active {
-      color: $FreestyleGuide-color--primary;
+      color: $FreestyleColors-primary;
       text-decoration: none;
     }
 
     &:hover {
-      color: $FreestyleGuide-color--accent;
+      color: $FreestyleColors-accent;
       text-decoration: none;
     }
   }

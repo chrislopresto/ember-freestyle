@@ -56,8 +56,8 @@ $FreestylePalette-opacities: (
 
 // Wire up variables to provide a mechanism for consuming apps to override
 // without using freestyle.json files or hash maps
-$FreestyleGuide-color--primary: freestyle-color('primary') !default;
-$FreestyleGuide-color--accent: freestyle-color('accent') !default;
-$FreestyleGuide-color--secondary: freestyle-color('secondary') !default;
-$FreestyleGuide-color--foreground: freestyle-color('foreground') !default;
-$FreestyleGuide-color--background: freestyle-color('background') !default;
+$FreestyleColors-primary: freestyle-color('primary') !default;
+$FreestyleColors-accent: freestyle-color('accent') !default;
+$FreestyleColors-secondary: freestyle-color('secondary') !default;
+$FreestyleColors-foreground: freestyle-color('foreground') !default;
+$FreestyleColors-background: freestyle-color('background') !default;

@@ -7,11 +7,17 @@ var fs   = require('fs');
 var flatiron = require('broccoli-flatiron');
 var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
 
+var SassConfigWriter = require('./sass-config-writer');
 var Funnel = require('broccoli-funnel');
 var unwatchedTree  = require('broccoli-unwatched-tree');
 
 module.exports = {
   name: 'ember-freestyle',
+
+  init: function() {
+    this._super.init.apply(this, arguments);
+    this.treeForMethods['addon-styles'] = 'treeForAddonStyles';
+  },
 
   treeForApp: function(tree) {
     var treesToMerge = [tree];
@@ -49,16 +55,23 @@ module.exports = {
     return ['app'];
   },
 
-  treeForStyles: function(tree) {
-    tree = this._super.treeForStyles.apply(this, [tree]);
-
+  treeForAddonStyles: function(tree) {
     var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
       srcDir: '/styles',
-      destDir: '/app/styles/ember-freestyle/highlight.js'
+      destDir: 'ember-freestyle/highlight.js'
     });
     highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
 
-    return mergeTrees([highlightJsTree, tree], {
+    var sassConfigTree;
+    if (this.app) {
+      var freestyleOptions = this.app.options.freestyle || {};
+      sassConfigTree = new SassConfigWriter(freestyleOptions.theme, {
+        outputFile: 'config.scss',
+        annotation: 'SassConfigWriter (ember-freestyle)'
+      });
+    }
+
+    return mergeTrees([highlightJsTree, sassConfigTree, tree].filter(Boolean), {
       overwrite: true
     });
   },

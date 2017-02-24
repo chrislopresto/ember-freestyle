@@ -13,9 +13,9 @@ $FreestyleCollection-boxShadow: 0 2px 5px 0 $FreestyleCollection-shadow1, 0 2px 
   }
 
   &-variantList {
-    background-color: $FreestyleGuide-color--background;
+    background-color: $FreestyleColors-background;
     box-shadow: $FreestyleCollection-boxShadow;
-    color: $FreestyleGuide-color--foreground;
+    color: $FreestyleColors-foreground;
     display: flex;
     height: 48px;
     list-style-type: none;
@@ -47,8 +47,8 @@ $FreestyleCollection-boxShadow: 0 2px 5px 0 $FreestyleCollection-shadow1, 0 2px 
 
     &:hover,
     &--active {
-      border-bottom: solid 3px $FreestyleGuide-color--primary;
-      color: $FreestyleGuide-color--primary;
+      border-bottom: solid 3px $FreestyleColors-primary;
+      color: $FreestyleColors-primary;
     }
   }
 }
