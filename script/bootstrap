@@ -1,0 +1,12 @@
+#!/bin/sh
+
+gem_install_or_update() {
+  if gem list "$1" --installed > /dev/null; then
+    gem update "$@"
+  else
+    gem install "$@"
+  fi
+}
+
+gem_install_or_update github_changelog_generator
+gem_install_or_update gem_release
