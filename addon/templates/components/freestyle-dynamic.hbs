@@ -1,0 +1,13 @@
+{{#freestyle-annotation}}
+  <h3 class="FreestyleDynamic-header">Dynamic Properties:</h3>
+  <form class="FreestyleDynamic-form">
+    {{#each-in dynamicProperties as |propertyName propertyHash|}}
+      {{freestyle-dynamic-input propertyName=propertyName
+                                value=propertyHash.value
+                                inputType=propertyHash.inputType
+                                description=propertyHash.description}}
+    {{/each-in}}
+  </form>
+{{/freestyle-annotation}}
+
+{{yield}}

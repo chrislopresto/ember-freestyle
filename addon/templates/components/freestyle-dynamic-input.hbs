@@ -1,0 +1,15 @@
+<label for={{inputId}}>
+  {{propertyName}}:
+</label>
+{{#if (eq inputType 'checkbox')}}
+  {{input type='checkbox' checked=value id=inputId}}
+{{else if (eq inputType 'textarea')}}
+  {{textarea value=value id=inputId rows=5 cols=40}}
+{{else}}
+  {{input value=value id=inputId}}
+{{/if}}
+{{#if description}}
+  <small class="FreestyleDynamic-input-description">
+    {{description}}
+  </small>
+{{/if}}

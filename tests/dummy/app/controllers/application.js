@@ -7,6 +7,30 @@ export default FreestyleController.extend({
   emberFreestyle: inject.service(),
   showCode: computed.alias('emberFreestyle.showCode'),
 
+  dynamicProperties: {
+    title: {
+      value: 'Dynamic Title'
+    },
+    description: {
+      value: 'Dynamic Description',
+      inputType: 'textarea'
+    },
+    isVisible: {
+      value: true,
+      inputType: 'checkbox'
+    },
+    showBorder: {
+      value: true,
+      inputType: 'checkbox',
+      description: 'Used to determine if the border is showing'
+    },
+    isTasteful: {
+      value: false,
+      inputType: 'checkbox',
+      description: 'Changes to a tasteful color scheme'
+    }
+  },
+
   /* BEGIN-FREESTYLE-USAGE fpi:notes
 ### A few notes regarding freestyle-palette-item
 

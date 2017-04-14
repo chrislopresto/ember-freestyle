@@ -77,6 +77,19 @@
 
   {{/freestyle-section}}
 
+  {{#freestyle-section name='Dynamic Properties' as |section|}}
+    {{#freestyle-dynamic dynamicProperties=dynamicProperties}}
+      {{#freestyle-usage 'dynamic-properties' title='Dynamic Properties'}}
+        {{x-bar title=dynamicProperties.title.value
+                description=dynamicProperties.description.value
+                showBorder=dynamicProperties.showBorder.value
+                isVisible=dynamicProperties.isVisible.value
+                isTasteful=dynamicProperties.isTasteful.value
+        }}
+      {{/freestyle-usage}}
+    {{/freestyle-dynamic}}
+  {{/freestyle-section}}
+
   {{#freestyle-section name='Visual Style' as |section|}}
 
     {{#freestyle-subsection name='Typography' section=section}}
