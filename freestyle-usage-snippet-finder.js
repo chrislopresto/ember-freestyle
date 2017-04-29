@@ -1,4 +1,4 @@
-/* globals require, module */
+/*eslint-env node*/
 
 var Writer = require('broccoli-writer');
 var glob = require('glob');
@@ -15,7 +15,7 @@ function naiveMerge(obj1, obj2){
 }
 
 function findFiles(srcDir) {
-  return new _Promise(function(resolve, reject) { // jshint ignore:line
+  return new _Promise(function(resolve, reject) {
     glob(path.join(srcDir, "**/*.+(js|hbs|css|scss|less)"), function (err, files) {
       if (err) {
         reject(err);
