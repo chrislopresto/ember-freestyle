@@ -1,3 +1,4 @@
+/* jshint node: true */
 var path = require('path');
 
 module.exports = {
@@ -24,5 +25,25 @@ module.exports = {
     ];
 
     return this.addBowerPackagesToProject(bowerPackages);
+  },
+
+  files: function() {
+    var files = this._super.call(this);
+    if (!this.project) {
+      return files;
+    }
+
+    var allowedStyleFiles = {
+      scss: !!(this.project.findAddonByName('ember-cli-sass')),
+      less: !!(this.project.findAddonByName('ember-cli-less'))
+    };
+    var supportedPreprocessors = Object.keys(allowedStyleFiles);
+
+    function filterFilesByAvailableProproessor(file) {
+      var styleType = path.extname(file).substring(1);
+      return supportedPreprocessors.indexOf(styleType) === -1 || allowedStyleFiles[styleType] === true;
+    }
+
+    return files.filter(filterFilesByAvailableProproessor);
   }
 };

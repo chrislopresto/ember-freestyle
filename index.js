@@ -56,9 +56,10 @@ module.exports = {
       srcDir: '/styles',
       destDir: '/app/styles/ember-freestyle/highlight.js'
     });
-    highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
+    var highLightJsScss = stew.rename(highlightJsTree, '.css', '.scss');
+    var highLightJsLess = stew.rename(highlightJsTree, '.css', '.less');
 
-    return mergeTrees([highlightJsTree, tree], {
+    return mergeTrees([highLightJsScss, highLightJsLess, tree], {
       overwrite: true
     });
   },

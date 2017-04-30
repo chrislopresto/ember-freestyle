@@ -1,0 +1,87 @@
+@FreestyleUsage-borderColor: #cecece;
+@FreestyleUsage-maxWidth: @FreestyleGuide-maxWidth;
+
+.FreestyleUsage {
+  max-width: @FreestyleUsage-maxWidth;
+
+  &-title {
+    font-weight: bold;
+    padding: 1rem 1rem 0;
+    text-transform: uppercase;
+  }
+
+  &-notes {
+    font-size: .9rem;
+  }
+
+  &-rendered {
+    padding: 1rem;
+  }
+
+  &-usage {
+    padding-bottom: 10px;
+  }
+
+  &-snippet {
+    pre {
+      font-size: .8rem;
+      margin-top: 0;
+
+      &.hljs {
+        padding: .5rem 1rem;
+      }
+    }
+
+    &--tomorrow-night {
+      @import (multiple) '../ember-freestyle/highlight.js/tomorrow-night';
+    }
+
+    &--zenburn {
+      @import (multiple) '../ember-freestyle/highlight.js/zenburn';
+    }
+
+    &--hybrid {
+      @import (multiple) '../ember-freestyle/highlight.js/hybrid';
+    }
+
+    &--atelier-cave-dark {
+      @import (multiple) '../ember-freestyle/highlight.js/atelier-cave-dark';
+    }
+
+    &--solarized-light {
+      @import (multiple) '../ember-freestyle/highlight.js/solarized-light';
+    }
+
+    &--docco {
+      @import (multiple) '../ember-freestyle/highlight.js/docco';
+    }
+
+    &--monokai-sublime {
+      @import (multiple) '../ember-freestyle/highlight.js/monokai-sublime';
+    }
+  }
+
+  &--inline {
+    border-bottom: 0;
+    display: inline-block;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    width: 100%;
+
+    .freestyle-breakpoint(large, {
+      max-width: inherit;
+      width: auto;
+    });
+  }
+
+  &-focusCta {
+    cursor: pointer;
+    fill: @FreestyleGuide-color--secondary;
+    position: relative;
+    top: 1px;
+
+    &:hover {
+      fill: @FreestyleGuide-color--primary;
+    }
+  }
+}
