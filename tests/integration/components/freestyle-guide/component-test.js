@@ -1,4 +1,3 @@
-/* global expect */
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import usage from '../../../pages/usage-component';
@@ -24,7 +23,7 @@ moduleForComponent('freestyle-guide', 'Integration | Component | freestyle guide
 });
 
 test('it sets the passed in highlightJsTheme as the default theme on the service', function(assert) {
-  expect(2);
+  assert.expect(2);
 
   assert.equal(this.get('emberFreestyle.defaultTheme'), 'solarized-light');
   this.render(hbs`

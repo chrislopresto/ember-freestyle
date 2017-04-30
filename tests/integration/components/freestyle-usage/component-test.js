@@ -217,7 +217,7 @@ test('it does not render anything if slug does not match the focus', function(as
 });
 
 test('it falls back to the defaultTheme for notes and code snippets if a highlightJsTheme argument is not provided', function(assert) {
-  expect(7);
+  assert.expect(7);
 
   this.set('emberFreestyle.snippets', allSnippets);
   this.set('emberFreestyle.showCode', true);
@@ -240,7 +240,7 @@ test('it falls back to the defaultTheme for notes and code snippets if a highlig
 });
 
 test('it uses the passed in highlightJsTheme', function(assert) {
-  expect(7);
+  assert.expect(7);
 
   this.set('emberFreestyle.snippets', allSnippets);
   this.set('emberFreestyle.showCode', true);
