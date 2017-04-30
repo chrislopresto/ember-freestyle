@@ -50,7 +50,7 @@ module.exports = {
   },
 
   treeForAddonStyles: function() {
-    var addonStyles = new Funnel('addon/styles');
+    var addonStyles = new Funnel(path.join(__dirname, 'addon/styles'));
 
     var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
       srcDir: '/styles',
