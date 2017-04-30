@@ -1,23 +1,27 @@
 /* globals require, module */
 'use strict';
-var mergeTrees = require('broccoli-merge-trees');
-var stew = require('broccoli-stew');
-var path = require('path');
-var fs   = require('fs');
-var flatiron = require('broccoli-flatiron');
-var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
+const mergeTrees = require('broccoli-merge-trees');
+const stew = require('broccoli-stew');
+const path = require('path');
+const fs = require('fs');
+const flatiron = require('broccoli-flatiron');
+const freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
 
-var Funnel = require('broccoli-funnel');
-var unwatchedTree  = require('broccoli-unwatched-tree');
+const Funnel = require('broccoli-funnel');
+const unwatchedTree = require('broccoli-unwatched-tree');
 
 module.exports = {
   name: 'ember-freestyle',
 
-  treeForApp: function(tree) {
-    var treesToMerge = [tree];
-    var self = this;
+  treeForApp(tree) {
+    if (!this._includeFiles()) {
+      return tree;
+    }
 
-    var snippets = mergeTrees(this.snippetPaths().filter(function(path) {
+    let treesToMerge = [tree];
+    let self = this;
+
+    let snippets = mergeTrees(this.snippetPaths().filter(function(path) {
       return fs.existsSync(path);
     }));
 
@@ -33,41 +37,66 @@ module.exports = {
     return mergeTrees(treesToMerge);
   },
 
-  snippetPaths: function() {
+  snippetPaths() {
     if (this.app) {
-      var freestyleOptions = this.app.options.freestyle || {};
-      return freestyleOptions.snippetPaths || ['snippets'];
+      return this.addonOptions.snippetPaths || ['snippets'];
     }
     return ['snippets'];
   },
 
-  snippetSearchPaths: function() {
+  snippetSearchPaths() {
     if (this.app) {
-      var freestyleOptions = this.app.options.freestyle || {};
-      return freestyleOptions.snippetSearchPaths || ['app'];
+      return this.addonOptions.snippetSearchPaths || ['app'];
     }
     return ['app'];
   },
 
-  treeForStyles: function(tree) {
+  treeForStyles(tree) {
     tree = this._super.treeForStyles.apply(this, [tree]);
 
-    var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
-      srcDir: '/styles',
-      destDir: '/app/styles/ember-freestyle/highlight.js'
-    });
-    highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
+    if (this._includeFiles()) {
+      let highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
+        srcDir: '/styles',
+        destDir: '/app/styles/ember-freestyle/highlight.js'
+      });
+      highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
 
-    return mergeTrees([highlightJsTree, tree], {
-      overwrite: true
-    });
+      return mergeTrees([highlightJsTree, tree], {
+        overwrite: true
+      });
+    } else {
+      // return a tree of empty dummy Sass files, so no styles are added, but @import statements from app don't break
+      return stew.map(tree, () => '');
+    }
   },
 
-  included: function(app, parentAddon) {
+  treeForAddon() {
+    if (this._includeFiles()) {
+      return this._super.treeForAddon.apply(this, arguments);
+    }
+  },
+
+  treeForAddonTemplates() {
+    if (this._includeFiles()) {
+      return this._super.treeForAddonTemplates.apply(this, arguments);
+    }
+  },
+
+  shouldIncludeChildAddon(/* childAddon */) {
+    // we should return false here to exclude ember-remarkable and ember-truth-helpers as dependent addons
+    // but this does not work, as we have no app and thus no options we can access
+    // return this._includeFiles();
+    return this._super.shouldIncludeChildAddon.apply(this, arguments);
+  },
+
+  included(app, parentAddon) {
     this._super.included(app);
 
-    var target = app || parentAddon;
-    if (target.import) {
+    this.app = app;
+    this.addonOptions = this.app.options.freestyle || {};
+
+    let target = app || parentAddon;
+    if (target.import && this._includeFiles()) {
       target.import(target.bowerDirectory + '/remarkable/dist/remarkable.js');
       target.import(target.bowerDirectory + '/highlightjs/highlight.pack.js');
       target.import('vendor/ember-remarkable/shim.js', {
@@ -82,7 +111,11 @@ module.exports = {
 
   },
 
-  isDevelopingAddon: function() {
+  _includeFiles() {
+    return (this.addonOptions && this.addonOptions.enabled !== undefined) ? this.addonOptions.enabled : (this.app.env !== 'production');
+  },
+
+  isDevelopingAddon() {
     return false;
   }
 };
