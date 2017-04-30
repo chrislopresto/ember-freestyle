@@ -1,4 +1,3 @@
-/* global expect */
 import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import freestyleGuide from '../pages/freestyle-guide';
@@ -13,7 +12,7 @@ moduleForAcceptance('Acceptance | collection navigation', {
 });
 
 test('verifying variantListItem selection', (assert) => {
-  expect(36);
+  assert.expect(36);
 
   let fooCollection = freestyleGuide.content.sections(0).subsections(0).collections(0);
 

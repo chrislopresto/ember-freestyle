@@ -1,4 +1,4 @@
-/* globals require, module */
+/* eslint-env node */
 'use strict';
 var mergeTrees = require('broccoli-merge-trees');
 var stew = require('broccoli-stew');

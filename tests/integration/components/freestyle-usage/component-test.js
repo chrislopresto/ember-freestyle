@@ -1,4 +1,3 @@
-/* global expect */
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import usage from '../../../pages/usage-component';
@@ -37,7 +36,7 @@ moduleForComponent('freestyle-usage', 'Integration | Component | freestyle usage
 });
 
 test('it renders the title and the focus button if a title is passed in and the guide is set to show labels', function(assert) {
-  expect(3);
+  assert.expect(3);
 
   this.set('emberFreestyle.showLabels', true);
 
@@ -53,7 +52,7 @@ test('it renders the title and the focus button if a title is passed in and the 
 });
 
 test('it does not render the title if the guide is set to not show labels', function(assert) {
-  expect(2);
+  assert.expect(2);
 
   this.set('emberFreestyle.showLabels', false);
 
@@ -68,7 +67,7 @@ test('it does not render the title if the guide is set to not show labels', func
 });
 
 test('it renders the passed in block', function(assert) {
-  expect(1);
+  assert.expect(1);
 
   this.render(hbs`
     {{#freestyle-usage 'componentA'}}
@@ -80,7 +79,7 @@ test('it renders the passed in block', function(assert) {
 });
 
 test('it renders the notes snippets', function(assert) {
-  expect(4);
+  assert.expect(4);
   this.set('emberFreestyle.showNotes', true);
 
   this.set('emberFreestyle.snippets', notesSnippets);
@@ -98,7 +97,7 @@ test('it renders the notes snippets', function(assert) {
 });
 
 test('it renders only the notes snippets that have content', function(assert) {
-  expect(4);
+  assert.expect(4);
   this.set('emberFreestyle.showNotes', true);
 
   let incompleteNotesSnippets = {
@@ -121,7 +120,7 @@ test('it renders only the notes snippets that have content', function(assert) {
 });
 
 test('it does not render the notes snippets if the guide is set to not show notes', function(assert) {
-  expect(1);
+  assert.expect(1);
   this.set('emberFreestyle.showNotes', false);
 
   this.set('emberFreestyle.snippets', notesSnippets);
@@ -136,7 +135,7 @@ test('it does not render the notes snippets if the guide is set to not show note
 });
 
 test('it renders the code snippets', function(assert) {
-  expect(5);
+  assert.expect(5);
   this.set('emberFreestyle.showCode', true);
 
   this.set('emberFreestyle.snippets', codeSnippets);
@@ -155,7 +154,7 @@ test('it renders the code snippets', function(assert) {
 });
 
 test('it renders only the code snippets that have content', function(assert) {
-  expect(5);
+  assert.expect(5);
   this.set('emberFreestyle.showCode', true);
 
   let incompleteCodeSnippets = {
@@ -180,7 +179,7 @@ test('it renders only the code snippets that have content', function(assert) {
 });
 
 test('it does not render the code snippets if the guide is set to not show code', function(assert) {
-  expect(1);
+  assert.expect(1);
   this.set('emberFreestyle.showCode', false);
 
   this.set('emberFreestyle.snippets', codeSnippets);
@@ -195,7 +194,7 @@ test('it does not render the code snippets if the guide is set to not show code'
 });
 
 test('it does not render anything if slug does not match the focus', function(assert) {
-  expect(4);
+  assert.expect(4);
 
   this.set('emberFreestyle.snippets', allSnippets);
   this.set('emberFreestyle.showCode', true);
