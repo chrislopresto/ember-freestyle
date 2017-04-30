@@ -1,4 +1,3 @@
-/* global expect */
 import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import freestyleGuide from '../pages/freestyle-guide';
@@ -10,7 +9,7 @@ moduleForAcceptance('Acceptance | section navigation', {
 });
 
 test('verifying header', (assert) => {
-  expect(2);
+  assert.expect(2);
   andThen(() => {
     assert.equal(freestyleGuide.header.title, 'Ember Freestyle');
     assert.equal(freestyleGuide.header.subtitle, 'Living Style Guide');
@@ -18,7 +17,7 @@ test('verifying header', (assert) => {
 });
 
 test('verifying menu sections', (assert) => {
-  expect(4);
+  assert.expect(4);
   andThen(() => {
     assert.equal(freestyleGuide.menu.sections().count, 3);
     assert.equal(freestyleGuide.menu.sections(0).text, 'All');
@@ -28,7 +27,7 @@ test('verifying menu sections', (assert) => {
 });
 
 test('navigating directly to a subsection', function(assert) {
-  expect(6);
+  assert.expect(6);
   andThen(() => {
     let sectionFooThings = freestyleGuide.menu.sections(1);
     assert.equal(sectionFooThings.subsections().count, 2);
