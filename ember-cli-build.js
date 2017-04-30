@@ -9,7 +9,7 @@ module.exports = function(defaults) {
       cascade: false
     },
     freestyle: {
-      snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+      snippetSearchPaths: ['tests/dummy/app', 'addon/styles']
     }
   });
 
