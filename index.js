@@ -65,7 +65,6 @@ module.exports = {
         'monokai-sublime.css'
       ]
     });
-    highlightJsTree = stew.log(highlightJsTree);
     highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
 
     return mergeTrees([highlightJsTree, addonStyles]);
