@@ -30,7 +30,6 @@
     "ember-cli-sass": "^6.1.3",
     "ember-remarkable": "3.6.1",
     "ember-runtime-enumerable-includes-polyfill": "^2.0.0",
-    "ember-truth-helpers": "^1.3.0",
     "es6-promise": "^4.1.0",
     "glob": "^7.1.1",
     "highlight.js": "^9.3.0"
