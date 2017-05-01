@@ -4,7 +4,9 @@ import usage from '../../../pages/usage-component';
 import Ember from 'ember';
 
 // Stub freestyle service
-const FreestyleStub = Ember.Service.extend();
+const FreestyleStub = Ember.Service.extend({
+  highlight: function() {}
+});
 
 let notesSnippets = {
   'componentA_notes.js': 'JS notes for component A',

@@ -10,23 +10,21 @@ export default Ember.Component.extend({
 
   unindent: true,
 
-  _unindent(snippet) {
+  _unindent: function(snippet) {
     if (!this.get('unindent')) {
       return snippet;
     }
-    let match, min;
-    let unindentedSnippet = snippet;
-    let lines = unindentedSnippet.split('\n');
+    let match, min, lines = snippet.split("\n").filter((l) => l !== '');
     for (let i = 0; i < lines.length; i++) {
-      match = /^\s*/.exec(lines[i]);
+      match = /^[ \t]*/.exec(lines[i]);
       if (match && (typeof min === 'undefined' || min > match[0].length)) {
         min = match[0].length;
       }
     }
     if (typeof min !== 'undefined' && min > 0) {
-      unindentedSnippet = unindentedSnippet.replace(new RegExp(`(\\n|^)\\s{${min}}`, 'g'), '$1');
+      snippet = snippet.replace(new RegExp("^[ \t]{" + min + "}", 'gm'), "");
     }
-    return unindentedSnippet;
+    return snippet;
   },
 
   text: computed('name', function() {

@@ -1,12 +1,10 @@
+/* global hljs */
 import Ember from 'ember';
 
 const { computed } = Ember;
+const { RSVP: { Promise } } = Ember;
 
 export default Ember.Service.extend({
-  // Each json config file in the freestyle directory is injected
-  // as a property on this service by the ember-freestyle
-  // initializer
-
   showLabels: true,
   showNotes: true,
   showCode: true,
@@ -21,6 +19,25 @@ export default Ember.Service.extend({
   focus: null,
 
   notFocused: computed.not('focus'),
+
+  hljsPromise: null,
+
+  ensureHljs() {
+    if (!this.hljsPromise) {
+      this.hljsPromise = new Promise((resolve) => {
+        return Ember.$.getScript('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js').done((script) => {
+          resolve(script);
+        })
+      });
+    }
+    return this.hljsPromise;
+  },
+
+  highlight(el) {
+    this.ensureHljs().then(() => {
+      hljs.highlightBlock(el);
+    })
+  },
 
   // menu - tree structure of named sections with named subsections
 

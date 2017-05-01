@@ -29,11 +29,8 @@ This installation process is opinionated in order to get you going quickly. We w
     This will do the following:
 
     - Install the `ember-freestyle` addon itself
-    - Install additional highlight.js and remarkable dependencies (which will eventually be made optional)
     - Add a `freestyle` template in your app
     - Add a `freestyle` controller in your app
-    - Add an `app.scss` file with the required SCSS
-        - You can type `n` to decline this as long as you add `@import 'ember-freestyle';` somewhere in your SCSS
 
     *Note:* Ember CLI versions < 0.2.3 should use `ember install:addon` instead of `ember install`
 
