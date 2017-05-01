@@ -65,6 +65,7 @@ module.exports = {
         'monokai-sublime.css'
       ]
     });
+    highlightJsTree = stew.log(highlightJsTree);
     highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
 
     return mergeTrees([highlightJsTree, addonStyles]);
@@ -81,12 +82,7 @@ module.exports = {
         type: 'vendor',
         exports: { 'remarkable': ['default'] }
       });
-      target.import('vendor/ember-remarkable/highlightjs-shim.js', {
-        type: 'vendor',
-        exports: { 'hljs': ['default'] }
-      });
     }
-
   },
 
   isDevelopingAddon: function() {
