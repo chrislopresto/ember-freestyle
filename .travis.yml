@@ -3,7 +3,15 @@ language: node_js
 node_js:
   - "6"
 
-sudo: false
+dist: trusty
+sudo: required
+
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
 
 cache:
   yarn: true
@@ -24,11 +32,13 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
-  - yarn global add bower phantomjs-prebuilt
+  - yarn global add bower
   - bower --version
-  - phantomjs --version
 
 install:
   - yarn install --no-lockfile

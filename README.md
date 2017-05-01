@@ -1,8 +1,11 @@
-# Ember Freestyle [![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
+# Ember Freestyle 
 
-Ember Freestyle is an Ember addon that allows you to quickly create a living styleguide for your Ember app. Whereas
-other living style guide projects showcase current CSS using dummy HTML, Ember Freestyle presents existing Ember
-components from your app in a dedicated living style guide.
+[![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
+[![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle) 
+![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
+
+Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
 
 [Documentation found here](http://ember-freestyle.com/)
 
