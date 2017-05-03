@@ -178,13 +178,16 @@ Both the `freestyle-note` and `freestyle-annotation` components respect the
 
 
 
-
-
-
 ## Using Ember Freestyle Within an Addon
 
-When using Ember Freestyle within an addon, you will need to tell the build where to search for code snippets
-as follows:
+### Dependency Configuration
+
+You should include Ember Freestyle as a devDependency so that apps using your addon will not include 
+Ember Freestyle CSS and JavaScript in their production payloads.
+
+### Code Snippets
+
+You will need to tell the build where to search for code snippets as follows:
 
 ##### ember-cli-build.js
 
@@ -192,7 +195,7 @@ as follows:
 var app = new EmberAddon(defaults, {
   // ...
   freestyle: {
-    snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+    snippetSearchPaths: ['addon', 'tests/dummy/app']
   }
 });
 ```
