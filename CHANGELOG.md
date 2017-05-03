@@ -1,5 +1,25 @@
 # Release Notes
 
+## [v0.3.0](https://github.com/chrislopresto/ember-freestyle/tree/v0.3.0) (2017-05-02)
+[Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.14...v0.3.0)
+
+**Closed issues:**
+
+- Add Tests [\#16](https://github.com/chrislopresto/ember-freestyle/issues/16)
+
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
+
+- Remove ember-truth-helpers dependency [\#112](https://github.com/chrislopresto/ember-freestyle/pull/112) ([chrislopresto](https://github.com/chrislopresto))
+- Update dependencies [\#110](https://github.com/chrislopresto/ember-freestyle/pull/110) ([chrislopresto](https://github.com/chrislopresto))
+- Use yarn for dependency management [\#109](https://github.com/chrislopresto/ember-freestyle/pull/109) ([chrislopresto](https://github.com/chrislopresto))
+- Update to ember-remarkable 3.6.1 [\#108](https://github.com/chrislopresto/ember-freestyle/pull/108) ([chrislopresto](https://github.com/chrislopresto))
+- Update to ember-remarkable 3.6.0 [\#107](https://github.com/chrislopresto/ember-freestyle/pull/107) ([chrislopresto](https://github.com/chrislopresto))
+- Fix treeForAddonStyles relative pathing [\#106](https://github.com/chrislopresto/ember-freestyle/pull/106) ([chrislopresto](https://github.com/chrislopresto))
+- Wire up control of highlight.js theme [\#104](https://github.com/chrislopresto/ember-freestyle/pull/104) ([chrislopresto](https://github.com/chrislopresto))
+- Move styles to addon tree [\#103](https://github.com/chrislopresto/ember-freestyle/pull/103) ([chrislopresto](https://github.com/chrislopresto))
+- Upgrade to ember-cli 2.13 [\#102](https://github.com/chrislopresto/ember-freestyle/pull/102) ([chrislopresto](https://github.com/chrislopresto))
+- Cleanup jshint artifacts [\#101](https://github.com/chrislopresto/ember-freestyle/pull/101) ([chrislopresto](https://github.com/chrislopresto))
+
 ## [v0.2.14](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.14) (2017-02-24)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.13...v0.2.14)
 
@@ -10,7 +30,7 @@
 - Does not work with ember-hammertime [\#82](https://github.com/chrislopresto/ember-freestyle/issues/82)
 - does not work on windows due to use of colon in filenames [\#72](https://github.com/chrislopresto/ember-freestyle/issues/72)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Fix 'calling set on destroyed object' error [\#97](https://github.com/chrislopresto/ember-freestyle/pull/97) ([thomblake](https://github.com/thomblake))
 - Update to ember-cli-github-pages 0.1.2 [\#96](https://github.com/chrislopresto/ember-freestyle/pull/96) ([chrislopresto](https://github.com/chrislopresto))
@@ -34,7 +54,7 @@
 - Inline snippets not rendering [\#30](https://github.com/chrislopresto/ember-freestyle/issues/30)
 - The Broccoli Plugin: \[BroccoliMergeTrees\] failed with: [\#20](https://github.com/chrislopresto/ember-freestyle/issues/20)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - a11y & template linting fixes [\#77](https://github.com/chrislopresto/ember-freestyle/pull/77) ([sivakumar-kailasam](https://github.com/sivakumar-kailasam))
 - Return false for `isDevelopingAddon` [\#74](https://github.com/chrislopresto/ember-freestyle/pull/74) ([elidupuis](https://github.com/elidupuis))
@@ -51,7 +71,7 @@
 - Warn if duplicate freestyle-usage slugs are detected [\#11](https://github.com/chrislopresto/ember-freestyle/issues/11)
 - Create README [\#10](https://github.com/chrislopresto/ember-freestyle/issues/10)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Support SCSS Note Snippets [\#63](https://github.com/chrislopresto/ember-freestyle/pull/63) ([chrislopresto](https://github.com/chrislopresto))
 - Warn if duplicate slugs are detected [\#62](https://github.com/chrislopresto/ember-freestyle/pull/62) ([chrislopresto](https://github.com/chrislopresto))
@@ -69,7 +89,7 @@
 - Subsection navigation not present [\#52](https://github.com/chrislopresto/ember-freestyle/issues/52)
 - The package handlebars@4.0.5 does not satisfy its siblings' peerDependencies requirements! [\#39](https://github.com/chrislopresto/ember-freestyle/issues/39)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Update ember-cli-eslint [\#59](https://github.com/chrislopresto/ember-freestyle/pull/59) ([chrislopresto](https://github.com/chrislopresto))
 - Add changelog [\#58](https://github.com/chrislopresto/ember-freestyle/pull/58) ([chrislopresto](https://github.com/chrislopresto))
@@ -89,7 +109,7 @@
 
 - Allow freestyle to work within an Addon [\#32](https://github.com/chrislopresto/ember-freestyle/issues/32)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Support nested addon usage [\#34](https://github.com/chrislopresto/ember-freestyle/pull/34) ([chrislopresto](https://github.com/chrislopresto))
 
@@ -100,7 +120,7 @@
 
 - Provide default Ember Freestyle color palette as overridable SCSS variables [\#27](https://github.com/chrislopresto/ember-freestyle/issues/27)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Provide default Ember Freestyle color palette [\#28](https://github.com/chrislopresto/ember-freestyle/pull/28) ([chrislopresto](https://github.com/chrislopresto))
 
@@ -113,7 +133,7 @@
 - Remove mappy-bp dependency [\#21](https://github.com/chrislopresto/ember-freestyle/issues/21)
 - Blueprint for scaffolding on ember install [\#18](https://github.com/chrislopresto/ember-freestyle/issues/18)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Add blueprint to set up most things on install [\#26](https://github.com/chrislopresto/ember-freestyle/pull/26) ([chrislopresto](https://github.com/chrislopresto))
 - Remove json config experiments [\#25](https://github.com/chrislopresto/ember-freestyle/pull/25) ([chrislopresto](https://github.com/chrislopresto))
@@ -123,7 +143,7 @@
 ## [v0.2.7](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.7) (2016-03-30)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.6...v0.2.7)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Talk Tweak Town [\#19](https://github.com/chrislopresto/ember-freestyle/pull/19) ([chrislopresto](https://github.com/chrislopresto))
 
@@ -139,7 +159,7 @@
 ## [v0.2.3](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.3) (2016-03-03)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.2...v0.2.3)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Add ability to focus on usage components [\#9](https://github.com/chrislopresto/ember-freestyle/pull/9) ([chrislopresto](https://github.com/chrislopresto))
 - add bower dependencies to parent project [\#7](https://github.com/chrislopresto/ember-freestyle/pull/7) ([andrewfan](https://github.com/andrewfan))
@@ -147,7 +167,7 @@
 ## [v0.2.2](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.2) (2016-02-29)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.1...v0.2.2)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Make friendlier for consuming apps [\#8](https://github.com/chrislopresto/ember-freestyle/pull/8) ([chrislopresto](https://github.com/chrislopresto))
 - add missing ember-truth-helpers dependency [\#5](https://github.com/chrislopresto/ember-freestyle/pull/5) ([andrewfan](https://github.com/andrewfan))
@@ -155,26 +175,26 @@
 ## [v0.2.1](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.1) (2016-02-22)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.2.0...v0.2.1)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Improve Note Components [\#4](https://github.com/chrislopresto/ember-freestyle/pull/4) ([chrislopresto](https://github.com/chrislopresto))
 
 ## [v0.2.0](https://github.com/chrislopresto/ember-freestyle/tree/v0.2.0) (2016-02-22)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.1.1...v0.2.0)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Avoid pod structure for better compatibility [\#3](https://github.com/chrislopresto/ember-freestyle/pull/3) ([chrislopresto](https://github.com/chrislopresto))
 
 ## [v0.1.1](https://github.com/chrislopresto/ember-freestyle/tree/v0.1.1) (2016-02-21)
 [Full Changelog](https://github.com/chrislopresto/ember-freestyle/compare/v0.1.0...v0.1.1)
 
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Standardize dependencies [\#2](https://github.com/chrislopresto/ember-freestyle/pull/2) ([chrislopresto](https://github.com/chrislopresto))
 
 ## [v0.1.0](https://github.com/chrislopresto/ember-freestyle/tree/v0.1.0) (2016-02-14)
-**Merged Pull Requests** :ghost: :raised_hands: :sparkles:
+**Merged Pull Requests** :raised_hands: :nut_and_bolt: :sun_with_face:
 
 - Wire up freestyle-usage-controls [\#1](https://github.com/chrislopresto/ember-freestyle/pull/1) ([chrislopresto](https://github.com/chrislopresto))
 
