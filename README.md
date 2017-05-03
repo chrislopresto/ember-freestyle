@@ -15,6 +15,11 @@ Ember Freestyle is an Ember addon that allows you to quickly create a component 
 
 http://chrislopresto.github.io/ember-freestyle/
 
+## Supported Ember versions
+
+- For Ember versions >= 2.8, use the latest published version
+- For Ember versions 1.13.0 through 2.7, use ember-freestyle 0.3.0
+
 ## Installation
 
 This installation process is opinionated in order to get you going quickly. We want to make everything much easier to use in the near future. Please report any problems, and as always, PRs are welcome.

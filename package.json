@@ -65,6 +65,9 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://chrislopresto.github.io/ember-freestyle/"
+    "demoURL": "http://chrislopresto.github.io/ember-freestyle/",
+    "versionCompatibility": {
+      "ember": ">= 2.8.0"
+    }
   }
 }
