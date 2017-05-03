@@ -29,11 +29,8 @@ This installation process is opinionated in order to get you going quickly. We w
     This will do the following:
 
     - Install the `ember-freestyle` addon itself
-    - Install additional highlight.js and remarkable dependencies (which will eventually be made optional)
     - Add a `freestyle` template in your app
     - Add a `freestyle` controller in your app
-    - Add an `app.scss` file with the required SCSS
-        - You can type `n` to decline this as long as you add `@import 'ember-freestyle';` somewhere in your SCSS
 
     *Note:* Ember CLI versions < 0.2.3 should use `ember install:addon` instead of `ember install`
 
@@ -178,29 +175,33 @@ Use the `freestyle-annotation` component to add a general purpose note.
 Both the `freestyle-note` and `freestyle-annotation` components respect the
 `Show Notes` usage controls preference.
 
-## Customizing the Colors in Ember Freestyle's Own UI
+## Removing Ember Freestyle from Your Production Payload
 
-If you wish to change things like the color of UI elements like the lines that divide the `freestyle-guide` header and body or the colors of active links, you can do so by overriding any of the following SCSS variables *before* importing the `ember-freestyle` SCSS partial in your application's SCSS:
+We recommend blacklisting Ember Freestyle for production builds using Ember CLI's [addon blacklist feature](https://ember-cli.com/user-guide/#whitelisting-and-blacklisting-assets).
 
-- `$FreestyleGuide-color--primary`
-- `$FreestyleGuide-color--accent`
-- `$FreestyleGuide-color--secondary`
-- `$FreestyleGuide-color--foreground`
-- `$FreestyleGuide-color--background`
+```javascript
+var environment = process.env.EMBER_ENV;
+var pluginsToBlacklist = environment === 'production' ? ['ember-freestyle'] : [];
 
-##### Example
-
-This SCSS will change the default (teal) UI elements to red in your application.
-
-```scss
-$FreestyleGuide-color--primary: #ff0000;
-@import 'ember-freestyle';
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    addons: {
+      blacklist: pluginsToBlacklist
+    }
+  };
+}
 ```
 
 ## Using Ember Freestyle Within an Addon
 
-When using Ember Freestyle within an addon, you will need to tell the build where to search for code snippets
-as follows:
+### Dependency Configuration
+
+You should include Ember Freestyle as a devDependency so that apps using your addon will not include 
+Ember Freestyle CSS and JavaScript in their production payloads.
+
+### Code Snippets
+
+You will need to tell the build where to search for code snippets as follows:
 
 ##### ember-cli-build.js
 
@@ -208,7 +209,7 @@ as follows:
 var app = new EmberAddon(defaults, {
   // ...
   freestyle: {
-    snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+    snippetSearchPaths: ['addon', 'tests/dummy/app']
   }
 });
 ```

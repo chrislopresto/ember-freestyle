@@ -56,12 +56,8 @@ module.exports = {
       srcDir: '/styles',
       destDir: '/ember-freestyle/highlight.js',
       files: [
-        'tomorrow-night.css',
         'zenburn.css',
-        'hybrid.css',
-        'atelier-cave-dark.css',
         'solarized-light.css',
-        'docco.css',
         'monokai-sublime.css'
       ]
     });
@@ -70,18 +66,8 @@ module.exports = {
     return mergeTrees([highlightJsTree, addonStyles]);
   },
 
-  included: function(app, parentAddon) {
+  included: function(/*app, parentAddon*/) {
     this._super.included(arguments);
-
-    var target = app || parentAddon;
-    if (target.import) {
-      target.import(target.bowerDirectory + '/remarkable/dist/remarkable.js');
-      target.import(target.bowerDirectory + '/highlightjs/highlight.pack.js');
-      target.import('vendor/ember-remarkable/shim.js', {
-        type: 'vendor',
-        exports: { 'remarkable': ['default'] }
-      });
-    }
   },
 
   isDevelopingAddon: function() {

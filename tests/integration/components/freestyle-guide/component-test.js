@@ -5,7 +5,8 @@ import Ember from 'ember';
 
 // Stub freestyle service
 const FreestyleStub = Ember.Service.extend({
-  defaultTheme: 'solarized-light'
+  defaultTheme: 'solarized-light',
+  highlight: function() {}
 });
 
 moduleForComponent('freestyle-guide', 'Integration | Component | freestyle guide', {

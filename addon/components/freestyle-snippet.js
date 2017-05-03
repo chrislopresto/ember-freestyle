@@ -12,8 +12,6 @@ const LANGUAGES = {
   md: 'markdown'
 };
 
-/* global hljs */
-
 export default Ember.Component.extend({
   layout,
   unindent: true,
@@ -49,7 +47,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     let pre = this.$('pre');
     if (pre[0] && this.get('source')) {
-      hljs.highlightBlock(pre[0]);
+      this.get('emberFreestyle').highlight(pre[0]);
     }
   },
 
