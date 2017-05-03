@@ -1,6 +1,6 @@
 {
   "name": "ember-freestyle",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Create a living styleguide for your Ember app.",
   "keywords": [
     "ember-addon"
