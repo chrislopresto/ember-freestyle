@@ -67,7 +67,7 @@ module.exports = {
   },
 
   included: function(/*app, parentAddon*/) {
-    this._super.included(arguments);
+    this._super.included.apply(this, arguments);
   },
 
   isDevelopingAddon: function() {
