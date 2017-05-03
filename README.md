@@ -175,8 +175,22 @@ Use the `freestyle-annotation` component to add a general purpose note.
 Both the `freestyle-note` and `freestyle-annotation` components respect the
 `Show Notes` usage controls preference.
 
+## Removing Ember Freestyle from Your Production Payload
 
+We recommend blacklisting Ember Freestyle for production builds using Ember CLI's [addon blacklist feature](https://ember-cli.com/user-guide/#whitelisting-and-blacklisting-assets).
 
+```javascript
+var environment = process.env.EMBER_ENV;
+var pluginsToBlacklist = environment === 'production' ? ['ember-freestyle'] : [];
+
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    addons: {
+      blacklist: pluginsToBlacklist
+    }
+  };
+}
+```
 
 ## Using Ember Freestyle Within an Addon
 
