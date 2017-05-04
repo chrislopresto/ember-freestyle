@@ -52,7 +52,7 @@ export default Ember.Component.extend({
   },
 
   language: computed('name', function() {
-    if (this.get('name').indexOf(':notes') >= 0) {
+    if (this.get('name').indexOf('_notes') >= 0) {
       return 'markdown';
     }
 
