@@ -7,7 +7,7 @@ export default FreestyleController.extend({
   emberFreestyle: inject.service(),
   showCode: computed.alias('emberFreestyle.showCode'),
 
-  /* BEGIN-FREESTYLE-USAGE fpi:notes
+  /* BEGIN-FREESTYLE-USAGE fpi_notes
 ### A few notes regarding freestyle-palette-item
 
 - Accepts a color object

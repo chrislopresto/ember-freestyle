@@ -55,15 +55,15 @@ function extractHbsComponentSnippets(fileContent, componentName, ui) {
         inside = m[0].indexOf('}}') >= 0; // curlies closed }}
         name = m[1];
         // TODO: Cleanup freestyle-notes vs freestyle-usage disambiguation here
-        if (name.indexOf(':notes') >= 0) {
+        if (name.indexOf('_notes') >= 0) {
           if (output[name]) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
           }
         } else {
-          if (output[name + ':usage']) {
+          if (output[name + '_usage']) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
           }
-          name += ':usage';
+          name += '_usage';
         }
       }
     }
@@ -117,8 +117,7 @@ SnippetFinder.prototype.write = function (readTree, destDir) {
       var commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
       var snippets = naiveMerge(componentSnippets, commentSnippets);
       for (var name in snippets){
-        var windowsFriendlyName = name.replace(":notes", "_notes").replace(":usage", "_usage"); // replace : in order to have windows friendly filenames
-        fs.writeFileSync(path.join(destDir, windowsFriendlyName)+path.extname(filename),
+        fs.writeFileSync(path.join(destDir, name)+path.extname(filename),
                          snippets[name]);
       }
     });
