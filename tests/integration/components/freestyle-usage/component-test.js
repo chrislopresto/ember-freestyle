@@ -9,13 +9,13 @@ const FreestyleStub = Ember.Service.extend({
 });
 
 let notesSnippets = {
-  'componentA_notes.js': 'JS notes for component A',
-  'componentA_notes.hbs': 'HBS notes for component A',
-  'componentA_notes.scss': 'SCSS notes for component A'
+  'componentA--notes.js': 'JS notes for component A',
+  'componentA--notes.hbs': 'HBS notes for component A',
+  'componentA--notes.scss': 'SCSS notes for component A'
 };
 
 let codeSnippets = {
-  'componentA_usage.hbs': 'HBS USAGE for component A',
+  'componentA--usage.hbs': 'HBS USAGE for component A',
   'componentA.hbs': 'HBS code for component A',
   'componentA.js': 'JS CODE for component A',
   'componentA.scss': 'SCSS code for component A'
@@ -103,9 +103,9 @@ test('it renders only the notes snippets that have content', function(assert) {
   this.set('emberFreestyle.showNotes', true);
 
   let incompleteNotesSnippets = {
-    'componentA_notes.js': 'JS notes for component A',
-    // no content for 'componentA_notes.hbs'
-    'componentA_notes.scss': 'SCSS notes for component A'
+    'componentA--notes.js': 'JS notes for component A',
+    // no content for 'componentA--notes.hbs'
+    'componentA--notes.scss': 'SCSS notes for component A'
   };
   this.set('emberFreestyle.snippets', incompleteNotesSnippets);
 
@@ -160,7 +160,7 @@ test('it renders only the code snippets that have content', function(assert) {
   this.set('emberFreestyle.showCode', true);
 
   let incompleteCodeSnippets = {
-    'componentA_usage.hbs': 'HBS USAGE for component A',
+    'componentA--usage.hbs': 'HBS USAGE for component A',
     'componentA.hbs': 'HBS code for component A',
     // no content for 'componentA.js'
     'componentA.scss': 'SCSS code for component A'

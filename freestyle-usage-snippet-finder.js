@@ -55,15 +55,15 @@ function extractHbsComponentSnippets(fileContent, componentName, ui) {
         inside = m[0].indexOf('}}') >= 0; // curlies closed }}
         name = m[1];
         // TODO: Cleanup freestyle-notes vs freestyle-usage disambiguation here
-        if (name.indexOf('_notes') >= 0) {
+        if (name.indexOf('--notes') >= 0) {
           if (output[name]) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
           }
         } else {
-          if (output[name + '_usage']) {
+          if (output[name + '--usage']) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
           }
-          name += '_usage';
+          name += '--usage';
         }
       }
     }
