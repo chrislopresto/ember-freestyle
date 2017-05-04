@@ -9,8 +9,6 @@ Ember Freestyle is an Ember addon that allows you to quickly create a component 
 
 [Documentation found here](http://ember-freestyle.com/)
 
-*This is a work in progress. Collaboration is welcomed.*
-
 ## Live Demo
 
 http://chrislopresto.github.io/ember-freestyle/
