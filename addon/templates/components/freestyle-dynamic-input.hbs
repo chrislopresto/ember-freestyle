@@ -1,9 +1,9 @@
 <label for={{inputId}}>
   {{propertyName}}:
 </label>
-{{#if (eq inputType 'checkbox')}}
+{{#if isCheckbox}}
   {{input type='checkbox' checked=value id=inputId}}
-{{else if (eq inputType 'textarea')}}
+{{else if isTextarea}}
   {{textarea value=value id=inputId rows=5 cols=40}}
 {{else}}
   {{input value=value id=inputId}}
