@@ -1,4 +1,4 @@
-/* globals require, module */
+/* eslint-env node */
 'use strict';
 var mergeTrees = require('broccoli-merge-trees');
 var stew = require('broccoli-stew');
@@ -49,37 +49,25 @@ module.exports = {
     return ['app'];
   },
 
-  treeForStyles: function(tree) {
-    tree = this._super.treeForStyles.apply(this, [tree]);
+  treeForAddonStyles: function() {
+    var addonStyles = new Funnel(path.join(__dirname, 'addon/styles'));
 
     var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
       srcDir: '/styles',
-      destDir: '/app/styles/ember-freestyle/highlight.js'
+      destDir: '/ember-freestyle/highlight.js',
+      files: [
+        'zenburn.css',
+        'solarized-light.css',
+        'monokai-sublime.css'
+      ]
     });
     highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
 
-    return mergeTrees([highlightJsTree, tree], {
-      overwrite: true
-    });
+    return mergeTrees([highlightJsTree, addonStyles]);
   },
 
-  included: function(app, parentAddon) {
-    this._super.included(app);
-
-    var target = app || parentAddon;
-    if (target.import) {
-      target.import(target.bowerDirectory + '/remarkable/dist/remarkable.js');
-      target.import(target.bowerDirectory + '/highlightjs/highlight.pack.js');
-      target.import('vendor/ember-remarkable/shim.js', {
-        type: 'vendor',
-        exports: { 'remarkable': ['default'] }
-      });
-      target.import('vendor/ember-remarkable/highlightjs-shim.js', {
-        type: 'vendor',
-        exports: { 'hljs': ['default'] }
-      });
-    }
-
+  included: function(/*app, parentAddon*/) {
+    this._super.included.apply(this, arguments);
   },
 
   isDevelopingAddon: function() {

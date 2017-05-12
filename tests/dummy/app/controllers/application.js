@@ -31,7 +31,7 @@ export default FreestyleController.extend({
     }
   },
 
-  /* BEGIN-FREESTYLE-USAGE fpi:notes
+  /* BEGIN-FREESTYLE-USAGE fpi--notes
 ### A few notes regarding freestyle-palette-item
 
 - Accepts a color object

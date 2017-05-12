@@ -1,4 +1,4 @@
-/* globals require, module */
+/*eslint-env node*/
 
 var Writer = require('broccoli-writer');
 var glob = require('glob');
@@ -15,7 +15,7 @@ function naiveMerge(obj1, obj2){
 }
 
 function findFiles(srcDir) {
-  return new _Promise(function(resolve, reject) { // jshint ignore:line
+  return new _Promise(function(resolve, reject) {
     glob(path.join(srcDir, "**/*.+(js|hbs|css|scss|less)"), function (err, files) {
       if (err) {
         reject(err);
@@ -55,15 +55,15 @@ function extractHbsComponentSnippets(fileContent, componentName, ui) {
         inside = m[0].indexOf('}}') >= 0; // curlies closed }}
         name = m[1];
         // TODO: Cleanup freestyle-notes vs freestyle-usage disambiguation here
-        if (name.indexOf(':notes') >= 0) {
+        if (name.indexOf('--notes') >= 0) {
           if (output[name]) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
           }
         } else {
-          if (output[name + ':usage']) {
+          if (output[name + '--usage']) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
           }
-          name += ':usage';
+          name += '--usage';
         }
       }
     }
@@ -117,8 +117,7 @@ SnippetFinder.prototype.write = function (readTree, destDir) {
       var commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
       var snippets = naiveMerge(componentSnippets, commentSnippets);
       for (var name in snippets){
-        var windowsFriendlyName = name.replace(":notes", "_notes").replace(":usage", "_usage"); // replace : in order to have windows friendly filenames
-        fs.writeFileSync(path.join(destDir, windowsFriendlyName)+path.extname(filename),
+        fs.writeFileSync(path.join(destDir, name)+path.extname(filename),
                          snippets[name]);
       }
     });

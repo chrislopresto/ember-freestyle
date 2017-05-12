@@ -12,8 +12,6 @@ const LANGUAGES = {
   md: 'markdown'
 };
 
-/* global hljs */
-
 export default Ember.Component.extend({
   layout,
   unindent: true,
@@ -47,13 +45,14 @@ export default Ember.Component.extend({
   }),
 
   didInsertElement() {
-    if (this.get('source')) {
-      hljs.highlightBlock(this.$('pre')[0]);
+    let pre = this.$('pre');
+    if (pre[0] && this.get('source')) {
+      this.get('emberFreestyle').highlight(pre[0]);
     }
   },
 
   language: computed('name', function() {
-    if (this.get('name').indexOf(':notes') >= 0) {
+    if (this.get('name').indexOf('--notes') >= 0) {
       return 'markdown';
     }
 

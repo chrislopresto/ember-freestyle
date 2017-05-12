@@ -6,7 +6,7 @@ const { inject } = Ember;
 export default FreestyleController.extend({
   emberFreestyle: inject.service(),
 
-  /* BEGIN-FREESTYLE-USAGE fp:notes
+  /* BEGIN-FREESTYLE-USAGE fp--notes
 ### A few notes regarding freestyle-palette
 
 - Accepts a colorPalette POJO like the one found in the freestyle.js blueprint controller

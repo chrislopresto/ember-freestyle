@@ -1,16 +1,22 @@
-# Ember Freestyle [![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
+# Ember Freestyle 
 
-Ember Freestyle is an Ember addon that allows you to quickly create a living styleguide for your Ember app. Whereas
-other living style guide projects showcase current CSS using dummy HTML, Ember Freestyle presents existing Ember
-components from your app in a dedicated living style guide.
+[![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
+[![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle) 
+![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
+
+Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
 
 [Documentation found here](http://ember-freestyle.com/)
-
-*This is a work in progress. Collaboration is welcomed.*
 
 ## Live Demo
 
 http://chrislopresto.github.io/ember-freestyle/
+
+## Supported Ember versions
+
+- For Ember versions >= 2.8, use the latest published version
+- For Ember versions 1.13.0 through 2.7, use ember-freestyle 0.3.0
 
 ## Installation
 
@@ -21,11 +27,8 @@ This installation process is opinionated in order to get you going quickly. We w
     This will do the following:
 
     - Install the `ember-freestyle` addon itself
-    - Install additional highlight.js and remarkable dependencies (which will eventually be made optional)
     - Add a `freestyle` template in your app
     - Add a `freestyle` controller in your app
-    - Add an `app.scss` file with the required SCSS
-        - You can type `n` to decline this as long as you add `@import 'ember-freestyle';` somewhere in your SCSS
 
     *Note:* Ember CLI versions < 0.2.3 should use `ember install:addon` instead of `ember install`
 
@@ -140,13 +143,13 @@ By default, variants will be stacked. If you wish to view variants side by side,
 
 _TODO:_ [Simplify Technique for Including Notes](https://github.com/chrislopresto/ember-freestyle/issues/61)
 
-Use the `freestyle-note` component to add a markdown note for a specific `freestyle-usage`. Note that the `freestyle-note` slug must match the `freestyle-usage` slug followed by `:notes`.
+Use the `freestyle-note` component to add a markdown note for a specific `freestyle-usage`. Note that the `freestyle-note` slug must match the `freestyle-usage` slug followed by `--notes`.
 
 ```hbs
 {{#freestyle-usage "globally-unique-slug" title="Title To Display In Style Guide"}}
   {{x-foo propa="aaa" propb="bbb"}}
 {{/freestyle-usage}}
-{{#freestyle-note "globally-unique-slug:notes"}}
+{{#freestyle-note "globally-unique-slug--notes"}}
   # Contextual Markdown Note for x-foo
 
   You can write helpful _markdown_ notes explaining how the
@@ -170,29 +173,33 @@ Use the `freestyle-annotation` component to add a general purpose note.
 Both the `freestyle-note` and `freestyle-annotation` components respect the
 `Show Notes` usage controls preference.
 
-## Customizing the Colors in Ember Freestyle's Own UI
+## Removing Ember Freestyle from Your Production Payload
 
-If you wish to change things like the color of UI elements like the lines that divide the `freestyle-guide` header and body or the colors of active links, you can do so by overriding any of the following SCSS variables *before* importing the `ember-freestyle` SCSS partial in your application's SCSS:
+We recommend blacklisting Ember Freestyle for production builds using Ember CLI's [addon blacklist feature](https://ember-cli.com/user-guide/#whitelisting-and-blacklisting-assets).
 
-- `$FreestyleGuide-color--primary`
-- `$FreestyleGuide-color--accent`
-- `$FreestyleGuide-color--secondary`
-- `$FreestyleGuide-color--foreground`
-- `$FreestyleGuide-color--background`
+```javascript
+var environment = process.env.EMBER_ENV;
+var pluginsToBlacklist = environment === 'production' ? ['ember-freestyle'] : [];
 
-##### Example
-
-This SCSS will change the default (teal) UI elements to red in your application.
-
-```scss
-$FreestyleGuide-color--primary: #ff0000;
-@import 'ember-freestyle';
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    addons: {
+      blacklist: pluginsToBlacklist
+    }
+  };
+}
 ```
 
 ## Using Ember Freestyle Within an Addon
 
-When using Ember Freestyle within an addon, you will need to tell the build where to search for code snippets
-as follows:
+### Dependency Configuration
+
+You should include Ember Freestyle as a devDependency so that apps using your addon will not include 
+Ember Freestyle CSS and JavaScript in their production payloads.
+
+### Code Snippets
+
+You will need to tell the build where to search for code snippets as follows:
 
 ##### ember-cli-build.js
 
@@ -200,7 +207,7 @@ as follows:
 var app = new EmberAddon(defaults, {
   // ...
   freestyle: {
-    snippetSearchPaths: ['tests/dummy/app', 'app/styles']
+    snippetSearchPaths: ['addon', 'tests/dummy/app']
   }
 });
 ```
@@ -226,4 +233,4 @@ This project uses [https://github.com/skywinder/github-changelog-generator](http
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).

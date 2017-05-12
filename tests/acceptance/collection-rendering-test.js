@@ -1,4 +1,3 @@
-/* global expect */
 import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import freestyleGuide from '../pages/freestyle-guide';
@@ -11,7 +10,7 @@ moduleForAcceptance('Acceptance | collection rendering', {
 });
 
 test('verifying freestyle collection', (assert) => {
-  expect(19);
+  assert.expect(19);
   andThen(() => {
     let sectionFooThings = freestyleGuide.content.sections(0);
     assert.equal(sectionFooThings.subsections(0).collections().count, 1);

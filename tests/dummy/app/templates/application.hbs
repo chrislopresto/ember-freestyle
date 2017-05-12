@@ -1,6 +1,7 @@
 {{#freestyle-guide
     title='Ember Freestyle'
     subtitle='Living Style Guide'
+    highlightJsTheme='solarized-light'
 }}
 
   {{#freestyle-section name='Foo Things' as |section|}}
@@ -9,13 +10,20 @@
       {{#freestyle-collection title='Foo Collection' defaultKey='normal' inline=true as |collection|}}
 
         {{#freestyle-variant collection=collection key='normal'}}
-          {{#freestyle-note 'foo-normal:notes'}}
+        {{#freestyle-annotation 'foo-normal'}}
+        <h4>A Note About Normal</h4>
+        <p>
+          This comment is coming from a freestyle-annotation component. Use the freestyle-annotation
+          component to write notes in html.
+        </p>
+        {{/freestyle-annotation}}
+          {{#freestyle-note 'foo-normal--notes'}}
   #### Another Note About Normal
 
   This comment is coming from a `freestyle-note` component. Use the `freestyle-note` component
   to write notes in markdown.
 
-  ###### Markdown Code Snippet
+  ##### Markdown Code Snippet
 
   ```javascript
   // We can include code blocks using markdown
@@ -24,20 +32,13 @@
   }
   ```
           {{/freestyle-note}}
-          {{#freestyle-annotation 'foo-normal'}}
-            <h4>A Note About Normal</h4>
-            <p>
-              This comment is coming from a freestyle-annotation component. Use the freestyle-annotation
-              component to write notes in html.
-            </p>
-          {{/freestyle-annotation}}
           {{#freestyle-usage 'foo-normal' title='Normal' usageTitle='Usage' hbsTitle='Template'}}
             {{x-foo status='normal'}}
           {{/freestyle-usage}}
         {{/freestyle-variant}}
 
         {{#freestyle-variant collection=collection key='special'}}
-          {{#freestyle-usage 'foo-special' title='Special'}}
+          {{#freestyle-usage 'foo-special' title='Special' highlightJsTheme='zenburn'}}
             {{x-foo status='special'}}
           {{/freestyle-usage}}
         {{/freestyle-variant}}

@@ -1,20 +1,21 @@
-/* global expect */
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import usage from '../../../pages/usage-component';
 import Ember from 'ember';
 
 // Stub freestyle service
-const FreestyleStub = Ember.Service.extend();
+const FreestyleStub = Ember.Service.extend({
+  highlight: function() {}
+});
 
 let notesSnippets = {
-  'componentA_notes.js': 'JS notes for component A',
-  'componentA_notes.hbs': 'HBS notes for component A',
-  'componentA_notes.scss': 'SCSS notes for component A'
+  'componentA--notes.js': 'JS notes for component A',
+  'componentA--notes.hbs': 'HBS notes for component A',
+  'componentA--notes.scss': 'SCSS notes for component A'
 };
 
 let codeSnippets = {
-  'componentA_usage.hbs': 'HBS USAGE for component A',
+  'componentA--usage.hbs': 'HBS USAGE for component A',
   'componentA.hbs': 'HBS code for component A',
   'componentA.js': 'JS CODE for component A',
   'componentA.scss': 'SCSS code for component A'
@@ -37,7 +38,7 @@ moduleForComponent('freestyle-usage', 'Integration | Component | freestyle usage
 });
 
 test('it renders the title and the focus button if a title is passed in and the guide is set to show labels', function(assert) {
-  expect(3);
+  assert.expect(3);
 
   this.set('emberFreestyle.showLabels', true);
 
@@ -53,7 +54,7 @@ test('it renders the title and the focus button if a title is passed in and the 
 });
 
 test('it does not render the title if the guide is set to not show labels', function(assert) {
-  expect(2);
+  assert.expect(2);
 
   this.set('emberFreestyle.showLabels', false);
 
@@ -68,7 +69,7 @@ test('it does not render the title if the guide is set to not show labels', func
 });
 
 test('it renders the passed in block', function(assert) {
-  expect(1);
+  assert.expect(1);
 
   this.render(hbs`
     {{#freestyle-usage 'componentA'}}
@@ -80,7 +81,7 @@ test('it renders the passed in block', function(assert) {
 });
 
 test('it renders the notes snippets', function(assert) {
-  expect(4);
+  assert.expect(4);
   this.set('emberFreestyle.showNotes', true);
 
   this.set('emberFreestyle.snippets', notesSnippets);
@@ -98,13 +99,13 @@ test('it renders the notes snippets', function(assert) {
 });
 
 test('it renders only the notes snippets that have content', function(assert) {
-  expect(4);
+  assert.expect(4);
   this.set('emberFreestyle.showNotes', true);
 
   let incompleteNotesSnippets = {
-    'componentA_notes.js': 'JS notes for component A',
-    // no content for 'componentA_notes.hbs'
-    'componentA_notes.scss': 'SCSS notes for component A'
+    'componentA--notes.js': 'JS notes for component A',
+    // no content for 'componentA--notes.hbs'
+    'componentA--notes.scss': 'SCSS notes for component A'
   };
   this.set('emberFreestyle.snippets', incompleteNotesSnippets);
 
@@ -121,7 +122,7 @@ test('it renders only the notes snippets that have content', function(assert) {
 });
 
 test('it does not render the notes snippets if the guide is set to not show notes', function(assert) {
-  expect(1);
+  assert.expect(1);
   this.set('emberFreestyle.showNotes', false);
 
   this.set('emberFreestyle.snippets', notesSnippets);
@@ -136,7 +137,7 @@ test('it does not render the notes snippets if the guide is set to not show note
 });
 
 test('it renders the code snippets', function(assert) {
-  expect(5);
+  assert.expect(5);
   this.set('emberFreestyle.showCode', true);
 
   this.set('emberFreestyle.snippets', codeSnippets);
@@ -155,11 +156,11 @@ test('it renders the code snippets', function(assert) {
 });
 
 test('it renders only the code snippets that have content', function(assert) {
-  expect(5);
+  assert.expect(5);
   this.set('emberFreestyle.showCode', true);
 
   let incompleteCodeSnippets = {
-    'componentA_usage.hbs': 'HBS USAGE for component A',
+    'componentA--usage.hbs': 'HBS USAGE for component A',
     'componentA.hbs': 'HBS code for component A',
     // no content for 'componentA.js'
     'componentA.scss': 'SCSS code for component A'
@@ -180,7 +181,7 @@ test('it renders only the code snippets that have content', function(assert) {
 });
 
 test('it does not render the code snippets if the guide is set to not show code', function(assert) {
-  expect(1);
+  assert.expect(1);
   this.set('emberFreestyle.showCode', false);
 
   this.set('emberFreestyle.snippets', codeSnippets);
@@ -195,7 +196,7 @@ test('it does not render the code snippets if the guide is set to not show code'
 });
 
 test('it does not render anything if slug does not match the focus', function(assert) {
-  expect(4);
+  assert.expect(4);
 
   this.set('emberFreestyle.snippets', allSnippets);
   this.set('emberFreestyle.showCode', true);
@@ -215,4 +216,50 @@ test('it does not render anything if slug does not match the focus', function(as
   assert.equal(usage.numFocusButtons, 0);
   assert.equal(usage.numCodeSection, 0);
   assert.equal(usage.numNotesSection, 0);
+});
+
+test('it falls back to the defaultTheme for notes and code snippets if a highlightJsTheme argument is not provided', function(assert) {
+  assert.expect(7);
+
+  this.set('emberFreestyle.snippets', allSnippets);
+  this.set('emberFreestyle.showCode', true);
+  this.set('emberFreestyle.showNotes', true);
+
+  this.set('emberFreestyle.defaultTheme', 'zenburn');
+
+  this.render(hbs`
+    {{#freestyle-usage 'componentA'}}
+      hello from component A
+    {{/freestyle-usage}}
+    `);
+
+  let noteSnippets = usage.notesSection.snippets().toArray();
+  let codeSnippets = usage.usageSection.snippets().toArray();
+  noteSnippets.concat(codeSnippets).forEach((snippet) => {
+    assert.ok(snippet.isZenburn);
+  });
+
+});
+
+test('it uses the passed in highlightJsTheme', function(assert) {
+  assert.expect(7);
+
+  this.set('emberFreestyle.snippets', allSnippets);
+  this.set('emberFreestyle.showCode', true);
+  this.set('emberFreestyle.showNotes', true);
+
+  this.set('emberFreestyle.defaultTheme', 'zenburn');
+
+  this.render(hbs`
+    {{#freestyle-usage 'componentA' highlightJsTheme='solarized-light'}}
+      hello from component A
+    {{/freestyle-usage}}
+    `);
+
+  let noteSnippets = usage.notesSection.snippets().toArray();
+  let codeSnippets = usage.usageSection.snippets().toArray();
+  noteSnippets.concat(codeSnippets).forEach((snippet) => {
+    assert.ok(snippet.isSolarizedLight);
+  });
+
 });
