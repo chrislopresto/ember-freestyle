@@ -7,5 +7,5 @@ moduleForComponent('freestyle-dynamic', 'Integration | Component | freestyle dyn
 
 test('it renders', function(assert) {
   this.render(hbs`{{freestyle-dynamic}}`);
-  assert.equal(this.$().text().trim(), 'Dynamic Properties:');
+  assert.ok(this.$().text().includes('Dynamic Properties:'));
 });
