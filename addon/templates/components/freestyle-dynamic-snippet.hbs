@@ -1,0 +1,5 @@
+<pre class="handlebars hljs cs">&#123;&#123;{{componentName}}
+  {{#each-in dynamicProperties as |propertyName propertyHash|~}}
+    &#160;&#160;{{propertyName}}=<span class="hljs-keyword">{{propertyHash.value}}</span>
+  {{/each-in}}
+&#125;&#125;</pre>

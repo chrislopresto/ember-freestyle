@@ -80,7 +80,11 @@
 
   {{#freestyle-section name='Dynamic Properties' as |section|}}
     {{#freestyle-dynamic dynamicProperties=dynamicProperties}}
-      {{#freestyle-usage 'dynamic-properties' title='Dynamic Properties'}}
+      {{#freestyle-usage 'dynamic-properties'
+        title='Dynamic Properties'
+        isDynamic=true
+        componentName='x-bar'
+        dynamicProperties=dynamicProperties}}
         {{x-bar title=dynamicProperties.title.value
                 description=dynamicProperties.description.value
                 showBorder=dynamicProperties.showBorder.value

@@ -23,7 +23,13 @@
   <div class="FreestyleUsage-rendered">
     {{yield}}
   </div>
-  {{#if hasCode}}
+  {{#if isDynamic}}
+    {{freestyle-dynamic-snippet
+      computedTheme=computedTheme
+      componentName=componentName
+      dynamicProperties=dynamicProperties
+    }}
+  {{else if hasCode}}
     <div class="FreestyleUsage-usage">
       <div class="FreestyleUsage-snippet FreestyleUsage-snippet--{{computedTheme}}">
         {{freestyle-snippet name=snippetUsage title=usageTitle}}
