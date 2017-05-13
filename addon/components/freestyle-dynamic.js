@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/freestyle-dynamic';
 
-const { computed: { alias } } = Ember;
+const { computed: { reads } } = Ember;
 let dynamicProperties;
 
 export default Ember.Component.extend({
@@ -19,7 +19,7 @@ export default Ember.Component.extend({
     Object.keys(dynamicProperties).forEach((propertyName) => {
       this.set(
         propertyName,
-        alias(`freestyleDynamicProperties.${propertyName}.value`)
+        reads(`freestyleDynamicProperties.${propertyName}.value`)
       );
     });
   }
