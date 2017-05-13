@@ -16,5 +16,8 @@
   componentName=componentName
   dynamicProperties=dynamicProperties
 }}
-  {{yield}}
+  {{component componentName
+    isCalledByEmberFreestyleDynamic=true
+    getAttrsFromEmberFreestyleDynamic=getAttrsFromEmberFreestyleDynamic
+  }}
 {{/freestyle-usage}}

@@ -7,5 +7,5 @@ export default Ember.Component.extend({
   description: 'Default Description',
   showBorder: true,
   isVisible: true,
-  isTasteful: false,
+  isTasteful: false
 });
