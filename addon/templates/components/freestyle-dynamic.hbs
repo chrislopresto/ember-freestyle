@@ -10,9 +10,11 @@
   </form>
 {{/freestyle-annotation}}
 
-{{freestyle-usage slug
+{{#freestyle-usage slug
   title=title
   isDynamic=true
   componentName=componentName
   dynamicProperties=dynamicProperties
 }}
+  {{yield}}
+{{/freestyle-usage}}
