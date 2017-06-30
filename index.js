@@ -52,7 +52,7 @@ module.exports = {
   treeForAddonStyles: function() {
     var addonStyles = new Funnel(path.join(__dirname, 'addon/styles'));
 
-    var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
+    var highlightJsTree = new Funnel(new unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
       srcDir: '/styles',
       destDir: '/ember-freestyle/highlight.js',
       files: [
