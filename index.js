@@ -8,7 +8,7 @@ var flatiron = require('broccoli-flatiron');
 var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
 
 var Funnel = require('broccoli-funnel');
-var unwatchedTree  = require('broccoli-unwatched-tree');
+var UnwatchedDir = require('broccoli-source').UnwatchedDir;
 
 module.exports = {
   name: 'ember-freestyle',
@@ -52,7 +52,7 @@ module.exports = {
   treeForAddonStyles: function() {
     var addonStyles = new Funnel(path.join(__dirname, 'addon/styles'));
 
-    var highlightJsTree = new Funnel(unwatchedTree(path.dirname(require.resolve('highlight.js/package.json'))), {
+    var highlightJsTree = new Funnel(new UnwatchedDir(path.dirname(require.resolve('highlight.js/package.json'))), {
       srcDir: '/styles',
       destDir: '/ember-freestyle/highlight.js',
       files: [
