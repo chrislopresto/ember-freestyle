@@ -8,18 +8,6 @@
     }
   }
 
-  &--zenburn {
-    @import '../ember-freestyle/highlight.js/zenburn';
-  }
-
-  &--solarized-light {
-    @import '../ember-freestyle/highlight.js/solarized-light';
-  }
-
-  &--monokai-sublime {
-    @import '../ember-freestyle/highlight.js/monokai-sublime';
-  }
-
   h1,
   h2,
   h3,
