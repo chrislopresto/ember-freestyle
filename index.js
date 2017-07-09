@@ -1,14 +1,9 @@
 /* eslint-env node */
 'use strict';
 var mergeTrees = require('broccoli-merge-trees');
-var stew = require('broccoli-stew');
-var path = require('path');
 var fs   = require('fs');
 var flatiron = require('broccoli-flatiron');
 var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
-
-var Funnel = require('broccoli-funnel');
-var UnwatchedDir = require('broccoli-source').UnwatchedDir;
 
 module.exports = {
   name: 'ember-freestyle',
@@ -47,23 +42,6 @@ module.exports = {
       return freestyleOptions.snippetSearchPaths || ['app'];
     }
     return ['app'];
-  },
-
-  treeForAddonStyles: function() {
-    var addonStyles = new Funnel(path.join(__dirname, 'addon/styles'));
-
-    var highlightJsTree = new Funnel(new UnwatchedDir(path.dirname(require.resolve('highlight.js/package.json'))), {
-      srcDir: '/styles',
-      destDir: '/ember-freestyle/highlight.js',
-      files: [
-        'zenburn.css',
-        'solarized-light.css',
-        'monokai-sublime.css'
-      ]
-    });
-    highlightJsTree = stew.rename(highlightJsTree, '.css', '.scss');
-
-    return mergeTrees([highlightJsTree, addonStyles]);
   },
 
   included: function(/*app, parentAddon*/) {
