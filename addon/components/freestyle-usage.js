@@ -50,6 +50,10 @@ let FreestyleUsage = Ember.Component.extend({
   hasNotes: computed.and('showNotes', 'slug'),
   hasCode: computed.and('showCode', 'slug'),
 
+  didInsertElement() {
+    this.get('emberFreestyle').ensureHljsTheme(this.get('computedTheme'));
+  },
+
   actions: {
     setFocus() {
       this.set('emberFreestyle.focus', this.get('slug'));

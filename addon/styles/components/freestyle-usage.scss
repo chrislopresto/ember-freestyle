@@ -31,18 +31,6 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
         padding: .5rem 1rem;
       }
     }
-
-    &--zenburn {
-      @import '../ember-freestyle/highlight.js/zenburn';
-    }
-
-    &--solarized-light {
-      @import '../ember-freestyle/highlight.js/solarized-light';
-    }
-
-    &--monokai-sublime {
-      @import '../ember-freestyle/highlight.js/monokai-sublime';
-    }
   }
 
   &--inline {
