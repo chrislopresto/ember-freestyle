@@ -124,19 +124,19 @@ By default, variants will be stacked. If you wish to view variants side by side,
     {{#freestyle-usage "foo-foo-no-num" title="Information"}}
       {{foo-foo title="Information"}}
     {{/freestyle-usage}}
-  {{/freestyle-variant}}
+  {{/collection.variant}}
 
   {{#collection.variant key="with-num"}}
     {{#freestyle-usage "foo-foo-people" title="People"}}
       {{foo-foo title="People" num=55}}
     {{/freestyle-usage}}
-  {{/freestyle-variant}}
+  {{/collection.variant}}
 
   {{#collection.variant key="with-icon"}}
     {{#freestyle-usage "foo-foo-twitter" title="Twitter"}}
       {{foo-foo title="Twitter" icon="twitter"}}
     {{/freestyle-usage}}
-  {{/freestyle-variant}}
+  {{/collection.variant}}
 {{/freestyle-collection}}
 ```
 
