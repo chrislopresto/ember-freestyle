@@ -1,6 +1,23 @@
-@import 'reset';
-@import 'mixins';
-@import 'palette';
+html,
+body {
+  font-size: 16px;
+}
 
-@import 'site';
-@import 'components/all';
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: inherit;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+@import 'components/x-foo';
