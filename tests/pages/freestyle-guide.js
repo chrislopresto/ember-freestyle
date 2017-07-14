@@ -8,7 +8,7 @@ import PageObject, {
 } from 'ember-cli-page-object';
 
 export default PageObject.create({
-  visit: visitable('/'),
+  visit: visitable('/acceptance'),
 
   header: {
     scope: '.FreestyleGuide-header',
