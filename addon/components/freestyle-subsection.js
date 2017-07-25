@@ -6,7 +6,7 @@ const { computed, inject } = Ember;
 export default Ember.Component.extend({
   layout,
   classNames: ['FreestyleSubsection'],
-
+  classNameBindings: ['show:enabled:disabled'],
   emberFreestyle: inject.service(),
   show: computed('section', 'emberFreestyle.section', 'emberFreestyle.subsection', 'name', function() {
     let focusedSection = this.get('emberFreestyle.section');
