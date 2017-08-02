@@ -1,8 +1,7 @@
 import PageObject, {
   text,
   count,
-  collection,
-  hasClass
+  collection
 } from 'ember-cli-page-object';
 
 export default PageObject.create({
@@ -17,11 +16,6 @@ export default PageObject.create({
     scope: '.FreestyleUsage-notes',
     snippets: collection({
       itemScope: '.FreestyleUsage-snippet',
-
-      item: {
-        isZenburn: hasClass('FreestyleUsage-snippet--zenburn'),
-        isSolarizedLight: hasClass('FreestyleUsage-snippet--solarized-light')
-      }
     })
   },
 
@@ -29,11 +23,6 @@ export default PageObject.create({
     scope: '.FreestyleUsage-usage',
     snippets: collection({
       itemScope: '.FreestyleUsage-snippet',
-
-      item: {
-        isZenburn: hasClass('FreestyleUsage-snippet--zenburn'),
-        isSolarizedLight: hasClass('FreestyleUsage-snippet--solarized-light')
-      }
     })
   }
 

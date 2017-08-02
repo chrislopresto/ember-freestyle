@@ -7,7 +7,11 @@
   {{freestyle-variant-list
     variants=variants
     activeKey=activeKey
-    onClickVariant=(action 'setKey')
+    onClickVariant=(action "setKey")
   }}
 {{/if}}
-{{yield this}}
+{{yield
+  (hash
+    variant=(component "freestyle-variant" collection=this)
+  )
+}}

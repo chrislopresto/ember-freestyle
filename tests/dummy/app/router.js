@@ -7,6 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('acceptance');
+  this.route('documentation', {
+    path: '/'
+  });
 });
 
 export default Router;

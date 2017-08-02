@@ -1,15 +1,13 @@
-# Ember Freestyle 
+# Ember Freestyle
 
 [![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
-[![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle) 
+[![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle)
 ![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
 
 Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
 
 [Documentation found here](http://ember-freestyle.com/)
-
-*This is a work in progress. Collaboration is welcomed.*
 
 ## Live Demo
 
@@ -88,17 +86,18 @@ Optionally divide your style guide sections into subsections using the `freestyl
 
 ```hbs
 {{#freestyle-guide title="My Living Style Guide" subtitle="Showcasing My App's Components"}}
-  {{#freestyle-section name='Visual Style' as |section|}}
-    {{#freestyle-subsection name='Typography' section=section}}
-      {{#freestyle-usage 'visual-style-typography-foo' title='Foo Typography'}}
+  {{#freestyle-section name="Visual Style" as |section|}}
+    {{#section.subsection name="Typography"}}
+      {{#freestyle-usage "visual-style-typography-foo" title="Foo Typography"}}
         {{x-foo-typography}}
       {{/freestyle-usage}}
-    {{/freestyle-subsection}}
-    {{#freestyle-subsection name='Colors' section=section}}
-      {{#freestyle-usage 'visual-style-colors-fie' title='Fie Colors'}}
+    {{/section.subsection}}
+
+    {{#section.subsection name="Colors"}}
+      {{#freestyle-usage "visual-style-colors-fie" title='Fie Colors'}}
         {{x-fie-colors}}
       {{/freestyle-usage}}
-    {{/freestyle-subsection}}
+    {{/section.subsection}}
   {{/freestyle-section}}
 {{/freestyle-guide}}
 ```
@@ -120,24 +119,24 @@ By default, variants will be stacked. If you wish to view variants side by side,
 `freestyle-collection` to true.
 
 ```hbs
-{{#freestyle-collection title='Foo Component In Every State' defaultKey='with-icon' inline=true as |collection|}}
-  {{#freestyle-variant collection=collection key='no-num'}}
+{{#freestyle-collection title="Foo Component In Every State" defaultKey="with-icon" inline=true as |collection|}}
+  {{#collection.variant key="no-num"}}
     {{#freestyle-usage "foo-foo-no-num" title="Information"}}
       {{foo-foo title="Information"}}
     {{/freestyle-usage}}
-  {{/freestyle-variant}}
+  {{/collection.variant}}
 
-  {{#freestyle-variant collection=collection key='with-num'}}
+  {{#collection.variant key="with-num"}}
     {{#freestyle-usage "foo-foo-people" title="People"}}
       {{foo-foo title="People" num=55}}
     {{/freestyle-usage}}
-  {{/freestyle-variant}}
+  {{/collection.variant}}
 
-  {{#freestyle-variant collection=collection key='with-icon'}}
+  {{#collection.variant key="with-icon"}}
     {{#freestyle-usage "foo-foo-twitter" title="Twitter"}}
       {{foo-foo title="Twitter" icon="twitter"}}
     {{/freestyle-usage}}
-  {{/freestyle-variant}}
+  {{/collection.variant}}
 {{/freestyle-collection}}
 ```
 
@@ -196,7 +195,7 @@ module.exports = function(defaults) {
 
 ### Dependency Configuration
 
-You should include Ember Freestyle as a devDependency so that apps using your addon will not include 
+You should include Ember Freestyle as a devDependency so that apps using your addon will not include
 Ember Freestyle CSS and JavaScript in their production payloads.
 
 ### Code Snippets

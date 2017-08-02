@@ -1,6 +1,6 @@
 {
   "name": "ember-freestyle",
-  "version": "0.4.1",
+  "version": "0.6.1",
   "description": "Create a living styleguide for your Ember app.",
   "keywords": [
     "ember-addon"
@@ -20,19 +20,15 @@
   },
   "dependencies": {
     "broccoli-flatiron": "0.0.0",
-    "broccoli-funnel": "^1.0.1",
     "broccoli-merge-trees": "^2.0.0",
-    "broccoli-stew": "^1.2.0",
-    "broccoli-unwatched-tree": "^0.1.1",
     "broccoli-writer": "^0.1.1",
     "ember-cli-babel": "^6.0.0",
     "ember-cli-htmlbars": "^1.3.0",
     "ember-cli-sass": "^6.1.3",
-    "ember-cli-showdown": "^3.1.0",
+    "ember-cli-showdown": "^3.2.1",
     "ember-runtime-enumerable-includes-polyfill": "^2.0.0",
     "es6-promise": "^4.1.0",
-    "glob": "^7.1.1",
-    "highlight.js": "^9.3.0"
+    "glob": "^7.1.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -53,12 +49,10 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
-    "ember-normalize": "1.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.13.0",
     "eslint-config-ember": "0.3.0",
-    "loader.js": "^4.2.3",
-    "normalize.css": "^6.0.0"
+    "loader.js": "^4.2.3"
   },
   "engines": {
     "node": ">= 4"
