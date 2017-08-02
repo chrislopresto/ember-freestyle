@@ -3,12 +3,18 @@
 module.exports = {
   name: require('./package').name,
 
-  included(/*app, parentAddon*/) {
-    this._super.included.apply(this, arguments);
-  },
-
   isDevelopingAddon() {
     return false;
+  },
+
+  included: function(app, parentAddon) {
+    this._super.included.apply(this, arguments);
+    // support for nested addon
+    // see: https://github.com/ember-cli/ember-cli/issues/3718
+    var target = parentAddon || app;
+    if (!this.app && target.app) {
+      this.app = target.app;
+    }
   },
 
   setupPreprocessorRegistry(type, registry) {
