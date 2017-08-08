@@ -24,13 +24,13 @@ $FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1, 0 2px 10px 0 $Fr
   }
 
   &-header {
-    align-items: top;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: solid 1px $FreestyleGuide-color--secondary;
     padding: .5rem 1rem;
   }
 
   &-cta {
-    align-self: center;
     cursor: pointer;
     display: inline-block;
     flex-basis: 20px;
@@ -45,7 +45,6 @@ $FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1, 0 2px 10px 0 $Fr
   }
 
   &-titleContainer {
-    flex-grow: 1;
     padding: 0 1rem;
     text-align: center;
   }
