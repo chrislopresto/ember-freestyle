@@ -5,7 +5,8 @@ import Ember from 'ember';
 
 // Stub freestyle service
 const FreestyleStub = Ember.Service.extend({
-  highlight: function() {}
+  highlight: function() {},
+  ensureHljsTheme: function() {}
 });
 
 let notesSnippets = {
@@ -216,50 +217,4 @@ test('it does not render anything if slug does not match the focus', function(as
   assert.equal(usage.numFocusButtons, 0);
   assert.equal(usage.numCodeSection, 0);
   assert.equal(usage.numNotesSection, 0);
-});
-
-test('it falls back to the defaultTheme for notes and code snippets if a highlightJsTheme argument is not provided', function(assert) {
-  assert.expect(7);
-
-  this.set('emberFreestyle.snippets', allSnippets);
-  this.set('emberFreestyle.showCode', true);
-  this.set('emberFreestyle.showNotes', true);
-
-  this.set('emberFreestyle.defaultTheme', 'zenburn');
-
-  this.render(hbs`
-    {{#freestyle-usage 'componentA'}}
-      hello from component A
-    {{/freestyle-usage}}
-    `);
-
-  let noteSnippets = usage.notesSection.snippets().toArray();
-  let codeSnippets = usage.usageSection.snippets().toArray();
-  noteSnippets.concat(codeSnippets).forEach((snippet) => {
-    assert.ok(snippet.isZenburn);
-  });
-
-});
-
-test('it uses the passed in highlightJsTheme', function(assert) {
-  assert.expect(7);
-
-  this.set('emberFreestyle.snippets', allSnippets);
-  this.set('emberFreestyle.showCode', true);
-  this.set('emberFreestyle.showNotes', true);
-
-  this.set('emberFreestyle.defaultTheme', 'zenburn');
-
-  this.render(hbs`
-    {{#freestyle-usage 'componentA' highlightJsTheme='solarized-light'}}
-      hello from component A
-    {{/freestyle-usage}}
-    `);
-
-  let noteSnippets = usage.notesSection.snippets().toArray();
-  let codeSnippets = usage.usageSection.snippets().toArray();
-  noteSnippets.concat(codeSnippets).forEach((snippet) => {
-    assert.ok(snippet.isSolarizedLight);
-  });
-
 });

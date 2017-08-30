@@ -1,0 +1,95 @@
+{{doc-nav}}
+<div class="container is-fluid content">
+  <p>
+    Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
+  </p>
+  <p>
+    <a href="https://travis-ci.org/chrislopresto/ember-freestyle" title="Travis Build Status"><img src="https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master"></a>
+    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Package Version"><img src="https://badge.fury.io/js/ember-freestyle.svg"></a>
+    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Download Count"><img src="https://img.shields.io/npm/dt/ember-freestyle.svg"></a>
+    <a href="http://emberobserver.com/addons/ember-freestyle" title="Ember Observer Score"><img src="https://emberobserver.com/badges/ember-freestyle.svg"></a>
+  </p>
+  <hr>
+
+  <h2>Live Demo</h2>
+
+  The acceptance tests are run against a {{#link-to 'acceptance'}}live demo{{/link-to}}.
+
+  <h2>Anatomy of a Basic Freestyle Guide</h2>
+
+  <p>
+    Here is a simple style guide, where <code>\{{loading-spinner}}</code> is a hypothetical component <strong>in your application</strong>.
+  </p>
+
+  <pre><code>
+\{{#freestyle-guide title="My Living Style Guide" subtitle="Showcasing My App's Components"}}
+  \{{#freestyle-section name="UI Elements"}}
+    \{{#freestyle-usage "loading-spinner" title="Loading Spinner"}}
+      \{{loading-spinner}}
+    \{{/freestyle-usage}}
+  \{{/freestyle-section}}
+\{{/freestyle-guide}}
+  </code></pre>
+
+  <h2>Living Style Guide Driven Development</h2>
+
+  <p>
+    Ember Freestyle facilitates a living style guide driven development approach for Ember apps. Chris LoPresto gave a talk on
+    this topic at EmberConf 2016. <a href="http://chrislopresto.com/presentations/living-style-guide-driven-development?ph=900&pw=1600">Interactive Slides</a>
+  </p>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Z1lL_Zo62h0" frameborder="0" allowfullscreen></iframe>
+
+  <h2>Acknowledgements</h2>
+
+  <p>
+    Ember Freestyle would not be possible without inspiration from the Ember community at large. Specific thanks go out to:
+  </p>
+
+  <ul>
+    <li>
+      <a href="https://github.com/lukemelia">Luke Melia</a> and <a href="https://github.com/yapplabs">Yapp Labs</a> for underlying
+      concepts and addonification
+    </li>
+    <li>
+      <a href="https://github.com/ef4/ember-code-snippet">Ember Code Snippet</a> for the snippet extraction technique
+    </li>
+  </ul>
+
+  <h2>Getting Started</h2>
+
+  <h3>Installation</h3>
+
+  <p>
+    This installation process is opinionated in order to get you going quickly. We want to make everything much easier to use
+    in the near future. Please report any problems, and as always, PRs are welcome.
+  </p>
+
+  <h3>Installing Ember Freestyle</h3>
+
+  <pre><code class="language-sh">ember install ember-freestyle
+  </code></pre>
+
+  <p>This will do the following:</p>
+
+  <ul>
+    <li>Install the <code>ember-freestyle</code> addon itself</li>
+    <li>Add a <code>freestyle</code> template in your app</li>
+    <li>Add a <code>freestyle</code> controller in your app</li>
+  </ul>
+
+  <p><em>Note:</em> Ember CLI versions before 0.2.3 should use <code>ember install:addon</code> instead of <code>ember install</code></p>
+
+  <h3>Setup</h3>
+
+  <h4>Routing the Generated Freestyle Guide</h4>
+
+  <p>If you said yes to the prompts from the generator above, you are almost ready to display a Freestyle Guide in your app.</p>
+
+  <ol>
+    <li>Add <code>this.route('freestyle');</code> to your <code>router.js</code> file</li>
+    <li>Navigate to <code>/freestyle</code>.</li>
+  </ol>
+
+  <p><em>Note:</em> Ember Freestyle is compatible with two trailing Ember LTS releases.</p>
+</div>
