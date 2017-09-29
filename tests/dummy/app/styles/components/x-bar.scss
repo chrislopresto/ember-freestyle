@@ -7,10 +7,18 @@
   font-size: .9rem;
   max-width: 90%;
   padding: 20px;
-  width: 290px;
+  width: 20em;
+
+  &--small {
+    font-size: .6rem;
+  }
+
+  &--large {
+    font-size: 1.4rem;
+  }
 
   &-title {
-    font-size: 1.4rem;
+    font-size: 1.5em;
     font-weight: bold;
   }
 
@@ -24,7 +32,7 @@
 
   &-description {
     border: solid 1px #89daff;
-    font-size: .8rem;
+    font-size: .9em;
     padding: 10px;
   }
 

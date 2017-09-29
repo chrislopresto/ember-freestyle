@@ -9,8 +9,15 @@ export default Ember.Component.extend({
 
   isCheckbox: equal('inputType', 'checkbox'),
   isTextarea: equal('inputType', 'textarea'),
+  isSelect: equal('inputType', 'select'),
 
   inputId: computed('propertyName',  function () {
     return `${this.get('elementId')}_${this.get('propertyName')}`;
-  })
+  }),
+
+  actions: {
+    changeSelectOption(newValue) {
+      this.set('value', newValue);
+    }
+  }
 });

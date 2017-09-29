@@ -5,6 +5,12 @@
   {{input type='checkbox' checked=value id=inputId}}
 {{else if isTextarea}}
   {{textarea value=value id=inputId rows=5 cols=40}}
+{{else if isSelect}}
+  <select onchange={{action 'changeSelectOption' value='target.value'}}>
+    {{#each options as |option|}}
+      {{freestyle-dynamic-input-select-option selectedValue=value optionValue=option}}
+    {{/each}}
+  </select>
 {{else}}
   {{input value=value id=inputId}}
 {{/if}}

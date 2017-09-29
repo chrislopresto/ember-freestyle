@@ -15,6 +15,15 @@ export default FreestyleController.extend({
       value: 'Dynamic Description',
       inputType: 'textarea'
     },
+    size: {
+      value: 'medium',
+      inputType: 'select',
+      options: [
+        'small',
+        'medium',
+        'large'
+      ]
+    },
     isVisible: {
       value: true,
       inputType: 'checkbox'
