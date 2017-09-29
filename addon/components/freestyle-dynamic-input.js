@@ -16,8 +16,13 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    changeSelectOption(newValue) {
-      this.set('value', newValue);
+    toggleCheckbox() {
+      let newValue = !this.get('value');
+      this.attrs.changeValueTo(newValue);
+      return false;
+    },
+    sendChangedValue(newValue) {
+      this.attrs.changeValueTo(newValue);
     }
   }
 });
