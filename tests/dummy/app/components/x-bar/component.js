@@ -8,5 +8,5 @@ export default Ember.Component.extend({
   size: 'medium',
   showBorder: true,
   isVisible: true,
-  isTasteful: false
+  isTasteful: false,
 });
