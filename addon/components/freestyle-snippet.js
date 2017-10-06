@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/freestyle-snippet';
 
-const { computed, inject } = Ember;
+const { computed, inject, get } = Ember;
 
 const LANGUAGES = {
   js: 'javascript',
@@ -15,7 +15,10 @@ const LANGUAGES = {
 export default Ember.Component.extend({
   layout,
   unindent: true,
+  initialHighlightComplete: false,
+  useDoubleQuotesForStrings: false,
   emberFreestyle: inject.service(),
+  dynamicProperties: computed(() => {}),
 
   _unindent(snippet) {
     if (!this.get('unindent')) {
@@ -36,12 +39,43 @@ export default Ember.Component.extend({
     return unindentedSnippet;
   },
 
-  source: computed('name', function() {
-    return this._unindent(
+  _dynamafy(snippet) {
+    let dynamicProperties = this.get('dynamicProperties');
+    Object.keys(dynamicProperties).forEach((property) => {
+      let propertyValue = get(dynamicProperties, `${property}.value`);
+
+      let type = typeof propertyValue;
+      let quote = this.get('useDoubleQuotesForStrings') ? `"` : `'`;
+      let renderedValue = type === 'string' ? `${quote}${propertyValue}${quote}` : propertyValue;
+      snippet = snippet.replace(`dynamic.${property}`, renderedValue);
+    })
+
+    return snippet;
+  },
+
+  source: computed('dynamicProperties', 'name', function() {
+    let source = this._unindent(
       (this.get('emberFreestyle.snippets')[this.get('name')] || '')
         .replace(/^(\s*\n)*/, '')
         .replace(/\s*$/, '')
     );
+
+    if (this.get('isDynamic')) {
+      source = this._dynamafy(source);
+    }
+
+    if (this.get('initialHighlightComplete')) {
+      let pre = this.$('pre');
+
+      if (pre[0]) {
+        // highlight.js breaks binding, so we need to manually reset the innerText on changes
+        pre[0].innerText = source;
+        // ...and then do the syntax highlighting again
+        this.get('emberFreestyle').highlight(pre[0]);
+      }
+    }
+
+    return source;
   }),
 
   didInsertElement() {
@@ -49,6 +83,7 @@ export default Ember.Component.extend({
     if (pre[0] && this.get('source')) {
       this.get('emberFreestyle').highlight(pre[0]);
     }
+    this.set('initialHighlightComplete', true);
   },
 
   language: computed('name', function() {

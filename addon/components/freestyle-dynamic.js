@@ -24,8 +24,11 @@ export default Ember.Component.extend({
 
   actions: {
     changeValueTo(property, newValue) {
-      this.set(`dynamicProperties.${property}.value`, newValue);
-      this.notifyPropertyChange('dynamicPropertyValues');
+      // Make a copy and then reset dynamicProperties, to force template changes
+      let dynamicProperties = Ember.assign({}, this.get('dynamicProperties'));
+      set(dynamicProperties, `${property}.value`, newValue);
+
+      this.set('dynamicProperties', dynamicProperties);
     }
   }
 }).reopenClass({
