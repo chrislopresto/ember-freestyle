@@ -43,9 +43,12 @@ export default Ember.Component.extend({
     let dynamicProperties = this.get('dynamicProperties');
     Object.keys(dynamicProperties).forEach((property) => {
       let propertyValue = get(dynamicProperties, `${property}.value`);
-
       let type = typeof propertyValue;
       let quote = this.get('useDoubleQuotesForStrings') ? `"` : `'`;
+
+      // First, replace in-block dynamic properties
+      snippet = snippet.replace(`{{dynamic.${property}}}`, propertyValue);
+
       let renderedValue = type === 'string' ? `${quote}${propertyValue}${quote}` : propertyValue;
       snippet = snippet.replace(`dynamic.${property}`, renderedValue);
     })

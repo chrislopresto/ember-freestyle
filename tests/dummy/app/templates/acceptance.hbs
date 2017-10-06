@@ -85,14 +85,20 @@
       componentName='x-bar'
       as |dynamic|
     }}
-      {{x-bar
-        title=dynamic.title
-        description=dynamic.description
+      {{#x-bar
+        title='Just a static title'
         size=dynamic.size
-        showBorder=dynamic.showBorder
+        showBorder=true
         isVisible=dynamic.isVisible
         isTasteful=dynamic.isTasteful
       }}
+        <p>{{dynamic.blockContent}}</p>
+        <p>Static block content</p>
+        <p>
+          Reference another dynamic prop in block:
+          is tasteful: {{dynamic.isTasteful}}
+        </p>
+      {{/x-bar}}
     {{/freestyle-dynamic}}
   {{/freestyle-section}}
 

@@ -8,11 +8,8 @@ export default FreestyleController.extend({
   showCode: computed.alias('emberFreestyle.showCode'),
 
   dynamicProperties: {
-    title: {
-      value: 'Dynamic Title'
-    },
-    description: {
-      value: 'Dynamic Description',
+    blockContent: {
+      value: 'Dynamic Block Content',
       inputType: 'textarea'
     },
     size: {
@@ -27,11 +24,6 @@ export default FreestyleController.extend({
     isVisible: {
       value: true,
       inputType: 'checkbox'
-    },
-    showBorder: {
-      value: true,
-      inputType: 'checkbox',
-      description: 'Used to determine if the border is showing'
     },
     isTasteful: {
       value: false,
