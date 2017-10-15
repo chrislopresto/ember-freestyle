@@ -27,40 +27,41 @@ function findFiles(srcDir) {
 }
 
 function extractHbsComponentSnippets(fileContent, componentName, ui) {
-  var matched = false;
-  var inside = false;
-  var content = [];
-  var output = {};
+  var processingSnippet = false;
+  var insideOpeningTag = false;
+  var snippetLines = [];
+  var snippets = {};
   var name;
   fileContent.split("\n").forEach(function(line) {
-    if (matched) {
-      if (inside) {
-        // Test for start of closing curlies {{/
+    if (processingSnippet) {
+      if (insideOpeningTag) {
+        // Test for start of closing curlies {{/freestyle-usage
         if (new RegExp('\\{\\{\\/' + componentName).test(line)) {
-          matched = false;
-          inside = false;
-          output[name] = content.join("\n");
-          content = [];
+          processingSnippet = false;
+          insideOpeningTag = false;
+          snippets[name] = snippetLines.join("\n");
+          snippetLines = [];
         } else {
-          content.push(line);
+          snippetLines.push(line);
         }
       } else {
-        inside = line.indexOf('}}') >= 0; // curlies closed }}
+        insideOpeningTag = line.indexOf('}}') >= 0; // curlies closed }}
       }
     } else {
-      // Test for start of opening curlies {{#freestyle-usage 'name'
+      // Test for start of opening curlies {{#freestyle-usage 'human-readable-name'
       var m = new RegExp('\\{\\{#' + componentName + '\\s+[\'|"](\\S+)[\'|"].*').exec(line);
       if (m) {
-        matched = true;
-        inside = m[0].indexOf('}}') >= 0; // curlies closed }}
+        processingSnippet = true;
+        insideOpeningTag = m[0].indexOf('}}') >= 0; // curlies closed }}
+        // Extract snippet positional name param via regex match
         name = m[1];
         // TODO: Cleanup freestyle-notes vs freestyle-usage disambiguation here
         if (name.indexOf('--notes') >= 0) {
-          if (output[name]) {
+          if (snippets[name]) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
           }
         } else {
-          if (output[name + '--usage']) {
+          if (snippets[name + '--usage']) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
           }
           name += '--usage';
@@ -68,7 +69,7 @@ function extractHbsComponentSnippets(fileContent, componentName, ui) {
       }
     }
   });
-  return output;
+  return snippets;
 }
 
 function extractCommentSnippets(fileContent) {
