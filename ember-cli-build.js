@@ -1,8 +1,10 @@
 /* eslint-env node */
+'use strict';
+
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
-  var app = new EmberAddon(defaults, {
+  let app = new EmberAddon(defaults, {
     // Add options here
     autoprefixer: {
       browsers: ['last 2 version', '> 10%'],
