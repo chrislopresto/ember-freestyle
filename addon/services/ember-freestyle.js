@@ -22,6 +22,7 @@ export default Ember.Service.extend({
 
   hljsVersion: '9.12.0',
   hljsPromise: null,
+  hljsLanguagePromises: {},
 
   hljsUrl() {
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/highlight.min.js`;
@@ -29,6 +30,10 @@ export default Ember.Service.extend({
 
   hljsThemeUrl(theme) {
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/styles/${theme}.min.css`;
+  },
+
+  hljsLanguageUrl(language) {
+    return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/languages/${language}.min.js`;
   },
 
   ensureHljs() {
@@ -60,6 +65,17 @@ export default Ember.Service.extend({
     link.setAttribute('data-hljs-theme', `${theme}`);
 
     document.head.appendChild(link);
+  },
+
+  ensureHljsLanguage(language) {
+    if (!this.hljsLanguagePromises[language]) {
+      this.hljsLanguagePromises[language] = new Promise((resolve) => {
+        return Ember.$.getScript(this.hljsLanguageUrl(language)).done((script) => {
+          resolve(script);
+        })
+      });
+    }
+    return this.hljsLanguagePromises[language];
   },
 
   // menu - tree structure of named sections with named subsections

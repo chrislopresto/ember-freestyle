@@ -27,4 +27,14 @@ p {
   margin-bottom: .5rem;
 }
 
+.content {
+  pre {
+    padding: 0;
+  }
+
+  code {
+    padding: 0 1.5em;
+  }
+}
+
 @import 'components/x-foo';
