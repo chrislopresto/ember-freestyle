@@ -7,11 +7,13 @@
 
 Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
 
-[Documentation found here](http://ember-freestyle.com/)
+## Documentation
+
+This README provides a lightweight overview of Ember Freestyle to get you going. More complete documentation can be found at http://ember-freestyle.com/
 
 ## Live Demo
 
-http://chrislopresto.github.io/ember-freestyle/
+To see Ember Freestyle in action, visit http://ember-freestyle.com/#/acceptance
 
 ## Supported Ember versions
 
@@ -20,7 +22,7 @@ http://chrislopresto.github.io/ember-freestyle/
 
 ## Installation
 
-This installation process is opinionated in order to get you going quickly. We want to make everything much easier to use in the near future. Please report any problems, and as always, PRs are welcome.
+This installation process is opinionated in order to get you going quickly.
 
 1. `ember install ember-freestyle`
 
@@ -34,7 +36,16 @@ This installation process is opinionated in order to get you going quickly. We w
 
 1. Add `this.route('freestyle');` to your `router.js` file
 1. Navigate to `/freestyle`. You should now see something like:
+
     ![](doc/freestyle-generated.png)
+
+All of the generated output is optional. If you don't want a `freestyle` route, for example, feel free to get rid of it in and add a `freestyle-guide` somewhere else in your app.
+
+You can use the `freestyle-guide` component anywhere you'd like in your app. You can organize your components into multiple Freestyle guides if you want to. You can even use the constituent components like `freestyle-usage` on their own.
+
+## Problems? No problem.
+
+Hopefully the installation instructions got you off to a smooth, seamless start. If you have any problems, feel free to chat with us in the `e-freestyle` channel in the [Ember Community Slack](https://embercommunity.slack.com) or [open an issue](https://github.com/chrislopresto/ember-freestyle/issues/new). As always, PRs are welcome!
 
 ## Introduction
 
@@ -212,13 +223,6 @@ var app = new EmberAddon(defaults, {
   }
 });
 ```
-
-## Generating the Changelog
-
-This project uses [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) to generate its changelog.
-
-`github_changelog_generator --future-release=x.y.z`
-
 ## Running
 
 * `ember serve`
@@ -235,3 +239,7 @@ This project uses [https://github.com/skywinder/github-changelog-generator](http
 * `ember build`
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+## Releasing
+
+If you are a project maintainer, run `./script/release [major|minor|patch]` to release a new version of this addon. We use  [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) under the hood to generate the changelog.
