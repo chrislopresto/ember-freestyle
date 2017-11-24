@@ -21,6 +21,10 @@ export default FreestyleController.extend({
         'large'
       ]
     },
+    rank: {
+      value: 10,
+      inputType: 'number'
+    },
     isVisible: {
       value: true,
       inputType: 'checkbox'

@@ -10,6 +10,7 @@ export default Ember.Component.extend({
   isCheckbox: equal('inputType', 'checkbox'),
   isTextarea: equal('inputType', 'textarea'),
   isSelect: equal('inputType', 'select'),
+  isNumber: equal('inputType', 'number'),
 
   inputId: computed('propertyName',  function () {
     return `${this.get('elementId')}_${this.get('propertyName')}`;
