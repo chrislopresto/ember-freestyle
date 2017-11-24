@@ -6,6 +6,7 @@ const { computed, set } = Ember;
 export default Ember.Component.extend({
   layout,
   classNames: ['FreestyleDynamic'],
+  headerTitle: 'Dynamic Properties:',
 
   // Need this separate property for freestyle-dynamic's dynamic.<property> to work
   dynamicPropertyValues: computed('dynamicProperties', function () {
