@@ -27,7 +27,7 @@
     type='number'
     value=value
     id=inputId
-    input=(action 'sendChangedValue' value='target.value')
+    input=(action 'sendChangedNumberValue' value='target.value')
   }}
 {{else}}
   {{input value=value id=inputId key-up=(action 'sendChangedValue')}}

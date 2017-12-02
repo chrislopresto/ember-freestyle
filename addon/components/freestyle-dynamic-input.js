@@ -24,6 +24,10 @@ export default Ember.Component.extend({
     },
     sendChangedValue(newValue) {
       this.attrs.changeValueTo(newValue);
+    },
+    sendChangedNumberValue(newValue) {
+      let coercedValue = newValue === '' ? null : Number(newValue);
+      this.attrs.changeValueTo(coercedValue);
     }
   }
 });
