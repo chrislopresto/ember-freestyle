@@ -45,7 +45,7 @@ export default Ember.Component.extend({
   }),
 
   didInsertElement() {
-    let pre = this.$('pre');
+    let pre = this.get('element').getElementsByTagName('pre');
     if (pre[0] && this.get('source')) {
       this.get('emberFreestyle').highlight(pre[0]);
     }

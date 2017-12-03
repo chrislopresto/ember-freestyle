@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   emberFreestyle: inject.service(),
 
   didInsertElement() {
-    let pre = this.$('pre');
+    let pre = this.get('element').getElementsByTagName('pre');
     if (pre[0]) {
       this.get('emberFreestyle').highlight(pre[0]);
     }

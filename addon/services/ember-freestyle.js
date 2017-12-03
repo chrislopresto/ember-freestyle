@@ -39,9 +39,12 @@ export default Ember.Service.extend({
   ensureHljs() {
     if (!this.hljsPromise) {
       this.hljsPromise = new Promise((resolve) => {
-        return Ember.$.getScript(this.hljsUrl()).done((script) => {
-          resolve(script);
-        })
+        let src = this.hljsUrl();
+        let script = document.createElement('script');
+        script.type = 'application/javascript';
+        script.src = src;
+        script.onload = resolve;
+        document.body.appendChild(script);
       });
     }
     return this.hljsPromise;
@@ -54,7 +57,7 @@ export default Ember.Service.extend({
   },
 
   ensureHljsTheme(theme) {
-    if (Ember.$(`[data-hljs-theme=${theme}]`)[0]) {
+    if (document.querySelector(`[data-hljs-theme=${theme}]`)) {
       return;
     }
 
@@ -70,9 +73,12 @@ export default Ember.Service.extend({
   ensureHljsLanguage(language) {
     if (!this.hljsLanguagePromises[language]) {
       this.hljsLanguagePromises[language] = new Promise((resolve) => {
-        return Ember.$.getScript(this.hljsLanguageUrl(language)).done((script) => {
-          resolve(script);
-        })
+        let src = this.hljsLanguageUrl(language);
+        let script = document.createElement('script');
+        script.type = 'application/javascript';
+        script.src = src;
+        script.onload = resolve;
+        document.body.appendChild(script);
       });
     }
     return this.hljsLanguagePromises[language];
