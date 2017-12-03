@@ -1,5 +1,7 @@
 # Ember Freestyle
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/chrislopresto/ember-freestyle.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
 [![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle)
 ![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
