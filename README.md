@@ -102,6 +102,16 @@ var app = new EmberAddon(defaults, {
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
+## Rebuilding styles
+
+```javascript
+// install node-sass
+$ npm i -g node-sass
+
+// build .css file from .scss definition
+$ node-sass addon/styles/addon.scss app/styles/freestyle.css
+```
+
 ## Releasing
 
 If you are a project maintainer, run `./script/release [major|minor|patch]` to release a new version of this addon. We use  [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) under the hood to generate the changelog.
