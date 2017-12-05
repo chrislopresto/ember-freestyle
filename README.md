@@ -34,8 +34,30 @@ This installation process is opinionated in order to get you going quickly.
 
     *Note:* Ember CLI versions < 0.2.3 should use `ember install:addon` instead of `ember install`
 
-1. Add `this.route('freestyle');` to your `router.js` file
-1. Navigate to `/freestyle`. You should now see something like:
+2. Add `this.route('freestyle');` to your `router.js` file
+3. (optional) Include stylesheets
+
+  3.1 to your app build pipeline by modyfying `ember-cli-build.js`:
+
+  ```javascript
+  // ember-cli-build.js
+  let freestyleStyles = pickFiles('node_modules/ember-freestyle/app/styles/', {
+    srcDir: '/',
+    destDir: '/assets/'
+  });
+
+  return app.toTree([freestyleStyles]);
+  ```
+
+  3.2
+
+  Add your style in your template (globally it would be `app/index.html`, but it is better to add it only in place where you are actually use it).
+
+  ```html
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/freestyle.css">
+  ```
+
+4. Navigate to `/freestyle`. You should now see something like:
 
     ![](doc/freestyle-generated.png)
 
