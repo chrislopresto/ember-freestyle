@@ -62,7 +62,7 @@
     "configPath": "tests/dummy/config",
     "demoURL": "http://chrislopresto.github.io/ember-freestyle/",
     "versionCompatibility": {
-      "ember": ">= 2.8.0"
+      "ember": ">= 2.4.0"
     }
   }
 }
