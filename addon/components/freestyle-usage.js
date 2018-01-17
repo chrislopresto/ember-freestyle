@@ -5,9 +5,11 @@ const { computed, inject } = Ember;
 
 let FreestyleUsage = Ember.Component.extend({
   layout,
+  attributeBindings: ['id'],
   classNames: ['FreestyleUsage'],
   classNameBindings: ['inline:FreestyleUsage--inline'],
   emberFreestyle: inject.service(),
+  id: computed.alias('slug'),
   showLabels: computed.alias('emberFreestyle.showLabels'),
   showNotes: computed.alias('emberFreestyle.showNotes'),
   showCode: computed.alias('emberFreestyle.showCode'),
