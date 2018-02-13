@@ -1,4 +1,3 @@
-/* eslint-env node */
 module.exports = {
   useYarn: true,
   scenarios: [
@@ -20,36 +19,19 @@ module.exports = {
     },
     {
       name: 'ember-lts-2.8',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#lts-2-8'
-        },
-        resolutions: {
-          'ember': 'lts-2-8'
-        }
-      },
       npm: {
         devDependencies: {
-          'ember-native-dom-event-dispatcher': null,
-          'ember-source': null
+          "ember-native-dom-event-dispatcher": null,
+          "ember-source": "~2.12.0"
         }
       }
     },
     {
-      name: 'ember-lts-2.12',
+      name: "ember-lts-2.16",
       npm: {
         devDependencies: {
-          'ember-native-dom-event-dispatcher': null,
-          'ember-source': '~2.12.0'
-        }
-      }
-    },
-    {
-      name: 'ember-lts-2.16',
-      npm: {
-        devDependencies: {
-          'ember-native-dom-event-dispatcher': null,
-          'ember-source': '~2.16.0'
+          "ember-native-dom-event-dispatcher": null,
+          "ember-source": "~2.16.0"
         }
       }
     },
@@ -64,54 +46,30 @@ module.exports = {
     },
     {
       name: 'ember-release',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#release'
-        },
-        resolutions: {
-          'ember': 'release'
-        }
-      },
       npm: {
         devDependencies: {
-          'ember-source': null
+          "ember-source": null
         }
       }
     },
     {
-      name: 'ember-beta',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#beta'
-        },
-        resolutions: {
-          'ember': 'beta'
-        }
-      },
+      name: "ember-beta",
       npm: {
         devDependencies: {
-          'ember-source': null
+          "ember-source": null
         }
       }
     },
     {
-      name: 'ember-canary',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#canary'
-        },
-        resolutions: {
-          'ember': 'canary'
-        }
-      },
+      name: "ember-canary",
       npm: {
         devDependencies: {
-          'ember-source': null
+          "ember-source": null
         }
       }
     },
     {
-      name: 'ember-default',
+      name: "ember-default",
       npm: {
         devDependencies: {}
       }

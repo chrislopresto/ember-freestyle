@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-let FreestyleNote = Ember.Component.extend({
+let FreestyleNote = Component.extend({
   classNames: ['FreestyleNote']
 });
 

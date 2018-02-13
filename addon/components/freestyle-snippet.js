@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
+import { computed, get } from '@ember/object';
 import layout from '../templates/components/freestyle-snippet';
 
-const { computed, inject, get } = Ember;
 
 const LANGUAGES = {
   js: 'javascript',
@@ -12,12 +13,12 @@ const LANGUAGES = {
   md: 'markdown'
 };
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   unindent: true,
   initialHighlightComplete: false,
   useDoubleQuotesForStrings: false,
-  emberFreestyle: inject.service(),
+  emberFreestyle: service(),
   dynamicProperties: computed(() => {}),
 
   _unindent(snippet) {

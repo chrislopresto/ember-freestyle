@@ -11,24 +11,24 @@ moduleForAcceptance('Acceptance | section rendering', {
 test('verifying guide sections', (assert) => {
   assert.expect(4);
   andThen(() => {
-    assert.equal(freestyleGuide.content.sections().count, 3);
-    assert.equal(freestyleGuide.content.sections(0).text, 'Foo Things');
+    assert.equal(freestyleGuide.content.sections.length, 3);
+    assert.equal(freestyleGuide.content.sections.objectAt(0).text, 'Foo Things');
     assert.equal(freestyleGuide.content.sections(1).text, 'Dynamic Properties');
-    assert.equal(freestyleGuide.content.sections(2).text, 'Visual Style');
+    assert.equal(freestyleGuide.content.sections.objectAt(2).text, 'Visual Style');
   });
 });
 
 test('verifying guide subsections', (assert) => {
   assert.expect(6);
   andThen(() => {
-    let sectionFooThings = freestyleGuide.content.sections(0);
-    assert.equal(sectionFooThings.subsections().count, 2);
-    assert.equal(sectionFooThings.subsections(0).text, 'Foo Subsection A');
-    assert.equal(sectionFooThings.subsections(1).text, 'Foo Subsection B');
+    let sectionFooThings = freestyleGuide.content.sections.objectAt(0);
+    assert.equal(sectionFooThings.subsections.length, 2);
+    assert.equal(sectionFooThings.subsections.objectAt(0).text, 'Foo Subsection A');
+    assert.equal(sectionFooThings.subsections.objectAt(1).text, 'Foo Subsection B');
 
-    let sectionVisualStyle = freestyleGuide.content.sections(2);
-    assert.equal(sectionVisualStyle.subsections().count, 2);
-    assert.equal(sectionVisualStyle.subsections(0).text, 'Typography');
-    assert.equal(sectionVisualStyle.subsections(1).text, 'Color');
+    let sectionVisualStyle = freestyleGuide.content.sections.objectAt(2);
+    assert.equal(sectionVisualStyle.subsections.length, 2);
+    assert.equal(sectionVisualStyle.subsections.objectAt(0).text, 'Typography');
+    assert.equal(sectionVisualStyle.subsections.objectAt(1).text, 'Color');
   });
 });

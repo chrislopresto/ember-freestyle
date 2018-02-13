@@ -1,23 +1,24 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { alias } from '@ember/object/computed';
+import { schedule } from '@ember/runloop';
+import Component from '@ember/component';
+import { capitalize } from '@ember/string';
 import layout from '../templates/components/freestyle-usage-controls';
 
-const { computed, inject } = Ember;
-const { capitalize } = Ember.String;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: '',
-  emberFreestyle: inject.service(),
-  showLabels: computed.alias('emberFreestyle.showLabels'),
-  showNotes: computed.alias('emberFreestyle.showNotes'),
-  showCode: computed.alias('emberFreestyle.showCode'),
+  emberFreestyle: service(),
+  showLabels: alias('emberFreestyle.showLabels'),
+  showNotes: alias('emberFreestyle.showNotes'),
+  showCode: alias('emberFreestyle.showCode'),
 
   showHeader: true,
   showFocus: true,
 
   didInsertElement() {
     this._super(...arguments);
-    Ember.run.schedule('afterRender', () => {
+    schedule('afterRender', () => {
       this.set('focus', this.get('emberFreestyle.focus'));
     });
   },

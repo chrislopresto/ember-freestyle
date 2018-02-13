@@ -1,10 +1,11 @@
+import { merge } from '@ember/polyfills';
+import Service from '@ember/service';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import usage from '../../../pages/usage-component';
-import Ember from 'ember';
 
 // Stub freestyle service
-const FreestyleStub = Ember.Service.extend({
+const FreestyleStub = Service.extend({
   highlight: function() {},
   ensureHljsTheme: function() {}
 });
@@ -22,7 +23,7 @@ let codeSnippets = {
   'componentA.scss': 'SCSS code for component A'
 };
 
-let allSnippets = Ember.merge(notesSnippets, codeSnippets);
+let allSnippets = merge(notesSnippets, codeSnippets);
 
 moduleForComponent('freestyle-usage', 'Integration | Component | freestyle usage', {
   integration: true,
@@ -93,10 +94,10 @@ test('it renders the notes snippets', function(assert) {
     {{/freestyle-usage}}
     `);
 
-  assert.equal(usage.notesSection.snippets().count, 3);
-  assert.equal(usage.notesSection.snippets(0).text, 'JS notes for component A');
-  assert.equal(usage.notesSection.snippets(1).text, 'HBS notes for component A');
-  assert.equal(usage.notesSection.snippets(2).text, 'SCSS notes for component A');
+  assert.equal(usage.notesSection.snippets.length, 3);
+  assert.equal(usage.notesSection.snippets.objectAt(0).text, 'JS notes for component A');
+  assert.equal(usage.notesSection.snippets.objectAt(1).text, 'HBS notes for component A');
+  assert.equal(usage.notesSection.snippets.objectAt(2).text, 'SCSS notes for component A');
 });
 
 test('it renders only the notes snippets that have content', function(assert) {
@@ -116,10 +117,10 @@ test('it renders only the notes snippets that have content', function(assert) {
     {{/freestyle-usage}}
     `);
 
-  assert.equal(usage.notesSection.snippets().count, 3);
-  assert.equal(usage.notesSection.snippets(0).text, 'JS notes for component A');
-  assert.equal(usage.notesSection.snippets(1).text, '');
-  assert.equal(usage.notesSection.snippets(2).text, 'SCSS notes for component A');
+  assert.equal(usage.notesSection.snippets.length, 3);
+  assert.equal(usage.notesSection.snippets.objectAt(0).text, 'JS notes for component A');
+  assert.equal(usage.notesSection.snippets.objectAt(1).text, '');
+  assert.equal(usage.notesSection.snippets.objectAt(2).text, 'SCSS notes for component A');
 });
 
 test('it does not render the notes snippets if the guide is set to not show notes', function(assert) {
@@ -149,11 +150,11 @@ test('it renders the code snippets', function(assert) {
     {{/freestyle-usage}}
     `);
 
-  assert.equal(usage.usageSection.snippets().count, 4);
-  assert.equal(usage.usageSection.snippets(0).text, 'HBS USAGE for component A');
-  assert.equal(usage.usageSection.snippets(1).text, 'HBS code for component A');
-  assert.equal(usage.usageSection.snippets(2).text, 'JS CODE for component A');
-  assert.equal(usage.usageSection.snippets(3).text, 'SCSS code for component A');
+  assert.equal(usage.usageSection.snippets.length, 4);
+  assert.equal(usage.usageSection.snippets.objectAt(0).text, 'HBS USAGE for component A');
+  assert.equal(usage.usageSection.snippets.objectAt(1).text, 'HBS code for component A');
+  assert.equal(usage.usageSection.snippets.objectAt(2).text, 'JS CODE for component A');
+  assert.equal(usage.usageSection.snippets.objectAt(3).text, 'SCSS code for component A');
 });
 
 test('it renders only the code snippets that have content', function(assert) {
@@ -174,11 +175,11 @@ test('it renders only the code snippets that have content', function(assert) {
     {{/freestyle-usage}}
     `);
 
-  assert.equal(usage.usageSection.snippets().count, 4);
-  assert.equal(usage.usageSection.snippets(0).text, 'HBS USAGE for component A');
-  assert.equal(usage.usageSection.snippets(1).text, 'HBS code for component A');
-  assert.equal(usage.usageSection.snippets(2).text, '');
-  assert.equal(usage.usageSection.snippets(3).text, 'SCSS code for component A');
+  assert.equal(usage.usageSection.snippets.length, 4);
+  assert.equal(usage.usageSection.snippets.objectAt(0).text, 'HBS USAGE for component A');
+  assert.equal(usage.usageSection.snippets.objectAt(1).text, 'HBS code for component A');
+  assert.equal(usage.usageSection.snippets.objectAt(2).text, '');
+  assert.equal(usage.usageSection.snippets.objectAt(3).text, 'SCSS code for component A');
 });
 
 test('it does not render the code snippets if the guide is set to not show code', function(assert) {

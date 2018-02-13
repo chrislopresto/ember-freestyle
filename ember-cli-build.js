@@ -1,22 +1,21 @@
-/* eslint-env node */
-'use strict';
+"use strict";
 
-const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
     autoprefixer: {
-      browsers: ['last 2 version', '> 10%'],
+      browsers: ["last 2 version", "> 10%"],
       cascade: false
     },
     freestyle: {
-      snippetSearchPaths: ['tests/dummy/app', 'addon/styles']
+      snippetSearchPaths: ["tests/dummy/app", "addon/styles"]
     }
   });
 
-  if (defaults.project.findAddonByName('ember-native-dom-event-dispatcher')) {
-    app.vendorFiles = { 'jquery.js': null };
+  if (defaults.project.findAddonByName("ember-native-dom-event-dispatcher")) {
+    app.vendorFiles = { "jquery.js": null };
   }
 
   /*

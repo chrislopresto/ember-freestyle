@@ -1,14 +1,13 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/freestyle-variant';
 
-const { computed } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleVariant'],
   classNameBindings: ['inline:FreestyleVariant--inline'],
 
-  inline: computed('collection.inline', 'collection.activeKey', function() {
+  inline: computed('collection.{inline,activeKey}', function() {
     let activeKey = this.get('collection.activeKey');
     return this.get('collection.inline') && (activeKey === 'all');
   }),

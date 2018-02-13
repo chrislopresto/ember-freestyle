@@ -1,11 +1,11 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { alias } from '@ember/object/computed';
+import { computed } from '@ember/object';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
-const { computed, inject } = Ember;
-
 export default FreestyleController.extend({
-  emberFreestyle: inject.service(),
-  showCode: computed.alias('emberFreestyle.showCode'),
+  emberFreestyle: service(),
+  showCode: alias('emberFreestyle.showCode'),
 
   dynamicProperties: {
     blockContent: {
@@ -60,7 +60,8 @@ export default Ember.Component.extend({
 ```
   END-FREESTYLE-USAGE */
 
-  colorPalette: {
+  colorPalette: computed(function(){
+    return {
     primary: {
       name: 'cyan',
       description: 'something toply cyanish',
@@ -85,12 +86,15 @@ export default Ember.Component.extend({
       name: 'white',
       base: '#ffffff'
     }
-  },
+  }
+  }),
 
   // BEGIN-FREESTYLE-USAGE fpi
-  color: {
+  color: computed(function(){
+    return {
     name: 'amber',
     base: '#ffc107'
   }
+  })
   // END-FREESTYLE-USAGE
 });
