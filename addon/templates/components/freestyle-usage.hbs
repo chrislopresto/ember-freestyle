@@ -23,10 +23,16 @@
   <div class="FreestyleUsage-rendered">
     {{yield}}
   </div>
+
   {{#if hasCode}}
     <div class="FreestyleUsage-usage">
       <div class="FreestyleUsage-snippet">
-        {{freestyle-snippet name=snippetUsage title=usageTitle}}
+        {{freestyle-snippet
+          name=snippetUsage
+          title=usageTitle
+          isDynamic=isDynamic
+          dynamicProperties=dynamicProperties
+        }}
       </div>
       <div class="FreestyleUsage-snippet">
         {{freestyle-snippet name=snippetHbs title=hbsTitle}}
