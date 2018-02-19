@@ -15,10 +15,16 @@ This README provides a lightweight overview of Ember Freestyle to get you going.
 
 To see Ember Freestyle in action, visit http://ember-freestyle.com/#/acceptance
 
-## Supported Ember versions
+## Compatibility & support
 
-- For Ember versions >= 2.8, use the latest published version
-- For Ember versions 1.13.0 through 2.7, use ember-freestyle 0.3.0
+### Compatibility
+
+- For Ember versions >= 2.4, use the latest published version
+- For Ember versions 1.13.0 through < 2.4, use ember-freestyle 0.3.0
+
+### Support
+
+Ember Freestyle support is only provided for the 2 latest Ember versions
 
 ## Installation
 
