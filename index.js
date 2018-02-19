@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 var mergeTrees = require('broccoli-merge-trees');
 var fs   = require('fs');
