@@ -1,9 +1,10 @@
-import Ember from 'ember';
+/* eslint-disable ember/no-attrs-in-components */
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { equal } from '@ember/object/computed';
 import layout from '../templates/components/freestyle-dynamic-input';
 
-const { computed, computed: { equal } } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleDynamic-input'],
 

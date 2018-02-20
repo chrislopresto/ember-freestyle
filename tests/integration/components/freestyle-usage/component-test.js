@@ -1,10 +1,11 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import Service from '@ember/service';
+import { merge } from '@ember/polyfills';
 import hbs from 'htmlbars-inline-precompile';
 import usage from '../../../pages/usage-component';
-import Ember from 'ember';
 
 // Stub freestyle service
-const FreestyleStub = Ember.Service.extend({
+const FreestyleStub = Service.extend({
   highlight: function() {},
   ensureHljsTheme: function() {}
 });
@@ -22,7 +23,7 @@ let codeSnippets = {
   'componentA.scss': 'SCSS code for component A'
 };
 
-let allSnippets = Ember.merge(notesSnippets, codeSnippets);
+let allSnippets = merge(notesSnippets, codeSnippets);
 
 moduleForComponent('freestyle-usage', 'Integration | Component | freestyle usage', {
   integration: true,

@@ -1,21 +1,23 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { and } from '@ember/object/computed';
+import { isBlank } from '@ember/utils';
 import layout from '../templates/components/freestyle-section';
 
-const { computed, inject } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleSection'],
   classNameBindings: ['show:FreestyleSection--showing:FreestyleSection--hidden'],
 
-  emberFreestyle: inject.service(),
+  emberFreestyle: service(),
   show: computed('emberFreestyle.section', 'name', function() {
     let focusedSection = this.get('emberFreestyle.section');
-    return Ember.isBlank(focusedSection) || (this.get('name') === focusedSection);
+    return isBlank(focusedSection) || (this.get('name') === focusedSection);
   }),
 
-  showName: computed.and('emberFreestyle.notFocused', 'name'),
-  hasName: computed.and('showName', 'name'),
+  showName: and('emberFreestyle.notFocused', 'name'),
+  hasName: and('showName', 'name'),
 
   willRender() {
     this._super(...arguments);

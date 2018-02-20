@@ -1,17 +1,20 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { and, not } from '@ember/object/computed';
+import { A } from '@ember/array';
+import { next } from '@ember/runloop';
 import layout from '../templates/components/freestyle-collection';
 
-const { computed, inject } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleCollection'],
   classNameBindings: ['inline:FreestyleCollection--inline'],
 
-  emberFreestyle: inject.service(),
-  showLabels: computed.and('emberFreestyle.notFocused', 'emberFreestyle.showLabels'),
-  hasLabels: computed.and('showLabels', 'title'),
-  showVariantList: computed.not('emberFreestyle.focus'),
+  emberFreestyle: service(),
+  showLabels: and('emberFreestyle.{notFocused,showLabels}'),
+  hasLabels: and('showLabels', 'title'),
+  showVariantList: not('emberFreestyle.focus'),
 
   defaultKey: 'all',
   activeKey: computed('defaultKey', 'key', 'emberFreestyle.focus', function() {
@@ -22,9 +25,9 @@ export default Ember.Component.extend({
   }),
 
   registerVariant(variantKey) {
-    Ember.run.next(() => {
+    next(() => {
       if (this.isDestroyed) { return; }
-      let variants = this.get('variants') || Ember.A(['all']);
+      let variants = this.get('variants') || A(['all']);
       if (!variants.includes(variantKey)) {
         variants.pushObject(variantKey);
       }

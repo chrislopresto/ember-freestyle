@@ -1,40 +1,41 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
-const { computed, inject } = Ember;
-
 export default FreestyleController.extend({
-  emberFreestyle: inject.service(),
+  emberFreestyle: service(),
   showCode: computed.alias('emberFreestyle.showCode'),
 
-  dynamicProperties: {
-    blockContent: {
-      value: 'Dynamic Block Content',
-      inputType: 'textarea'
-    },
-    size: {
-      value: 'medium',
-      inputType: 'select',
-      options: [
-        'small',
-        'medium',
-        'large'
-      ]
-    },
-    rank: {
-      value: 10,
-      inputType: 'number'
-    },
-    isVisible: {
-      value: true,
-      inputType: 'checkbox'
-    },
-    isTasteful: {
-      value: false,
-      inputType: 'checkbox',
-      description: 'Changes to a tasteful color scheme'
+  dynamicProperties: computed(function() {
+    return {
+      blockContent: {
+        value: 'Dynamic Block Content',
+        inputType: 'textarea'
+      },
+      size: {
+        value: 'medium',
+        inputType: 'select',
+        options: [
+          'small',
+          'medium',
+          'large'
+        ]
+      },
+      rank: {
+        value: 10,
+        inputType: 'number'
+      },
+      isVisible: {
+        value: true,
+        inputType: 'checkbox'
+      },
+      isTasteful: {
+        value: false,
+        inputType: 'checkbox',
+        description: 'Changes to a tasteful color scheme'
+      }
     }
-  },
+  }),
 
   /* BEGIN-FREESTYLE-USAGE fpi--notes
 ### A few notes regarding freestyle-palette-item
@@ -49,7 +50,7 @@ And another thing...
 ```
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Component.extend({
   // ...
   color: {
     name: 'amber',
@@ -60,37 +61,41 @@ export default Ember.Component.extend({
 ```
   END-FREESTYLE-USAGE */
 
-  colorPalette: {
-    primary: {
-      name: 'cyan',
-      description: 'something toply cyanish',
-      base: '#00bcd4',
-      light: '#b2ebf2',
-      dark: '#0097a7'
-    },
-    accent: {
-      name: 'amber',
-      base: '#ffc107'
-    },
-    secondary: {
-      name: 'greyish',
-      base: '#b6b6b6'
-    },
-    foreground: {
-      name: 'blackish',
-      base: '#212121',
-      light: '#727272'
-    },
-    background: {
-      name: 'white',
-      base: '#ffffff'
+  colorPalette: computed(function() {
+    return {
+      primary: {
+        name: 'cyan',
+        description: 'something toply cyanish',
+        base: '#00bcd4',
+        light: '#b2ebf2',
+        dark: '#0097a7'
+      },
+      accent: {
+        name: 'amber',
+        base: '#ffc107'
+      },
+      secondary: {
+        name: 'greyish',
+        base: '#b6b6b6'
+      },
+      foreground: {
+        name: 'blackish',
+        base: '#212121',
+        light: '#727272'
+      },
+      background: {
+        name: 'white',
+        base: '#ffffff'
+      }
     }
-  },
+  }),
 
   // BEGIN-FREESTYLE-USAGE fpi
-  color: {
-    name: 'amber',
-    base: '#ffc107'
-  }
+  color: computed(function() {
+    return {
+      name: 'amber',
+      base: '#ffc107'
+    }
+  })
   // END-FREESTYLE-USAGE
 });

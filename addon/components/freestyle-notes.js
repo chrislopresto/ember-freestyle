@@ -1,12 +1,12 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import layout from '../templates/components/freestyle-notes';
 
-const { computed, inject } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: '',
-  emberFreestyle: inject.service(),
+  emberFreestyle: service(),
 
   unindent: true,
 

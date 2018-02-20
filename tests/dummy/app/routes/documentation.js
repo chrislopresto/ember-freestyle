@@ -1,11 +1,9 @@
 /* global hljs */
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 
-const { inject } = Ember;
-
 export default Route.extend({
-  emberFreestyle: inject.service(),
+  emberFreestyle: service(),
 
   actions: {
     didTransition() {

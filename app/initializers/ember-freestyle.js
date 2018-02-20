@@ -4,7 +4,7 @@ import ENV from '../config/environment';
 function initialize() {
   const application = arguments[1] || arguments[0];
   let prefix = ENV.modulePrefix;
-  let freestyleModuleRegExp = new RegExp(`^${prefix}\/(snippets)`);
+  let freestyleModuleRegExp = new RegExp(`^${prefix}/(snippets)`);
 
   Object.keys(requirejs.entries).filter(function(key) {
     return freestyleModuleRegExp.test(key);

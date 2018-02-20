@@ -1,12 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 import layout from '../templates/components/freestyle-showdown-content';
 
-const { inject } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
-  emberFreestyle: inject.service(),
+  emberFreestyle: service(),
 
   didInsertElement() {
     let pre = this.get('element').getElementsByTagName('pre');

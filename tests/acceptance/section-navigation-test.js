@@ -1,4 +1,4 @@
-import { test } from 'qunit';
+import { test, andThen } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import freestyleGuide from '../pages/freestyle-guide';
 

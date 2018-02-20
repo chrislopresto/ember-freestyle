@@ -1,10 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { htmlSafe } from '@ember/string';
 import layout from '../templates/components/freestyle-typeface';
 
-const { computed } = Ember;
-const { htmlSafe } = Ember.String;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleTypeface'],
   attributeBindings: ['fontFamilyStyle:style'],

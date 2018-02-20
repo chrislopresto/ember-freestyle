@@ -1,10 +1,10 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import Service from '@ember/service';
 import hbs from 'htmlbars-inline-precompile';
 import usage from '../../../pages/usage-component';
-import Ember from 'ember';
 
 // Stub freestyle service
-const FreestyleStub = Ember.Service.extend({
+const FreestyleStub = Service.extend({
   defaultTheme: 'solarized-light',
   highlight: function() {}
 });

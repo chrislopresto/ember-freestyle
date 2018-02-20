@@ -1,16 +1,17 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { alias, and } from '@ember/object/computed';
 import layout from '../templates/components/freestyle-usage';
 
-const { computed, inject } = Ember;
-
-let FreestyleUsage = Ember.Component.extend({
+let FreestyleUsage = Component.extend({
   layout,
   classNames: ['FreestyleUsage'],
   classNameBindings: ['inline:FreestyleUsage--inline'],
-  emberFreestyle: inject.service(),
-  showLabels: computed.alias('emberFreestyle.showLabels'),
-  showNotes: computed.alias('emberFreestyle.showNotes'),
-  showCode: computed.alias('emberFreestyle.showCode'),
+  emberFreestyle: service(),
+  showLabels: alias('emberFreestyle.showLabels'),
+  showNotes: alias('emberFreestyle.showNotes'),
+  showCode: alias('emberFreestyle.showCode'),
   dynamicProperties: computed(() => {}),
   show: computed('emberFreestyle.focus', 'slug', function() {
     let slug = this.get('slug');
@@ -41,15 +42,15 @@ let FreestyleUsage = Ember.Component.extend({
   snippetNotesScss: computed('slug', function() {
     return `${this.get('slug')}--notes.scss`;
   }),
-  defaultTheme: computed.alias('emberFreestyle.defaultTheme'),
+  defaultTheme: alias('emberFreestyle.defaultTheme'),
   // highlightJsTheme - passed in
   computedTheme: computed('defaultTheme', 'highlightJsTheme', function() {
     return this.get('highlightJsTheme') || this.get('defaultTheme');
   }),
 
-  hasLabels: computed.and('showLabels', 'title'),
-  hasNotes: computed.and('showNotes', 'slug'),
-  hasCode: computed.and('showCode', 'slug'),
+  hasLabels: and('showLabels', 'title'),
+  hasNotes: and('showNotes', 'slug'),
+  hasCode: and('showCode', 'slug'),
 
   didInsertElement() {
     this.get('emberFreestyle').ensureHljsTheme(this.get('computedTheme'));

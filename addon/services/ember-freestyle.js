@@ -1,10 +1,11 @@
 /* global hljs */
-import Ember from 'ember';
+import { not } from '@ember/object/computed';
+import { isPresent } from '@ember/utils';
+import { A } from '@ember/array';
+import Service from '@ember/service';
+import { Promise } from 'rsvp';
 
-const { computed } = Ember;
-const { RSVP: { Promise } } = Ember;
-
-export default Ember.Service.extend({
+export default Service.extend({
   showLabels: true,
   showNotes: true,
   showCode: true,
@@ -18,11 +19,15 @@ export default Ember.Service.extend({
   subsection: null,
   focus: null,
 
-  notFocused: computed.not('focus'),
+  notFocused: not('focus'),
 
   hljsVersion: '9.12.0',
   hljsPromise: null,
-  hljsLanguagePromises: {},
+
+  init() {
+    this._super(...arguments);
+    this.hljsLanguagePromises = {}
+  },
 
   hljsUrl() {
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/highlight.min.js`;
@@ -87,14 +92,14 @@ export default Ember.Service.extend({
   // menu - tree structure of named sections with named subsections
 
   registerSection(sectionName, subsectionName = '') {
-    let menu = this.get('menu') || Ember.A([]);
+    let menu = this.get('menu') || A([]);
     if (!menu.filterBy('name', sectionName).length) {
       menu.push({
         name: sectionName,
-        subsections: Ember.A([])
+        subsections: A([])
       });
     }
-    if (Ember.isPresent(subsectionName)) {
+    if (isPresent(subsectionName)) {
       let section = menu.findBy('name', sectionName);
       if (!section.subsections.filterBy('name', subsectionName).length) {
         section.subsections.push({
