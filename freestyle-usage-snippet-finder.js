@@ -118,7 +118,7 @@ SnippetFinder.prototype.write = function (readTree, destDir) {
       var componentSnippets = naiveMerge(freestyleUsageSnippets, freestyleDynamicSnippets, freestyleNoteSnippets);
       var commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
       var snippets = naiveMerge(componentSnippets, commentSnippets);
-      for (var name in snippets){
+      for (var name in snippets) {
         fs.writeFileSync(path.join(destDir, name)+path.extname(filename),
                          snippets[name]);
       }

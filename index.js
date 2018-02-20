@@ -21,7 +21,7 @@ module.exports = {
     }).concat(snippets));
 
     snippets = flatiron(snippets, {
-      outputFile: 'snippets.js'
+      outputFile: 'freestyle-snippets.js'
     });
     treesToMerge.push(snippets);
 

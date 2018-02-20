@@ -12,6 +12,7 @@ export default Ember.Service.extend({
   showMenu: true,
 
   defaultTheme: 'zenburn',
+  snippets: computed.alias('freestyle-snippets'),
 
   // must be explicitly set to null here for (query-params s=null ss=null f=null) to work
   section: null,
