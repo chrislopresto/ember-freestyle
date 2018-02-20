@@ -19,70 +19,46 @@ export default PageObject.create({
   menu: {
     scope: '.FreestyleMenu',
 
-    sections: collection({
-      itemScope: '.FreestyleMenu-item',
+    sections: collection('.FreestyleMenu-item',{
+      text: text('.FreestyleMenu-itemLink'),
+      link: clickable('.FreestyleMenu-itemLink'),
 
-      item: {
-        text: text('.FreestyleMenu-itemLink'),
-        link: clickable('.FreestyleMenu-itemLink'),
+      subsections: collection('.FreestyleMenu-submenu',{
+        text: text('.FreestyleMenu-submenuItemLink'),
+        link: clickable('.FreestyleMenu-submenuItemLink')
+      })
 
-        subsections: collection({
-          itemScope: '.FreestyleMenu-submenu',
-
-          item: {
-            text: text('.FreestyleMenu-submenuItemLink'),
-            link: clickable('.FreestyleMenu-submenuItemLink')
-          }
-        })
-      }
     })
   },
 
   content: {
     scope: '.FreestyleGuide-content',
 
-    sections: collection({
-      itemScope: '.FreestyleSection',
+    sections: collection('.FreestyleSection',{
 
-      item: {
-        text: text('.FreestyleSection-name'),
+      text: text('.FreestyleSection-name'),
 
-        subsections: collection({
-          itemScope: '.FreestyleSubsection',
+      subsections: collection('.FreestyleSubsection',{
+        text: text('.FreestyleSubsection-name'),
+        collections: collection('.FreestyleCollection', {
 
-          item: {
-            text: text('.FreestyleSubsection-name'),
-            collections: collection({
-              itemScope: '.FreestyleCollection',
+          title: text('.FreestyleCollection-title'),
+          activeVariantListItemLabel: contains('.FreestyleCollection-variantListItem--active'),
 
-              item: {
-                title: text('.FreestyleCollection-title'),
-                activeVariantListItemLabel: contains('.FreestyleCollection-variantListItem--active'),
+          selectVariant: clickOnText('.FreestyleCollection-variantListItem'),
 
-                variantListItems: collection({
-                  itemScope: '.FreestyleCollection-variantListItem',
-                  selectVariant: clickOnText('.FreestyleCollection-variantListItem'),
+          variantListItems: collection('.FreestyleCollection-variantListItem',{
+            text: text()
+          }),
 
-                  item: {
-                    text: text()
-                  }
-                }),
-
-                variants: collection({
-                  itemScope: '.FreestyleVariant',
-
-                  item: {
-                    contains: contains(),
-                    usageTitle: text('.FreestyleUsage-title'),
-                    annotationContains: contains('.FreestyleAnnotation')
-                  }
-                })
-              }
-            })
-
-          }
+          variants: collection('.FreestyleVariant',{
+            contains: contains(),
+            usageTitle: text('.FreestyleUsage-title'),
+            annotationContains: contains('.FreestyleAnnotation')
+          })
         })
-      }
+      })
+
     })
   }
 

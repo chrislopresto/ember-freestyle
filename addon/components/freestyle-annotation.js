@@ -1,15 +1,15 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/freestyle-annotation';
 
-const { computed, inject } = Ember;
-
-let FreestyleAnnotation = Ember.Component.extend({
+let FreestyleAnnotation = Component.extend({
   layout,
   classNames: ['FreestyleAnnotation'],
   classNameBindings: ['showNotes:is-showing:is-hidden'],
 
-  emberFreestyle: inject.service(),
-  showNotes: computed('emberFreestyle.showNotes', 'emberFreestyle.focus', 'slug', function() {
+  emberFreestyle: service(),
+  showNotes: computed('emberFreestyle.{showNotes,focus}', 'slug', function() {
     let slug = this.get('slug');
     let focus = this.get('emberFreestyle.focus');
     if (focus && slug) {

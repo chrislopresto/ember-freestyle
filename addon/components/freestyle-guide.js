@@ -1,16 +1,16 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { alias } from '@ember/object/computed';
+import Component from '@ember/component';
 import layout from '../templates/components/freestyle-guide';
 
-const { inject, computed } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleGuide'],
 
-  emberFreestyle: inject.service(),
-  highlightJsTheme: computed.alias('emberFreestyle.defaultTheme'),
+  emberFreestyle: service(),
+  highlightJsTheme: alias('emberFreestyle.defaultTheme'),
 
-  showMenu: computed.alias('emberFreestyle.showMenu'),
+  showMenu: alias('emberFreestyle.showMenu'),
   showAside: false,
 
   actions: {

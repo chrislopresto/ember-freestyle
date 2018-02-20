@@ -1,15 +1,15 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/freestyle-palette';
 
-const { computed } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: '',
   layout,
   title: 'Freestyle Palette',
 
   colors: computed('colorPalette', function() {
-    return Ember.A(
+    return A(
       Object.keys(this.get('colorPalette')).map((k) => {
         return this.get('colorPalette')[k];
       })

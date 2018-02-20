@@ -14,16 +14,12 @@ export default PageObject.create({
 
   notesSection: {
     scope: '.FreestyleUsage-notes',
-    snippets: collection({
-      itemScope: '.FreestyleUsage-snippet',
-    })
+    snippets: collection('.FreestyleUsage-snippet')
   },
 
   usageSection: {
     scope: '.FreestyleUsage-usage',
-    snippets: collection({
-      itemScope: '.FreestyleUsage-snippet',
-    })
+    snippets: collection('.FreestyleUsage-snippet')
   }
 
 });

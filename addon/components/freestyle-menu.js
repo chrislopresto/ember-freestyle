@@ -1,12 +1,12 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { readOnly } from '@ember/object/computed';
+import Component from '@ember/component';
 import layout from '../templates/components/freestyle-menu';
 
-const { computed, inject } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: '',
 
-  emberFreestyle: inject.service(),
-  menu: computed.readOnly('emberFreestyle.menu')
+  emberFreestyle: service(),
+  menu: readOnly('emberFreestyle.menu')
 });

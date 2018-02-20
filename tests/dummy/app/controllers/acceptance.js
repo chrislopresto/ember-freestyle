@@ -1,40 +1,42 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { alias } from '@ember/object/computed';
+import { computed } from '@ember/object';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
-const { computed, inject } = Ember;
-
 export default FreestyleController.extend({
-  emberFreestyle: inject.service(),
-  showCode: computed.alias('emberFreestyle.showCode'),
+  emberFreestyle: service(),
+  showCode: alias('emberFreestyle.showCode'),
 
-  dynamicProperties: {
-    blockContent: {
-      value: 'Dynamic Block Content',
-      inputType: 'textarea'
-    },
-    size: {
-      value: 'medium',
-      inputType: 'select',
-      options: [
-        'small',
-        'medium',
-        'large'
-      ]
-    },
-    rank: {
-      value: 10,
-      inputType: 'number'
-    },
-    isVisible: {
-      value: true,
-      inputType: 'checkbox'
-    },
-    isTasteful: {
-      value: false,
-      inputType: 'checkbox',
-      description: 'Changes to a tasteful color scheme'
+  dynamicProperties: computed(function(){
+    return {
+      blockContent: {
+        value: 'Dynamic Block Content',
+        inputType: 'textarea'
+      },
+      size: {
+        value: 'medium',
+        inputType: 'select',
+        options: [
+          'small',
+          'medium',
+          'large'
+        ]
+      },
+      rank: {
+        value: 10,
+        inputType: 'number'
+      },
+      isVisible: {
+        value: true,
+        inputType: 'checkbox'
+      },
+      isTasteful: {
+        value: false,
+        inputType: 'checkbox',
+        description: 'Changes to a tasteful color scheme'
+      }
     }
-  },
+  }),
 
   /* BEGIN-FREESTYLE-USAGE fpi--notes
 ### A few notes regarding freestyle-palette-item
@@ -60,7 +62,8 @@ export default Ember.Component.extend({
 ```
   END-FREESTYLE-USAGE */
 
-  colorPalette: {
+  colorPalette: computed(function(){
+    return {
     primary: {
       name: 'cyan',
       description: 'something toply cyanish',
@@ -85,12 +88,15 @@ export default Ember.Component.extend({
       name: 'white',
       base: '#ffffff'
     }
-  },
+  }
+  }),
 
   // BEGIN-FREESTYLE-USAGE fpi
-  color: {
+  color: computed(function(){
+    return {
     name: 'amber',
     base: '#ffc107'
   }
+  })
   // END-FREESTYLE-USAGE
 });
