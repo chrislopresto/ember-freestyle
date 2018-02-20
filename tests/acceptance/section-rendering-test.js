@@ -13,7 +13,7 @@ test('verifying guide sections', (assert) => {
   andThen(() => {
     assert.equal(freestyleGuide.content.sections.length, 3);
     assert.equal(freestyleGuide.content.sections.objectAt(0).text, 'Foo Things');
-    assert.equal(freestyleGuide.content.sections(1).text, 'Dynamic Properties');
+    assert.equal(freestyleGuide.content.sections.objectAt(1).text, 'Dynamic Properties');
     assert.equal(freestyleGuide.content.sections.objectAt(2).text, 'Visual Style');
   });
 });

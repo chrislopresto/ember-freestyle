@@ -51,7 +51,7 @@
     "ember-load-initializers": "^1.0.0",
     "ember-native-dom-helpers": "^0.5.5",
     "ember-resolver": "^4.0.0",
-    "ember-source": "~2.12.0",
+    "ember-source": "~2.18.2",
     "eslint-config-ember": "0.3.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.0",

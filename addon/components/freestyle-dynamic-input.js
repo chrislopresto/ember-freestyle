@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed, get } from '@ember/object';
+import { equal } from '@ember/object/computed';
 import layout from '../templates/components/freestyle-dynamic-input';
 
-const { computed, computed: { equal } } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleDynamic-input'],
 
@@ -19,15 +19,15 @@ export default Ember.Component.extend({
   actions: {
     toggleCheckbox() {
       let newValue = !this.get('value');
-      this.attrs.changeValueTo(newValue);
+      get(this, '_changeValueTo')(newValue);
       return false;
     },
     sendChangedValue(newValue) {
-      this.attrs.changeValueTo(newValue);
+      get(this, '_changeValueTo')(newValue);
     },
     sendChangedNumberValue(newValue) {
       let coercedValue = newValue === '' ? null : Number(newValue);
-      this.attrs.changeValueTo(coercedValue);
+      get(this, '_changeValueTo')(coercedValue);
     }
   }
 });

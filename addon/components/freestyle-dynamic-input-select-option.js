@@ -1,9 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/freestyle-dynamic-input-select-option';
 
-const { computed } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: 'option',
   attributeBindings: ['optionValue:value', 'selected'],

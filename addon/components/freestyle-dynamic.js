@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import { assign } from '@ember/polyfills';
+import Component from '@ember/component';
+import { set, computed } from '@ember/object';
 import layout from '../templates/components/freestyle-dynamic';
 
-const { computed, set } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   classNames: ['FreestyleDynamic'],
   headerTitle: 'Dynamic Properties:',
@@ -26,7 +26,7 @@ export default Ember.Component.extend({
   actions: {
     changeValueTo(property, newValue) {
       // Make a copy and then reset dynamicProperties, to force template changes
-      let dynamicProperties = Ember.assign({}, this.get('dynamicProperties'));
+      let dynamicProperties = assign({}, this.get('dynamicProperties'));
       set(dynamicProperties, `${property}.value`, newValue);
 
       this.set('dynamicProperties', dynamicProperties);
