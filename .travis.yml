@@ -21,6 +21,7 @@ env:
   matrix:
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
     - EMBER_TRY_SCENARIO=ember-lts-2.16
     - EMBER_TRY_SCENARIO=ember-lts-2.18
     - EMBER_TRY_SCENARIO=ember-release
@@ -33,7 +34,6 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-lts-2.4
     - env: EMBER_TRY_SCENARIO=ember-lts-2.8
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.12
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
