@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
-    "ember-cli": "~2.16.2",
+    "ember-cli": "~3.0.0",
     "ember-cli-autoprefixer": "^0.7.0",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
