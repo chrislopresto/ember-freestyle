@@ -1,11 +1,13 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('freestyle-dynamic-input', 'Integration | Component | freestyle dynamic input', {
-  integration: true
-});
+module('Integration | Component | freestyle dynamic input', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders the property name', function(assert) {
-  this.render(hbs`{{freestyle-dynamic-input propertyName='title'}}`);
-  assert.equal(this.$().text().trim(), 'title:');
+  test('it renders the property name', async function(assert) {
+    await render(hbs`{{freestyle-dynamic-input propertyName='title'}}`);
+    assert.equal(this.$().text().trim(), 'title:');
+  });
 });
