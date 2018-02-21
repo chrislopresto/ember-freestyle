@@ -19,15 +19,15 @@ export default Component.extend({
   actions: {
     toggleCheckbox() {
       let newValue = !this.get('value');
-      get(this, '_changeValueTo')(newValue);
+      get(this, 'changeValueTo')(newValue);
       return false;
     },
     sendChangedValue(newValue) {
-      get(this, '_changeValueTo')(newValue);
+      get(this, 'changeValueTo')(newValue);
     },
     sendChangedNumberValue(newValue) {
       let coercedValue = newValue === '' ? null : Number(newValue);
-      get(this, '_changeValueTo')(coercedValue);
+      get(this, 'changeValueTo')(coercedValue);
     }
   }
 });
