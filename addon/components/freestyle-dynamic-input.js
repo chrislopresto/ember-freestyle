@@ -12,7 +12,7 @@ export default Component.extend({
   isSelect: equal('inputType', 'select'),
   isNumber: equal('inputType', 'number'),
 
-  inputId: computed('propertyName',  function () {
+  inputId: computed('propertyName',  function() {
     return `${this.get('elementId')}_${this.get('propertyName')}`;
   }),
 

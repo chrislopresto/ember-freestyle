@@ -6,7 +6,7 @@ var _Promise = require('es6-promise').Promise;
 var fs = require('fs');
 var path = require('path');
 
-function naiveMerge(obj1, obj2){
+function naiveMerge(obj1, obj2) {
   var obj3 = {};
   var prop;
   for (prop in obj1) { obj3[prop] = obj1[prop]; }
@@ -16,7 +16,7 @@ function naiveMerge(obj1, obj2){
 
 function findFiles(srcDir) {
   return new _Promise(function(resolve, reject) {
-    glob(path.join(srcDir, "**/*.+(js|hbs|css|scss|less)"), function (err, files) {
+    glob(path.join(srcDir, "**/*.+(js|hbs|css|scss|less)"), function(err, files) {
       if (err) {
         reject(err);
       } else {
@@ -77,7 +77,7 @@ function extractCommentSnippets(fileContent) {
   var content = [];
   var output = {};
   var name;
-  fileContent.split("\n").forEach(function(line){
+  fileContent.split("\n").forEach(function(line) {
     if (inside) {
       if (/\bEND-FREESTYLE-USAGE\b/.test(line)) {
         inside = false;
@@ -98,7 +98,7 @@ function extractCommentSnippets(fileContent) {
 }
 
 function SnippetFinder(inputTree, ui) {
-  if (!(this instanceof SnippetFinder)){
+  if (!(this instanceof SnippetFinder)) {
     return new SnippetFinder(inputTree, ui);
   }
   this.inputTree = inputTree;
@@ -108,7 +108,7 @@ function SnippetFinder(inputTree, ui) {
 SnippetFinder.prototype = Object.create(Writer.prototype);
 SnippetFinder.prototype.constructor = SnippetFinder;
 
-SnippetFinder.prototype.write = function (readTree, destDir) {
+SnippetFinder.prototype.write = function(readTree, destDir) {
   var self = this;
   return readTree(this.inputTree).then(findFiles).then(function(files) {
     files.forEach(function(filename) {
