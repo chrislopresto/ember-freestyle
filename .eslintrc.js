@@ -23,7 +23,12 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'prefer-const': 'off',
     'prefer-rest-params': 'off',
-    'space-before-function-paren': 'off'
+    'space-before-blocks': ['error', 'always'],
+    'space-before-function-paren': ['error', {
+      anonymous: 'never',
+      named: 'never',
+      asyncArrow: 'always'
+    }]
   },
   overrides: [
     // node files

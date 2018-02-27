@@ -7,7 +7,7 @@ export default Component.extend({
   tagName: 'option',
   attributeBindings: ['optionValue:value', 'selected'],
 
-  selected: computed('optionValue', 'selectedValue', function () {
+  selected: computed('optionValue', 'selectedValue', function() {
     return this.get('optionValue') === this.get('selectedValue');
   })
 });

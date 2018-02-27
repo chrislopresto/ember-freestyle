@@ -7,7 +7,7 @@ export default FreestyleController.extend({
   emberFreestyle: service(),
   showCode: alias('emberFreestyle.showCode'),
 
-  dynamicProperties: computed(function(){
+  dynamicProperties: computed(function() {
     return {
       blockContent: {
         value: 'Dynamic Block Content',
@@ -62,7 +62,7 @@ export default Ember.Component.extend({
 ```
   END-FREESTYLE-USAGE */
 
-  colorPalette: computed(function(){
+  colorPalette: computed(function() {
     return {
     primary: {
       name: 'cyan',
@@ -92,7 +92,7 @@ export default Ember.Component.extend({
   }),
 
   // BEGIN-FREESTYLE-USAGE fpi
-  color: computed(function(){
+  color: computed(function() {
     return {
     name: 'amber',
     base: '#ffc107'
