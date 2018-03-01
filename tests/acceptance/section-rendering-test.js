@@ -31,4 +31,15 @@ test('verifying guide subsections', (assert) => {
     assert.equal(sectionVisualStyle.subsections.objectAt(0).text, 'Typography');
     assert.equal(sectionVisualStyle.subsections.objectAt(1).text, 'Color');
   });
+
 });
+
+test('freestyle notes show up', (assert) => {
+  assert.expect(1);
+  andThen(() => {
+    let sectionFooThings = freestyleGuide.content.sections.objectAt(0);
+    let note = sectionFooThings.subsections.objectAt(0).collections.objectAt(0).variants.objectAt(0).noteContent[1];
+
+    assert.ok(note.includes('Another Note About Normal'));
+  })
+})

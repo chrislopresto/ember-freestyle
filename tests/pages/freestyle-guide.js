@@ -54,7 +54,8 @@ export default PageObject.create({
           variants: collection('.FreestyleVariant',{
             contains: contains(),
             usageTitle: text('.FreestyleUsage-title'),
-            annotationContains: contains('.FreestyleAnnotation')
+            annotationContains: contains('.FreestyleAnnotation'),
+            noteContent: text('.FreestyleNotes-content', { multiple: true })
           })
         })
       })
