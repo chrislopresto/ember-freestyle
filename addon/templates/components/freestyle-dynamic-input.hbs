@@ -29,6 +29,16 @@
     id=inputId
     input=(action 'sendChangedNumberValue' value='target.value')
   }}
+{{else if isRange}}
+  {{input
+    type='range'
+    id=inputId
+    min=min
+    max=max
+    input=(action 'sendChangedValue' value='target.value')
+    value=(readonly value)
+  }}
+  {{value}}
 {{else}}
   {{input value=value id=inputId key-up=(action 'sendChangedValue')}}
 {{/if}}
