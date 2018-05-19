@@ -15,7 +15,8 @@ export default Component.extend({
   innerBorderThicknessStyle: computed('innerBorderThickness', function() {
     const innerBorderThickness = this.get('innerBorderThickness');
 
-    if (innerBorderThickness) {
+    // allow 0
+    if (innerBorderThickness != null) {
       return htmlSafe(`border-width: ${innerBorderThickness}px`);
     } else {
       return '';
