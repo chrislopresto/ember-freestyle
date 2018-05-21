@@ -2,11 +2,13 @@ import { assign } from '@ember/polyfills';
 import Component from '@ember/component';
 import { set, computed } from '@ember/object';
 import layout from '../templates/components/freestyle-dynamic';
+import { assert } from '@ember/debug';
 
 export default Component.extend({
   layout,
   classNames: ['FreestyleDynamic'],
   headerTitle: 'Dynamic Properties:',
+  dynamicProperties: computed(() => ({})),
 
   // Need this separate property for freestyle-dynamic's dynamic.<property> to work
   dynamicPropertyValues: computed('dynamicProperties', function() {
@@ -22,6 +24,15 @@ export default Component.extend({
 
     return dynamicPropertyValues;
   }),
+
+  init() {
+    this._super(...arguments);
+    const dynamicProperties = this.get('dynamicProperties');
+    assert(
+      `dynamicProperties passed into freestyle-dynamic must be an object.  You passed: ${dynamicProperties}`,
+      typeof dynamicProperties === 'object'
+    );
+  },
 
   actions: {
     changeValueTo(property, newValue) {
