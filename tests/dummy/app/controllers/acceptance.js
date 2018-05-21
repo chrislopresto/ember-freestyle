@@ -34,6 +34,13 @@ export default FreestyleController.extend({
         value: false,
         inputType: 'checkbox',
         description: 'Changes to a tasteful color scheme'
+      },
+      innerBorderThickness: {
+        value: 1,
+        inputType: 'range',
+        min: 0,
+        max: 20,
+        description: 'Width of the inner border, in pixels',
       }
     }
   }),

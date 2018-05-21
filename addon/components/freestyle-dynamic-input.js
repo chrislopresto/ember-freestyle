@@ -11,6 +11,7 @@ export default Component.extend({
   isTextarea: equal('inputType', 'textarea'),
   isSelect: equal('inputType', 'select'),
   isNumber: equal('inputType', 'number'),
+  isRange: equal('inputType', 'range'),
 
   inputId: computed('propertyName',  function() {
     return `${this.get('elementId')}_${this.get('propertyName')}`;
