@@ -20,7 +20,7 @@ function FreestyleDiscovery(inputTree, options) {
   this.inputTree = inputTree;
   this.options = {
     outputFile: options.outputFile,
-    componentNamePattern: `${options.appName}\/components\/(.*)\/component\.js$`
+    componentNamePattern: `${options.appName}/components/(.*)/component.js$`
   };
 }
 
