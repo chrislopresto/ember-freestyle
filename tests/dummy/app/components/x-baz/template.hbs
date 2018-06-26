@@ -1,0 +1,13 @@
+<div class="x-Baz
+            x-Baz--{{size}}
+            {{unless showBorder 'x-Baz--hide-border'}}
+            {{unless isVisible 'x-Baz--hidden'}}
+            {{if isTasteful 'x-Baz--tasteful'}}">
+  <div class="x-Baz-title">
+    {{title}}
+  </div>
+  <p>{{description}}</p>
+  <div class="x-Baz-description">
+    {{yield}}
+  </div>
+</div>

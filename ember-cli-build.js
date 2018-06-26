@@ -11,7 +11,11 @@ module.exports = function(defaults) {
     },
     freestyle: {
       snippetSearchPaths: ["tests/dummy/app", "addon/styles"]
-    }
+    },
+    "ember-cli-babel": {
+      includePolyfill: true
+    },
+    es3Safe: false,
   });
 
   if (defaults.project.findAddonByName("ember-native-dom-event-dispatcher")) {
