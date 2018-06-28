@@ -3,47 +3,8 @@ var mergeTrees = require('broccoli-merge-trees');
 var fs = require('fs');
 var flatiron = require('broccoli-flatiron');
 var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
-
+var FreestyleDiscovery = require('./lib/freestyle-discovery');
 var Funnel = require('broccoli-funnel');
-var Writer = require('broccoli-writer');
-var path = require('path');
-var glob = require('glob');
-
-FreestyleDiscovery.prototype = Object.create(Writer.prototype);
-FreestyleDiscovery.prototype.constructor = FreestyleDiscovery;
-
-function FreestyleDiscovery(inputTree, options) {
-  if (!(this instanceof FreestyleDiscovery)) {
-    return new FreestyleDiscovery(inputTree, options);
-  }
-
-  this.inputTree = inputTree;
-  this.options = {
-    outputFile: options.outputFile,
-    componentNamePattern: `${options.appName}/components/(.*)/component.js$`
-  };
-}
-
-FreestyleDiscovery.prototype.write = function(readTree, destDir) {
-  var _this = this;
-  var componentPathPattern = '**/freestyle/component.js';
-  var componentRegex = new RegExp(this.options.componentNamePattern);
-
-  return readTree(this.inputTree).then(function(srcDir) {
-    var files = glob.sync(path.join(srcDir, componentPathPattern));
-    var components = files.map((componentPath) => {
-      // Extract a freestyle component name that looks like:
-      // x-bar/freestyle
-      // from a componentPath that looks like:
-      // /Users/xxxxx/p/xxxxx/ember-freestyle/tmp/broccoli_merge_trees-output_path-7BiiNpHw.tmp/dummy/components/x-bar/freestyle/component.js
-      return componentRegex.exec(componentPath)[1];
-    });
-
-    var output = `export default ${JSON.stringify(components)};`;
-    fs.mkdirSync(path.join(destDir, path.dirname(_this.options.outputFile)));
-    fs.writeFileSync(path.join(destDir, _this.options.outputFile), output);
-  });
-}
 
 module.exports = {
   name: 'ember-freestyle',

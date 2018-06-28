@@ -35,6 +35,7 @@ module.exports = {
     {
       files: [
         'index.js',
+        'lib/freestyle-discovery.js',
         'testem.js',
         'ember-cli-build.js',
         'config/**/*.js',
