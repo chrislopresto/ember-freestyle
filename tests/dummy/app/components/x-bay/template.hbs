@@ -1,0 +1,13 @@
+<div class="x-Bay
+            x-Bay--{{size}}
+            {{unless showBorder 'x-Bay--hide-border'}}
+            {{unless isVisible 'x-Bay--hidden'}}
+            {{if isTasteful 'x-Bay--tasteful'}}">
+  <div class="x-Bay-title">
+    {{title}}
+  </div>
+  <p>{{description}}</p>
+  <div class="x-Bay-description">
+    {{yield}}
+  </div>
+</div>

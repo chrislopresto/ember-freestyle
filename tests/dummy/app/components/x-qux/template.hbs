@@ -1,0 +1,13 @@
+<div class="x-Qux
+            x-Qux--{{size}}
+            {{unless showBorder 'x-Qux--hide-border'}}
+            {{unless isVisible 'x-Qux--hidden'}}
+            {{if isTasteful 'x-Qux--tasteful'}}">
+  <div class="x-Qux-title">
+    {{title}}
+  </div>
+  <p>{{description}}</p>
+  <div class="x-Qux-description">
+    {{yield}}
+  </div>
+</div>

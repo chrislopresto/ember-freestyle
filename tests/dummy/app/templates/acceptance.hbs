@@ -78,6 +78,10 @@
 
   {{/freestyle-section}}
 
+  {{#freestyle-section name='Auto-Discovered' as |section|}}
+    {{freestyle-auto}}
+  {{/freestyle-section}}
+
   {{#freestyle-section name='Dynamic Properties' as |section|}}
     {{#freestyle-dynamic 'dynamic-properties'
       dynamicProperties=dynamicProperties
