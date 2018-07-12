@@ -19,7 +19,9 @@ export default PageObject.create({
 
   usageSection: {
     scope: '.FreestyleUsage-usage',
-    snippets: collection('.FreestyleUsage-snippet')
+    snippets: collection('.FreestyleUsage-snippet', {
+      rawText: text('', { normalize: false })
+    })
   }
 
 });

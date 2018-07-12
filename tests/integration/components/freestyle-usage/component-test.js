@@ -157,6 +157,28 @@ test('it renders the code snippets', function(assert) {
   assert.equal(usage.usageSection.snippets.objectAt(3).text, 'SCSS code for component A');
 });
 
+test('it ignores blank lines when unindenting', function(assert) {
+  assert.expect(1);
+  this.set('emberFreestyle.showCode', true);
+
+  this.set('emberFreestyle.snippets',  {
+    'componentA--usage.hbs': [
+      '        {{indented-far-before-blank-line}}',
+      '',
+      '        {{after-blank-line}}'
+    ].join('\n'),
+  });
+
+  this.render(hbs`
+    {{#freestyle-usage 'componentA'}}
+      hello from component A
+    {{/freestyle-usage}}
+    `);
+  let rawSnippet = usage.usageSection.snippets.objectAt(0).rawText;
+
+  assert.equal(rawSnippet.trim().split('\n').get('lastObject'), '{{after-blank-line}}');
+});
+
 test('it renders only the code snippets that have content', function(assert) {
   assert.expect(5);
   this.set('emberFreestyle.showCode', true);
