@@ -49,7 +49,7 @@
   </p>
 
   <pre><code class="handlebars language-handlebars">
-\{{#freestyle-usage "globally-unique-slug-1 title="Title To Display In Style Guide"}}
+\{{#freestyle-usage "globally-unique-slug-1" title="Title To Display In Style Guide"}}
   \{{x-foo propa="aaa" propb="bbb"}}
 \{{/freestyle-usage}}
   </code></pre>
@@ -171,6 +171,36 @@
     Both the <code>freestyle-note</code> and <code>freestyle-annotation</code> components respect the
     <code>Show Notes</code> usage controls preference.
   </p>
+
+  <h2>Adding SASS and Javascript code snippets to Your Freestyle Guide</h2>
+
+  <p>
+    To add a SASS or Javascript code snippet wrap the snippet you want to display in a comment block with a unique identifier
+  </p>
+
+  <pre><code class="javascript language-javascript">
+// BEGIN-FREESTYLE-USAGE my-js-snippet
+function do(something) {
+  console.log(`Doing ${something}`);
+}
+// END-FREESTYLE-USAGE
+  </code></pre>
+
+  <pre><code class="scss language-scss hljs">
+// BEGIN-FREESTYLE-USAGE my-sass-variables
+$some-variable: #aaa000;
+$some-variable: #aaa000;
+$some-variable: #aaa000;
+// END-FREESTYLE-USAGE
+  </code></pre>
+
+  <p>
+    Then use the <code>freestyle-usage</code> component to display it in your Freestyle Guide.
+  </p>
+  <pre><code class="handlebars language-handlebars">
+\{{freestyle-usage "my-js-snippet" title="Title To Display In Style Guide"}}
+\{{freestyle-usage "my-sass-variables" title="Title To Display In Style Guide"}}
+  </code></pre>
 
   <h2>Removing Ember Freestyle from Your Production Payload</h2>
 
