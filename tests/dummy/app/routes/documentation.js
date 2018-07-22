@@ -16,6 +16,8 @@ export default Route.extend({
         }).then(() => {
           return emberFreestyle.ensureHljsLanguage('handlebars');
         }).then(() => {
+          return emberFreestyle.ensureHljsLanguage('scss');
+        }).then(() => {
           hljs.initHighlighting.called = false;
           let blocks = document.querySelectorAll('pre code');
           blocks.forEach((block) => {
