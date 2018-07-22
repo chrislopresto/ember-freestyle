@@ -32,7 +32,7 @@
     <div class="FreestyleUsageControls-item FreestyleUsageControls-item--focus">
       <div class="FreestyleUsageControls-itemControl">
         <label for="focus" class="FreestyleUsageControls-label--focus">Focus a section
-          {{input class="FreestyleUsageControls-input--focus" value=focus name="focus" enter='setFocus'}}
+          {{input class="FreestyleUsageControls-input--focus" value=focus name="focus" enter=(action 'setFocus')}}
         </label>
         <button class="FreestyleUsageControls-button" onclick={{action 'setFocus'}}>Focus</button>
       </div>
