@@ -24,9 +24,9 @@ export default PageObject.create({
   blockContentRendered: text('.x-Bar-description'),
   fillInBlockContentInput: fillable(blockContentInput),
   keyUpBlockContentInput: triggerable('keyup', blockContentInput),
-  changeBlockContentInput(newValue) {
-    this.fillInBlockContentInput(newValue),
-    this.keyUpBlockContentInput()
+  async changeBlockContentInput(newValue) {
+    await this.fillInBlockContentInput(newValue),
+    await this.keyUpBlockContentInput()
   },
   toggleTastefulInput: clickable(tastefulInput),
 

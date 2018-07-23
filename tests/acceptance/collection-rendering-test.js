@@ -6,8 +6,8 @@ import freestyleGuide from '../pages/freestyle-guide';
 module('Acceptance | collection rendering', function(hooks) {
   setupApplicationTest(hooks);
 
-  hooks.beforeEach(function() {
-    freestyleGuide.visit();
+  hooks.beforeEach(async function() {
+    await freestyleGuide.visit();
   });
 
   test('verifying freestyle collection', (assert) => {

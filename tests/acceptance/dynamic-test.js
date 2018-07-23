@@ -5,7 +5,7 @@ import freestyleDynamic from '../pages/freestyle-dynamic';
 module('Acceptance | dynamic', function(hooks) {
   setupApplicationTest(hooks);
 
-  hooks.beforeEach(function(assert) {
+  hooks.beforeEach(async function(assert) {
     assert.includes = function(container, item, message) {
       this.pushResult({
         result: container.indexOf(item) !== -1,
@@ -14,10 +14,10 @@ module('Acceptance | dynamic', function(hooks) {
         message: message
       });
     };
-    freestyleDynamic.visit();
+    await freestyleDynamic.visit();
   });
 
-  test('block content', (assert) => {
+  test('block content', async assert => {
     assert.expect(8);
     assert.strictEqual(
       freestyleDynamic.blockContentInputValue,
@@ -44,7 +44,7 @@ module('Acceptance | dynamic', function(hooks) {
       '<p> Reference another dynamic prop in block: is tasteful: false </p>',
       'The snippet can include a block that references multiple dynamic properties'
     );
-    freestyleDynamic.changeBlockContentInput('Something new');
+    await freestyleDynamic.changeBlockContentInput('Something new');
     assert.strictEqual(
       freestyleDynamic.blockContentRendered,
       'Something new Static block content Reference another dynamic prop in block: is tasteful: false',
@@ -55,7 +55,7 @@ module('Acceptance | dynamic', function(hooks) {
       '<p>Something new</p>',
       'The snippet changes when the input changes'
     );
-    freestyleDynamic.toggleTastefulInput();
+    await freestyleDynamic.toggleTastefulInput();
     assert.strictEqual(
       freestyleDynamic.blockContentRendered,
       'Something new Static block content Reference another dynamic prop in block: is tasteful: true',
@@ -63,7 +63,7 @@ module('Acceptance | dynamic', function(hooks) {
     );
   });
 
-  test('select input', (assert) => {
+  test('select input', async assert => {
     assert.expect(5);
     assert.strictEqual(
       freestyleDynamic.selectInputValue,
@@ -79,7 +79,7 @@ module('Acceptance | dynamic', function(hooks) {
       `size='medium'`,
       'The snippet shows initial value'
     );
-    freestyleDynamic.changeSelectInput('small');
+    await freestyleDynamic.changeSelectInput('small');
     assert.ok(
       freestyleDynamic.isSmall,
       'The rendered component changes when the select changes'
@@ -91,7 +91,7 @@ module('Acceptance | dynamic', function(hooks) {
     );
   });
 
-  test('number input', (assert) => {
+  test('number input', async assert => {
     assert.expect(5);
     assert.strictEqual(
       freestyleDynamic.numberInputValue,
@@ -108,7 +108,7 @@ module('Acceptance | dynamic', function(hooks) {
       'rank=10',
       'The snippet shows initial value'
     );
-    freestyleDynamic.changeNumberInput('5');
+    await freestyleDynamic.changeNumberInput('5');
     assert.strictEqual(
       freestyleDynamic.numberRendered,
       '5',
@@ -121,7 +121,7 @@ module('Acceptance | dynamic', function(hooks) {
     );
   });
 
-  test('checkbox input', (assert) => {
+  test('checkbox input', async assert => {
     assert.expect(5);
     assert.strictEqual(
       freestyleDynamic.checkboxInputValue,
@@ -137,7 +137,7 @@ module('Acceptance | dynamic', function(hooks) {
       'isVisible=true',
       'The snippet shows initial value'
     );
-    freestyleDynamic.toggleCheckbox();
+    await freestyleDynamic.toggleCheckbox();
     assert.notOk(
       freestyleDynamic.isVisible,
       'The rendered component changes when the checkbox changes'
