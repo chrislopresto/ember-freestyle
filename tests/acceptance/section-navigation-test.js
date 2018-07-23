@@ -5,8 +5,8 @@ import freestyleGuide from '../pages/freestyle-guide';
 module('Acceptance | section navigation', function(hooks) {
   setupApplicationTest(hooks);
 
-  hooks.beforeEach(function() {
-    freestyleGuide.visit();
+  hooks.beforeEach(async function() {
+    await freestyleGuide.visit();
   });
 
   test('verifying header', (assert) => {

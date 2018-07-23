@@ -8,8 +8,8 @@ let variantKeys = A(['normal', 'special', 'hyper', 'classic', 'elegant', 'tastef
 module('Acceptance | collection navigation', function(hooks) {
   setupApplicationTest(hooks);
 
-  hooks.beforeEach(function() {
-    freestyleGuide.visit();
+  hooks.beforeEach(async function() {
+    await freestyleGuide.visit();
   });
 
   test('verifying variantListItem selection', (assert) => {
@@ -17,8 +17,8 @@ module('Acceptance | collection navigation', function(hooks) {
 
     let fooCollection = freestyleGuide.content.sections.objectAt(0).subsections.objectAt(0).collections.objectAt(0);
 
-    variantKeys.forEach((activeVariant, idx) => {
-      fooCollection.selectVariant(activeVariant);
+    variantKeys.forEach(async (activeVariant, idx) => {
+      await fooCollection.selectVariant(activeVariant);
       assert.equal(fooCollection.variants.objectAt(idx).usageTitle.toLowerCase(), activeVariant);
       variantKeys.reject((each) => {
         return each === activeVariant;
