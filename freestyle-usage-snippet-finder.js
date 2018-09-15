@@ -2,7 +2,6 @@
 
 var Writer = require('broccoli-writer');
 var glob = require('glob');
-var _Promise = require('es6-promise').Promise;
 var fs = require('fs');
 var path = require('path');
 
@@ -15,7 +14,7 @@ function naiveMerge(obj1, obj2) {
 }
 
 function findFiles(srcDir) {
-  return new _Promise(function(resolve, reject) {
+  return new Promise(function(resolve, reject) {
     glob(path.join(srcDir, "**/*.+(js|hbs|css|scss|less)"), function(err, files) {
       if (err) {
         reject(err);
