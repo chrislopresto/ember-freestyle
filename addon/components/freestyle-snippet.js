@@ -26,17 +26,21 @@ export default Component.extend({
       return snippet;
     }
     let match, min;
-    let unindentedSnippet = snippet;
-    let lines = unindentedSnippet.split('\n');
-    for (let i = 0; i < lines.length; i++) {
-      match = /^\s*/.exec(lines[i]);
-      if (match && (typeof min === 'undefined' || min > match[0].length)) {
-        min = match[0].length;
+    let lines = snippet.split('\n');
+    lines.forEach((line) => {
+      // if line is not empty, check length of leading whitespace
+      if (line.length > 0) {
+        match = /^\s*/.exec(line);
+        if (match && (typeof min === 'undefined' || min > match[0].length)) {
+          min = match[0].length;
+        }
       }
-    }
-    if (typeof min !== 'undefined' && min > 0) {
-      unindentedSnippet = unindentedSnippet.replace(new RegExp(`(\\n|^)\\s{${min}}`, 'g'), '$1');
-    }
+    });
+    let unindentedLines = min > 0 ? lines.map((line) => {
+      // strip the first 'min' number of characters
+      return line.substring(min);
+    }) : lines;
+    let unindentedSnippet = unindentedLines.join('\n');
     return unindentedSnippet;
   },
 
