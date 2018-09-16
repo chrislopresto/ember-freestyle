@@ -1,21 +1,20 @@
 /*eslint-env node*/
 
-var Writer = require('broccoli-writer');
-var glob = require('glob');
-var _Promise = require('es6-promise').Promise;
-var fs = require('fs');
-var path = require('path');
+const glob = require('glob');
+const fs = require('fs');
+const path = require('path');
+const BroccoliPlugin = require('broccoli-plugin');
 
 function naiveMerge(obj1, obj2) {
-  var obj3 = {};
-  var prop;
+  let obj3 = {};
+  let prop;
   for (prop in obj1) { obj3[prop] = obj1[prop]; }
   for (prop in obj2) { obj3[prop] = obj2[prop]; }
   return obj3;
 }
 
 function findFiles(srcDir) {
-  return new _Promise(function(resolve, reject) {
+  return new Promise(function(resolve, reject) {
     glob(path.join(srcDir, "**/*.+(js|hbs|css|scss|less)"), function(err, files) {
       if (err) {
         reject(err);
@@ -27,11 +26,11 @@ function findFiles(srcDir) {
 }
 
 function extractHbsComponentSnippets(fileContent, componentName, ui) {
-  var processingSnippet = false;
-  var insideOpeningTag = false;
-  var snippetLines = [];
-  var snippets = {};
-  var name;
+  let processingSnippet = false;
+  let insideOpeningTag = false;
+  let snippetLines = [];
+  let snippets = {};
+  let name;
   fileContent.split("\n").forEach(function(line) {
     if (processingSnippet) {
       if (insideOpeningTag) {
@@ -73,10 +72,10 @@ function extractHbsComponentSnippets(fileContent, componentName, ui) {
 }
 
 function extractCommentSnippets(fileContent) {
-  var inside = false;
-  var content = [];
-  var output = {};
-  var name;
+  let inside = false;
+  let content = [];
+  let output = {};
+  let name;
   fileContent.split("\n").forEach(function(line) {
     if (inside) {
       if (/\bEND-FREESTYLE-USAGE\b/.test(line)) {
@@ -97,33 +96,27 @@ function extractCommentSnippets(fileContent) {
   return output;
 }
 
-function SnippetFinder(inputTree, ui) {
-  if (!(this instanceof SnippetFinder)) {
-    return new SnippetFinder(inputTree, ui);
+module.exports = class SnippetFinder extends BroccoliPlugin {
+  constructor(inputTree, ui) {
+    super(inputTree, {});
+    this.inputTree = inputTree;
+    this.ui = ui;
   }
-  this.inputTree = inputTree;
-  this.ui = ui;
-}
 
-SnippetFinder.prototype = Object.create(Writer.prototype);
-SnippetFinder.prototype.constructor = SnippetFinder;
-
-SnippetFinder.prototype.write = function(readTree, destDir) {
-  var self = this;
-  return readTree(this.inputTree).then(findFiles).then(function(files) {
-    files.forEach(function(filename) {
-      var freestyleUsageSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-usage', self.ui);
-      var freestyleDynamicSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-dynamic', self.ui);
-      var freestyleNoteSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-note', self.ui);
-      var componentSnippets = naiveMerge(naiveMerge(freestyleUsageSnippets, freestyleDynamicSnippets), freestyleNoteSnippets);
-      var commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
-      var snippets = naiveMerge(componentSnippets, commentSnippets);
-      for (var name in snippets) {
-        fs.writeFileSync(path.join(destDir, name)+path.extname(filename),
-                         snippets[name]);
-      }
+  build() {
+    return findFiles(this.inputPaths[0]).then((files) => {
+      files.forEach((filename) => {
+        let freestyleUsageSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-usage', this.ui);
+        let freestyleDynamicSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-dynamic', this.ui);
+        let freestyleNoteSnippets = extractHbsComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-note', this.ui);
+        let componentSnippets = naiveMerge(naiveMerge(freestyleUsageSnippets, freestyleDynamicSnippets), freestyleNoteSnippets);
+        let commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
+        let snippets = naiveMerge(componentSnippets, commentSnippets);
+        for (var name in snippets) {
+          fs.writeFileSync(path.join(this.outputPath, name)+path.extname(filename),
+                           snippets[name]);
+        }
+      });
     });
-  });
+  }
 };
-
-module.exports = SnippetFinder;
