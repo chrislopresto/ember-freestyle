@@ -1,0 +1,9 @@
+{{#if show}}
+  {{#if hasName}}
+    <div class="FreestyleSubsection-name">
+      {{name}}
+    </div>
+  {{/if}}
+  {{yield}}
+  {{component this.templateName}}
+{{/if}}

@@ -5,9 +5,8 @@
 }}
 
   {{#freestyle-section name="Foo Things" as |section|}}
-
-    {{foo-docs section=section}}
-
+    {{docs-subsection 'foo-a' name="Foo Subsection A"}}
+    {{docs-subsection 'foo-b' name="Foo Subsection B"}}
   {{/freestyle-section}}
 
   {{#freestyle-section name='Dynamic Properties' as |section|}}
