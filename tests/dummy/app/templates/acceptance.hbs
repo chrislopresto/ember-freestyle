@@ -6,75 +6,7 @@
 
   {{#freestyle-section name="Foo Things" as |section|}}
 
-    {{#section.subsection name="Foo Subsection A"}}
-      {{#freestyle-collection title="Foo Collection" defaultKey="normal" inline=true as |collection|}}
-
-        {{#collection.variant key="normal"}}
-          {{#freestyle-annotation "foo-normal"}}
-            <h4>A Note About Normal</h4>
-            <p>
-              This comment is coming from a freestyle-annotation component. Use the freestyle-annotation
-              component to write notes in html.
-            </p>
-          {{/freestyle-annotation}}
-          {{#freestyle-note "foo-normal--notes"}}
-            #### Another Note About Normal
-
-            This comment is coming from a `freestyle-note` component. Use the `freestyle-note` component
-            to write notes in markdown.
-
-            ##### Markdown Code Snippet
-
-            ```javascript
-            // We can include code blocks using markdown
-            function do(something) {
-              console.log(`Doing ${something}`);
-            }
-            ```
-          {{/freestyle-note}}
-          {{#freestyle-usage "foo-normal" title="Normal" usageTitle="Usage" hbsTitle="Template"}}
-            {{x-foo status="normal"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
-
-        {{#collection.variant key="special"}}
-          {{#freestyle-usage "foo-special" title="Special"}}
-            {{x-foo status="special"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
-
-        {{#collection.variant key="hyper"}}
-          {{#freestyle-usage "foo-hyper" title="Hyper"}}
-            {{x-foo status="hyper"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
-
-        {{#collection.variant key="classic"}}
-          {{#freestyle-usage "foo-classic" title="Classic"}}
-            {{x-foo status="classic"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
-
-        {{#collection.variant key="elegant"}}
-          {{#freestyle-usage "foo-elegant" title="Elegant"}}
-            {{x-foo status="elegant"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
-
-        {{#collection.variant key="tasteful"}}
-          {{#freestyle-usage "foo-tasteful" title="Tasteful"}}
-            {{x-foo status="tasteful"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
-
-      {{/freestyle-collection}}
-    {{/section.subsection}}
-
-    {{#section.subsection name="Foo Subsection B"}}
-      {{#freestyle-annotation}}
-        This is an annotation in a subsection, mainly to facilitate testing.
-      {{/freestyle-annotation}}
-    {{/section.subsection}}
+    {{foo-docs section=section}}
 
   {{/freestyle-section}}
 
