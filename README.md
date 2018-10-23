@@ -51,7 +51,7 @@ You can use the `freestyle-guide` component anywhere you'd like in your app. You
 
 ## Problems? No problem.
 
-Hopefully the installation instructions got you off to a smooth, seamless start. If you have any problems, feel free to chat with us in the `e-freestyle` channel in the [Ember Community Slack](https://embercommunity.slack.com) or [open an issue](https://github.com/chrislopresto/ember-freestyle/issues/new). As always, PRs are welcome!
+Hopefully the installation instructions got you off to a smooth, seamless start. If you have any problems, feel free to chat with us in the [Ember Community Discord](https://discordapp.com/invite/zT3asNS) or [open an issue](https://github.com/chrislopresto/ember-freestyle/issues/new). As always, PRs are welcome!
 
 ## Removing Ember Freestyle from Your Production Payload
 
