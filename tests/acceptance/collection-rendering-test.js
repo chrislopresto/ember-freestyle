@@ -1,17 +1,17 @@
 import { A } from '@ember/array';
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import freestyleGuide from '../pages/freestyle-guide';
 
-moduleForAcceptance('Acceptance | collection rendering', {
-  beforeEach() {
-    freestyleGuide.visit();
-  }
-});
+module('Acceptance | collection rendering', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('verifying freestyle collection', (assert) => {
-  assert.expect(19);
-  andThen(() => {
+  hooks.beforeEach(function() {
+    freestyleGuide.visit();
+  });
+
+  test('verifying freestyle collection', (assert) => {
+    assert.expect(19);
     let sectionFooThings = freestyleGuide.content.sections.objectAt(0);
     assert.equal(sectionFooThings.subsections.objectAt(0).collections.length, 1);
 
