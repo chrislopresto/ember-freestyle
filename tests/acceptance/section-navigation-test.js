@@ -1,35 +1,31 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import freestyleGuide from '../pages/freestyle-guide';
 
-moduleForAcceptance('Acceptance | section navigation', {
-  beforeEach() {
-    freestyleGuide.visit();
-  }
-});
+module('Acceptance | section navigation', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('verifying header', (assert) => {
-  assert.expect(2);
-  andThen(() => {
+  hooks.beforeEach(function() {
+    freestyleGuide.visit();
+  });
+
+  test('verifying header', (assert) => {
+    assert.expect(2);
     assert.equal(freestyleGuide.header.title, 'Ember Freestyle');
     assert.equal(freestyleGuide.header.subtitle, 'Living Style Guide');
   });
-});
 
-test('verifying menu sections', (assert) => {
-  assert.expect(5);
-  andThen(() => {
+  test('verifying menu sections', (assert) => {
+    assert.expect(5);
     assert.equal(freestyleGuide.menu.sections.length, 4);
     assert.equal(freestyleGuide.menu.sections.objectAt(0).text, 'All');
     assert.equal(freestyleGuide.menu.sections.objectAt(1).text, 'Foo Things');
     assert.equal(freestyleGuide.menu.sections.objectAt(2).text, 'Dynamic Properties');
     assert.equal(freestyleGuide.menu.sections.objectAt(3).text, 'Visual Style');
   });
-});
 
-test('navigating directly to a subsection', function(assert) {
-  assert.expect(6);
-  andThen(() => {
+  test('navigating directly to a subsection', function(assert) {
+    assert.expect(6);
     let sectionFooThings = freestyleGuide.menu.sections.objectAt(1);
     assert.equal(sectionFooThings.subsections.length, 2);
     assert.equal(sectionFooThings.subsections.objectAt(0).text, 'Foo Subsection A');

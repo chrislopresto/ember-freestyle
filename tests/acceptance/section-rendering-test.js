@@ -1,26 +1,24 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import freestyleGuide from '../pages/freestyle-guide';
 
-moduleForAcceptance('Acceptance | section rendering', {
-  beforeEach() {
-    freestyleGuide.visit();
-  }
-});
+module('Acceptance | section rendering', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('verifying guide sections', (assert) => {
-  assert.expect(4);
-  andThen(() => {
+  hooks.beforeEach(function() {
+    freestyleGuide.visit();
+  });
+
+  test('verifying guide sections', (assert) => {
+    assert.expect(4);
     assert.equal(freestyleGuide.content.sections.length, 3);
     assert.equal(freestyleGuide.content.sections.objectAt(0).text, 'Foo Things');
     assert.equal(freestyleGuide.content.sections.objectAt(1).text, 'Dynamic Properties');
     assert.equal(freestyleGuide.content.sections.objectAt(2).text, 'Visual Style');
   });
-});
 
-test('verifying guide subsections', (assert) => {
-  assert.expect(6);
-  andThen(() => {
+  test('verifying guide subsections', (assert) => {
+    assert.expect(6);
     let sectionFooThings = freestyleGuide.content.sections.objectAt(0);
     assert.equal(sectionFooThings.subsections.length, 2);
     assert.equal(sectionFooThings.subsections.objectAt(0).text, 'Foo Subsection A');
@@ -32,14 +30,11 @@ test('verifying guide subsections', (assert) => {
     assert.equal(sectionVisualStyle.subsections.objectAt(1).text, 'Color');
   });
 
-});
-
-test('freestyle notes show up', (assert) => {
-  assert.expect(1);
-  andThen(() => {
+  test('freestyle notes show up', (assert) => {
+    assert.expect(1);
     let sectionFooThings = freestyleGuide.content.sections.objectAt(0);
     let note = sectionFooThings.subsections.objectAt(0).collections.objectAt(0).variants.objectAt(0).noteContent[1];
 
     assert.ok(note.includes('Another Note About Normal'));
   })
-})
+});
