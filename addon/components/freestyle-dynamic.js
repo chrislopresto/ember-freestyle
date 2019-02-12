@@ -1,6 +1,6 @@
 import { assign } from '@ember/polyfills';
 import Component from '@ember/component';
-import { set, computed } from '@ember/object';
+import { set, get, computed } from '@ember/object';
 import layout from '../templates/components/freestyle-dynamic';
 import { assert } from '@ember/debug';
 
@@ -15,11 +15,7 @@ export default Component.extend({
     let dynamicPropertyValues = {};
     const dynamicProperties = this.get('dynamicProperties');
     Object.keys(dynamicProperties).forEach((propertyName) => {
-      set(
-        dynamicPropertyValues,
-        propertyName,
-        this.get(`dynamicProperties.${propertyName}.value`)
-      );
+      dynamicPropertyValues[propertyName] = get(dynamicProperties, `${propertyName}.value`);
     });
 
     return dynamicPropertyValues;
