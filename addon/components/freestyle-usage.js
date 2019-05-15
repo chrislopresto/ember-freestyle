@@ -13,7 +13,6 @@ let FreestyleUsage = Component.extend({
   showLabels: alias('emberFreestyle.showLabels'),
   showNotes: alias('emberFreestyle.showNotes'),
   showCode: alias('emberFreestyle.showCode'),
-  dynamicProperties: computed(() => {}),
 
   show: computed('emberFreestyle.focus', 'slug', function() {
     let slug = this.get('slug');
@@ -54,6 +53,12 @@ let FreestyleUsage = Component.extend({
   hasNotes: and('showNotes', 'slug'),
   hasCode: and('showCode', 'slug'),
 
+  init() {
+    this._super(...arguments);
+
+    this.dynamicProperties = this.dynamicProperties || {};
+  },
+  
   didInsertElement() {
     this.get('emberFreestyle').ensureHljsTheme(this.get('computedTheme'));
   },

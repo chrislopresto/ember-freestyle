@@ -19,7 +19,6 @@ export default Component.extend({
   initialHighlightComplete: false,
   useDoubleQuotesForStrings: false,
   emberFreestyle: service(),
-  dynamicProperties: computed(() => {}),
 
   _unindent(snippet) {
     if (!this.get('unindent')) {
@@ -86,6 +85,12 @@ export default Component.extend({
     return source;
   }),
 
+  init() {
+    this._super(...arguments);
+
+    this.dynamicProperties = this.dynamicProperties || {};
+  },
+  
   didInsertElement() {
     let pre = this.get('element').getElementsByTagName('pre');
     if (pre[0] && this.get('source')) {
