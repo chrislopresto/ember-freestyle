@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/bash
+set -euo pipefail
 
-gem_install_or_update() {
-  if gem list "$1" --installed > /dev/null; then
-    gem update "$@"
-  else
-    gem install "$@"
-  fi
+install_homebrew_dependencies() {
+  brew update
+  brew bundle
 }
 
-gem_install_or_update github_changelog_generator
-gem_install_or_update gem_release
+echo "Installing homebrew dependencies..."
+install_homebrew_dependencies
+
+echo "All set!"
