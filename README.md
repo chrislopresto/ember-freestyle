@@ -108,6 +108,3 @@ var app = new EmberAddon(defaults, {
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
-## Releasing
-
-If you are a project maintainer, run `./script/release [major|minor|patch]` to release a new version of this addon. We use  [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) under the hood to generate the changelog.
