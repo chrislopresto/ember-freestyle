@@ -37,6 +37,7 @@ module.exports = {
         'index.js',
         'testem.js',
         'ember-cli-build.js',
+        'ship.config.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
