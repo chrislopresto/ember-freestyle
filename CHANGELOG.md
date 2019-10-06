@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.7](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.6...v0.11.7) (2019-10-06)
+
 ### [0.11.6](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.5...v0.11.6) (2019-10-06)
 
 ### [0.11.5](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.4...v0.11.5) (2019-10-06)
