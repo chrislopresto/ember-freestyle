@@ -4,6 +4,7 @@
 [![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle)
 ![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
 
