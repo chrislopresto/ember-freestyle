@@ -1,9 +1,11 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import freestyleDynamic from '../pages/freestyle-dynamic';
 
-moduleForAcceptance('Acceptance | dynamic', {
-  beforeEach(assert) {
+module('Acceptance | dynamic', function(hooks) {
+  setupApplicationTest(hooks);
+
+  hooks.beforeEach(async function(assert) {
     assert.includes = function(container, item, message) {
       this.pushResult({
         result: container.indexOf(item) !== -1,
@@ -12,13 +14,11 @@ moduleForAcceptance('Acceptance | dynamic', {
         message: message
       });
     };
-    freestyleDynamic.visit();
-  }
-});
+    await freestyleDynamic.visit();
+  });
 
-test('block content', (assert) => {
-  assert.expect(8);
-  andThen(() => {
+  test('block content', async (assert) => {
+    assert.expect(8);
     assert.strictEqual(
       freestyleDynamic.blockContentInputValue,
       'Dynamic Block Content',
@@ -44,9 +44,7 @@ test('block content', (assert) => {
       '<p> Reference another dynamic prop in block: is tasteful: false </p>',
       'The snippet can include a block that references multiple dynamic properties'
     );
-    freestyleDynamic.changeBlockContentInput('Something new');
-  });
-  andThen(() => {
+    await freestyleDynamic.changeBlockContentInput('Something new');
     assert.strictEqual(
       freestyleDynamic.blockContentRendered,
       'Something new Static block content Reference another dynamic prop in block: is tasteful: false',
@@ -57,20 +55,16 @@ test('block content', (assert) => {
       '<p>Something new</p>',
       'The snippet changes when the input changes'
     );
-    freestyleDynamic.toggleTastefulInput();
-  });
-  andThen(() => {
+    await freestyleDynamic.toggleTastefulInput();
     assert.strictEqual(
       freestyleDynamic.blockContentRendered,
       'Something new Static block content Reference another dynamic prop in block: is tasteful: true',
       'The rendered block content changes when another dynamic property input changes'
     );
-  })
-});
+  });
 
-test('select input', (assert) => {
-  assert.expect(5);
-  andThen(() => {
+  test('select input', async (assert) => {
+    assert.expect(5);
     assert.strictEqual(
       freestyleDynamic.selectInputValue,
       'medium',
@@ -85,9 +79,7 @@ test('select input', (assert) => {
       `size='medium'`,
       'The snippet shows initial value'
     );
-    freestyleDynamic.changeSelectInput('small');
-  });
-  andThen(() => {
+    await freestyleDynamic.changeSelectInput('small');
     assert.ok(
       freestyleDynamic.isSmall,
       'The rendered component changes when the select changes'
@@ -98,11 +90,9 @@ test('select input', (assert) => {
       'The snippet changes when the select changes'
     );
   });
-});
 
-test('number input', (assert) => {
-  assert.expect(5);
-  andThen(() => {
+  test('number input', async (assert) => {
+    assert.expect(5);
     assert.strictEqual(
       freestyleDynamic.numberInputValue,
       '10',
@@ -118,9 +108,7 @@ test('number input', (assert) => {
       'rank=10',
       'The snippet shows initial value'
     );
-    freestyleDynamic.changeNumberInput('5');
-  });
-  andThen(() => {
+    await freestyleDynamic.changeNumberInput('5');
     assert.strictEqual(
       freestyleDynamic.numberRendered,
       '5',
@@ -132,11 +120,9 @@ test('number input', (assert) => {
       'The snippet changes when the input changes'
     );
   });
-});
 
-test('checkbox input', (assert) => {
-  assert.expect(5);
-  andThen(() => {
+  test('checkbox input', async (assert) => {
+    assert.expect(5);
     assert.strictEqual(
       freestyleDynamic.checkboxInputValue,
       'on',
@@ -151,9 +137,7 @@ test('checkbox input', (assert) => {
       'isVisible=true',
       'The snippet shows initial value'
     );
-    freestyleDynamic.toggleCheckbox();
-  });
-  andThen(() => {
+    await freestyleDynamic.toggleCheckbox();
     assert.notOk(
       freestyleDynamic.isVisible,
       'The rendered component changes when the checkbox changes'

@@ -1,24 +1,26 @@
 import { A } from '@ember/array';
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import freestyleGuide from '../pages/freestyle-guide';
 
 let variantKeys = A(['normal', 'special', 'hyper', 'classic', 'elegant', 'tasteful']);
 
-moduleForAcceptance('Acceptance | collection navigation', {
-  beforeEach() {
-    freestyleGuide.visit();
-  }
-});
+module('Acceptance | collection navigation', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('verifying variantListItem selection', (assert) => {
-  assert.expect(36);
+  hooks.beforeEach(async function() {
+    await freestyleGuide.visit();
+  });
 
-  let fooCollection = freestyleGuide.content.sections.objectAt(0).subsections.objectAt(0).collections.objectAt(0);
+  test('verifying variantListItem selection', async (assert) => {
+    assert.expect(36);
 
-  variantKeys.forEach((activeVariant, idx) => {
-    fooCollection.selectVariant(activeVariant);
-    andThen(() => {
+    let fooCollection = freestyleGuide.content.sections.objectAt(0).subsections.objectAt(0).collections.objectAt(0);
+
+    for (let idx = 0; idx < variantKeys.length; idx++) {
+      let activeVariant = variantKeys[idx];
+
+      await fooCollection.selectVariant(activeVariant);
       assert.equal(fooCollection.variants.objectAt(idx).usageTitle.toLowerCase(), activeVariant);
       variantKeys.reject((each) => {
         return each === activeVariant;
@@ -26,7 +28,6 @@ test('verifying variantListItem selection', (assert) => {
         let otherIndex = variantKeys.indexOf(otherVariant);
         assert.equal(fooCollection.variants.objectAt(otherIndex).text, '');
       });
-    });
+    }
   });
-
 });
