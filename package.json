@@ -50,7 +50,7 @@
     "ember-cli-uglify": "^2.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
-    "ember-native-dom-helpers": "^0.5.5",
+    "ember-native-dom-helpers": "^0.6.3",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.18.2",
     "eslint-config-ember": "0.3.0",
