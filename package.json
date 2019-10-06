@@ -18,7 +18,7 @@
     "start": "ember server",
     "test": "ember test",
     "prerelease": "./script/prerelease",
-    "release": "standard-version --sign",
+    "release": "./script/release",
     "postrelease": "./script/postrelease"
   },
   "dependencies": {
