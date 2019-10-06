@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.11.3](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.2...v0.11.3) (2019-10-06)
+
+
+### Bug Fixes
+
+* Remove computed property override deprecation ([#198](https://github.com/chrislopresto/ember-freestyle/issues/198)) ([71b8b64](https://github.com/chrislopresto/ember-freestyle/commit/71b8b64))
+
 ## [0.11.2](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.1...v0.11.2) (2019-10-06)
 
 
@@ -343,6 +354,3 @@
 ### Features
 
 * Wire up freestyle-usage-controls [1](https://github.com/chrislopresto/ember-freestyle/pull/1) ([chrislopresto](https://github.com/chrislopresto))
-
-
-
