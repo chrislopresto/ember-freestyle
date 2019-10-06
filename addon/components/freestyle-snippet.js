@@ -3,7 +3,6 @@ import Component from '@ember/component';
 import { computed, get } from '@ember/object';
 import layout from '../templates/components/freestyle-snippet';
 
-
 const LANGUAGES = {
   js: 'javascript',
   hbs: 'handlebars',
@@ -72,13 +71,13 @@ export default Component.extend({
     }
 
     if (this.get('initialHighlightComplete')) {
-      let pre = this.$('pre');
+      let pre = this.element.querySelector('pre');
 
-      if (pre[0]) {
+      if (pre) {
         // highlight.js breaks binding, so we need to manually reset the innerText on changes
-        pre[0].innerText = source;
+        pre.innerText = source;
         // ...and then do the syntax highlighting again
-        this.get('emberFreestyle').highlight(pre[0]);
+        this.get('emberFreestyle').highlight(pre);
       }
     }
 
@@ -90,11 +89,11 @@ export default Component.extend({
 
     this.dynamicProperties = this.dynamicProperties || {};
   },
-  
+
   didInsertElement() {
-    let pre = this.get('element').getElementsByTagName('pre');
-    if (pre[0] && this.get('source')) {
-      this.get('emberFreestyle').highlight(pre[0]);
+    let pre = this.element.querySelector('pre');
+    if (pre && this.get('source')) {
+      this.get('emberFreestyle').highlight(pre);
     }
     this.set('initialHighlightComplete', true);
   },
@@ -108,5 +107,7 @@ export default Component.extend({
     if (match) {
       return LANGUAGES[match[1]];
     }
+
+    return 'js';
   })
 });
