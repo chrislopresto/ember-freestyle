@@ -54,7 +54,7 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.18.2",
     "eslint-config-ember": "0.3.0",
-    "eslint-plugin-ember": "^5.0.0",
+    "eslint-plugin-ember": "^7.1.0",
     "eslint-plugin-node": "^6.0.0",
     "loader.js": "^4.2.3",
     "shipjs": "^0.6.0"
