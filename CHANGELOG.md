@@ -1,3 +1,7 @@
+## [0.11.2](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.1...v0.11.2) (2019-10-06)
+
+
+
 ## [0.11.1](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.0...v0.11.1) (2019-10-06)
 
 
