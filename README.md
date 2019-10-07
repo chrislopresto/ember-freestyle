@@ -10,11 +10,11 @@ Ember Freestyle is an Ember addon that allows you to quickly create a component 
 
 ## Documentation
 
-This README provides a lightweight overview of Ember Freestyle to get you going. More complete documentation can be found at http://ember-freestyle.com/
+This README provides a lightweight overview of Ember Freestyle to get you going. More complete documentation can be found at https://chrislopresto.github.io/ember-freestyle
 
 ## Live Demo
 
-To see Ember Freestyle in action, visit http://ember-freestyle.com/#/acceptance
+To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-freestyle/#/acceptance](https://chrislopresto.github.io/ember-freestyle/#/acceptance)
 
 ## Compatibility & support
 
