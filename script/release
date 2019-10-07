@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "Bumping version and generating changelog..."
+standard-version --sign
+
+echo "Pushing tags to GitHub..."
+git push --follow-tags origin master
+
+echo "Publishing package to npm..."
+npm publish

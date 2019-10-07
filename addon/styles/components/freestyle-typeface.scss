@@ -1,0 +1,16 @@
+.FreestyleTypeface {
+  &-previewHero,
+  &-previewSample {
+    font-family: inherit;
+  }
+
+  &-previewHero {
+    font-size: 140px;
+    line-height: 1.05;
+  }
+
+  &-previewSample {
+    font-size: 15px;
+    margin: 0;
+  }
+}

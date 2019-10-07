@@ -1,0 +1,12 @@
+.FreestyleSubsection {
+  &.is-hidden {
+    display:none;
+  }
+
+  &-name {
+    font-size: 1.3rem;
+    margin: 0 1rem;
+    padding: .8rem 0 .4rem;
+    text-transform: uppercase;
+  }
+}

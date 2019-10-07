@@ -1,0 +1,23 @@
+<ul class="FreestyleMenu">
+  <li class="FreestyleMenu-item">
+    {{#link-to (query-params s=null ss=null f=null) class="FreestyleMenu-itemLink"}}
+      All
+    {{/link-to}}
+  </li>
+  {{#each menu as |section|}}
+    <li class="FreestyleMenu-item">
+      {{#link-to (query-params f=null s=section.name ss=null) class="FreestyleMenu-itemLink"}}
+        {{section.name}}
+      {{/link-to}}
+      {{#each section.subsections as |subsection|}}
+        <ul class="FreestyleMenu-submenu">
+          <li class="FreestyleMenu-submenuItem">
+            {{#link-to (query-params f=null s=section.name ss=subsection.name) class="FreestyleMenu-submenuItemLink"}}
+              {{subsection.name}}
+            {{/link-to}}
+          </li>
+        </ul>
+      {{/each}}
+    </li>
+  {{/each}}
+</ul>

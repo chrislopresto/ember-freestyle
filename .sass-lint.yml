@@ -1,0 +1,11 @@
+rules:
+  class-name-format: 0
+  variable-name-format: 0
+  mixins-before-declarations: 0
+
+files:
+    ignore:
+      - '**/x-foo.scss'
+      - '**/x-bar.scss'
+      - '**/reset.scss'
+      - '**/freestyle-palette-item.scss'

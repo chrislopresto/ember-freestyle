@@ -1,0 +1,45 @@
+/* BEGIN-FREESTYLE-USAGE fpi--notes
+# Markdown Notes In SCSS!
+
+Hey look... these are `markdown` notes:
+
+- coming from scss
+- looking nice
+
+END-FREESTYLE-USAGE */
+
+// BEGIN-FREESTYLE-USAGE fpi
+$freestylePaletteItemBorderColor: #cecece !default;
+$FreestylePaletteItem-backgroundColor: #fff !default;
+$FreestylePaletteItem-color: #2f4f4f !default;
+
+.FreestylePaletteItem {
+  border: solid 1px $freestylePaletteItemBorderColor;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+
+  &-color {
+    height: 90px;
+    width: 160px;
+  }
+
+  &-info {
+    background-color: $FreestylePaletteItem-backgroundColor;
+    border-top: solid 1px $freestylePaletteItemBorderColor;
+    padding: 5px;
+  }
+
+  &-hex {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  &-name {
+    color: $FreestylePaletteItem-color;
+    font-size: 11px;
+    margin-top: 0;
+  }
+
+}
+// END-FREESTYLE-USAGE

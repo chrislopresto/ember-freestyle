@@ -1,0 +1,49 @@
+<label for={{inputId}}>
+  {{propertyName}}:
+</label>
+{{#if isCheckbox}}
+  {{input
+    type='checkbox'
+    checked=(readonly value)
+    id=inputId
+    change=(action 'toggleCheckbox')
+  }}
+{{else if isTextarea}}
+  {{textarea
+    value=value
+    id=inputId
+    rows=5
+    cols=40
+    key-up=(action 'sendChangedValue')
+  }}
+{{else if isSelect}}
+  <select onchange={{action 'sendChangedValue' value='target.value'}}>
+    {{#each options as |option|}}
+      {{freestyle-dynamic-input-select-option selectedValue=value optionValue=option}}
+    {{/each}}
+  </select>
+{{else if isNumber}}
+  {{input
+    type='number'
+    value=value
+    id=inputId
+    input=(action 'sendChangedNumberValue' value='target.value')
+  }}
+{{else if isRange}}
+  {{input
+    type='range'
+    id=inputId
+    min=min
+    max=max
+    input=(action 'sendChangedNumberValue' value='target.value')
+    value=(readonly value)
+  }}
+  {{value}}
+{{else}}
+  {{input value=value id=inputId key-up=(action 'sendChangedValue')}}
+{{/if}}
+{{#if description}}
+  <small class="FreestyleDynamic-inputDescription">
+    {{description}}
+  </small>
+{{/if}}

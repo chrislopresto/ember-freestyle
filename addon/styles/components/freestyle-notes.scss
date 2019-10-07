@@ -1,0 +1,75 @@
+$FreestyleNotes-tableBorderColor: #ccc !default;
+$FreestyleNotes-tableRowColor: #f8f8f8 !default;
+
+.FreestyleNotes {
+  pre {
+    font-size: .8rem;
+    margin-top: 0;
+
+    &.hljs {
+      padding: .5rem 1rem;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  table {
+    padding: 0 1rem;
+  }
+
+  // Appropriating h6 as snippet title
+  h6 {
+    font-size: .7rem;
+    font-weight: bold;
+    margin: 0;
+    padding: .5rem 1rem .2rem;
+    text-transform: uppercase;
+  }
+
+  // Github flavor table css
+  table {
+    margin: 15px 1rem;
+    width: auto;
+
+    & tr {
+      background-color: $FreestyleGuide-color--background;
+      border-top: 1px solid $FreestyleNotes-tableBorderColor;
+      margin: 0;
+      padding: 0;
+
+      &:nth-child(2n) {
+        background-color: $FreestyleNotes-tableRowColor;
+      }
+
+      & th {
+        border: 1px solid $FreestyleNotes-tableBorderColor;
+        font-weight: bold;
+        margin: 0;
+        padding: 6px 13px;
+        text-align: left;
+      }
+
+      & td {
+        border: 1px solid $FreestyleNotes-tableBorderColor;
+        margin: 0;
+        padding: 6px 13px;
+        text-align: left;
+      }
+
+      & th :first-child,
+      & td :first-child {
+        margin-top: 0;
+      }
+
+      & th :last-child,
+      & td :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{{#if hasLabels}}
+  <div class="FreestyleCollection-title">
+    {{title}}
+  </div>
+{{/if}}
+{{#if showVariantList}}
+  {{freestyle-variant-list
+    variants=variants
+    activeKey=activeKey
+    onClickVariant=(action "setKey")
+  }}
+{{/if}}
+{{yield
+  (hash
+    variant=(component "freestyle-variant" collection=this)
+  )
+}}

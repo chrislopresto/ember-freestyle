@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+install_homebrew_dependencies() {
+  brew update
+  brew bundle
+}
+
+echo "Installing homebrew dependencies..."
+install_homebrew_dependencies
+
+echo "All set!"

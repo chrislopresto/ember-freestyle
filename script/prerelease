@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "Releasing ember-freestyle"
+git checkout master
+git pull
+
+if output=$(git status --porcelain) && [ -z "$output" ]; then
+  echo "The prerelease checks passed. Here we go."
+else
+  echo "There are uncommitted local changes. Please clean up before releasing."
+  exit 1
+fi
+
+

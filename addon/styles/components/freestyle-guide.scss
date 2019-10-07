@@ -1,0 +1,110 @@
+// 1. Avoid the IE 10-11 `min-height` bug.
+// 2. Set `flex-shrink` to `0` to prevent some browsers from
+//    letting these items shrink to smaller than their content's default
+//    minimum size. See http://bit.ly/1Mn35US for details.
+// 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
+
+$FreestyleGuide-maxWidth: 1200px !default;
+$FreestyleGuide-asideBackgroundColor: #fff !default;
+$FreestyleGuide-shadow1: rgba(0, 0, 0, .16);
+$FreestyleGuide-shadow2: rgba(0, 0, 0, .12);
+$FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1, 0 2px 10px 0 $FreestyleGuide-shadow2;
+
+.FreestyleGuide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 320px;
+
+  &-header,
+  &-footer {
+    display: flex;
+    flex: none;
+  }
+
+  &-header {
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px $FreestyleGuide-color--secondary;
+    padding: .5rem 1rem;
+  }
+
+  &-cta {
+    cursor: pointer;
+    display: inline-block;
+    flex-basis: 20px;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  &-ctaIcon {
+    &:hover {
+      fill: $FreestyleGuide-color--primary;
+    }
+  }
+
+  &-titleContainer {
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  &-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    @include freestyle-breakpoint(large) {
+      font-size: 1.9rem;
+    }
+  }
+
+  &-subtitle {
+    margin: 0 auto;
+  }
+
+  &-body {
+    background-color: $FreestyleGuide-color--background;
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+
+    @include freestyle-breakpoint(large) {
+      flex-direction: row;
+    }
+  }
+
+  &-content {
+    margin-top: 1.5rem;
+    overflow: auto;
+
+    @include freestyle-breakpoint(large) {
+      flex: 1;
+      margin: 0;
+    }
+  }
+
+  &-nav {
+    background-color: $FreestyleGuide-color--background;
+    order: -1;
+    padding: 1rem;
+
+    @include freestyle-breakpoint(large) {
+      border-right: solid 1px $FreestyleGuide-color--secondary;
+      flex: 0 0 18rem;
+    }
+  }
+
+  &-aside {
+    background: $FreestyleGuide-asideBackgroundColor;
+    box-shadow: $FreestyleGuide-boxShadow;
+    margin-right: .5rem;
+    order: -2;
+    position: fixed;
+    right: .5rem;
+
+    @include freestyle-breakpoint(large) {
+      border-left: solid 1px $FreestyleGuide-color--secondary;
+      order: 1;
+    }
+  }
+}

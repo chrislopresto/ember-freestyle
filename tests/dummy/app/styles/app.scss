@@ -1,0 +1,41 @@
+html,
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: .5rem;
+}
+
+.content {
+  pre {
+    padding: 0;
+  }
+
+  code {
+    padding: 0 1.5em;
+  }
+}
+
+@import 'components/x-foo';
+@import 'components/x-bar';

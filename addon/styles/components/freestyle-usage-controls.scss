@@ -1,0 +1,54 @@
+$FreestyleUsageControls-backgroundColor: #fff !default;
+$FreestyleUsageControls-shadow1: rgba(0, 0, 0, .16);
+$FreestyleUsageControls-shadow2: rgba(0, 0, 0, .12);
+$FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1, 0 2px 10px 0 $FreestyleUsageControls-shadow2;
+
+.FreestyleUsageControls {
+  background: $FreestyleUsageControls-backgroundColor;
+  font-size: .9rem;
+  padding: 1rem;
+  text-align: left;
+  width: 200px;
+
+  &-header {
+    color: $FreestyleGuide-color--primary;
+    font-weight: bold;
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+  }
+
+  &-item {
+    align-items: baseline;
+    display: flex;
+
+    &--focus {
+      padding-top: .6rem;
+    }
+  }
+
+  &-itemControl {
+    cursor: pointer;
+    padding-right: .1rem;
+  }
+
+  &-itemLabel {
+    font-size: .8rem;
+  }
+
+  &-input {
+    &--focus {
+      margin-bottom: .2rem;
+    }
+  }
+
+  &-button {
+    background-color: $FreestyleGuide-color--primary;
+    border: 0;
+    box-shadow: $FreestyleUsageControls-boxShadow;
+    color: $FreestyleGuide-color--background;
+    cursor: pointer;
+    font-size: .6rem;
+    padding: .4rem 1rem;
+    text-transform: uppercase;
+  }
+}

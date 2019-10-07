@@ -1,0 +1,54 @@
+$FreestyleCollection-maxWidth: $FreestyleGuide-maxWidth !default;
+$FreestyleCollection-shadow1: rgba(0, 0, 0, .16);
+$FreestyleCollection-shadow2: rgba(0, 0, 0, .12);
+$FreestyleCollection-boxShadow: 0 2px 5px 0 $FreestyleCollection-shadow1, 0 2px 10px 0 $FreestyleCollection-shadow2;
+
+.FreestyleCollection {
+  max-width: $FreestyleCollection-maxWidth;
+
+  &-title {
+    font-weight: bold;
+    padding: 1rem 1rem 0;
+    text-transform: uppercase;
+  }
+
+  &-variantList {
+    background-color: $FreestyleGuide-color--background;
+    box-shadow: $FreestyleCollection-boxShadow;
+    color: $FreestyleGuide-color--foreground;
+    display: flex;
+    height: 48px;
+    list-style-type: none;
+    margin: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  &-variantListItem {
+    cursor: pointer;
+    display: block;
+    flex-grow: 1;
+    float: left;
+    font-size: 14px;
+    height: 48px;
+    letter-spacing: .8px;
+    line-height: 48px;
+    margin: 0;
+    min-width: 120px;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    width: 15%;
+
+    &:hover,
+    &--active {
+      border-bottom: solid 3px $FreestyleGuide-color--primary;
+      color: $FreestyleGuide-color--primary;
+    }
+  }
+}

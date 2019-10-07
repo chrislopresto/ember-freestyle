@@ -1,0 +1,12 @@
+{{#if show}}
+  {{#if hasName}}
+    <div class="FreestyleSection-name">
+      {{name}}
+    </div>
+  {{/if}}
+{{/if}}
+{{yield
+  (hash
+    subsection=(component "freestyle-subsection" section=name)
+  )
+}}

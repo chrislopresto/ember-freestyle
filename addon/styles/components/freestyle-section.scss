@@ -1,0 +1,18 @@
+$FreestyleSection-borderColor: #ccc !default;
+
+.FreestyleSection {
+  &-name {
+    // TODO: Calculate max-width from $FreestyleGuide-maxWidth
+    border-bottom: solid 1px $FreestyleSection-borderColor;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 1rem;
+    max-width: calc(1200px - 1rem);
+    padding: 1rem 0 .4rem;
+    text-transform: uppercase;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}

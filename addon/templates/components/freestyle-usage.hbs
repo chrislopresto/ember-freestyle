@@ -1,0 +1,48 @@
+{{#if show}}
+  {{#if hasLabels}}
+    <div class="FreestyleUsage-title">
+      {{title}}
+      <span class="FreestyleUsage-focusCta" onclick={{action 'setFocus'}}>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 24 24" data-code="58332" data-tags="filter_center_focus"><g transform="scale(0.0234375 0.0234375)"><path d="M512 384q52 0 90 38t38 90-38 90-90 38-90-38-38-90 38-90 90-38zM810 810v-170h86v170q0 34-26 60t-60 26h-170v-86h170zM810 128q34 0 60 26t26 60v170h-86v-170h-170v-86h170zM214 214v170h-86v-170q0-34 26-60t60-26h170v86h-170zM214 640v170h170v86h-170q-34 0-60-26t-26-60v-170h86z" /></g></svg>
+      </span>
+    </div>
+  {{/if}}
+  {{#if hasNotes}}
+    <div class="FreestyleUsage-notes">
+      <div class="FreestyleUsage-snippet">
+        {{freestyle-notes name=snippetNotesJs theme=computedTheme}}
+      </div>
+      <div class="FreestyleUsage-snippet">
+        {{freestyle-notes name=snippetNotesHbs theme=computedTheme}}
+      </div>
+      <div class="FreestyleUsage-snippet">
+        {{freestyle-notes name=snippetNotesScss theme=computedTheme}}
+      </div>
+    </div>
+  {{/if}}
+  <div class="FreestyleUsage-rendered">
+    {{yield}}
+  </div>
+
+  {{#if hasCode}}
+    <div class="FreestyleUsage-usage">
+      <div class="FreestyleUsage-snippet">
+        {{freestyle-snippet
+          name=snippetUsage
+          title=usageTitle
+          isDynamic=isDynamic
+          dynamicProperties=dynamicProperties
+        }}
+      </div>
+      <div class="FreestyleUsage-snippet">
+        {{freestyle-snippet name=snippetHbs title=hbsTitle}}
+      </div>
+      <div class="FreestyleUsage-snippet">
+        {{freestyle-snippet name=snippetJs title=jsTitle}}
+      </div>
+      <div class="FreestyleUsage-snippet">
+        {{freestyle-snippet name=snippetScss title=scssTitle}}
+      </div>
+    </div>
+  {{/if}}
+{{/if}}

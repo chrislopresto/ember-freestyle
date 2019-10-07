@@ -1,0 +1,6 @@
+.FreestyleNote {
+  // This component is not rendered directly. Its content is the source of
+  // snippets that will be rendered by a freestyle-notes component in
+  // a freestyle-usage component.
+  display: none;
+}

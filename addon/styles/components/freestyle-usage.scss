@@ -1,0 +1,59 @@
+$FreestyleUsage-borderColor: #cecece !default;
+$FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
+
+.FreestyleUsage {
+  max-width: $FreestyleUsage-maxWidth;
+
+  &-title {
+    font-weight: bold;
+    padding: 1rem 1rem 0;
+    text-transform: uppercase;
+  }
+
+  &-notes {
+    font-size: .9rem;
+  }
+
+  &-rendered {
+    padding: 1rem;
+  }
+
+  &-usage {
+    padding-bottom: 10px;
+  }
+
+  &-snippet {
+    pre {
+      font-size: .8rem;
+      margin-top: 0;
+
+      &.hljs {
+        padding: .5rem 1rem;
+      }
+    }
+  }
+
+  &--inline {
+    border-bottom: 0;
+    display: inline-block;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    width: 100%;
+
+    @include freestyle-breakpoint(large) {
+      max-width: inherit;
+      width: auto;
+    }
+  }
+
+  &-focusCta {
+    cursor: pointer;
+    fill: $FreestyleGuide-color--secondary;
+    position: relative;
+    top: 1px;
+
+    &:hover {
+      fill: $FreestyleGuide-color--primary;
+    }
+  }
+}

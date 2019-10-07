@@ -1,0 +1,10 @@
+<ul class='FreestyleCollection-variantList'>
+  {{#each variants as |variantKey|}}
+    <li
+      class='FreestyleCollection-variantListItem {{if (variant-eq activeKey variantKey) 'FreestyleCollection-variantListItem--active'}}'
+      onclick={{action 'onClickItem' variantKey}}
+    >
+      {{variantKey}}
+    </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,34 @@
+{{#freestyle-guide
+  title='Ember Freestyle'
+  subtitle='Living Style Guide'
+  }}
+
+  {{#freestyle-section name='Visual Style' as |section|}}
+
+    {{#section.subsection name='Typography'}}
+
+      {{#freestyle-usage 'typography-times' title='Times New Roman'}}
+        {{freestyle-typeface fontFamily='Times New Roman'}}
+      {{/freestyle-usage}}
+
+      {{#freestyle-usage 'typography-helvetica' title='Helvetica'}}
+        {{freestyle-typeface fontFamily='Helvetica'}}
+      {{/freestyle-usage}}
+
+    {{/section.subsection}}
+
+    {{#section.subsection name='Color'}}
+
+      {{#freestyle-usage 'fp' title='Freestyle Palette' usageTitle='Usage'}}
+        {{freestyle-palette
+        colorPalette=colorPalette
+        title='Dummy App Color Palette'
+        description='This component displays the color palette specified in freestyle/palette.json'
+        }}
+      {{/freestyle-usage}}
+
+    {{/section.subsection}}
+
+  {{/freestyle-section}}
+
+{{/freestyle-guide}}
