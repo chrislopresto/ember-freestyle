@@ -1,11 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "Publishing gh_pages..."
-ember github-pages:commit --message "chore: Deploy gh-pages"
-git push
-git checkout -
-git push
-git checkout master
+echo "Deploying..."
+ember deploy production
 
 echo "All done!"
