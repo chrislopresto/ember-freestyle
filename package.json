@@ -59,7 +59,7 @@
     "ember-try": "^1.2.1",
     "eslint-config-ember": "0.3.0",
     "eslint-plugin-ember": "^7.1.0",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "loader.js": "^4.2.3",
     "qunit-dom": "^0.9.0",
     "standard-version": "^7.0.0"
