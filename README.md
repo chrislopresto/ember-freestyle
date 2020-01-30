@@ -16,11 +16,10 @@ This README provides a lightweight overview of Ember Freestyle to get you going.
 
 To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-freestyle/#/acceptance](https://chrislopresto.github.io/ember-freestyle/#/acceptance)
 
-
 ### Compatibility
 
 - Ember.js v3.8 or above
-- Ember CLI v2.13 or above
+- Ember CLI v3.8 or above
 - Node.js v10 or above
 
 ### Support

@@ -115,34 +115,34 @@
 
     {{#section.subsection name="Typography"}}
 
-      {{#freestyle-usage "typography-times" title="Times New Roman"}}
-        {{freestyle-typeface fontFamily="Times New Roman"}}
-      {{/freestyle-usage}}
+      <FreestyleUsage @slug="typography-times" @title="Times New Roman">
+        <FreestyleTypeface @fontFamily="Times New Roman" />
+      </FreestyleUsage>
 
-      {{#freestyle-usage "typography-helvetica" title="Helvetica"}}
-        {{freestyle-typeface fontFamily="Helvetica"}}
-      {{/freestyle-usage}}
+      <FreestyleUsage @slug="typography-helvetica" @title="Helvetica">
+        <FreestyleTypeface @fontFamily="Helvetica" />
+      </FreestyleUsage>
 
     {{/section.subsection}}
 
     {{#section.subsection name="Color"}}
 
-      {{#freestyle-usage "fp" title="Freestyle Palette"}}
-        {{freestyle-palette
-            colorPalette=colorPalette
-            title="Dummy App Color Palette"
-            description="This component displays the color palette specified in freestyle/palette.json"
-        }}
-      {{/freestyle-usage}}
+      <FreestyleUsage @slug="fp" @title="Freestyle Palette">
+        <FreestylePalette
+          @colorPalette={{this.colorPalette}}
+          @title="Dummy App Color Palette"
+          @description="This component displays the color palette specified in freestyle/palette.json"
+        />
+      </FreestyleUsage>
 
-      {{#freestyle-usage "fpi"
-          title="Freestyle Palette Item"
-          usageTitle="Template - application.hbs"
-          jsTitle="Controller - application.js"
-          scssTitle="SCSS - freestyle-palette-item.scss"
-      }}
-        {{freestyle-palette-item color=color}}
-      {{/freestyle-usage}}
+      <FreestyleUsage @slug="fpi"
+        @title="Freestyle Palette Item"
+        @usageTitle="Template - application.hbs"
+        @jsTitle="Controller - application.js"
+        @scssTitle="SCSS - freestyle-palette-item.scss"
+      >
+        <FreestylePaletteItem @color={{this.color}} />
+      </FreestyleUsage>
 
     {{/section.subsection}}
 

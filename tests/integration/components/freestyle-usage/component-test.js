@@ -242,4 +242,17 @@ module('Integration | Component | freestyle usage', function(hooks) {
     assert.equal(usage.numCodeSection, 0);
     assert.equal(usage.numNotesSection, 0);
   });
+
+  test('it renders the passed in block for angle bracket components', async function(assert) {
+    assert.expect(1);
+
+    await render(hbs`
+      <FreestyleUsage @slug="componentA">
+        hello from component A
+      </FreestyleUsage>
+      `);
+
+    assert.equal(usage.content, 'hello from component A');
+  });
+
 });
