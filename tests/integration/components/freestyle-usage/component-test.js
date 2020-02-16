@@ -1,4 +1,4 @@
-import { merge } from '@ember/polyfills';
+import { assign } from '@ember/polyfills';
 import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
@@ -25,7 +25,7 @@ let codeSnippets = {
   'componentA.scss': 'SCSS code for component A'
 };
 
-let allSnippets = merge(notesSnippets, codeSnippets);
+let allSnippets = assign(notesSnippets, codeSnippets);
 
 module('Integration | Component | freestyle usage', function(hooks) {
   setupRenderingTest(hooks);
