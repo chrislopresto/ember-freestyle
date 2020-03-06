@@ -1,9 +1,26 @@
 .FreestyleDynamic {
+  fieldset {
+    border: groove 2px ThreeDFace;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: table;
+  }
+  legend {
+    color: #333;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
   &-input {
     margin-bottom: 10px;
+    display: table-row;
+    label {
+      display: table-cell;
+      text-align: right;
+      padding-right: 8px;
+    }
 
-    input[type=text], textarea {
-      display: block;
+    input, textarea, select {
+      display: table-cell;
     }
   }
 

@@ -4,9 +4,9 @@ import PageObject, {
 } from 'ember-cli-page-object';
 
 export default PageObject.create({
-  title: text('.FreestyleUsage-title'),
+  title: text('.FreestyleFilterableTitle'),
   content: text('.FreestyleUsage-rendered'),
-  numTitles: count('.FreestyleUsage-title'),
+  numTitles: count('.FreestyleFilterableTitle'),
   numFocusButtons: count('.FreestyleUsage-focusCta'),
   numCodeSection: count('.FreestyleUsage-usage'),
 

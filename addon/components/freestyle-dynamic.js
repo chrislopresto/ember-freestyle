@@ -3,11 +3,13 @@ import Component from '@ember/component';
 import { set, get, computed } from '@ember/object';
 import layout from '../templates/components/freestyle-dynamic';
 import { assert } from '@ember/debug';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
   layout,
   classNames: ['FreestyleDynamic'],
-  headerTitle: 'Dynamic Properties:',
+  emberFreestyle: service(),
+  headerTitle: 'Dynamic Properties',
 
   // Need this separate property for freestyle-dynamic's dynamic.<property> to work
   dynamicPropertyValues: computed('dynamicProperties', function() {
@@ -18,6 +20,15 @@ export default Component.extend({
     });
 
     return dynamicPropertyValues;
+  }),
+
+  show: computed('emberFreestyle.focus', 'slug', function() {
+    let slug = this.get('slug');
+    let focus = this.get('emberFreestyle.focus');
+    if (focus && slug) {
+      return !!slug.match(focus);
+    }
+    return true;
   }),
 
   init() {
@@ -41,6 +52,9 @@ export default Component.extend({
       set(dynamicProperties, `${property}.value`, newValue);
 
       this.set('dynamicProperties', dynamicProperties);
+    },
+    setFocus() {
+      this.set('emberFreestyle.focus', this.get('slug'));
     }
   }
 }).reopenClass({
