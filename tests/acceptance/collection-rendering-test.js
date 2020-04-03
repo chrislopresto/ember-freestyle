@@ -11,7 +11,6 @@ module('Acceptance | collection rendering', function(hooks) {
   });
 
   test('verifying freestyle collection', (assert) => {
-    assert.expect(19);
     let sectionFooThings = freestyleGuide.content.sections.objectAt(0);
     assert.equal(sectionFooThings.subsections.objectAt(0).collections.length, 1);
 
@@ -24,16 +23,16 @@ module('Acceptance | collection rendering', function(hooks) {
     assert.equal(fooCollection.variantListItems.objectAt(1).text, 'normal');
     assert.equal(fooCollection.variantListItems.objectAt(2).text, 'special');
     assert.equal(fooCollection.variantListItems.objectAt(3).text, 'hyper');
-    assert.equal(fooCollection.variantListItems.objectAt(4).text, 'classic');
     assert.equal(fooCollection.variantListItems.objectAt(5).text, 'elegant');
     assert.equal(fooCollection.variantListItems.objectAt(6).text, 'tasteful');
 
+
     // we start with 'normal' as the default key
-    assert.ok(fooCollection.activeVariantListItemLabel('normal'));
+    assert.equal(fooCollection.activeVariantListItemLabelText, 'normal', 'Normal variant is selected');
     assert.equal(fooCollection.variants.length, 6);
 
     // which displays only the (first) normal variant
-    assert.ok(fooCollection.variants.objectAt(0).annotationContains('A Note About Normal'));
+    assert.ok(fooCollection.variants.objectAt(0).annotationContains('A Note About Normal'), 'Normal annotation renders');
     assert.equal(fooCollection.variants.objectAt(0).usageTitle, 'Normal');
 
     // and all others are empty

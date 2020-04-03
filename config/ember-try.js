@@ -12,14 +12,6 @@ module.exports = function() {
       useYarn: true,
       scenarios: [
         {
-          name: 'ember-lts-2.18',
-          npm: {
-            devDependencies: {
-              'ember-source': '~2.18.0'
-            }
-          }
-        },
-        {
           name: 'ember-lts-3.8',
           npm: {
             devDependencies: {
@@ -63,6 +55,21 @@ module.exports = function() {
           name: 'ember-default',
           npm: {
             devDependencies: {}
+          }
+        },
+        {
+          name: 'ember-classic',
+          env: {
+            EMBER_OPTIONAL_FEATURES: JSON.stringify({
+              'application-template-wrapper': true,
+              'default-async-observers': false,
+              'template-only-glimmer-components': false
+            })
+          },
+          npm: {
+            ember: {
+              edition: 'classic'
+            }
           }
         }
       ]

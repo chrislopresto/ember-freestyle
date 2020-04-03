@@ -43,7 +43,7 @@ export default PageObject.create({
         collections: collection('.FreestyleCollection', {
 
           title: text('.FreestyleCollection-title'),
-          activeVariantListItemLabel: contains('.FreestyleCollection-variantListItem--active'),
+          activeVariantListItemLabelText: text('.FreestyleCollection-variantListItem--active'),
 
           selectVariant: clickOnText('.FreestyleCollection-variantListItem'),
 
