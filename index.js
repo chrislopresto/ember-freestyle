@@ -45,5 +45,25 @@ module.exports = {
 
   isDevelopingAddon() {
     return false;
-  }
+  },
+
+  setupPreprocessorRegistry(type, registry) {
+    let pluginObj = this._buildPlugin();
+    pluginObj.parallelBabel = {
+      requireFile: __filename,
+      buildUsing: '_buildPlugin',
+      params: {},
+    };
+    registry.add('htmlbars-ast-plugin', pluginObj);
+  },
+
+  _buildPlugin() {
+    return {
+      name: 'component-attributes',
+      plugin: require('./lib/ast-transform'),
+      baseDir() {
+        return __dirname;
+      },
+    };
+  },
 };

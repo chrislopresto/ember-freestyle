@@ -26,23 +26,36 @@
 
   {{#if hasCode}}
     <div class="FreestyleUsage-usage">
-      <div class="FreestyleUsage-snippet">
-        {{freestyle-snippet
-          name=snippetUsage
-          title=usageTitle
-          isDynamic=isDynamic
-          dynamicProperties=dynamicProperties
-        }}
-      </div>
-      <div class="FreestyleUsage-snippet">
-        {{freestyle-snippet name=snippetHbs title=hbsTitle}}
-      </div>
-      <div class="FreestyleUsage-snippet">
-        {{freestyle-snippet name=snippetJs title=jsTitle}}
-      </div>
-      <div class="FreestyleUsage-snippet">
-        {{freestyle-snippet name=snippetScss title=scssTitle}}
-      </div>
+      {{#if source}}
+        <div class="FreestyleUsage-snippet">
+          {{freestyle-source source=source isDynamic=isDynamic dynamicProperties=dynamicProperties title="Source"}}
+        </div>
+      {{/if}}
+      {{#if snippetUsage}}
+        <div class="FreestyleUsage-snippet">
+          {{freestyle-snippet
+            name=snippetUsage
+            title=usageTitle
+            isDynamic=isDynamic
+            dynamicProperties=dynamicProperties
+          }}
+        </div>
+      {{/if}}
+      {{#if snippetHbs}}
+        <div class="FreestyleUsage-snippet">
+          {{freestyle-snippet name=snippetHbs title=hbsTitle}}
+        </div>
+      {{/if}}
+      {{#if snippetJs}}
+        <div class="FreestyleUsage-snippet">
+          {{freestyle-snippet name=snippetJs title=jsTitle}}
+        </div>
+      {{/if}}
+      {{#if snippetScss}}
+        <div class="FreestyleUsage-snippet">
+          {{freestyle-snippet name=snippetScss title=scssTitle}}
+        </div>
+      {{/if}}
     </div>
   {{/if}}
 {{/if}}

@@ -47,7 +47,7 @@ function extractHbsClassicComponentSnippets(fileContent, componentName, ui) {
         insideOpeningTag = line.indexOf('}}') >= 0; // curlies closed }}
       }
     } else {
-      // Test for start of opening curlies {{#freestyle-usage 'human-readable-name'
+      // Test for start of opening curlies {{#freestyle-note 'human-readable-name'
       var m = new RegExp('\\{\\{#' + componentName + '\\s+[\'|"](\\S+)[\'|"].*').exec(line);
 
       if (m) {
@@ -55,16 +55,10 @@ function extractHbsClassicComponentSnippets(fileContent, componentName, ui) {
         insideOpeningTag = m[0].indexOf('}}') >= 0; // curlies closed }}
         // Extract snippet positional name param via regex match
         name = m[1];
-        // TODO: Cleanup freestyle-notes vs freestyle-usage disambiguation here
         if (name.indexOf('--notes') >= 0) {
           if (snippets[name]) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
           }
-        } else {
-          if (snippets[name + '--usage']) {
-            ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
-          }
-          name += '--usage';
         }
       }
     }
@@ -107,11 +101,6 @@ function extractHbsAngleBracketComponentSnippets(fileContent, componentName, ui)
           if (snippets[name]) {
             ui.writeLine('ember-freestyle detected multiple instances of the freestyle-note slug "' + name +'"');
           }
-        } else {
-          if (snippets[name + '--usage']) {
-            ui.writeLine('ember-freestyle detected multiple instances of the freestyle-usage slug "' + name +'"');
-          }
-          name += '--usage';
         }
       }
     }
@@ -154,18 +143,13 @@ module.exports = class SnippetFinder extends BroccoliPlugin {
   build() {
     return findFiles(this.inputPaths[0]).then((files) => {
       files.forEach((filename) => {
-        let freestyleUsageSnippets = extractHbsClassicComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-usage', this.ui);
-        let freestyleDynamicSnippets = extractHbsClassicComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-dynamic', this.ui);
-        let freestyleNoteSnippets = extractHbsClassicComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-note', this.ui);
-        // add glimmer/octane angle-bracket notation support
-        let glimmerUsageSnippets = extractHbsAngleBracketComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'FreestyleUsage', this.ui);
-        let glimmerDynamicSnippets = extractHbsAngleBracketComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'FreestyleDynamic', this.ui);
+        let classicNoteSnippets = extractHbsClassicComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'freestyle-note', this.ui);
         let glimmerNoteSnippets = extractHbsAngleBracketComponentSnippets(fs.readFileSync(filename, 'utf-8'), 'FreestyleNote', this.ui);
 
-        let componentSnippets = naiveMerge(naiveMerge(naiveMerge(naiveMerge(naiveMerge(freestyleUsageSnippets, freestyleDynamicSnippets), freestyleNoteSnippets), glimmerUsageSnippets), glimmerDynamicSnippets), glimmerNoteSnippets);
+        let notesSnippets = naiveMerge(classicNoteSnippets, glimmerNoteSnippets);
 
         let commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
-        let snippets = naiveMerge(componentSnippets, commentSnippets);
+        let snippets = naiveMerge(notesSnippets, commentSnippets);
         for (var name in snippets) {
           fs.writeFileSync(path.join(this.outputPath, name)+path.extname(filename),
                            snippets[name]);

@@ -51,14 +51,16 @@ let FreestyleUsage = Component.extend({
 
   hasLabels: and('showLabels', 'title'),
   hasNotes: and('showNotes', 'slug'),
-  hasCode: and('showCode', 'slug'),
+  hasCode: computed('showCode', 'slug', 'source', function() {
+    return this.get('showCode') && (this.get('slug') || this.get('source'));
+  }),
 
   init() {
     this._super(...arguments);
 
     this.dynamicProperties = this.dynamicProperties || {};
   },
-  
+
   didInsertElement() {
     this.get('emberFreestyle').ensureHljsTheme(this.get('computedTheme'));
   },
