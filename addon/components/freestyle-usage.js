@@ -22,18 +22,6 @@ let FreestyleUsage = Component.extend({
     }
     return true;
   }),
-  snippetUsage: computed('slug', function() {
-    return `${this.get('slug')}--usage.hbs`;
-  }),
-  snippetHbs: computed('slug', function() {
-    return `${this.get('slug')}.hbs`;
-  }),
-  snippetJs: computed('slug', function() {
-    return `${this.get('slug')}.js`;
-  }),
-  snippetScss: computed('slug', function() {
-    return `${this.get('slug')}.scss`;
-  }),
   snippetNotesJs: computed('slug', function() {
     return `${this.get('slug')}--notes.js`;
   }),

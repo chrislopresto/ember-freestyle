@@ -182,32 +182,23 @@
   <h2>Adding SASS and Javascript code snippets to Your Freestyle Guide</h2>
 
   <p>
-    To add a SASS or Javascript code snippet wrap the snippet you want to display in a comment block with a unique identifier
+    Previous versions of Freestyle had a built-in code snippet notation that allowed you to
+    mark SASS, HBS or Javascript markup to display via freestyle-usage. The old style used
+    "BEGIN-FREESTYLE-USAGE" and "END-FREESTYLE-USAGE" comments. <strong>This functionalty
+      has been removed.</strong>
   </p>
-
-  <pre><code class="javascript language-javascript">
-// BEGIN-FREESTYLE-USAGE my-js-snippet
-function do(something) {
-  console.log(`Doing ${something}`);
-}
-// END-FREESTYLE-USAGE
-  </code></pre>
-
-  <pre><code class="scss language-scss hljs">
-// BEGIN-FREESTYLE-USAGE my-sass-variables
-$some-variable: #aaa000;
-$some-variable: #aaa000;
-$some-variable: #aaa000;
-// END-FREESTYLE-USAGE
-  </code></pre>
-
   <p>
-    Then use the <code>freestyle-usage</code> component to display it in your Freestyle Guide.
+    Instead, we recommend using the excellent
+    <a href="https://github.com/ef4/ember-code-snippet">ember-code-snippet</a> addon.
+    We have included an example of using this with some scss in the AlbumCover example
+    in the <code>tests/dummy/app/templates/acceptance.hbs</code>
+    and <code>tests/dummy/app/styles/components/album-cover.scss</code> source:
   </p>
-  <pre><code class="handlebars language-handlebars">
-\{{freestyle-usage "my-js-snippet" title="Title To Display In Style Guide"}}
-\{{freestyle-usage "my-sass-variables" title="Title To Display In Style Guide"}}
-  </code></pre>
+  <p>
+    {{#let (get-code-snippet "ember-code-snippet-example.hbs") as |snippet|}}
+      <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
+    {{/let}}
+  </p>
 
   <h2>Removing Ember Freestyle from Your Production Payload</h2>
 
@@ -248,9 +239,6 @@ module.exports = function(defaults) {
     <li>
       <a href="https://github.com/lukemelia">Luke Melia</a> and <a href="https://github.com/yapplabs">Yapp Labs</a> for underlying
       concepts and addonification
-    </li>
-    <li>
-      <a href="https://github.com/ef4/ember-code-snippet">Ember Code Snippet</a> for the snippet extraction technique
     </li>
   </ul>
 

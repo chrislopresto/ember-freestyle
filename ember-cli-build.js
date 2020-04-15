@@ -11,7 +11,8 @@ module.exports = function(defaults) {
     },
     freestyle: {
       snippetSearchPaths: ["tests/dummy/app", "addon/styles"]
-    }
+    },
+    snippetSearchPaths: ["tests/dummy/app"]
   });
 
   if (defaults.project.findAddonByName("ember-native-dom-event-dispatcher")) {

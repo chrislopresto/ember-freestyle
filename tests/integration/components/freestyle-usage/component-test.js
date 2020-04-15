@@ -1,4 +1,3 @@
-import { merge } from '@ember/polyfills';
 import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
@@ -18,14 +17,7 @@ let notesSnippets = {
   'componentA--notes.scss': 'SCSS notes for component A'
 };
 
-let codeSnippets = {
-  'componentA--usage.hbs': 'HBS USAGE for component A',
-  'componentA.hbs': 'HBS code for component A',
-  'componentA.js': 'JS CODE for component A',
-  'componentA.scss': 'SCSS code for component A'
-};
-
-let allSnippets = merge(notesSnippets, codeSnippets);
+let allSnippets = notesSnippets;
 
 module('Integration | Component | freestyle usage', function(hooks) {
   setupRenderingTest(hooks);
@@ -38,6 +30,20 @@ module('Integration | Component | freestyle usage', function(hooks) {
 
   hooks.afterEach(function() {
     usage.removeContext();
+  });
+
+  test('it renders the block source', async function(assert) {
+    assert.expect(2);
+    this.set('emberFreestyle.showCode', true);
+
+    await render(hbs`
+      {{#freestyle-usage 'componentA'}}
+        hello from component A
+      {{/freestyle-usage}}
+      `);
+
+    assert.equal(usage.usageSection.snippets.length, 1);
+    assert.equal(usage.usageSection.snippets.objectAt(0).text, 'Source hello from component A');
   });
 
   test('it renders the title and the focus button if a title is passed in and the guide is set to show labels', async function(assert) {
@@ -139,85 +145,20 @@ module('Integration | Component | freestyle usage', function(hooks) {
     assert.equal(usage.numNotesSection, 0);
   });
 
-  test('it renders the code snippets', async function(assert) {
-    assert.expect(5);
-    this.set('emberFreestyle.showCode', true);
-
-    this.set('emberFreestyle.snippets', codeSnippets);
-
-    await render(hbs`
-      {{#freestyle-usage 'componentA'}}
-        hello from component A
-      {{/freestyle-usage}}
-      `);
-
-    assert.equal(usage.usageSection.snippets.length, 4);
-    assert.equal(usage.usageSection.snippets.objectAt(0).text, 'HBS USAGE for component A');
-    assert.equal(usage.usageSection.snippets.objectAt(1).text, 'HBS code for component A');
-    assert.equal(usage.usageSection.snippets.objectAt(2).text, 'JS CODE for component A');
-    assert.equal(usage.usageSection.snippets.objectAt(3).text, 'SCSS code for component A');
-  });
-
   test('it ignores blank lines when unindenting', async function(assert) {
     assert.expect(1);
     this.set('emberFreestyle.showCode', true);
 
-    this.set('emberFreestyle.snippets',  {
-      'componentA--usage.hbs': [
-        '        {{indented-far-before-blank-line}}',
-        '',
-        '        {{after-blank-line}}'
-      ].join('\n'),
-    });
-
     await render(hbs`
       {{#freestyle-usage 'componentA'}}
-        hello from component A
+        {{indented-far-before-blank-line}}
+
+        {{after-blank-line}}
       {{/freestyle-usage}}
       `);
     let rawSnippet = usage.usageSection.snippets.objectAt(0).rawText;
 
     assert.equal(rawSnippet.trim().split('\n').get('lastObject'), '{{after-blank-line}}');
-  });
-
-  test('it renders only the code snippets that have content', async function(assert) {
-    assert.expect(5);
-    this.set('emberFreestyle.showCode', true);
-
-    let incompleteCodeSnippets = {
-      'componentA--usage.hbs': 'HBS USAGE for component A',
-      'componentA.hbs': 'HBS code for component A',
-      // no content for 'componentA.js'
-      'componentA.scss': 'SCSS code for component A'
-    };
-    this.set('emberFreestyle.snippets', incompleteCodeSnippets);
-
-    await render(hbs`
-      {{#freestyle-usage 'componentA'}}
-        hello from component A
-      {{/freestyle-usage}}
-      `);
-
-    assert.equal(usage.usageSection.snippets.length, 4);
-    assert.equal(usage.usageSection.snippets.objectAt(0).text, 'HBS USAGE for component A');
-    assert.equal(usage.usageSection.snippets.objectAt(1).text, 'HBS code for component A');
-    assert.equal(usage.usageSection.snippets.objectAt(2).text, '');
-    assert.equal(usage.usageSection.snippets.objectAt(3).text, 'SCSS code for component A');
-  });
-
-  test('it does not render the code snippets if the guide is set to not show code', async function(assert) {
-    assert.expect(1);
-    this.set('emberFreestyle.showCode', false);
-
-    this.set('emberFreestyle.snippets', codeSnippets);
-
-    await render(hbs`
-      {{#freestyle-usage 'componentA'}}
-        hello from component A
-      {{/freestyle-usage}}
-      `);
-
-    assert.equal(usage.numCodeSection, 0);
   });
 
   test('it does not render anything if slug does not match the focus', async function(assert) {

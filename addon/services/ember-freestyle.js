@@ -4,7 +4,7 @@ import { alias, not } from '@ember/object/computed';
 import { isPresent } from '@ember/utils';
 import { A } from '@ember/array';
 import Service from '@ember/service';
-import { Promise } from 'rsvp';
+import RSVP, { Promise } from 'rsvp';
 
 export default Service.extend({
   showLabels: true,
@@ -59,6 +59,8 @@ export default Service.extend({
 
   highlight(el) {
     this.ensureHljs().then(() => {
+      return this.ensureHljsLanguage('handlebars');
+    }).then(() => {
       hljs.highlightBlock(el);
     });
   },

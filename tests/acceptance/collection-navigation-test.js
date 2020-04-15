@@ -15,7 +15,7 @@ module('Acceptance | collection navigation', function(hooks) {
   test('verifying variantListItem selection', async (assert) => {
     assert.expect(36);
 
-    let fooCollection = freestyleGuide.content.sections.objectAt(0).subsections.objectAt(0).collections.objectAt(0);
+    let fooCollection = freestyleGuide.content.sections.objectAt(1).subsections.objectAt(0).collections.objectAt(0);
 
     for (let idx = 0; idx < variantKeys.length; idx++) {
       let activeVariant = variantKeys[idx];

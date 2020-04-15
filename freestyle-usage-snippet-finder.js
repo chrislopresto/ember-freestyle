@@ -108,31 +108,6 @@ function extractHbsAngleBracketComponentSnippets(fileContent, componentName, ui)
   return snippets;
 }
 
-function extractCommentSnippets(fileContent) {
-  let inside = false;
-  let content = [];
-  let output = {};
-  let name;
-  fileContent.split("\n").forEach(function(line) {
-    if (inside) {
-      if (/\bEND-FREESTYLE-USAGE\b/.test(line)) {
-        inside = false;
-        output[name] = content.join("\n");
-        content = [];
-      } else {
-        content.push(line);
-      }
-    } else {
-      var m = /\bBEGIN-FREESTYLE-USAGE\s+(\S+)\b/.exec(line);
-      if (m) {
-        inside = true;
-        name = m[1];
-      }
-    }
-  });
-  return output;
-}
-
 module.exports = class SnippetFinder extends BroccoliPlugin {
   constructor(inputTree, ui) {
     super(inputTree, {});
@@ -148,11 +123,9 @@ module.exports = class SnippetFinder extends BroccoliPlugin {
 
         let notesSnippets = naiveMerge(classicNoteSnippets, glimmerNoteSnippets);
 
-        let commentSnippets = extractCommentSnippets(fs.readFileSync(filename, 'utf-8'));
-        let snippets = naiveMerge(notesSnippets, commentSnippets);
-        for (var name in snippets) {
+        for (var name in notesSnippets) {
           fs.writeFileSync(path.join(this.outputPath, name)+path.extname(filename),
-                           snippets[name]);
+                           notesSnippets[name]);
         }
       });
     });
