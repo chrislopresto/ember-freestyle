@@ -7,7 +7,9 @@
   {{#freestyle-section name="Albums" as |section|}}
     {{#section.subsection name="Album Cover" as |section|}}
       {{#freestyle-usage "album-cover" title="Album Cover Example"}}
-        <AlbumCover @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg" />
+        <AlbumCover
+          @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
+        />
       {{/freestyle-usage}}
       {{!-- BEGIN-SNIPPET ember-code-snippet-example --}}
       {{#freestyle-annotation "album-cover"}}

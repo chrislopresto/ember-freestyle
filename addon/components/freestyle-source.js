@@ -2,7 +2,6 @@ import { inject as service } from "@ember/service";
 import Component from "@ember/component";
 import { computed, get } from "@ember/object";
 import layout from "../templates/components/freestyle-source";
-import stripIndent from "strip-indent";
 
 export default Component.extend({
   layout,
@@ -29,11 +28,9 @@ export default Component.extend({
   },
 
   renderableSource: computed("dynamicProperties", "source", function() {
-    let result = stripIndent(
-      this.get("source")
+    let result = this.get("source")
         .replace(/^(\s*\n)*/, "")
         .replace(/\s*$/, "")
-    );
 
     if (this.get("isDynamic")) {
       result = this._dynamafy(result);
