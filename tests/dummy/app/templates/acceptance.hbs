@@ -17,6 +17,19 @@
         {{/let}}
       {{/freestyle-annotation}}
       {{!-- END-SNIPPET --}}
+      {{!-- BEGIN-SNIPPET markdown-example-usage --}}
+      {{#freestyle-annotation "album-cover"}}
+        <MarkdownContent>
+          ## Album Review
+
+          I really love this album. Ringo at his finest. Here are things I like about it:
+
+          - Submarines
+          - Psychadelica
+          - The color yellow
+        </MarkdownContent>
+      {{/freestyle-annotation}}
+      {{!-- END-SNIPPET --}}
     {{/section.subsection}}
   {{/freestyle-section}}
 
@@ -33,27 +46,6 @@
               component to write notes in html.
             </p>
           {{/freestyle-annotation}}
-          {{#freestyle-note "foo-normal--notes"}}
-            #### Another Note About Normal
-
-            This comment is coming from a `freestyle-note` component. Use the `freestyle-note` component
-            to write notes in markdown.
-
-            ##### Markdown Code Snippet
-
-            ```javascript
-            // We can include code blocks using markdown
-            function do(something) {
-              console.log(`Doing ${something}`);
-            }
-            ```
-
-            | prop | type   | info |
-            | ---- | ------ | ---- |
-            | `a`  | string | xxxx |
-            | `b`  | string | xxxx |
-            | `c`  | string | xxxx |
-          {{/freestyle-note}}
           {{#freestyle-usage "foo-normal" title="Normal" usageTitle="Usage" hbsTitle="Template"}}
             {{x-foo status="normal"}}
           {{/freestyle-usage}}

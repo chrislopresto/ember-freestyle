@@ -55,7 +55,7 @@ export default PageObject.create({
             contains: contains(),
             usageTitle: text('.FreestyleUsage-title'),
             annotationContains: contains('.FreestyleAnnotation'),
-            noteContent: text('.FreestyleNotes-content', { multiple: true })
+            noteContent: text('.FreestyleAnnotation', { multiple: true })
           })
         })
       })

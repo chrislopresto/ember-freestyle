@@ -18,7 +18,7 @@ const checkboxInput = '.FreestyleDynamic-input:contains(isVisible:) input';
 export default PageObject.create({
   visit: visitable('/acceptance?s=Dynamic%20Properties'),
 
-  snippet: text('.FreestyleUsage-snippet', { at: 3 }),
+  sourceContainer: text('.FreestyleUsage-sourceContainer'),
 
   blockContentInputValue: value(blockContentInput),
   blockContentRendered: text('.x-Bar-description'),

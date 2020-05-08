@@ -9,9 +9,6 @@ module.exports = function(defaults) {
       browsers: ["last 2 version", "> 10%"],
       cascade: false
     },
-    freestyle: {
-      snippetSearchPaths: ["tests/dummy/app", "addon/styles"]
-    },
     snippetSearchPaths: ["tests/dummy/app"]
   });
 

@@ -11,14 +11,6 @@ const FreestyleStub = Service.extend({
   ensureHljsTheme: function() {}
 });
 
-let notesSnippets = {
-  'componentA--notes.js': 'JS notes for component A',
-  'componentA--notes.hbs': 'HBS notes for component A',
-  'componentA--notes.scss': 'SCSS notes for component A'
-};
-
-let allSnippets = notesSnippets;
-
 module('Integration | Component | freestyle usage', function(hooks) {
   setupRenderingTest(hooks);
 
@@ -33,7 +25,6 @@ module('Integration | Component | freestyle usage', function(hooks) {
   });
 
   test('it renders the block source', async function(assert) {
-    assert.expect(2);
     this.set('emberFreestyle.showCode', true);
 
     await render(hbs`
@@ -42,8 +33,7 @@ module('Integration | Component | freestyle usage', function(hooks) {
       {{/freestyle-usage}}
       `);
 
-    assert.equal(usage.usageSection.snippets.length, 1);
-    assert.equal(usage.usageSection.snippets.objectAt(0).text, 'Source hello from component A');
+    assert.equal(usage.usageSection.source, 'Source hello from component A');
   });
 
   test('it renders the title and the focus button if a title is passed in and the guide is set to show labels', async function(assert) {
@@ -89,62 +79,6 @@ module('Integration | Component | freestyle usage', function(hooks) {
     assert.equal(usage.content, 'hello from component A');
   });
 
-  test('it renders the notes snippets', async function(assert) {
-    assert.expect(4);
-    this.set('emberFreestyle.showNotes', true);
-
-    this.set('emberFreestyle.snippets', notesSnippets);
-
-    await render(hbs`
-      {{#freestyle-usage 'componentA'}}
-        hello from component A
-      {{/freestyle-usage}}
-      `);
-
-    assert.equal(usage.notesSection.snippets.length, 3);
-    assert.equal(usage.notesSection.snippets.objectAt(0).text, 'JS notes for component A');
-    assert.equal(usage.notesSection.snippets.objectAt(1).text, 'HBS notes for component A');
-    assert.equal(usage.notesSection.snippets.objectAt(2).text, 'SCSS notes for component A');
-  });
-
-  test('it renders only the notes snippets that have content', async function(assert) {
-    assert.expect(4);
-    this.set('emberFreestyle.showNotes', true);
-
-    let incompleteNotesSnippets = {
-      'componentA--notes.js': 'JS notes for component A',
-      // no content for 'componentA--notes.hbs'
-      'componentA--notes.scss': 'SCSS notes for component A'
-    };
-    this.set('emberFreestyle.snippets', incompleteNotesSnippets);
-
-    await render(hbs`
-      {{#freestyle-usage 'componentA'}}
-        hello from component A
-      {{/freestyle-usage}}
-      `);
-
-    assert.equal(usage.notesSection.snippets.length, 3);
-    assert.equal(usage.notesSection.snippets.objectAt(0).text, 'JS notes for component A');
-    assert.equal(usage.notesSection.snippets.objectAt(1).text, '');
-    assert.equal(usage.notesSection.snippets.objectAt(2).text, 'SCSS notes for component A');
-  });
-
-  test('it does not render the notes snippets if the guide is set to not show notes', async function(assert) {
-    assert.expect(1);
-    this.set('emberFreestyle.showNotes', false);
-
-    this.set('emberFreestyle.snippets', notesSnippets);
-
-    await render(hbs`
-      {{#freestyle-usage 'componentA'}}
-        hello from component A
-      {{/freestyle-usage}}
-      `);
-
-    assert.equal(usage.numNotesSection, 0);
-  });
-
   test('it ignores blank lines when unindenting', async function(assert) {
     assert.expect(1);
     this.set('emberFreestyle.showCode', true);
@@ -156,17 +90,13 @@ module('Integration | Component | freestyle usage', function(hooks) {
         {{after-blank-line}}
       {{/freestyle-usage}}
       `);
-    let rawSnippet = usage.usageSection.snippets.objectAt(0).rawText;
+    let rawSnippet = usage.usageSection.rawSource;
 
     assert.equal(rawSnippet.trim().split('\n').get('lastObject'), '{{after-blank-line}}');
   });
 
   test('it does not render anything if slug does not match the focus', async function(assert) {
-    assert.expect(4);
-
-    this.set('emberFreestyle.snippets', allSnippets);
     this.set('emberFreestyle.showCode', true);
-    this.set('emberFreestyle.showNotes', true);
     this.set('emberFreestyle.showLabels', true);
 
     // set focus to a different component
@@ -181,7 +111,6 @@ module('Integration | Component | freestyle usage', function(hooks) {
     assert.equal(usage.numTitles, 0);
     assert.equal(usage.numFocusButtons, 0);
     assert.equal(usage.numCodeSection, 0);
-    assert.equal(usage.numNotesSection, 0);
   });
 
   test('it renders the passed in block for angle bracket components', async function(assert) {

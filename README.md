@@ -81,20 +81,6 @@ module.exports = function(defaults) {
 You should include Ember Freestyle as a devDependency so that apps using your addon will not include
 Ember Freestyle CSS and JavaScript in their production payloads.
 
-### Code Snippets
-
-You will need to tell the build where to search for code snippets as follows:
-
-##### ember-cli-build.js
-
-```javascript
-var app = new EmberAddon(defaults, {
-  // ...
-  freestyle: {
-    snippetSearchPaths: ['addon', 'tests/dummy/app']
-  }
-});
-```
 ## Running
 
 * `npm run lint:js`

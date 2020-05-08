@@ -31,11 +31,9 @@ module('Acceptance | section rendering', function(hooks) {
     assert.equal(sectionVisualStyle.subsections.objectAt(1).text, 'Color');
   });
 
-  test('freestyle notes show up', (assert) => {
+  test('freestyle annotations show up', (assert) => {
     assert.expect(1);
     let sectionFooThings = freestyleGuide.content.sections.objectAt(1);
-    let note = sectionFooThings.subsections.objectAt(0).collections.objectAt(0).variants.objectAt(0).noteContent[1];
-
-    assert.ok(note.includes('Another Note About Normal'));
+    assert.ok(sectionFooThings.subsections.objectAt(0).collections.objectAt(0).variants.objectAt(0).annotationContains('A Note About Normal'), 'Normal annotation renders');
   })
 });

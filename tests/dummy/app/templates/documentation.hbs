@@ -4,21 +4,27 @@
     Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
   </p>
   <p>
-    <a href="https://travis-ci.org/chrislopresto/ember-freestyle" title="Travis Build Status"><img src="https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master"></a>
-    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Package Version"><img src="https://badge.fury.io/js/ember-freestyle.svg"></a>
-    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Download Count"><img src="https://img.shields.io/npm/dt/ember-freestyle.svg"></a>
-    <a href="http://emberobserver.com/addons/ember-freestyle" title="Ember Observer Score"><img src="https://emberobserver.com/badges/ember-freestyle.svg"></a>
+    <a href="https://travis-ci.org/chrislopresto/ember-freestyle" title="Travis Build Status"><img
+        src="https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master"></a>
+    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Package Version"><img
+        src="https://badge.fury.io/js/ember-freestyle.svg"></a>
+    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Download Count"><img
+        src="https://img.shields.io/npm/dt/ember-freestyle.svg"></a>
+    <a href="http://emberobserver.com/addons/ember-freestyle" title="Ember Observer Score"><img
+        src="https://emberobserver.com/badges/ember-freestyle.svg"></a>
   </p>
   <hr>
 
   <h2>Live Demo</h2>
 
-  To see Ember Freestyle in action, visit the {{#link-to 'acceptance'}}live demo{{/link-to}} here. Note: the acceptance tests run against this live demo.
+  To see Ember Freestyle in action, visit the {{#link-to 'acceptance'}}live demo{{/link-to}} here. Note: the acceptance
+  tests run against this live demo.
 
   <h2>Anatomy of a Basic Freestyle Guide</h2>
 
   <p>
-    Here is a simple style guide, where <code>\{{loading-spinner}}</code> is a hypothetical component <strong>in your application</strong>.
+    Here is a simple style guide, where <code>\{{loading-spinner}}</code> is a hypothetical component <strong>in your
+      application</strong>.
   </p>
 
   <pre><code class="handlebars language-handlebars">
@@ -38,7 +44,8 @@
   <h3>freestyle-guide</h3>
 
   <p>
-    The <code>freestyle-guide</code> component provides the user interface for a style guide. It includes a header section and navigation controls.
+    The <code>freestyle-guide</code> component provides the user interface for a style guide. It includes a header
+    section and navigation controls.
   </p>
 
   <h3>freestyle-usage</h3>
@@ -55,7 +62,8 @@
   </code></pre>
 
   <p>
-    The snippet above will render your app's <code>x-foo</code> component as well as a handlebars snippet demonstrating how to use it.
+    The snippet above will render your app's <code>x-foo</code> component as well as a handlebars snippet demonstrating
+    how to use it.
   </p>
 
   <h3>freestyle-section</h3>
@@ -91,19 +99,24 @@
   </code></pre>
 
   <p>
-    The snippet above will create a style guide with one 'Visual Style' section with separate subsections for 'Typography' and
-    'Colors'. Your app's <code>x-foo-typography</code> and <code>x-fie-colors</code> components would show up in the appropriate subsections.
+    The snippet above will create a style guide with one 'Visual Style' section with separate subsections for
+    'Typography' and
+    'Colors'. Your app's <code>x-foo-typography</code> and <code>x-fie-colors</code> components would show up in the
+    appropriate subsections.
   </p>
 
   <h3>freestyle-collection + freestyle-variant</h3>
 
   <p>
-    Use the <code>freestyle-collection</code> component with nested <code>freestyle-variant</code> components to present multiple versions of
-    a component. This is very useful for presenting and testing a component in each state it must handle in your application.
+    Use the <code>freestyle-collection</code> component with nested <code>freestyle-variant</code> components to present
+    multiple versions of
+    a component. This is very useful for presenting and testing a component in each state it must handle in your
+    application.
   </p>
 
   <p>
-    By default, variants will be stacked. If you wish to view variants side by side, set the <code>inline</code> property of
+    By default, variants will be stacked. If you wish to view variants side by side, set the <code>inline</code>
+    property of
     <code>freestyle-collection</code> to true.
   </p>
 
@@ -129,42 +142,22 @@
 \{{/freestyle-collection}}
   </code></pre>
 
-  <h3>freestyle-note + freestyle-annotation</h3>
+  <h3>freestyle-annotation</h3>
 
   <p>
-    <em>TODO:</em> <a href="https://github.com/chrislopresto/ember-freestyle/issues/61">Simplify Technique for Including Notes</a>
-  </p>
-
-  <p>
-    Use the <code>freestyle-note</code> component to add a markdown note for a specific <code>freestyle-usage</code>. Note that the
-    <code>freestyle-note</code> slug must match the <code>freestyle-usage</code> slug followed by <code>--notes</code>.
+    Use the <code>freestyle-annotation</code> component to add documentation for a specific
+    <code>freestyle-usage</code>.
+    Note that the
+    <code>freestyle-annotation</code> slug must match the <code>freestyle-usage</code> slug
+    for filtering to work and in order to respect the <code>Show Notes</code> usage controls preference.
   </p>
 
   <pre><code class="handlebars language-handlebars">
 \{{#freestyle-usage "globally-unique-slug-2" title="Title To Display In Style Guide"}}
   \{{x-foo propa="aaa" propb="bbb"}}
 \{{/freestyle-usage}}
-\{{#freestyle-note "globally-unique-slug-2--notes"}}
-  # Contextual Markdown Note for x-foo
 
-  You can write helpful _markdown_ notes explaining how the
-  `x-foo` component works.
-
-  | prop | type   | info |
-  | ---- | ------ | ---- |
-  | `a`  | string | xxxx |
-  | `b`  | string | xxxx |
-  | `c`  | string | xxxx |
-
-\{{/freestyle-note}}
-  </code></pre>
-
-  <p>
-    Use the <code>freestyle-annotation</code> component to add a general purpose note.
-  </p>
-
-  <pre><code class="handlebars language-handlebars">
-\{{#freestyle-annotation}}
+\{{#freestyle-annotation "globally-unique-slug-2"}}
 &lt;h1&gt;Contextual HTML Note for Anything in the Freestyle Guide&lt;/h1&gt;
 
 &lt;p&gt;
@@ -173,11 +166,6 @@
 &lt;/p&gt;
 \{{/freestyle-annotation}}
   </code></pre>
-
-  <p>
-    Both the <code>freestyle-note</code> and <code>freestyle-annotation</code> components respect the
-    <code>Show Notes</code> usage controls preference.
-  </p>
 
   <h2>Adding SASS and Javascript code snippets to Your Freestyle Guide</h2>
 
@@ -196,7 +184,40 @@
   </p>
   <p>
     {{#let (get-code-snippet "ember-code-snippet-example.hbs") as |snippet|}}
-      <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
+    <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
+    {{/let}}
+  </p>
+
+  <h2>Adding markdown documentation to your Freestyle guide</h2>
+
+  <p>Previous versions of Freestyle had a built-in freestyle-notes component that allowed you
+    to write documentation in markdown. <strong>This functionality has been removed.</strong>
+  </p>
+
+  <p>Instead we recommend building your own markdown rendering component using a library
+    such as <a href="https://github.com/jonschlinkert/remarkable">remarkable</a>. We have
+    included an example of this approach in the AlbumCover example
+    in the <code>tests/dummy/app/templates/acceptance.hbs</code>:
+  </p>
+
+  <h3>MarkdownContent Component Template</h3>
+  <p>
+    {{#let (get-code-snippet "markdown-example.hbs") as |snippet|}}
+    <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
+    {{/let}}
+  </p>
+
+  <h3>MarkdownExample Component</h3>
+  <p>
+    {{#let (get-code-snippet "markdown-example.js") as |snippet|}}
+    <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
+    {{/let}}
+  </p>
+
+  <h3>MarkdownContent Component Usage</h3>
+  <p>
+    {{#let (get-code-snippet "markdown-example-usage.hbs") as |snippet|}}
+    <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
     {{/let}}
   </p>
 
@@ -223,21 +244,29 @@ module.exports = function(defaults) {
   <h2>Living Style Guide Driven Development</h2>
 
   <p>
-    Ember Freestyle facilitates a living style guide driven development approach for Ember apps. Chris LoPresto gave a talk on
-    this topic at EmberConf 2016. <a href="http://chrislopresto.com/presentations/living-style-guide-driven-development?ph=900&pw=1600">Interactive Slides</a>
+    Ember Freestyle facilitates a living style guide driven development approach for Ember apps. Chris LoPresto gave a
+    talk on
+    this topic at EmberConf 2016. <a
+      href="http://chrislopresto.com/presentations/living-style-guide-driven-development?ph=900&pw=1600">Interactive
+      Slides</a>
   </p>
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/Z1lL_Zo62h0" frameborder="0" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/Z1lL_Zo62h0" frameborder="0"
+    allowfullscreen></iframe>
 
   <h2>Acknowledgements</h2>
 
   <p>
-    Ember Freestyle would not be possible without inspiration from the Ember community at large. Specific thanks go out to:
+    Ember Freestyle would not be possible without inspiration from the Ember community at large. Specific thanks go
+    out
+    to:
   </p>
 
   <ul>
     <li>
-      <a href="https://github.com/lukemelia">Luke Melia</a> and <a href="https://github.com/yapplabs">Yapp Labs</a> for underlying
+      <a href="https://github.com/lukemelia">Luke Melia</a> and <a href="https://github.com/yapplabs">Yapp Labs</a>
+      for
+      underlying
       concepts and addonification
     </li>
   </ul>
@@ -247,7 +276,8 @@ module.exports = function(defaults) {
   <h3>Installation</h3>
 
   <p>
-    This installation process is opinionated in order to get you going quickly. We want to make everything much easier to use
+    This installation process is opinionated in order to get you going quickly. We want to make everything much easier
+    to use
     in the near future. Please report any problems, and as always, PRs are welcome.
   </p>
 
@@ -265,13 +295,16 @@ ember install ember-freestyle
     <li>Add a <code>freestyle</code> controller in your app</li>
   </ul>
 
-  <p><em>Note:</em> Ember CLI versions before 0.2.3 should use <code>ember install:addon</code> instead of <code>ember install</code></p>
+  <p><em>Note:</em> Ember CLI versions before 0.2.3 should use <code>ember install:addon</code> instead of
+    <code>ember install</code></p>
 
   <h3>Setup</h3>
 
   <h4>Routing the Generated Freestyle Guide</h4>
 
-  <p>If you said yes to the prompts from the generator above, you are almost ready to display a Freestyle Guide in your app.</p>
+  <p>If you said yes to the prompts from the generator above, you are almost ready to display a Freestyle Guide in
+    your
+    app.</p>
 
   <ol>
     <li>Add <code>this.route('freestyle');</code> to your <code>router.js</code> file</li>

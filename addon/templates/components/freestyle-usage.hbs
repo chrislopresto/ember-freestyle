@@ -7,19 +7,6 @@
       </span>
     </div>
   {{/if}}
-  {{#if hasNotes}}
-    <div class="FreestyleUsage-notes">
-      <div class="FreestyleUsage-snippet">
-        {{freestyle-notes name=snippetNotesJs theme=computedTheme}}
-      </div>
-      <div class="FreestyleUsage-snippet">
-        {{freestyle-notes name=snippetNotesHbs theme=computedTheme}}
-      </div>
-      <div class="FreestyleUsage-snippet">
-        {{freestyle-notes name=snippetNotesScss theme=computedTheme}}
-      </div>
-    </div>
-  {{/if}}
   <div class="FreestyleUsage-rendered">
     {{yield}}
   </div>
@@ -27,7 +14,7 @@
   {{#if hasCode}}
     <div class="FreestyleUsage-usage">
       {{#if source}}
-        <div class="FreestyleUsage-snippet">
+        <div class="FreestyleUsage-sourceContainer">
           {{freestyle-source source=source isDynamic=isDynamic dynamicProperties=dynamicProperties title="Source"}}
         </div>
       {{/if}}

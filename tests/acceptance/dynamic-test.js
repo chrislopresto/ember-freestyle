@@ -30,17 +30,17 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered block can show dynamic and static content'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       '<p>Dynamic Block Content</p>',
       'The snippet shows the initial dynamic block content'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       '<p>Static block content</p>',
       'The snippet shows the static block content'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       '<p> Reference another dynamic prop in block: is tasteful: false </p>',
       'The snippet can include a block that references multiple dynamic properties'
     );
@@ -51,7 +51,7 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered block content changes when the input changes'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       '<p>Something new</p>',
       'The snippet changes when the input changes'
     );
@@ -75,7 +75,7 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered block reflects the initial value'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       `size='medium'`,
       'The snippet shows initial value'
     );
@@ -85,7 +85,7 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered component changes when the select changes'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       `size='small'`,
       'The snippet changes when the select changes'
     );
@@ -104,7 +104,7 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered block reflects the initial value'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       'rank=10',
       'The snippet shows initial value'
     );
@@ -115,7 +115,7 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered component changes when the input changes'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       'rank=5',
       'The snippet changes when the input changes'
     );
@@ -133,7 +133,7 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered component reflects the initial value'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       'isVisible=true',
       'The snippet shows initial value'
     );
@@ -143,7 +143,7 @@ module('Acceptance | dynamic', function(hooks) {
       'The rendered component changes when the checkbox changes'
     );
     assert.includes(
-      freestyleDynamic.snippet,
+      freestyleDynamic.sourceContainer,
       'isVisible=false',
       'The snippet changes when the checkbox changes'
     );
