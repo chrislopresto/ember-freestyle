@@ -4,7 +4,7 @@ import { not } from '@ember/object/computed';
 import { isPresent } from '@ember/utils';
 import { A } from '@ember/array';
 import Service from '@ember/service';
-import RSVP, { Promise } from 'rsvp';
+import { Promise } from 'rsvp';
 
 export default Service.extend({
   showLabels: true,
