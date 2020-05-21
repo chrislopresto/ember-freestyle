@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.10...v0.12.0) (2020-05-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove support for freestyle-note
+
+- A stub component has been left to throw an error which points the documentation
+
+* test: Update test matrix support to ember 3.12 and 3.16
+
+* Preserve formatting for <FreestyleUsage> source blocks in AST transform
+
+- also moved unindenting to the AST plugin rather than in-browser
+
+* style: Improve documentation site styles
+
+* chore: removed unused import
+
+Co-authored-by: Luke Melia <luke@lukemelia.com>
+
+### Features
+
+* Support Freestyle Usage|Note angle bracket component invoc… ([#300](https://github.com/chrislopresto/ember-freestyle/issues/300)) ([61b668c](https://github.com/chrislopresto/ember-freestyle/commit/61b668c6a7ddf50d80146d8f1a2b79deb9ceb5bf))
+
+
+* BREAKING CHANGE: Switch to AST transform for freestyle-usage source preview, drop support for comment-delineated snippets, remove freestyle-notes component (#357) ([5cc6f42](https://github.com/chrislopresto/ember-freestyle/commit/5cc6f425ccfd590924e03d80900947926dd4bc37)), closes [#357](https://github.com/chrislopresto/ember-freestyle/issues/357)
+
 ### [0.11.10](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.9...v0.11.10) (2020-04-03)
 
 ### [0.11.9](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.8...v0.11.9) (2019-10-07)
