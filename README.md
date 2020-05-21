@@ -21,8 +21,8 @@ To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-f
 
 ### Compatibility
 
-- Ember.js v3.8 or above
-- Ember CLI v3.8 or above
+- Ember.js v3.12 or above
+- Ember CLI v3.12 or above
 - Node.js v10 or above
 
 ### Support
@@ -81,20 +81,6 @@ module.exports = function(defaults) {
 You should include Ember Freestyle as a devDependency so that apps using your addon will not include
 Ember Freestyle CSS and JavaScript in their production payloads.
 
-### Code Snippets
-
-You will need to tell the build where to search for code snippets as follows:
-
-##### ember-cli-build.js
-
-```javascript
-var app = new EmberAddon(defaults, {
-  // ...
-  freestyle: {
-    snippetSearchPaths: ['addon', 'tests/dummy/app']
-  }
-});
-```
 ## Running
 
 * `npm run lint:js`

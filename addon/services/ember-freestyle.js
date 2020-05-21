@@ -1,5 +1,5 @@
 /* global hljs */
-import { alias, not } from '@ember/object/computed';
+import { not } from '@ember/object/computed';
 
 import { isPresent } from '@ember/utils';
 import { A } from '@ember/array';
@@ -14,7 +14,6 @@ export default Service.extend({
   showMenu: true,
 
   defaultTheme: 'zenburn',
-  snippets: alias('freestyle-snippets'),
 
   // must be explicitly set to null here for (query-params s=null ss=null f=null) to work
   section: null,
@@ -59,6 +58,8 @@ export default Service.extend({
 
   highlight(el) {
     this.ensureHljs().then(() => {
+      return this.ensureHljsLanguage('handlebars');
+    }).then(() => {
       hljs.highlightBlock(el);
     });
   },

@@ -11,7 +11,6 @@ let FreestyleUsage = Component.extend({
 
   emberFreestyle: service(),
   showLabels: alias('emberFreestyle.showLabels'),
-  showNotes: alias('emberFreestyle.showNotes'),
   showCode: alias('emberFreestyle.showCode'),
 
   show: computed('emberFreestyle.focus', 'slug', function() {
@@ -22,27 +21,6 @@ let FreestyleUsage = Component.extend({
     }
     return true;
   }),
-  snippetUsage: computed('slug', function() {
-    return `${this.get('slug')}--usage.hbs`;
-  }),
-  snippetHbs: computed('slug', function() {
-    return `${this.get('slug')}.hbs`;
-  }),
-  snippetJs: computed('slug', function() {
-    return `${this.get('slug')}.js`;
-  }),
-  snippetScss: computed('slug', function() {
-    return `${this.get('slug')}.scss`;
-  }),
-  snippetNotesJs: computed('slug', function() {
-    return `${this.get('slug')}--notes.js`;
-  }),
-  snippetNotesHbs: computed('slug', function() {
-    return `${this.get('slug')}--notes.hbs`;
-  }),
-  snippetNotesScss: computed('slug', function() {
-    return `${this.get('slug')}--notes.scss`;
-  }),
   defaultTheme: alias('emberFreestyle.defaultTheme'),
   // highlightJsTheme - passed in
   computedTheme: computed('defaultTheme', 'highlightJsTheme', function() {
@@ -50,15 +28,16 @@ let FreestyleUsage = Component.extend({
   }),
 
   hasLabels: and('showLabels', 'title'),
-  hasNotes: and('showNotes', 'slug'),
-  hasCode: and('showCode', 'slug'),
+  hasCode: computed('showCode', 'slug', 'source', function() {
+    return this.get('showCode') && (this.get('slug') || this.get('source'));
+  }),
 
   init() {
     this._super(...arguments);
 
     this.dynamicProperties = this.dynamicProperties || {};
   },
-  
+
   didInsertElement() {
     this.get('emberFreestyle').ensureHljsTheme(this.get('computedTheme'));
   },
