@@ -1,7 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-
-echo "Deploying..."
-ember deploy production
-
-echo "All done!"
