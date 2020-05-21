@@ -8,6 +8,8 @@
     {{#section.subsection name="Album Cover" as |section|}}
       {{#freestyle-usage "album-cover" title="Album Cover Example"}}
         <AlbumCover
+          @artist="The Beatles"
+          @title="Yellow Submarine"
           @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
         />
       {{/freestyle-usage}}
@@ -15,7 +17,7 @@
       {{#freestyle-annotation "album-cover"}}
         <h4>Styles for this component:</h4>
         {{#let (get-code-snippet "album-cover-styles.scss") as |snippet|}}
-          <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
+          <pre {{freestyle-highlight}} class="{{snippet.language}} u-outdent">{{snippet.source}}</pre>
         {{/let}}
       {{/freestyle-annotation}}
       {{!-- END-SNIPPET --}}

@@ -1,16 +1,20 @@
 {{doc-nav}}
-<div class="container is-fluid content">
+<div class="px-1">
   <p>
     Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
   </p>
-  <p>
-    <a href="https://travis-ci.org/chrislopresto/ember-freestyle" title="Travis Build Status"><img
+  <p class="flex -mx-1">
+    <a class="px-1" href="https://travis-ci.org/chrislopresto/ember-freestyle" title="Travis Build Status"><img
+        alt="Travis Build Status"
         src="https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master"></a>
-    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Package Version"><img
+    <a class="px-1" href="https://www.npmjs.com/package/ember-freestyle" title="NPM Package Version"><img
+        alt="NPM Package Version"
         src="https://badge.fury.io/js/ember-freestyle.svg"></a>
-    <a href="https://www.npmjs.com/package/ember-freestyle" title="NPM Download Count"><img
+    <a class="px-1" href="https://www.npmjs.com/package/ember-freestyle" title="NPM Download Count"><img
+        alt="NPM Download Count"
         src="https://img.shields.io/npm/dt/ember-freestyle.svg"></a>
-    <a href="http://emberobserver.com/addons/ember-freestyle" title="Ember Observer Score"><img
+    <a class="px-1" href="http://emberobserver.com/addons/ember-freestyle" title="Ember Observer Score"><img
+        alt="Ember Observer Score"
         src="https://emberobserver.com/badges/ember-freestyle.svg"></a>
   </p>
   <hr>
@@ -194,9 +198,13 @@
     to write documentation in markdown. <strong>This functionality has been removed.</strong>
   </p>
 
-  <p>Instead we recommend building your own markdown rendering component using a library
-    such as <a href="https://github.com/jonschlinkert/remarkable">remarkable</a>. We have
-    included an example of this approach in the AlbumCover example
+  <p>If you were not using markdown formatting in freestyle-note, we recommend using the
+    freestyle-annotation component instead. Follow the freestyle-annoation usage guidance above.
+  </p>
+
+  <p>If you were using markdown formatting, we recommend building your own markdown rendering
+    component using a library such as <a href="https://github.com/jonschlinkert/remarkable">remarkable</a>.
+    We have included an example of this approach in the AlbumCover example
     in the <code>tests/dummy/app/templates/acceptance.hbs</code>:
   </p>
 
@@ -257,17 +265,17 @@ module.exports = function(defaults) {
   <h2>Acknowledgements</h2>
 
   <p>
-    Ember Freestyle would not be possible without inspiration from the Ember community at large. Specific thanks go
-    out
-    to:
+    Ember Freestyle would not be possible without inspiration from the Ember community at large. Specific thanks go out to:
   </p>
 
   <ul>
     <li>
       <a href="https://github.com/lukemelia">Luke Melia</a> and <a href="https://github.com/yapplabs">Yapp Labs</a>
-      for
-      underlying
-      concepts and addonification
+      for underlying concepts and addonification
+    </li>
+    <li>
+      <a href="https://github.com/ef4">Ed Faulkner</a> and <a href="https://github.com/ef4/ember-code-snippet">ember-code-snippet</a>
+      for the original source code preview technique
     </li>
   </ul>
 
@@ -276,9 +284,8 @@ module.exports = function(defaults) {
   <h3>Installation</h3>
 
   <p>
-    This installation process is opinionated in order to get you going quickly. We want to make everything much easier
-    to use
-    in the near future. Please report any problems, and as always, PRs are welcome.
+    This installation process is opinionated in order to get you going quickly. We are currently working to make
+    it much easier to configure Ember Freestyle. Please report any problems, and as always, PRs are welcome.
   </p>
 
   <h3>Installing Ember Freestyle</h3>
