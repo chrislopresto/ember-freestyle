@@ -86,6 +86,7 @@
     "demoURL": "https://chrislopresto.github.io/ember-freestyle/",
     "versionCompatibility": {
       "ember": ">= 2.4.0"
-    }
+    },
+    "before": ["ember-named-blocks-polyfill"]
   }
 }
