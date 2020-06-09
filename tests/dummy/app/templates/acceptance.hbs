@@ -6,6 +6,35 @@
 
   {{#freestyle-section name="Albums" as |section|}}
     {{#section.subsection name="Album Cover" as |section|}}
+      <Freestyle::Item @title="Album Cover Example">
+        <:foo>
+          Foo
+        </:foo>
+        <:note>
+          <h4>Styles for this component:</h4>
+          {{#let (get-code-snippet "album-cover-styles.scss") as |snippet|}}
+            <pre {{freestyle-highlight}} class="{{snippet.language}} u-outdent">{{snippet.source}}</pre>
+          {{/let}}
+          <MarkdownContent>
+            ## Album Review
+
+            I really love this album. Ringo at his finest. Here are things I like about it:
+
+            - Submarines
+            - Psychadelica
+            - The color yellow
+          </MarkdownContent>
+        </:note>
+        <:example>
+          <AlbumCover
+            @artist="The Beatles"
+            @title="Yellow Submarine"
+            @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
+          />
+        </:example>
+      </Freestyle::Item>
+      yo yo
+
       {{#freestyle-usage "album-cover" title="Album Cover Example"}}
         <AlbumCover
           @artist="The Beatles"
