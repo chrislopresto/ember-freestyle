@@ -12,6 +12,8 @@ module.exports = {
   },
 
   setupPreprocessorRegistry(type, registry) {
+    console.log('registry.instantiatedPlugins', registry.instantiatedPlugins);
+    debugger;
     let pluginObj = this._buildPlugin();
     pluginObj.parallelBabel = {
       requireFile: __filename,
@@ -23,7 +25,7 @@ module.exports = {
 
   _buildPlugin() {
     return {
-      name: 'component-attributes',
+      name: 'freestyle-source-extracter',
       plugin: require('./lib/ast-transform'),
       baseDir() {
         return __dirname;
