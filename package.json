@@ -87,6 +87,6 @@
     "versionCompatibility": {
       "ember": ">= 2.4.0"
     },
-    "before": ["ember-named-blocks-polyfill"]
+    "after": ["ember-named-blocks-polyfill"]
   }
 }
