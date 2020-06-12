@@ -6,7 +6,7 @@
 
   {{#freestyle-section name="Albums" as |section|}}
     {{#section.subsection name="Album Cover" as |section|}}
-      <Freestyle::Item @title="Album Cover Example">
+      {{!-- <Freestyle::Item @title="Album Cover Example">
         <:foo>
           Foo
         </:foo>
@@ -32,8 +32,17 @@
             @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
           />
         </:example>
-      </Freestyle::Item>
-      yo yo
+      </Freestyle::Item> --}}
+
+      <Freestyle::Usage @title="Album Cover Example">
+        <:example>
+          <AlbumCover
+            @artist="The Beatles"
+            @title="Yellow Submarine"
+            @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
+          />
+        </:example>
+      </Freestyle::Usage>
 
       {{#freestyle-usage "album-cover" title="Album Cover Example"}}
         <AlbumCover
