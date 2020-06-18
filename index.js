@@ -12,8 +12,6 @@ module.exports = {
   },
 
   setupPreprocessorRegistry(type, registry) {
-    console.log('registry.instantiatedPlugins', registry.instantiatedPlugins);
-    debugger;
     let pluginObj = this._buildPlugin();
     pluginObj.parallelBabel = {
       requireFile: __filename,

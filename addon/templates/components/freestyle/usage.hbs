@@ -1,13 +1,13 @@
 <div class="FreestyleUsage-title">
   {{@title}}
 </div>
+
 {{yield to="example"}}
-<hr>
-<p>This is where source will go:</p>
+
 {{#if @source}}
   <div class="FreestyleUsage-sourceContainer">
     <FreestyleSource @source={{@source}} @isDynamic={{false}} @title="Source" />
   </div>
 {{/if}}
-<hr>
+
 {{yield to="note"}}

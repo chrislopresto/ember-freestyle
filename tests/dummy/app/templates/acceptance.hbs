@@ -34,12 +34,22 @@
         </:example>
       </Freestyle::Item> --}}
 
-      <Freestyle::Usage @title="Album Cover Example">
+      <Freestyle::Usage @title="Album Cover Example New API Named Blocks">
         <:example>
           <AlbumCover
             @artist="The Beatles"
             @title="Yellow Submarine"
             @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
+          />
+        </:example>
+      </Freestyle::Usage>
+
+      <Freestyle::Usage @title="Album Cover Example New API No Named Blocks">
+        <:example>
+          <AlbumCover
+            @artist="The Beatles"
+            @title="Sgt. Pepper's Lonely Hearts Club Band"
+            @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg"
           />
         </:example>
       </Freestyle::Usage>
