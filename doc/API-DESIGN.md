@@ -16,7 +16,11 @@ It is NOT freestyle's job to be a primary source of documentation on how to use 
    * Component display configuration
      * Background color (transparent, color)
      * Arg Display, grid (each option for a particular arg as rows or columns)
+   * Maintain display state (including focused collection item and control panel settings) across refreshes.  
 4. Obvious extensibility points for component documentation and argument discovery (ie: JSDoc, Typescript)
+5. Freestyle::Usage should be usable on its own or easily integrated into another tool (such as a documentation-focused addon)
+6. Offers ways to share state via URL with collaborators
+7. Allows end developers to create their own freestyle components that have access to similar behavior and APIs as the core components do.
 
 ## Stretch Goals
 
@@ -313,3 +317,37 @@ This idea is an attempt to capture an idea of presets.
   </:example>
 </Freestyle::Usage>
 ```
+
+### Standalone "Usage"
+
+Optional passed @showSource and @showNotes params would take precedence over global toggles.
+
+```hbs
+<Freestyle::Usage @showSource={{true}} @showNotes{{false}}>
+  ....
+</Freestyle::Usage>
+```
+
+There should also be a way to pass in and/or inject a FreestyleUsageRenderingManager that conforms to a set interface (i.e. replace freestyle-service's role).
+
+### Focusing & Handling Refresh
+
+The following built-in components have an @title of the following format:
+
+(SectionName "/")* UsageTitle # e.g. "Core/Buttons/ButtonsTable"
+
+Idea: use a nearley parser to parse titles
+
+Focus on a section or usage via a query param that specifies a partial or complete title.
+
+Partial titles should be limited to breaking at delimiters.
+
+TBD: backward compatibility with existing query param?
+
+Navigation menu could be generated based on parsed sections.
+
+Other components like Freestyle::Collection & Freestyle::Table can serialize state to local storage via a serialization API. There could a share button that would pop up a shareable URL / copy to clipboard which is a URL targeting this titled component and including a query param with the serialized component state. Using this URL would result in the state being serialized to local storage and replicating the state of the component for the user pasting this URL.
+
+# Specifying Component
+
+Optional @component prop, for docs?
