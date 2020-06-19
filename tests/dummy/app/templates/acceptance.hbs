@@ -6,6 +6,55 @@
 
   {{#freestyle-section name="Albums" as |section|}}
     {{#section.subsection name="Album Cover" as |section|}}
+      {{!-- <Freestyle::Item @title="Album Cover Example">
+        <:foo>
+          Foo
+        </:foo>
+        <:note>
+          <h4>Styles for this component:</h4>
+          {{#let (get-code-snippet "album-cover-styles.scss") as |snippet|}}
+            <pre {{freestyle-highlight}} class="{{snippet.language}} u-outdent">{{snippet.source}}</pre>
+          {{/let}}
+          <MarkdownContent>
+            ## Album Review
+
+            I really love this album. Ringo at his finest. Here are things I like about it:
+
+            - Submarines
+            - Psychadelica
+            - The color yellow
+          </MarkdownContent>
+        </:note>
+        <:example>
+          <AlbumCover
+            @artist="The Beatles"
+            @title="Yellow Submarine"
+            @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
+          />
+        </:example>
+      </Freestyle::Item> --}}
+
+      <Freestyle::Usage @title="Album Cover Example New API Named Blocks">
+        <:example>
+          <AlbumCover
+            @artist="The Beatles"
+            @title="Yellow Submarine"
+            @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
+          />
+        </:example>
+        <:note>
+          We all live there.
+        </:note>
+      </Freestyle::Usage>
+
+      <Freestyle::Usage @title="Album Cover Example New API No Named Blocks">
+        <AlbumCover
+          @artist="The Beatles"
+          @title="Sgt. Pepper's Lonely Hearts Club Band"
+          @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg"
+        />
+      </Freestyle::Usage>
+
       {{#freestyle-usage "album-cover" title="Album Cover Example"}}
         <AlbumCover
           @artist="The Beatles"
