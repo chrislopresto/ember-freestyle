@@ -2,7 +2,11 @@
   {{@title}}
 </div>
 
-{{yield to="example"}}
+{{#if (has-block "example")}}
+  {{yield to="example"}}
+{{else}}
+  {{yield}}
+{{/if}}
 
 {{#if @source}}
   <div class="FreestyleUsage-sourceContainer">
@@ -10,4 +14,8 @@
   </div>
 {{/if}}
 
-{{yield to="note"}}
+{{#if (has-block "note")}}
+  {{yield to="note"}}
+{{else}}
+  No note here!
+{{/if}}

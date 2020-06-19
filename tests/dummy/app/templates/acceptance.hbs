@@ -42,16 +42,17 @@
             @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
           />
         </:example>
+        <:note>
+          We all live there.
+        </:note>
       </Freestyle::Usage>
 
       <Freestyle::Usage @title="Album Cover Example New API No Named Blocks">
-        <:example>
-          <AlbumCover
-            @artist="The Beatles"
-            @title="Sgt. Pepper's Lonely Hearts Club Band"
-            @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg"
-          />
-        </:example>
+        <AlbumCover
+          @artist="The Beatles"
+          @title="Sgt. Pepper's Lonely Hearts Club Band"
+          @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/5/50/Sgt._Pepper%27s_Lonely_Hearts_Club_Band.jpg"
+        />
       </Freestyle::Usage>
 
       {{#freestyle-usage "album-cover" title="Album Cover Example"}}
