@@ -171,6 +171,49 @@
 \{{/freestyle-annotation}}
   </code></pre>
 
+  <h3>freestyle-dynamic</h3>
+
+  <p>
+    Use <code>freestyle-dynamic</code> as an alternative to <code>freestyle-usage</code>
+    that provides for a form with simple input controls that allow the user to
+    interactively adjust inputs to the rendered component.
+  </p>
+
+  <pre><code class="handlebars language-handlebars">
+  \{{#freestyle-dynamic 'dynamic-properties-example'
+    dynamicProperties=(hash
+      blockContent=(hash value='Dynamic Block Content' inputType='textarea')
+      size=(hash value='medium' inputType='select' options=(array 'small' 'medium' 'large'))
+      rank=(hash value=10 inputType='number')
+      isVisible=(hash value=true inputType='checkbox')
+      isVisible=(hash value=false inputType='checkbox' description='Changes to a tasteful color scheme')
+      isTasteful=(hash value=false inputType='checkbox')
+      innerBorderThickness=(hash value=1 inputType='range' min=0 max=20 description='Width of the inner border, in pixels')
+    )
+    title='Dynamic Properties Example'
+    componentName='x-bar'
+    as |dynamic|
+  }}
+    \{{#x-bar
+      title='Just a static title'
+      size=dynamic.size
+      showBorder=true
+      rank=dynamic.rank
+      isVisible=dynamic.isVisible
+      isTasteful=dynamic.isTasteful
+      innerBorderThickness=dynamic.innerBorderThickness
+    }}
+      &lt;p&gt;\{{dynamic.blockContent}}&lt;/p&gt;
+      &lt;p&gt;Static block content&lt;/p&gt;
+      &lt;p&gt;Reference another dynamic prop in block: is tasteful: \{{dynamic.isTasteful}}&lt;/p&gt;
+    \{{/x-bar}}
+  \{{/freestyle-dynamic}}
+  </code></pre>
+
+  <p>
+    Currently supported input types are text, number, textarea, checkbox, select, and range.
+  </p>
+
   <h2>Adding SASS and Javascript code snippets to Your Freestyle Guide</h2>
 
   <p>

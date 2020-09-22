@@ -4,12 +4,6 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
 .FreestyleUsage {
   max-width: $FreestyleUsage-maxWidth;
 
-  &-title {
-    font-weight: bold;
-    padding: 1rem 1rem 0;
-    text-transform: uppercase;
-  }
-
   &-notes {
     font-size: .9rem;
   }

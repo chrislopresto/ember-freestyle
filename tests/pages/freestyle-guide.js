@@ -53,7 +53,7 @@ export default PageObject.create({
 
           variants: collection('.FreestyleVariant',{
             contains: contains(),
-            usageTitle: text('.FreestyleUsage-title'),
+            usageTitle: text('.FreestyleFilterableTitle'),
             annotationContains: contains('.FreestyleAnnotation'),
             noteContent: text('.FreestyleAnnotation', { multiple: true })
           })
