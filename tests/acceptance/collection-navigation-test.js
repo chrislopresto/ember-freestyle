@@ -23,7 +23,7 @@ module('Acceptance | collection navigation', function (hooks) {
     assert.expect(36);
 
     let fooCollection = freestyleGuide.content.sections
-      .objectAt(1)
+      .objectAt(2)
       .subsections.objectAt(0)
       .collections.objectAt(0);
 

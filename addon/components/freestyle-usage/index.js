@@ -1,6 +1,6 @@
 /* eslint-disable ember/no-component-lifecycle-hooks */
 import { inject as service } from '@ember/service';
-import { alias, and } from '@ember/object/computed';
+import { and, readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { action } from '@ember/object';
@@ -9,8 +9,8 @@ let FreestyleUsage = Component.extend({
   tagName: '',
 
   emberFreestyle: service(),
-  showLabels: alias('emberFreestyle.showLabels'),
-  showCode: alias('emberFreestyle.showCode'),
+  showLabels: readOnly('emberFreestyle.showLabels'),
+  showCode: readOnly('emberFreestyle.showCode'),
 
   show: computed('emberFreestyle.focus', 'slug', function () {
     let slug = this.slug;
@@ -20,7 +20,7 @@ let FreestyleUsage = Component.extend({
     }
     return true;
   }),
-  defaultTheme: alias('emberFreestyle.defaultTheme'),
+  defaultTheme: readOnly('emberFreestyle.defaultTheme'),
   // highlightJsTheme - passed in
   computedTheme: computed.or('defaultTheme', 'highlightJsTheme'),
 
@@ -42,7 +42,8 @@ let FreestyleUsage = Component.extend({
 
   @action
   setFocus() {
-    this.emberFreestyle.set('focus', this.slug);
+    // eslint-disable-next-line ember/no-assignment-of-untracked-properties-used-in-tracking-contexts
+    this.emberFreestyle.focus = this.slug;
   },
 });
 

@@ -1,11 +1,11 @@
-import { inject as service } from '@ember/service';
-import { alias } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
 export default FreestyleController.extend({
-  emberFreestyle: service(),
-  showCode: alias('emberFreestyle.showCode'),
+  fractionComplete: 0.4,
+  size: 24,
+  isCancelled: false,
+  isComplete: false,
 
   dynamicProperties: computed(function () {
     return {

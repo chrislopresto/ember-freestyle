@@ -1,0 +1,65 @@
+{{#if this.show}}
+  <div class="FreestyleUsage" ...attributes>
+    {{#if this.showName}}
+      <h2 class="FreestyleUsage-name">
+        {{@name}}
+        <FreestyleFocusButton {{on 'click' this.setFocus}} class="FreestyleUsage-focusCta" />
+      </h2>
+    {{else}}
+      <FreestyleFocusButton {{on 'click' this.setFocus}} class="FreestyleUsage-focusCta FreestyleUsage-standaloneFocusCta" />
+    {{/if}}
+
+    {{#if this.showNotes}}
+      {{#if (has-block "description")}}
+        <p class="FreestyleUsage-description">
+          {{yield to="description"}}
+        </p>
+      {{else if @description}}
+        <p class="FreestyleUsage-description">{{@description}}</p>
+      {{/if}}
+    {{/if}}
+
+    <div class="FreestyleUsage-preview">
+        {{yield to="example"}}
+    </div>
+
+    {{#if (has-block 'api')}}
+      {{#if this.showApi}}
+        <div class="FreestyleUsage-api">
+          <h3 class="FreestyleUsage-apiTitle">Component API</h3>
+
+          <table class="FreestyleUsage-apiTable">
+            <thead>
+              <tr>
+                <th>Argument</th>
+                <th>Description</th>
+                <th>Defaults</th>
+                <th>Controls</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{yield
+                (hash
+                  Array=(component 'freestyle/usage/array' )
+                  Base=(component 'freestyle/usage/argument' )
+                  Bool=(component 'freestyle/usage/bool' )
+                  Number=(component 'freestyle/usage/number')
+                  Object=(component 'freestyle/usage/object')
+                  String=(component 'freestyle/usage/string')
+                  Action=(component 'freestyle/usage/argument' type="Action")
+                  Yield=(component 'freestyle/usage/argument' type="Yield")
+                )
+              to="api"}}
+            </tbody>
+          </table>
+        </div>
+      {{/if}}
+    {{/if}}
+
+    {{#if this.showSource}}
+      <div class="FreestyleUsage-sourceContainer" {{did-insert this.highlightSource}}>
+        <FreestyleSource @source={{@source}} @title="Source" />
+      </div>
+    {{/if}}
+  </div>
+{{/if}}
