@@ -1,0 +1,126 @@
+.FreestyleUsage {
+  --radius: 4px;
+  --border-color: #eee;
+
+  padding: 0 1rem 1rem;
+  margin-bottom: 1rem;
+  max-width: 1200px;
+
+  &:last-child {
+    border-bottom: 1px solid #ccc;
+  }
+
+  &-name {
+    color: #333;
+    margin-top: 1.5rem;
+  }
+  &-description {
+    margin: .5rem 0;
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  &-apiTitle {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &-standaloneFocusCta {
+    float: right;
+    margin-right: 1rem;
+  }
+
+  &-preview {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    position: relative;
+
+    &:after {
+      content: 'Preview';
+      font-size: .7rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: #eee;
+      color: #777;
+      padding: 2px 8px;
+      display: block;
+      border-radius: 0 0 0 var(--radius);
+    }
+  }
+
+  &-sourceContainer,
+  &-apiTable {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  &-apiTable {
+    width: 100%;
+    padding: 0.5rem 0 0.2rem;
+    border-collapse: collapse;
+
+    th {
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #777;
+    }
+    tr {
+      border-bottom: 1px solid var(--border-color);
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    th,
+    td {
+      padding: .5rem 1rem;
+    }
+  }
+
+  &-sourceContainer {
+    margin-top: 1rem;
+  }
+}
+
+
+/*
+  FreestyleUsageArgument
+*/
+.FreestyleUsageArgument {
+  font-size: .8rem;
+
+  &-name {
+    font-weight: bold;
+    width: 20%;
+  }
+  &-description {
+    width: 40%;
+  }
+
+  &-required {
+    color: #D81C38;
+    font-style: oblique;
+  }
+  &-default {
+    font-family: monospace;
+  }
+
+  &-jsonViewer {
+    font-size: 0.8rem;
+    min-width: 420px;
+  }
+}
+
+.u-codePill {
+  background-color: #eee;
+  border-radius: 2px;
+  color: #777;
+  display: inline-block;
+  font-family: monospace;
+  margin-right: .2em;
+  padding: 1px 7px;
+}

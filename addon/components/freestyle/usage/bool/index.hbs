@@ -1,0 +1,13 @@
+<Freestyle::Usage::Argument
+  @type="Boolean"
+  @name={{@name}}
+  @description={{@description}}
+  @required={{@required}}
+  @defaultValue={{@defaultValue}}
+>
+  <input
+    type="checkbox"
+    checked={{@value}}
+    {{on 'input' this.onInput}}
+  />
+</Freestyle::Usage::Argument>

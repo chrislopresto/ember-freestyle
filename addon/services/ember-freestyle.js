@@ -1,46 +1,44 @@
 /* global hljs */
-import { not } from '@ember/object/computed';
-
+import Service from '@ember/service';
 import { isPresent } from '@ember/utils';
 import { A } from '@ember/array';
-import Service from '@ember/service';
 import { Promise } from 'rsvp';
+import { tracked } from '@glimmer/tracking';
+export default class EmberFreestyleService extends Service {
+  @tracked showLabels = true;
+  @tracked showNotes = true;
+  @tracked showCode = true;
+  @tracked showApi = true;
 
-export default Service.extend({
-  showLabels: true,
-  showNotes: true,
-  showCode: true,
+  @tracked menu = null;
+  @tracked showMenu = true;
 
-  showMenu: true,
-
-  defaultTheme: 'zenburn',
+  defaultTheme = 'zenburn';
 
   // must be explicitly set to null here for (query-params s=null ss=null f=null) to work
-  section: null,
-  subsection: null,
-  focus: null,
+  @tracked section = null;
+  @tracked subsection = null;
+  @tracked focus = null;
 
-  notFocused: not('focus'),
+  get notFocused() {
+    return !this.focus;
+  }
 
-  hljsVersion: '9.12.0',
-  hljsPromise: null,
-
-  init() {
-    this._super(...arguments);
-    this.hljsLanguagePromises = {};
-  },
+  hljsVersion = '9.12.0';
+  hljsPromise = null;
+  hljsLanguagePromises = {};
 
   hljsUrl() {
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/highlight.min.js`;
-  },
+  }
 
   hljsThemeUrl(theme) {
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/styles/${theme}.min.css`;
-  },
+  }
 
   hljsLanguageUrl(language) {
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/languages/${language}.min.js`;
-  },
+  }
 
   ensureHljs() {
     if (!this.hljsPromise) {
@@ -54,7 +52,7 @@ export default Service.extend({
       });
     }
     return this.hljsPromise;
-  },
+  }
 
   highlight(el) {
     this.ensureHljs()
@@ -64,7 +62,7 @@ export default Service.extend({
       .then(() => {
         hljs.highlightBlock(el);
       });
-  },
+  }
 
   ensureHljsTheme(theme) {
     if (document.querySelector(`[data-hljs-theme=${theme}]`)) {
@@ -78,7 +76,7 @@ export default Service.extend({
     link.setAttribute('data-hljs-theme', `${theme}`);
 
     document.head.appendChild(link);
-  },
+  }
 
   ensureHljsLanguage(language) {
     if (!this.hljsLanguagePromises[language]) {
@@ -92,7 +90,7 @@ export default Service.extend({
       });
     }
     return this.hljsLanguagePromises[language];
-  },
+  }
 
   // menu - tree structure of named sections with named subsections
 
@@ -112,6 +110,6 @@ export default Service.extend({
         });
       }
     }
-    this.set('menu', menu);
-  },
-});
+    this.menu = menu;
+  }
+}

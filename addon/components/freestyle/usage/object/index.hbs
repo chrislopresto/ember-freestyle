@@ -1,0 +1,15 @@
+<Freestyle::Usage::Argument
+  @type="Object"
+  @name={{@name}}
+  @description={{@description}}
+  @required={{@required}}
+  @defaultValue={{@defaultValue}}
+>
+  {{#if @value}}
+    <JsonViewer
+      @json={{@value}}
+      @options={{hash collapseDepth=@jsonCollapseDepth}}
+      class="FreestyleUsageArgument-jsonViewer"
+    />
+  {{/if}}
+</Freestyle::Usage::Argument>

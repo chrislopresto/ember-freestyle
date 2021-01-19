@@ -1,0 +1,35 @@
+<tr class="FreestyleUsageArgument">
+  <td class="FreestyleUsageArgument-name">
+    {{#if @name}}{{@name}}{{/if}}
+  </td>
+
+  <td class="FreestyleUsageArgument-description">
+    <span class="FreestyleUsageArgument-type u-codePill">
+      {{@type}}
+    </span>
+
+    {{@description}}
+  </td>
+
+  <td class="FreestyleUsageArgument-details">
+    {{#if @required}}
+      <span class="FreestyleUsageArgument-required">Required</span>
+    {{/if}}
+    {{#if (is-present @defaultValue)}}
+      <span class="FreestyleUsageArgument-default u-codePill">
+        {{@defaultValue}}
+      </span>
+    {{/if}}
+  </td>
+
+  <td class={{concat
+    "FreestyleUsageArgument-controls "
+    "FreestyleUsageArgument-controls--" @type
+  }}>
+    {{#unless @hideControls}}
+      {{#if hasBlock}}
+          {{yield}}
+      {{/if}}
+    {{/unless}}
+  </td>
+</tr>

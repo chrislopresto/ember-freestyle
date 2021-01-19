@@ -11,7 +11,7 @@ module('Acceptance | collection rendering', function (hooks) {
   });
 
   test('verifying freestyle collection', (assert) => {
-    let sectionFooThings = freestyleGuide.content.sections.objectAt(1);
+    let sectionFooThings = freestyleGuide.content.sections.objectAt(2);
     assert.equal(
       sectionFooThings.subsections.objectAt(0).collections.length,
       1

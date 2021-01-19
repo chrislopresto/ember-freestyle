@@ -11,25 +11,25 @@ module('Acceptance | section rendering', function (hooks) {
 
   test('verifying guide sections', (assert) => {
     assert.expect(5);
-    assert.equal(freestyleGuide.content.sections.length, 4);
+    assert.equal(freestyleGuide.content.sections.length, 5);
     assert.equal(freestyleGuide.content.sections.objectAt(0).text, 'Albums');
     assert.equal(
-      freestyleGuide.content.sections.objectAt(1).text,
+      freestyleGuide.content.sections.objectAt(2).text,
       'Foo Things'
     );
     assert.equal(
-      freestyleGuide.content.sections.objectAt(2).text,
+      freestyleGuide.content.sections.objectAt(3).text,
       'Dynamic Properties'
     );
     assert.equal(
-      freestyleGuide.content.sections.objectAt(3).text,
+      freestyleGuide.content.sections.objectAt(4).text,
       'Visual Style'
     );
   });
 
   test('verifying guide subsections', (assert) => {
     assert.expect(6);
-    let sectionFooThings = freestyleGuide.content.sections.objectAt(1);
+    let sectionFooThings = freestyleGuide.content.sections.objectAt(2);
     assert.equal(sectionFooThings.subsections.length, 2);
     assert.equal(
       sectionFooThings.subsections.objectAt(0).text,
@@ -40,7 +40,7 @@ module('Acceptance | section rendering', function (hooks) {
       'Foo Subsection B'
     );
 
-    let sectionVisualStyle = freestyleGuide.content.sections.objectAt(3);
+    let sectionVisualStyle = freestyleGuide.content.sections.objectAt(4);
     assert.equal(sectionVisualStyle.subsections.length, 2);
     assert.equal(sectionVisualStyle.subsections.objectAt(0).text, 'Typography');
     assert.equal(sectionVisualStyle.subsections.objectAt(1).text, 'Color');
@@ -48,7 +48,7 @@ module('Acceptance | section rendering', function (hooks) {
 
   test('freestyle annotations show up', (assert) => {
     assert.expect(1);
-    let sectionFooThings = freestyleGuide.content.sections.objectAt(1);
+    let sectionFooThings = freestyleGuide.content.sections.objectAt(2);
     assert.ok(
       sectionFooThings.subsections
         .objectAt(0)
