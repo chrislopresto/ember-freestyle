@@ -27,7 +27,7 @@ export default Service.extend({
 
   init() {
     this._super(...arguments);
-    this.hljsLanguagePromises = {}
+    this.hljsLanguagePromises = {};
   },
 
   hljsUrl() {
@@ -57,11 +57,13 @@ export default Service.extend({
   },
 
   highlight(el) {
-    this.ensureHljs().then(() => {
-      return this.ensureHljsLanguage('handlebars');
-    }).then(() => {
-      hljs.highlightBlock(el);
-    });
+    this.ensureHljs()
+      .then(() => {
+        return this.ensureHljsLanguage('handlebars');
+      })
+      .then(() => {
+        hljs.highlightBlock(el);
+      });
   },
 
   ensureHljsTheme(theme) {
@@ -69,8 +71,8 @@ export default Service.extend({
       return;
     }
 
-    let link  = document.createElement('link');
-    link.rel  = 'stylesheet';
+    let link = document.createElement('link');
+    link.rel = 'stylesheet';
     link.type = 'text/css';
     link.href = this.hljsThemeUrl(theme);
     link.setAttribute('data-hljs-theme', `${theme}`);
@@ -95,21 +97,21 @@ export default Service.extend({
   // menu - tree structure of named sections with named subsections
 
   registerSection(sectionName, subsectionName = '') {
-    let menu = this.get('menu') || A([]);
+    let menu = this.menu || A([]);
     if (!menu.filterBy('name', sectionName).length) {
       menu.push({
         name: sectionName,
-        subsections: A([])
+        subsections: A([]),
       });
     }
     if (isPresent(subsectionName)) {
       let section = menu.findBy('name', sectionName);
       if (!section.subsections.filterBy('name', subsectionName).length) {
         section.subsections.push({
-          name: subsectionName
+          name: subsectionName,
         });
       }
     }
     this.set('menu', menu);
-  }
+  },
 });

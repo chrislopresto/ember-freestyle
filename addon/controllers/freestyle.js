@@ -16,5 +16,5 @@ export default Controller.extend({
   f: alias('emberFreestyle.focus'),
 
   s: alias('emberFreestyle.section'),
-  ss: alias('emberFreestyle.subsection')
+  ss: alias('emberFreestyle.subsection'),
 });

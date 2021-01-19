@@ -1,17 +1,18 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import freestyleDynamic from '../pages/freestyle-dynamic';
+import { waitUntil } from '@ember/test-helpers';
 
-module('Acceptance | dynamic', function(hooks) {
+module('Acceptance | dynamic', function (hooks) {
   setupApplicationTest(hooks);
 
-  hooks.beforeEach(async function(assert) {
-    assert.includes = function(container, item, message) {
+  hooks.beforeEach(async function (assert) {
+    assert.includes = function (container, item, message) {
       this.pushResult({
         result: container.indexOf(item) !== -1,
         actual: container,
         expected: String(container) + ' contains ' + item,
-        message: message
+        message: message,
       });
     };
     await freestyleDynamic.visit();
@@ -105,7 +106,7 @@ module('Acceptance | dynamic', function(hooks) {
     );
     assert.includes(
       freestyleDynamic.sourceContainer,
-      'rank=10',
+      'rank={{10}}',
       'The snippet shows initial value'
     );
     await freestyleDynamic.changeNumberInput('5');
@@ -116,7 +117,7 @@ module('Acceptance | dynamic', function(hooks) {
     );
     assert.includes(
       freestyleDynamic.sourceContainer,
-      'rank=5',
+      'rank={{5}}',
       'The snippet changes when the input changes'
     );
   });
@@ -134,17 +135,18 @@ module('Acceptance | dynamic', function(hooks) {
     );
     assert.includes(
       freestyleDynamic.sourceContainer,
-      'isVisible=true',
+      'isVisible={{true}}',
       'The snippet shows initial value'
     );
     await freestyleDynamic.toggleCheckbox();
+    await waitUntil(() => !freestyleDynamic.isVisible);
     assert.notOk(
       freestyleDynamic.isVisible,
       'The rendered component changes when the checkbox changes'
     );
     assert.includes(
       freestyleDynamic.sourceContainer,
-      'isVisible=false',
+      'isVisible={{false}}',
       'The snippet changes when the checkbox changes'
     );
   });

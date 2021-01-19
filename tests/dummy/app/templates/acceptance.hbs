@@ -1,28 +1,24 @@
-{{#freestyle-guide
-    title="Ember Freestyle"
-    subtitle="Living Style Guide"
-    highlightJsTheme="solarized-light"
-}}
+<FreestyleGuide @title="Ember Freestyle" @subtitle="Living Style Guide" @highlightJsTheme="solarized-light">
 
-  {{#freestyle-section name="Albums" as |section|}}
-    {{#section.subsection name="Album Cover" as |section|}}
-      {{#freestyle-usage "album-cover" title="Album Cover Example"}}
+  <FreestyleSection @name="Albums" as |Section|>
+    <Section.subsection @name="Album Cover">
+      <FreestyleUsage @slug="album-cover" @title="Album Cover Example">
         <AlbumCover
           @artist="The Beatles"
           @title="Yellow Submarine"
           @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
         />
-      {{/freestyle-usage}}
+      </FreestyleUsage>
       {{!-- BEGIN-SNIPPET ember-code-snippet-example --}}
-      {{#freestyle-annotation "album-cover"}}
+      <FreestyleAnnotation @slug="album-cover">
         <h4>Styles for this component:</h4>
         {{#let (get-code-snippet "album-cover-styles.scss") as |snippet|}}
           <pre {{freestyle-highlight}} class="{{snippet.language}} u-outdent">{{snippet.source}}</pre>
         {{/let}}
-      {{/freestyle-annotation}}
+      </FreestyleAnnotation>
       {{!-- END-SNIPPET --}}
       {{!-- BEGIN-SNIPPET markdown-example-usage --}}
-      {{#freestyle-annotation "album-cover"}}
+      <FreestyleAnnotation @slug="album-cover">
         <MarkdownContent>
           ## Album Review
 
@@ -32,86 +28,80 @@
           - Psychadelica
           - The color yellow
         </MarkdownContent>
-      {{/freestyle-annotation}}
+      </FreestyleAnnotation>
       {{!-- END-SNIPPET --}}
-    {{/section.subsection}}
-  {{/freestyle-section}}
+    </Section.subsection>
+  </FreestyleSection>
 
-  {{#freestyle-section name="Foo Things" as |section|}}
+  <FreestyleSection @name="Foo Things" as |Section|>
 
-    {{#section.subsection name="Foo Subsection A"}}
-      {{#freestyle-collection title="Foo Collection" defaultKey="normal" inline=true as |collection|}}
+    <Section.subsection @name="Foo Subsection A">
+      <FreestyleCollection @title="Foo Collection" @defaultKey="normal" @inline={{true}} as |collection|>
 
-        {{#collection.variant key="normal"}}
-          {{#freestyle-annotation "foo-normal"}}
+        <collection.variant @key="normal">
+          <FreestyleAnnotation @slug="foo-normal">
             <h4>A Note About Normal</h4>
             <p>
               This comment is coming from a freestyle-annotation component. Use the freestyle-annotation
               component to write notes in html.
             </p>
-          {{/freestyle-annotation}}
-          {{#freestyle-usage "foo-normal" title="Normal" usageTitle="Usage" hbsTitle="Template"}}
-            {{x-foo status="normal"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+          </FreestyleAnnotation>
 
-        {{#collection.variant key="special"}}
-          {{#freestyle-usage "foo-special" title="Special"}}
-            {{x-foo status="special"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+          <FreestyleUsage @slug="foo-normal" @title="Normal" @usageTitle="Usage" @hbsTitle="Template">
+            <XFoo @status="normal" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="hyper"}}
-          {{#freestyle-usage "foo-hyper" title="Hyper"}}
-            {{x-foo status="hyper"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="special">
+          <FreestyleUsage @slug="foo-special" @title="Special">
+            <XFoo @status="special" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="classic"}}
-          {{#freestyle-usage "foo-classic" title="Classic"}}
-            {{x-foo status="classic"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="hyper">
+          <FreestyleUsage @slug="foo-hyper" @title="Hyper">
+            <XFoo @status="hyper" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="elegant"}}
-          {{#freestyle-usage "foo-elegant" title="Elegant"}}
-            {{x-foo status="elegant"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="classic">
+          <FreestyleUsage @slug="foo-classic" @title="Classic">
+            <XFoo @status="classic" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="tasteful"}}
-          {{#freestyle-usage "foo-tasteful" title="Tasteful"}}
-            {{x-foo status="tasteful"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="elegant">
+          <FreestyleUsage @slug="foo-elegant" @title="Elegant">
+            <XFoo @status="elegant" />
+          </FreestyleUsage>
+        </collection.variant>
 
-      {{/freestyle-collection}}
-    {{/section.subsection}}
+        <collection.variant @key="tasteful">
+          <FreestyleUsage @slug="foo-tasteful" @title="Tasteful">
+            <XFoo @status="tasteful" />
+          </FreestyleUsage>
+        </collection.variant>
 
-    {{#section.subsection name="Foo Subsection B"}}
-      {{#freestyle-annotation}}
+      </FreestyleCollection>
+    </Section.subsection>
+
+    <Section.subsection @name="Foo Subsection B">
+      <FreestyleAnnotation>
         This is an annotation in a subsection, mainly to facilitate testing.
-      {{/freestyle-annotation}}
-    {{/section.subsection}}
+      </FreestyleAnnotation>
+    </Section.subsection>
 
-  {{/freestyle-section}}
+  </FreestyleSection>
 
-  {{#freestyle-section name='Dynamic Properties' as |section|}}
-    {{#freestyle-dynamic 'dynamic-properties'
-      dynamicProperties=dynamicProperties
-      title='Dynamic Properties'
-      componentName='x-bar'
+  <FreestyleSection @name="Dynamic Properties">
+    <FreestyleDynamic
+      @slug='dynamic-properties'
+      @dynamicProperties={{this.dynamicProperties}}
+      @title='Dynamic Properties'
+      @componentName='x-bar'
       as |dynamic|
-    }}
-      {{#x-bar
-        title='Just a static title'
-        size=dynamic.size
-        showBorder=true
-        rank=dynamic.rank
-        isVisible=dynamic.isVisible
-        isTasteful=dynamic.isTasteful
-        innerBorderThickness=dynamic.innerBorderThickness
-      }}
+    >
+      <XBar @title="Just a static title" @size={{dynamic.size}} @showBorder={{true}} @rank={{dynamic.rank}} @isVisible={{dynamic.isVisible}} @isTasteful={{dynamic.isTasteful}} @innerBorderThickness={{dynamic.innerBorderThickness}}>
 
         <p>{{dynamic.blockContent}}</p>
         <p>Static block content</p>
@@ -119,13 +109,13 @@
           Reference another dynamic prop in block:
           is tasteful: {{dynamic.isTasteful}}
         </p>
-      {{/x-bar}}
-    {{/freestyle-dynamic}}
-  {{/freestyle-section}}
+      </XBar>
+    </FreestyleDynamic>
+  </FreestyleSection>
 
-  {{#freestyle-section name="Visual Style" as |section|}}
+  <FreestyleSection @name="Visual Style" as |Section|>
 
-    {{#section.subsection name="Typography"}}
+    <Section.subsection @name="Typography">
 
       <FreestyleUsage @slug="typography-times" @title="Times New Roman">
         <FreestyleTypeface @fontFamily="Times New Roman" />
@@ -135,9 +125,9 @@
         <FreestyleTypeface @fontFamily="Helvetica" />
       </FreestyleUsage>
 
-    {{/section.subsection}}
+    </Section.subsection>
 
-    {{#section.subsection name="Color"}}
+    <Section.subsection @name="Color">
 
       <FreestyleUsage @slug="fp" @title="Freestyle Palette">
         <FreestylePalette
@@ -156,8 +146,8 @@
         <FreestylePaletteItem @color={{this.color}} />
       </FreestyleUsage>
 
-    {{/section.subsection}}
+    </Section.subsection>
 
-  {{/freestyle-section}}
+  </FreestyleSection>
 
-{{/freestyle-guide}}
+</FreestyleGuide>

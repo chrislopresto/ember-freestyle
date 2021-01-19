@@ -6,10 +6,11 @@ import PageObject, {
   triggerable,
   clickable,
   hasClass,
-  isVisible
+  isVisible,
 } from 'ember-cli-page-object';
 
-const blockContentInput = '.FreestyleDynamic-input:contains(blockContent) textarea';
+const blockContentInput =
+  '.FreestyleDynamic-input:contains(blockContent) textarea';
 const tastefulInput = '.FreestyleDynamic-input:contains(isTasteful:) input';
 const selectInput = '.FreestyleDynamic-input:contains(size:) select';
 const numberInput = '.FreestyleDynamic-input:contains(rank:) input';
@@ -26,7 +27,7 @@ export default PageObject.create({
   keyUpBlockContentInput: triggerable('keyup', blockContentInput),
   async changeBlockContentInput(newValue) {
     await this.fillInBlockContentInput(newValue),
-    await this.keyUpBlockContentInput()
+      await this.keyUpBlockContentInput();
   },
   toggleTastefulInput: clickable(tastefulInput),
 

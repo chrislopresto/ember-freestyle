@@ -1,0 +1,23 @@
+<ul class="FreestyleMenu">
+  <li class="FreestyleMenu-item">
+    <LinkTo @query={{hash s=null ss=null f=null}} class="FreestyleMenu-itemLink">
+      All
+    </LinkTo>
+  </li>
+  {{#each this.menu as |section|}}
+    <li class="FreestyleMenu-item">
+      <LinkTo @query={{hash f=null s=section.name ss=null}} class="FreestyleMenu-itemLink">
+        {{section.name}}
+      </LinkTo>
+      {{#each section.subsections as |subsection|}}
+        <ul class="FreestyleMenu-submenu">
+          <li class="FreestyleMenu-submenuItem">
+            <LinkTo @query={{hash f=null s=section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
+              {{subsection.name}}
+            </LinkTo>
+          </li>
+        </ul>
+      {{/each}}
+    </li>
+  {{/each}}
+</ul>

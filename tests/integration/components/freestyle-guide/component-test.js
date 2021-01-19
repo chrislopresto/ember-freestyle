@@ -6,37 +6,37 @@ import hbs from 'htmlbars-inline-precompile';
 import usage from '../../../pages/usage-component';
 
 // Stub freestyle service
-const FreestyleStub = Service.extend({
-  defaultTheme: 'solarized-light',
-  highlight: function() {}
-});
+class FreestyleStub extends Service {
+  defaultTheme = 'solarized-light';
+  highlight() {}
+}
 
-module('Integration | Component | freestyle guide', function(hooks) {
+module('Integration | Component | freestyle guide', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.owner.register('service:emberFreestyle', FreestyleStub);
     this.emberFreestyle = this.owner.lookup('service:emberFreestyle');
     usage.setContext(this);
   });
 
-  hooks.afterEach(function() {
+  hooks.afterEach(function () {
     usage.removeContext();
   });
 
-  test('it sets the passed in highlightJsTheme as the default theme on the service', async function(assert) {
+  test('it sets the passed in highlightJsTheme as the default theme on the service', async function (assert) {
     assert.expect(2);
 
-    assert.equal(this.get('emberFreestyle.defaultTheme'), 'solarized-light');
+    assert.equal(this.emberFreestyle.defaultTheme, 'solarized-light');
     await render(hbs`
-      {{#freestyle-guide
-          title='Ember Freestyle'
-          subtitle='Living Style Guide'
-          highlightJsTheme='zenburn'
-      }}
+      <FreestyleGuide
+          @title='Ember Freestyle'
+          @subtitle='Living Style Guide'
+          @highlightJsTheme='zenburn'
+      >
         I am the guide
-      {{/freestyle-guide}}
+      </FreestyleGuide>
       `);
-    assert.equal(this.get('emberFreestyle.defaultTheme'), 'zenburn');
+    assert.equal(this.emberFreestyle.defaultTheme, 'zenburn');
   });
 });

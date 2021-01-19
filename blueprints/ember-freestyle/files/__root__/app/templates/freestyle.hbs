@@ -1,34 +1,32 @@
-{{#freestyle-guide
-  title='Ember Freestyle'
-  subtitle='Living Style Guide'
-  }}
+<FreestyleGuide
+  @title='Ember Freestyle'
+  @subtitle='Living Style Guide'
+>
+  <FreestyleSection @name='Visual Style' as |Section|>
+    <Section.Subsection @name='Typography'>
 
-  {{#freestyle-section name='Visual Style' as |section|}}
+      <FreestyleUsage @slug='typography-times' @title='Times New Roman'>
+        <FreestyleTypeface @fontFamily='Times New Roman' />
+      </FreestyleUsage>
 
-    {{#section.subsection name='Typography'}}
+      <FreestyleUsage @slug='typography-helvetica' @title='Helvetica'>
+        <FreestyleTypeface @fontFamily='Helvetica' />
+      </FreestyleUsage>
 
-      {{#freestyle-usage 'typography-times' title='Times New Roman'}}
-        {{freestyle-typeface fontFamily='Times New Roman'}}
-      {{/freestyle-usage}}
+    </Section.Subsection>
 
-      {{#freestyle-usage 'typography-helvetica' title='Helvetica'}}
-        {{freestyle-typeface fontFamily='Helvetica'}}
-      {{/freestyle-usage}}
+    <Section.Subsection @name='Color'>
 
-    {{/section.subsection}}
+      <FreestyleUsage @slug='fp' @title='Freestyle Palette' @usageTitle='Usage'>
 
-    {{#section.subsection name='Color'}}
+        <FreestylePalette
+          @colorPalette={{this.colorPalette}}
+          @title='Dummy App Color Palette'
+          @description='This component displays the color palette specified in freestyle/palette.json'
+        />
+      </FreestyleUsage>
 
-      {{#freestyle-usage 'fp' title='Freestyle Palette' usageTitle='Usage'}}
-        {{freestyle-palette
-        colorPalette=colorPalette
-        title='Dummy App Color Palette'
-        description='This component displays the color palette specified in freestyle/palette.json'
-        }}
-      {{/freestyle-usage}}
+    </Section.Subsection>
 
-    {{/section.subsection}}
-
-  {{/freestyle-section}}
-
-{{/freestyle-guide}}
+  </FreestyleSection>
+</FreestyleGuide>

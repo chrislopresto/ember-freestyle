@@ -4,17 +4,17 @@ var path = require('path');
 module.exports = {
   name: 'ember-freestyle',
 
-  normalizeEntityName: function() {},
+  normalizeEntityName: function () {},
 
-  fileMapTokens: function() {
+  fileMapTokens: function () {
     return {
-      __root__: function(options) {
+      __root__: function (options) {
         if (options.inAddon) {
           return path.join('tests', 'dummy');
         }
 
         return '/';
-      }
+      },
     };
-  }
+  },
 };

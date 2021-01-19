@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-freestyle',
+  name: require('./package').name,
 
   included(/*app, parentAddon*/) {
     this._super.included.apply(this, arguments);

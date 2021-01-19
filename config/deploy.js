@@ -1,9 +1,9 @@
 /* eslint-env node */
 'use strict';
 
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   let ENV = {
-    build: {}
+    build: {},
     // include other plugin configuration that applies to all deploy targets here
   };
 
@@ -24,7 +24,7 @@ module.exports = function(deployTarget) {
       repo: 'git@github.com:chrislopresto/ember-freestyle.git',
       branch: 'gh-pages',
       worktreePath: '/tmp/ember-freestyle-deploy',
-      commitMessage: 'chore: Deploy %@'
+      commitMessage: 'chore: Deploy %@',
     };
   }
 

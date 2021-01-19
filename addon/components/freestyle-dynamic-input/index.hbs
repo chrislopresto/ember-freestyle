@@ -1,0 +1,28 @@
+<div class="FreestyleDynamic-input">
+  <label for={{this.inputId}}>
+    {{@propertyName}}:
+  </label>
+  {{#if this.isCheckbox}}
+    <Input @type="checkbox" @checked={{readonly @value}} @id={{this.inputId}} @change={{this.toggleCheckbox}} />
+  {{else if this.isTextarea}}
+    <Textarea @value={{@value}} @id={{this.inputId}} @rows={{5}} @cols={{40}} @key-up={{this.sendChangedText}} />
+  {{else if this.isSelect}}
+    <select {{on 'change' this.onChange}}>
+      {{#each @options as |option|}}
+        <FreestyleDynamicInputSelectOption @selectedValue={{@value}} @optionValue={{option}} />
+      {{/each}}
+    </select>
+  {{else if this.isNumber}}
+    <Input @type="number" @value={{@value}} @id={{this.inputId}} @input={{this.onChangeWithNumericCoercion}} />
+  {{else if this.isRange}}
+    <Input @type="range" @id={{this.inputId}} @min={{@min}} @max={{@max}} @input={{this.onChangeWithNumericCoercion}} @value={{readonly @value}} />
+    {{@value}}
+  {{else}}
+    <Input @value={{@value}} @id={{this.inputId}} @key-up={{this.onChange}} />
+  {{/if}}
+  {{#if @description}}
+    <small class="FreestyleDynamic-inputDescription">
+      {{@description}}
+    </small>
+  {{/if}}
+</div>
