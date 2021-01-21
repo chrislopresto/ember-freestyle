@@ -1,0 +1,15 @@
+<div class="FreestyleCollection {{if @inline 'FreestyleCollection--inline'}}">
+  {{#if this.hasLabels}}
+    <div class="FreestyleCollection-title">
+      {{@title}}
+    </div>
+  {{/if}}
+  {{#if this.showVariantList}}
+    <FreestyleVariantList @variants={{this.variants}} @activeKey={{this.activeKey}} @onClickVariant={{this.setKey}} />
+  {{/if}}
+  {{yield
+    (hash
+      variant=(component "freestyle-variant" collection=this)
+    )
+  }}
+</div>

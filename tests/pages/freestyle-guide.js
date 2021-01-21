@@ -4,7 +4,7 @@ import PageObject, {
   clickOnText,
   text,
   visitable,
-  contains
+  contains,
 } from 'ember-cli-page-object';
 
 export default PageObject.create({
@@ -13,54 +13,51 @@ export default PageObject.create({
   header: {
     scope: '.FreestyleGuide-header',
     title: text('.FreestyleGuide-title'),
-    subtitle: text('.FreestyleGuide-subtitle')
+    subtitle: text('.FreestyleGuide-subtitle'),
   },
 
   menu: {
     scope: '.FreestyleMenu',
 
-    sections: collection('.FreestyleMenu-item',{
+    sections: collection('.FreestyleMenu-item', {
       text: text('.FreestyleMenu-itemLink'),
       link: clickable('.FreestyleMenu-itemLink'),
 
-      subsections: collection('.FreestyleMenu-submenu',{
+      subsections: collection('.FreestyleMenu-submenu', {
         text: text('.FreestyleMenu-submenuItemLink'),
-        link: clickable('.FreestyleMenu-submenuItemLink')
-      })
-
-    })
+        link: clickable('.FreestyleMenu-submenuItemLink'),
+      }),
+    }),
   },
 
   content: {
     scope: '.FreestyleGuide-content',
 
-    sections: collection('.FreestyleSection',{
-
+    sections: collection('.FreestyleSection', {
       text: text('.FreestyleSection-name'),
 
-      subsections: collection('.FreestyleSubsection',{
+      subsections: collection('.FreestyleSubsection', {
         text: text('.FreestyleSubsection-name'),
         collections: collection('.FreestyleCollection', {
-
           title: text('.FreestyleCollection-title'),
-          activeVariantListItemLabelText: text('.FreestyleCollection-variantListItem--active'),
+          activeVariantListItemLabelText: text(
+            '.FreestyleCollection-variantListItem--active'
+          ),
 
           selectVariant: clickOnText('.FreestyleCollection-variantListItem'),
 
-          variantListItems: collection('.FreestyleCollection-variantListItem',{
-            text: text()
+          variantListItems: collection('.FreestyleCollection-variantListItem', {
+            text: text(),
           }),
 
-          variants: collection('.FreestyleVariant',{
+          variants: collection('.FreestyleVariant', {
             contains: contains(),
             usageTitle: text('.FreestyleUsage-title'),
             annotationContains: contains('.FreestyleAnnotation'),
-            noteContent: text('.FreestyleAnnotation', { multiple: true })
-          })
-        })
-      })
-
-    })
-  }
-
+            noteContent: text('.FreestyleAnnotation', { multiple: true }),
+          }),
+        }),
+      }),
+    }),
+  },
 });

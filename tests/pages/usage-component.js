@@ -1,7 +1,15 @@
-import PageObject, {
-  text,
-  count
-} from 'ember-cli-page-object';
+import PageObject, { text, count } from 'ember-cli-page-object';
+import { findElement } from 'ember-cli-page-object/extend';
+
+function textWithLineBreaks(selector, options = {}) {
+  return {
+    isDescriptor: true,
+
+    get() {
+      return findElement(this, selector, options)[0].innerText;
+    },
+  };
+}
 
 export default PageObject.create({
   title: text('.FreestyleUsage-title'),
@@ -12,7 +20,7 @@ export default PageObject.create({
 
   usageSection: {
     scope: '.FreestyleUsage-usage',
-    rawSource: text('.FreestyleUsage-sourceContainer', { normalize: false }),
-    source: text('.FreestyleUsage-sourceContainer')
-  }
+    rawSource: textWithLineBreaks('.FreestyleUsage-sourceContainer'),
+    source: text('.FreestyleUsage-sourceContainer'),
+  },
 });
