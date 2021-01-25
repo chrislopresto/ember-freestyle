@@ -1,6 +1,7 @@
 # Ember Freestyle
 
-[![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
+[![Build Status](https://github.com/chrislopresto/ember-freestyle/workflows/CI/badge.svg?branch=master)](https://github.com/chrislopresto/ember-freestyle/actions)
+
 [![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle)
 ![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
