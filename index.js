@@ -12,6 +12,9 @@ module.exports = {
   },
 
   setupPreprocessorRegistry(type, registry) {
+    if (type !== 'parent') {
+      return;
+    }
     let pluginObj = this._buildPlugin();
     pluginObj.parallelBabel = {
       requireFile: __filename,
