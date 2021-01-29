@@ -6613,16 +6613,16 @@ ember-cli-normalize-entity-name@^1.0.0:
     silent-error "^1.0.0"
 
 ember-cli-page-object@^1.17.4:
-  version "1.17.4"
-  resolved "https://registry.yarnpkg.com/ember-cli-page-object/-/ember-cli-page-object-1.17.4.tgz#80a8f90f2d2d490600c2ebeebf97180ca6b1ef0c"
-  integrity sha512-dKrzY6DOcp2ji2ZfSZXfzY6PFL6fhkygGqCSKoAr18P7hjN5QbHdjETJHmpqUK4TyFhuPeKVb323+4yajbgmjQ==
+  version "1.17.5"
+  resolved "https://registry.yarnpkg.com/ember-cli-page-object/-/ember-cli-page-object-1.17.5.tgz#a6b555470cc36e40b622047c6bcf6319deb6ae07"
+  integrity sha512-1fW4TF4JmoNDtH3V5wuSbcvlFQtl15unGJdOUjbP3HMl/pPDqGeTo4o0Bnoj8LQwARua5A34T5FNWWbAN9YHfQ==
   dependencies:
     broccoli-file-creator "^2.1.1"
     broccoli-merge-trees "^2.0.0"
     ceibo "~2.0.0"
     ember-cli-babel "^6.16.0"
     ember-cli-node-assets "^0.2.2"
-    ember-native-dom-helpers "^0.6.3"
+    ember-native-dom-helpers "^0.7.0"
     jquery "^3.4.1"
     rsvp "^4.7.0"
 
@@ -7020,6 +7020,14 @@ ember-native-dom-helpers@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.6.3.tgz#31c88b6eb8e1bb99ee594d19de8f0270d1d5eb35"
   integrity sha512-eQTHSV4OBS5YmGLvjgCcit79akG98YVRrcNq/rOVntPX1oq0LQqlPiXtDvDcqSdDur8GyUz6jY1Jy8Y6DLFiSw==
+  dependencies:
+    broccoli-funnel "^1.1.0"
+    ember-cli-babel "^6.6.0"
+
+ember-native-dom-helpers@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.7.0.tgz#98a87c11a391cec5c12382a4857e59ea2fb4b00a"
+  integrity sha512-ySJRGRhwYIWUAZKilB8xEcIatP9wKfEBX6JFG8bG4Ck7GvA0eau265hTGZz/+ntZuwcY4HrzSNkwimlHx4cM/A==
   dependencies:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.6.0"
