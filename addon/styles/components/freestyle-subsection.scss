@@ -1,4 +1,8 @@
 .FreestyleSubsection {
+  &.is-hidden {
+    display:none;
+  }
+
   &-name {
     font-size: 1.3rem;
     margin: 0 1rem;

@@ -1,0 +1,41 @@
+<div class="FreestyleUsageControls">
+  {{#if this.showHeader}}
+    <div class="FreestyleUsageControls-header">
+      Settings
+    </div>
+  {{/if}}
+  <div class="FreestyleUsageControls-item">
+    <div class="FreestyleUsageControls-itemControl">
+      <label class="FreestyleUsageControls-itemLabel">
+        <Input @type="checkbox" @checked={{this.showLabels}} />
+        Show Labels
+      </label>
+    </div>
+  </div>
+  <div class="FreestyleUsageControls-item">
+    <div class="FreestyleUsageControls-itemControl">
+      <label class="FreestyleUsageControls-itemLabel">
+        <Input @type="checkbox" @checked={{this.showNotes}} />
+        Show Notes
+      </label>
+    </div>
+  </div>
+  <div class="FreestyleUsageControls-item">
+    <div class="FreestyleUsageControls-itemControl">
+      <label class="FreestyleUsageControls-itemLabel">
+        <Input @type="checkbox" @checked={{this.showCode}} />
+        Show Code
+      </label>
+    </div>
+  </div>
+  {{#if this.showFocus}}
+    <div class="FreestyleUsageControls-item FreestyleUsageControls-item--focus">
+      <div class="FreestyleUsageControls-itemControl">
+        <label for="focus" class="FreestyleUsageControls-label--focus">Focus a section
+          <Input class="FreestyleUsageControls-input--focus" @value={{this.focus}} @name="focus" @enter={{this.setFocus}} />
+        </label>
+        <button class="FreestyleUsageControls-button" onclick={{this.setFocus}} type="button">Focus</button>
+      </div>
+    </div>
+  {{/if}}
+</div>

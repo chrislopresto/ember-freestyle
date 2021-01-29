@@ -1,26 +1,39 @@
 # Ember Freestyle
 
-[![Build Status](https://travis-ci.org/chrislopresto/ember-freestyle.svg?branch=master)](https://travis-ci.org/chrislopresto/ember-freestyle)
+[![Build Status](https://github.com/chrislopresto/ember-freestyle/workflows/CI/badge.svg?branch=master)](https://github.com/chrislopresto/ember-freestyle/actions)
+
 [![npm version](https://badge.fury.io/js/ember-freestyle.svg)](https://badge.fury.io/js/ember-freestyle)
 ![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-34-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
 
-[Documentation found here](http://ember-freestyle.com/)
+## Documentation
+
+This README provides a lightweight overview of Ember Freestyle to get you going. More complete documentation can be found at https://chrislopresto.github.io/ember-freestyle
 
 ## Live Demo
 
-http://chrislopresto.github.io/ember-freestyle/
+To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-freestyle/#/acceptance](https://chrislopresto.github.io/ember-freestyle/#/acceptance)
 
-## Supported Ember versions
+### Compatibility
 
-- For Ember versions >= 2.8, use the latest published version
-- For Ember versions 1.13.0 through 2.7, use ember-freestyle 0.3.0
+* Ember.js v3.16 or above
+* Ember CLI v2.13 or above
+* Node.js v10 or above
 
-## Installation
+### Support
 
-This installation process is opinionated in order to get you going quickly. We want to make everything much easier to use in the near future. Please report any problems, and as always, PRs are welcome.
+Ember Freestyle support is only provided for the 2 latest Ember versions
+
+Installation
+------------------------------------------------------------------------------
+
+This installation process is opinionated in order to get you going quickly.
 
 1. `ember install ember-freestyle`
 
@@ -34,145 +47,16 @@ This installation process is opinionated in order to get you going quickly. We w
 
 1. Add `this.route('freestyle');` to your `router.js` file
 1. Navigate to `/freestyle`. You should now see something like:
+
     ![](doc/freestyle-generated.png)
 
-## Introduction
+All of the generated output is optional. If you don't want a `freestyle` route, for example, feel free to get rid of it in and add a `freestyle-guide` somewhere else in your app.
 
-### Anatomy of a Basic Style Guide
+You can use the `freestyle-guide` component anywhere you'd like in your app. You can organize your components into multiple Freestyle guides if you want to. You can even use the constituent components like `freestyle-usage` on their own.
 
-Here is a simple style guide, where `{{loading-spinner}}` is a hypothetical component **in your application**.
+## Problems? No problem.
 
-```hbs
-{{#freestyle-guide title="My Living Style Guide" subtitle="Showcasing My App's Components"}}
-  {{#freestyle-section name="UI Elements"}}
-    {{#freestyle-usage "loading-spinner" title="Loading Spinner"}}
-      {{loading-spinner}}
-    {{/freestyle-usage}}
-  {{/freestyle-section}}
-{{/freestyle-guide}}
-```
-
-### Components
-
-Here's a brief rundown of the components Ember Freestyle provides for adding a living style guide in your app:
-
-#### freestyle-guide
-
-The `freestyle-guide` component provides the user interface for a style guide. It includes a header section and
-navigation controls.
-
-#### freestyle-usage
-
-The `freestyle-usage` component is the workhorse. Wrap your application's components with a `freestyle-usage`
-component, being sure to provide a unique slug (positional param) as follows:
-
-```hbs
-{{#freestyle-usage "globally-unique-slug" title="Title To Display In Style Guide"}}
-  {{x-foo propa="aaa" propb="bbb"}}
-{{/freestyle-usage}}
-```
-
-The snippet above will render your app's `x-foo` component as well as a handlebars snippet demonstrating how to use it.
-
-#### freestyle-section
-
-Optionally group your `freestyle-usage`-wrapped components into sections using the `freestyle-section` component. The
-`freestyle-section` component registers itself in order to appear in the navigation provided by the `freestyle-guide`
-component.
-
-#### freestyle-subsection
-
-Optionally divide your style guide sections into subsections using the `freestyle-subsection` component.
-
-```hbs
-{{#freestyle-guide title="My Living Style Guide" subtitle="Showcasing My App's Components"}}
-  {{#freestyle-section name="Visual Style" as |section|}}
-    {{#section.subsection name="Typography"}}
-      {{#freestyle-usage "visual-style-typography-foo" title="Foo Typography"}}
-        {{x-foo-typography}}
-      {{/freestyle-usage}}
-    {{/section.subsection}}
-
-    {{#section.subsection name="Colors"}}
-      {{#freestyle-usage "visual-style-colors-fie" title='Fie Colors'}}
-        {{x-fie-colors}}
-      {{/freestyle-usage}}
-    {{/section.subsection}}
-  {{/freestyle-section}}
-{{/freestyle-guide}}
-```
-
-The snippet above will create a style guide with one 'Visual Style' section with separate subsections for
-'Typography' and 'Colors'. Your app's `x-foo-typography` and `x-fie-colors` components would show up in the
-appropriate subsections.
-
-**NOTE:** For subsection navigation to work properly, the `freestyle-section` component must yield itself as Showcasing
-in the above snippet. This limitation will be removed in a forthcoming release.
-
-#### freestyle-collection + freestyle-variant
-
-Use the `freestyle-collection` component with nested `freestyle-variant` components to present multiple versions
-of a component. This is very useful for presenting and testing a component in each state it must handle
-in your application.
-
-By default, variants will be stacked. If you wish to view variants side by side, set the `inline` property of
-`freestyle-collection` to true.
-
-```hbs
-{{#freestyle-collection title="Foo Component In Every State" defaultKey="with-icon" inline=true as |collection|}}
-  {{#collection.variant key="no-num"}}
-    {{#freestyle-usage "foo-foo-no-num" title="Information"}}
-      {{foo-foo title="Information"}}
-    {{/freestyle-usage}}
-  {{/collection.variant}}
-
-  {{#collection.variant key="with-num"}}
-    {{#freestyle-usage "foo-foo-people" title="People"}}
-      {{foo-foo title="People" num=55}}
-    {{/freestyle-usage}}
-  {{/collection.variant}}
-
-  {{#collection.variant key="with-icon"}}
-    {{#freestyle-usage "foo-foo-twitter" title="Twitter"}}
-      {{foo-foo title="Twitter" icon="twitter"}}
-    {{/freestyle-usage}}
-  {{/collection.variant}}
-{{/freestyle-collection}}
-```
-
-#### freestyle-note + freestyle-annotation
-
-_TODO:_ [Simplify Technique for Including Notes](https://github.com/chrislopresto/ember-freestyle/issues/61)
-
-Use the `freestyle-note` component to add a markdown note for a specific `freestyle-usage`. Note that the `freestyle-note` slug must match the `freestyle-usage` slug followed by `--notes`.
-
-```hbs
-{{#freestyle-usage "globally-unique-slug" title="Title To Display In Style Guide"}}
-  {{x-foo propa="aaa" propb="bbb"}}
-{{/freestyle-usage}}
-{{#freestyle-note "globally-unique-slug--notes"}}
-  # Contextual Markdown Note for x-foo
-
-  You can write helpful _markdown_ notes explaining how the
-  `x-foo` component works.
-{{/freestyle-note}}
-```
-
-Use the `freestyle-annotation` component to add a general purpose note.
-
-```hbs
-{{#freestyle-annotation}}
-<h1>Contextual HTML Note for Anything in the Freestyle Guide</h1>
-
-<p>
-  You can write helpful HTML notes explaining anything in the
-  Freestyle guide.
-</p>
-{{/freestyle-annotation}}
-```
-
-Both the `freestyle-note` and `freestyle-annotation` components respect the
-`Show Notes` usage controls preference.
+Hopefully the installation instructions got you off to a smooth, seamless start. If you have any problems, feel free to chat with us in the [Ember Community Discord](https://discordapp.com/invite/zT3asNS) or [open an issue](https://github.com/chrislopresto/ember-freestyle/issues/new). As always, PRs are welcome!
 
 ## Removing Ember Freestyle from Your Production Payload
 
@@ -198,40 +82,81 @@ module.exports = function(defaults) {
 You should include Ember Freestyle as a devDependency so that apps using your addon will not include
 Ember Freestyle CSS and JavaScript in their production payloads.
 
-### Code Snippets
-
-You will need to tell the build where to search for code snippets as follows:
-
-##### ember-cli-build.js
-
-```javascript
-var app = new EmberAddon(defaults, {
-  // ...
-  freestyle: {
-    snippetSearchPaths: ['addon', 'tests/dummy/app']
-  }
-});
-```
-
-## Generating the Changelog
-
-This project uses [https://github.com/skywinder/github-changelog-generator](https://github.com/skywinder/github-changelog-generator) to generate its changelog.
-
-`github_changelog_generator --future-release=x.y.z`
-
 ## Running
 
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
+
+### Running tests
+
+* `ember test` – Runs the test suite on the current Ember version
+* `ember test --server` – Runs the test suite in "watch mode"
+* `ember try:each` – Runs the test suite against multiple Ember versions
+
+### Running the dummy application
+
 * `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://chrislopresto.com"><img src="https://avatars0.githubusercontent.com/u/93691?v=4" width="100px;" alt=""/><br /><sub><b>Chris LoPresto</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=chrislopresto" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=chrislopresto" title="Documentation">📖</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=chrislopresto" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://www.lukemelia.com/devblog"><img src="https://avatars2.githubusercontent.com/u/353?v=4" width="100px;" alt=""/><br /><sub><b>Luke Melia</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=lukemelia" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=lukemelia" title="Documentation">📖</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=lukemelia" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://onebar.io/"><img src="https://avatars1.githubusercontent.com/u/1834162?v=4" width="100px;" alt=""/><br /><sub><b>Andrew Fan</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=andrewfan" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/chrisvdp"><img src="https://avatars3.githubusercontent.com/u/1924349?v=4" width="100px;" alt=""/><br /><sub><b>Chris van der Ploeg</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=chrisvdp" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=chrisvdp" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://ilyaradchenko.com"><img src="https://avatars0.githubusercontent.com/u/34726?v=4" width="100px;" alt=""/><br /><sub><b>Ilya Radchenko</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=knownasilya" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=knownasilya" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/mszoernyi"><img src="https://avatars2.githubusercontent.com/u/668269?v=4" width="100px;" alt=""/><br /><sub><b>Mike Szörnyi</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=mszoernyi" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=mszoernyi" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/migbar"><img src="https://avatars3.githubusercontent.com/u/33972?v=4" width="100px;" alt=""/><br /><sub><b>miguel barcos</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=migbar" title="Tests">⚠️</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://digivine.com"><img src="https://avatars3.githubusercontent.com/u/175123?v=4" width="100px;" alt=""/><br /><sub><b>Nathan Ward</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=vine77" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=vine77" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/zidjian257"><img src="https://avatars0.githubusercontent.com/u/14352088?v=4" width="100px;" alt=""/><br /><sub><b>zidjian257</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=zidjian257" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=zidjian257" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://elidupuis.com"><img src="https://avatars3.githubusercontent.com/u/196410?v=4" width="100px;" alt=""/><br /><sub><b>Eli Dupuis</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=elidupuis" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/wagenet"><img src="https://avatars3.githubusercontent.com/u/9835?v=4" width="100px;" alt=""/><br /><sub><b>Peter Wagenet</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=wagenet" title="Code">💻</a></td>
+    <td align="center"><a href="https://twitter.com/sivakumar_k/"><img src="https://avatars3.githubusercontent.com/u/604117?v=4" width="100px;" alt=""/><br /><sub><b>Sivakumar Kailasam</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=sivakumar-kailasam" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.funkensturm.com"><img src="https://avatars1.githubusercontent.com/u/54812?v=4" width="100px;" alt=""/><br /><sub><b>Manuel Wiedenmann</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=fsmanuel" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/LucasHill"><img src="https://avatars1.githubusercontent.com/u/427333?v=4" width="100px;" alt=""/><br /><sub><b>Lucas Hill</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=LucasHill" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://breadapp.com"><img src="https://avatars1.githubusercontent.com/u/1156745?v=4" width="100px;" alt=""/><br /><sub><b>Alex Zlotnik</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=zlotnika" title="Code">💻</a></td>
+    <td align="center"><a href="http://tamzinblake.me"><img src="https://avatars1.githubusercontent.com/u/55923?v=4" width="100px;" alt=""/><br /><sub><b>Tamzin Blake</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=tamzinblake" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.kaliber5.de"><img src="https://avatars0.githubusercontent.com/u/1325249?v=4" width="100px;" alt=""/><br /><sub><b>Simon Ihmig</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=simonihmig" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://ryantablada.com"><img src="https://avatars2.githubusercontent.com/u/2532004?v=4" width="100px;" alt=""/><br /><sub><b>Ryan Tablada</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=rtablada" title="Code">💻</a></td>
+    <td align="center"><a href="https://kerricklong.com/"><img src="https://avatars1.githubusercontent.com/u/552093?v=4" width="100px;" alt=""/><br /><sub><b>Kerrick Long</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=Kerrick" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dajk"><img src="https://avatars2.githubusercontent.com/u/9277302?v=4" width="100px;" alt=""/><br /><sub><b>Hajdukovic Radovan</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=dajk" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=dajk" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://robabby.com"><img src="https://avatars1.githubusercontent.com/u/736269?v=4" width="100px;" alt=""/><br /><sub><b>Rob</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=robabby" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://www.gijsbotje.nl"><img src="https://avatars2.githubusercontent.com/u/7714133?v=4" width="100px;" alt=""/><br /><sub><b>Gijs Boddeus</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=gijsbotje" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/scanieso"><img src="https://avatars2.githubusercontent.com/u/786971?v=4" width="100px;" alt=""/><br /><sub><b>Sarah Canieso</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=scanieso" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Dhaulagiri"><img src="https://avatars1.githubusercontent.com/u/1672302?v=4" width="100px;" alt=""/><br /><sub><b>Brian Runnells</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=Dhaulagiri" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/danwenzel"><img src="https://avatars0.githubusercontent.com/u/11724146?v=4" width="100px;" alt=""/><br /><sub><b>Dan Wenzel</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=danwenzel" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=danwenzel" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/ctjhoa"><img src="https://avatars2.githubusercontent.com/u/1716173?v=4" width="100px;" alt=""/><br /><sub><b>Camille TJHOA</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=ctjhoa" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=ctjhoa" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://forge512.com"><img src="https://avatars1.githubusercontent.com/u/144861?v=4" width="100px;" alt=""/><br /><sub><b>Michael Swanson</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=mswanson" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Windvis"><img src="https://avatars3.githubusercontent.com/u/3533236?v=4" width="100px;" alt=""/><br /><sub><b>Sam Van Campenhout</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=Windvis" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://www.chriskrycho.com"><img src="https://avatars0.githubusercontent.com/u/2403023?v=4" width="100px;" alt=""/><br /><sub><b>Chris Krycho</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=chriskrycho" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/bagby"><img src="https://avatars2.githubusercontent.com/u/176297?v=4" width="100px;" alt=""/><br /><sub><b>Will Bagby</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=bagby" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=bagby" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/NoahFisher"><img src="https://avatars3.githubusercontent.com/u/3476655?v=4" width="100px;" alt=""/><br /><sub><b>Noah</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=NoahFisher" title="Code">💻</a></td>
+    <td align="center"><a href="https://twitter.com/fivetanley"><img src="https://avatars0.githubusercontent.com/u/1275021?v=4" width="100px;" alt=""/><br /><sub><b>Stanley Stuart</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=fivetanley" title="Code">💻</a></td>
+    <td align="center"><a href="https://mcmanus.io"><img src="https://avatars2.githubusercontent.com/u/9383?v=4" width="100px;" alt=""/><br /><sub><b>Matt McManus</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=mattmcmanus" title="Code">💻</a></td>
+    <td align="center"><a href="http://suzidao.com"><img src="https://avatars0.githubusercontent.com/u/6305709?v=4" width="100px;" alt=""/><br /><sub><b>Suzi Dao</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=suzidao" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=suzidao" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

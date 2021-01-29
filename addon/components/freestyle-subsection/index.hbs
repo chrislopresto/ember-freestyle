@@ -1,0 +1,10 @@
+<div class="FreestyleSubsection {{if this.show 'is-showing' 'is-hidden'}}">
+  {{#if this.show}}
+    {{#if this.hasName}}
+      <div class="FreestyleSubsection-name">
+        {{@name}}
+      </div>
+    {{/if}}
+    {{yield}}
+  {{/if}}
+</div>

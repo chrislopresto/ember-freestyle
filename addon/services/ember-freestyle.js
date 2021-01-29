@@ -1,10 +1,12 @@
 /* global hljs */
-import Ember from 'ember';
+import { not } from '@ember/object/computed';
 
-const { computed } = Ember;
-const { RSVP: { Promise } } = Ember;
+import { isPresent } from '@ember/utils';
+import { A } from '@ember/array';
+import Service from '@ember/service';
+import { Promise } from 'rsvp';
 
-export default Ember.Service.extend({
+export default Service.extend({
   showLabels: true,
   showNotes: true,
   showCode: true,
@@ -18,10 +20,15 @@ export default Ember.Service.extend({
   subsection: null,
   focus: null,
 
-  notFocused: computed.not('focus'),
+  notFocused: not('focus'),
 
   hljsVersion: '9.12.0',
   hljsPromise: null,
+
+  init() {
+    this._super(...arguments);
+    this.hljsLanguagePromises = {};
+  },
 
   hljsUrl() {
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/highlight.min.js`;
@@ -31,30 +38,41 @@ export default Ember.Service.extend({
     return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/styles/${theme}.min.css`;
   },
 
+  hljsLanguageUrl(language) {
+    return `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${this.hljsVersion}/languages/${language}.min.js`;
+  },
+
   ensureHljs() {
     if (!this.hljsPromise) {
       this.hljsPromise = new Promise((resolve) => {
-        return Ember.$.getScript(this.hljsUrl()).done((script) => {
-          resolve(script);
-        })
+        let src = this.hljsUrl();
+        let script = document.createElement('script');
+        script.type = 'application/javascript';
+        script.src = src;
+        script.onload = resolve;
+        document.body.appendChild(script);
       });
     }
     return this.hljsPromise;
   },
 
   highlight(el) {
-    this.ensureHljs().then(() => {
-      hljs.highlightBlock(el);
-    });
+    this.ensureHljs()
+      .then(() => {
+        return this.ensureHljsLanguage('handlebars');
+      })
+      .then(() => {
+        hljs.highlightBlock(el);
+      });
   },
 
   ensureHljsTheme(theme) {
-    if (Ember.$(`[data-hljs-theme=${theme}]`)[0]) {
+    if (document.querySelector(`[data-hljs-theme=${theme}]`)) {
       return;
     }
 
-    let link  = document.createElement('link');
-    link.rel  = 'stylesheet';
+    let link = document.createElement('link');
+    link.rel = 'stylesheet';
     link.type = 'text/css';
     link.href = this.hljsThemeUrl(theme);
     link.setAttribute('data-hljs-theme', `${theme}`);
@@ -62,24 +80,38 @@ export default Ember.Service.extend({
     document.head.appendChild(link);
   },
 
+  ensureHljsLanguage(language) {
+    if (!this.hljsLanguagePromises[language]) {
+      this.hljsLanguagePromises[language] = new Promise((resolve) => {
+        let src = this.hljsLanguageUrl(language);
+        let script = document.createElement('script');
+        script.type = 'application/javascript';
+        script.src = src;
+        script.onload = resolve;
+        document.body.appendChild(script);
+      });
+    }
+    return this.hljsLanguagePromises[language];
+  },
+
   // menu - tree structure of named sections with named subsections
 
   registerSection(sectionName, subsectionName = '') {
-    let menu = this.get('menu') || Ember.A([]);
+    let menu = this.menu || A([]);
     if (!menu.filterBy('name', sectionName).length) {
       menu.push({
         name: sectionName,
-        subsections: Ember.A([])
+        subsections: A([]),
       });
     }
-    if (Ember.isPresent(subsectionName)) {
+    if (isPresent(subsectionName)) {
       let section = menu.findBy('name', sectionName);
       if (!section.subsections.filterBy('name', subsectionName).length) {
         section.subsections.push({
-          name: subsectionName
+          name: subsectionName,
         });
       }
     }
     this.set('menu', menu);
-  }
+  },
 });

@@ -1,8 +1,9 @@
-import resolver from './helpers/resolver';
-import {
-  setResolver
-} from 'ember-qunit';
-import { start } from 'ember-cli-qunit';
+import Application from 'dummy/app';
+import config from 'dummy/config/environment';
+import { setApplication } from '@ember/test-helpers';
+import { start } from 'ember-qunit';
+import { useNativeEvents } from 'ember-cli-page-object/extend';
 
-setResolver(resolver);
+setApplication(Application.create(config.APP));
+useNativeEvents();
 start();

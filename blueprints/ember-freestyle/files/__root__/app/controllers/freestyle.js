@@ -1,10 +1,9 @@
 import Ember from 'ember';
-import FreestyleController from 'ember-freestyle/controllers/freestyle';
+import BaseFreestyleController from 'ember-freestyle/controllers/freestyle';
+import { inject as service } from '@ember/service';
 
-const { inject } = Ember;
-
-export default FreestyleController.extend({
-  emberFreestyle: inject.service(),
+export default class FreestyleController extends BaseFreestyleController {
+  @service emberFreestyle;
 
   /* BEGIN-FREESTYLE-USAGE fp--notes
 ### A few notes regarding freestyle-palette
@@ -36,7 +35,7 @@ export default Ember.Component.extend({
 ```
   END-FREESTYLE-USAGE */
 
-  colorPalette: {
+  colorPalette = {
     'primary': {
       'name': 'cyan',
       'base': '#00bcd4'
@@ -57,5 +56,5 @@ export default Ember.Component.extend({
       'name': 'white',
       'base': '#ffffff'
     }
-  }
-});
+  };
+}

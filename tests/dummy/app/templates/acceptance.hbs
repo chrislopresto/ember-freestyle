@@ -1,118 +1,153 @@
-{{#freestyle-guide
-    title="Ember Freestyle"
-    subtitle="Living Style Guide"
-    highlightJsTheme="solarized-light"
-}}
+<FreestyleGuide @title="Ember Freestyle" @subtitle="Living Style Guide" @highlightJsTheme="solarized-light">
 
-  {{#freestyle-section name="Foo Things" as |section|}}
+  <FreestyleSection @name="Albums" as |Section|>
+    <Section.subsection @name="Album Cover">
+      <FreestyleUsage @slug="album-cover" @title="Album Cover Example">
+        <AlbumCover
+          @artist="The Beatles"
+          @title="Yellow Submarine"
+          @coverImageSrc="https://upload.wikimedia.org/wikipedia/en/b/bb/Yellow_submarine_songtrack.jpg"
+        />
+      </FreestyleUsage>
+      {{!-- BEGIN-SNIPPET ember-code-snippet-example --}}
+      <FreestyleAnnotation @slug="album-cover">
+        <h4>Styles for this component:</h4>
+        {{#let (get-code-snippet "album-cover-styles.scss") as |snippet|}}
+          <pre {{freestyle-highlight}} class="{{snippet.language}} u-outdent">{{snippet.source}}</pre>
+        {{/let}}
+      </FreestyleAnnotation>
+      {{!-- END-SNIPPET --}}
+      {{!-- BEGIN-SNIPPET markdown-example-usage --}}
+      <FreestyleAnnotation @slug="album-cover">
+        <MarkdownContent>
+          ## Album Review
 
-    {{#section.subsection name="Foo Subsection A"}}
-      {{#freestyle-collection title="Foo Collection" defaultKey="normal" inline=true as |collection|}}
+          I really love this album. Ringo at his finest. Here are things I like about it:
 
-        {{#collection.variant key="normal"}}
-          {{#freestyle-annotation "foo-normal"}}
+          - Submarines
+          - Psychadelica
+          - The color yellow
+        </MarkdownContent>
+      </FreestyleAnnotation>
+      {{!-- END-SNIPPET --}}
+    </Section.subsection>
+  </FreestyleSection>
+
+  <FreestyleSection @name="Foo Things" as |Section|>
+
+    <Section.subsection @name="Foo Subsection A">
+      <FreestyleCollection @title="Foo Collection" @defaultKey="normal" @inline={{true}} as |collection|>
+
+        <collection.variant @key="normal">
+          <FreestyleAnnotation @slug="foo-normal">
             <h4>A Note About Normal</h4>
             <p>
               This comment is coming from a freestyle-annotation component. Use the freestyle-annotation
               component to write notes in html.
             </p>
-          {{/freestyle-annotation}}
-          {{#freestyle-note "foo-normal--notes"}}
-            #### Another Note About Normal
+          </FreestyleAnnotation>
 
-            This comment is coming from a `freestyle-note` component. Use the `freestyle-note` component
-            to write notes in markdown.
+          <FreestyleUsage @slug="foo-normal" @title="Normal" @usageTitle="Usage" @hbsTitle="Template">
+            <XFoo @status="normal" />
+          </FreestyleUsage>
+        </collection.variant>
 
-            ##### Markdown Code Snippet
+        <collection.variant @key="special">
+          <FreestyleUsage @slug="foo-special" @title="Special">
+            <XFoo @status="special" />
+          </FreestyleUsage>
+        </collection.variant>
 
-            ```javascript
-            // We can include code blocks using markdown
-            function do(something) {
-              console.log(`Doing ${something}`);
-            }
-            ```
-          {{/freestyle-note}}
-          {{#freestyle-usage "foo-normal" title="Normal" usageTitle="Usage" hbsTitle="Template"}}
-            {{x-foo status="normal"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="hyper">
+          <FreestyleUsage @slug="foo-hyper" @title="Hyper">
+            <XFoo @status="hyper" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="special"}}
-          {{#freestyle-usage "foo-special" title="Special"}}
-            {{x-foo status="special"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="classic">
+          <FreestyleUsage @slug="foo-classic" @title="Classic">
+            <XFoo @status="classic" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="hyper"}}
-          {{#freestyle-usage "foo-hyper" title="Hyper"}}
-            {{x-foo status="hyper"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="elegant">
+          <FreestyleUsage @slug="foo-elegant" @title="Elegant">
+            <XFoo @status="elegant" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="classic"}}
-          {{#freestyle-usage "foo-classic" title="Classic"}}
-            {{x-foo status="classic"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+        <collection.variant @key="tasteful">
+          <FreestyleUsage @slug="foo-tasteful" @title="Tasteful">
+            <XFoo @status="tasteful" />
+          </FreestyleUsage>
+        </collection.variant>
 
-        {{#collection.variant key="elegant"}}
-          {{#freestyle-usage "foo-elegant" title="Elegant"}}
-            {{x-foo status="elegant"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
+      </FreestyleCollection>
+    </Section.subsection>
 
-        {{#collection.variant key="tasteful"}}
-          {{#freestyle-usage "foo-tasteful" title="Tasteful"}}
-            {{x-foo status="tasteful"}}
-          {{/freestyle-usage}}
-        {{/collection.variant}}
-
-      {{/freestyle-collection}}
-    {{/section.subsection}}
-
-    {{#section.subsection name="Foo Subsection B"}}
-      {{#freestyle-annotation}}
+    <Section.subsection @name="Foo Subsection B">
+      <FreestyleAnnotation>
         This is an annotation in a subsection, mainly to facilitate testing.
-      {{/freestyle-annotation}}
-    {{/section.subsection}}
+      </FreestyleAnnotation>
+    </Section.subsection>
 
-  {{/freestyle-section}}
+  </FreestyleSection>
 
-  {{#freestyle-section name="Visual Style" as |section|}}
+  <FreestyleSection @name="Dynamic Properties">
+    <FreestyleDynamic
+      @slug='dynamic-properties'
+      @dynamicProperties={{this.dynamicProperties}}
+      @title='Dynamic Properties'
+      @componentName='x-bar'
+      as |dynamic|
+    >
+      <XBar @title="Just a static title" @size={{dynamic.size}} @showBorder={{true}} @rank={{dynamic.rank}} @isVisible={{dynamic.isVisible}} @isTasteful={{dynamic.isTasteful}} @innerBorderThickness={{dynamic.innerBorderThickness}}>
 
-    {{#section.subsection name="Typography"}}
+        <p>{{dynamic.blockContent}}</p>
+        <p>Static block content</p>
+        <p>
+          Reference another dynamic prop in block:
+          is tasteful: {{dynamic.isTasteful}}
+        </p>
+      </XBar>
+    </FreestyleDynamic>
+  </FreestyleSection>
 
-      {{#freestyle-usage "typography-times" title="Times New Roman"}}
-        {{freestyle-typeface fontFamily="Times New Roman"}}
-      {{/freestyle-usage}}
+  <FreestyleSection @name="Visual Style" as |Section|>
 
-      {{#freestyle-usage "typography-helvetica" title="Helvetica"}}
-        {{freestyle-typeface fontFamily="Helvetica"}}
-      {{/freestyle-usage}}
+    <Section.subsection @name="Typography">
 
-    {{/section.subsection}}
+      <FreestyleUsage @slug="typography-times" @title="Times New Roman">
+        <FreestyleTypeface @fontFamily="Times New Roman" />
+      </FreestyleUsage>
 
-    {{#section.subsection name="Color"}}
+      <FreestyleUsage @slug="typography-helvetica" @title="Helvetica">
+        <FreestyleTypeface @fontFamily="Helvetica" />
+      </FreestyleUsage>
 
-      {{#freestyle-usage "fp" title="Freestyle Palette"}}
-        {{freestyle-palette
-            colorPalette=colorPalette
-            title="Dummy App Color Palette"
-            description="This component displays the color palette specified in freestyle/palette.json"
-        }}
-      {{/freestyle-usage}}
+    </Section.subsection>
 
-      {{#freestyle-usage "fpi"
-          title="Freestyle Palette Item"
-          usageTitle="Template - application.hbs"
-          jsTitle="Controller - application.js"
-          scssTitle="SCSS - freestyle-palette-item.scss"
-      }}
-        {{freestyle-palette-item color=color}}
-      {{/freestyle-usage}}
+    <Section.subsection @name="Color">
 
-    {{/section.subsection}}
+      <FreestyleUsage @slug="fp" @title="Freestyle Palette">
+        <FreestylePalette
+          @colorPalette={{this.colorPalette}}
+          @title="Dummy App Color Palette"
+          @description="This component displays the color palette specified in freestyle/palette.json"
+        />
+      </FreestyleUsage>
 
-  {{/freestyle-section}}
+      <FreestyleUsage @slug="fpi"
+        @title="Freestyle Palette Item"
+        @usageTitle="Template - application.hbs"
+        @jsTitle="Controller - application.js"
+        @scssTitle="SCSS - freestyle-palette-item.scss"
+      >
+        <FreestylePaletteItem @color={{this.color}} />
+      </FreestyleUsage>
 
-{{/freestyle-guide}}
+    </Section.subsection>
+
+  </FreestyleSection>
+
+</FreestyleGuide>

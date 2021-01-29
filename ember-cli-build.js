@@ -1,17 +1,20 @@
-/* eslint-env node */
+'use strict';
+
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
-module.exports = function(defaults) {
-  var app = new EmberAddon(defaults, {
+module.exports = function (defaults) {
+  let app = new EmberAddon(defaults, {
     // Add options here
     autoprefixer: {
       browsers: ['last 2 version', '> 10%'],
-      cascade: false
+      cascade: false,
     },
-    freestyle: {
-      snippetSearchPaths: ['tests/dummy/app', 'addon/styles']
-    }
+    snippetSearchPaths: ['tests/dummy/app'],
   });
+
+  if (defaults.project.findAddonByName('ember-native-dom-event-dispatcher')) {
+    app.vendorFiles = { 'jquery.js': null };
+  }
 
   /*
     This build file specifies the options for the dummy test app of this

@@ -1,20 +1,20 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { alias } from '@ember/object/computed';
+import Controller from '@ember/controller';
 
-const { computed, inject } = Ember;
-
-export default Ember.Controller.extend({
-  emberFreestyle: inject.service(),
+export default Controller.extend({
+  emberFreestyle: service(),
 
   queryParams: ['l', 'n', 'c', 'm', 'f', 's', 'ss'],
 
-  l: computed.alias('emberFreestyle.showLabels'),
-  n: computed.alias('emberFreestyle.showNotes'),
-  c: computed.alias('emberFreestyle.showCode'),
+  l: alias('emberFreestyle.showLabels'),
+  n: alias('emberFreestyle.showNotes'),
+  c: alias('emberFreestyle.showCode'),
 
-  m: computed.alias('emberFreestyle.showMenu'),
+  m: alias('emberFreestyle.showMenu'),
 
-  f: computed.alias('emberFreestyle.focus'),
+  f: alias('emberFreestyle.focus'),
 
-  s: computed.alias('emberFreestyle.section'),
-  ss: computed.alias('emberFreestyle.subsection')
+  s: alias('emberFreestyle.section'),
+  ss: alias('emberFreestyle.subsection'),
 });

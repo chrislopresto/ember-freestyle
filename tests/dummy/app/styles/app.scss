@@ -1,7 +1,7 @@
 html,
 body {
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 html {
@@ -27,4 +27,45 @@ p {
   margin-bottom: .5rem;
 }
 
+h1,
+h2,
+h3 {
+  margin-top: 1em;
+}
+
+$link-color: #00bcd4;
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.content {
+  pre {
+    padding: 0;
+  }
+
+  code {
+    padding: 0 .5em;
+  }
+}
+
+.u-outdent {
+  margin: 0 -1rem;
+  padding: .5rem 1rem !important; // sass-lint:disable-line no-important
+}
+
+.readable-width {
+  margin: 0 auto;
+  max-width: 60em;
+  width: 100%;
+}
+
 @import 'components/x-foo';
+@import 'components/x-bar';
+@import 'components/album-cover';
+@import 'components/markdown-content';

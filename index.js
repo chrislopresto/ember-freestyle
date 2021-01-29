@@ -1,47 +1,27 @@
-/* eslint-env node */
 'use strict';
-var mergeTrees = require('broccoli-merge-trees');
-var fs   = require('fs');
-var flatiron = require('broccoli-flatiron');
-var freestyleUsageSnippetFinder = require('./freestyle-usage-snippet-finder');
 
 module.exports = {
-  name: 'ember-freestyle',
+  name: require('./package').name,
 
-  treeForApp: function(tree) {
-    var treesToMerge = [tree];
-    var self = this;
-
-    var snippets = mergeTrees(this.snippetPaths().filter(function(path) {
-      return fs.existsSync(path);
-    }));
-
-    snippets = mergeTrees(this.snippetSearchPaths().map(function(path) {
-      return freestyleUsageSnippetFinder(path, self.ui);
-    }).concat(snippets));
-
-    snippets = flatiron(snippets, {
-      outputFile: 'snippets.js'
-    });
-    treesToMerge.push(snippets);
-
-    return mergeTrees(treesToMerge);
+  included(/*app, parentAddon*/) {
+    this._super.included.apply(this, arguments);
   },
 
-  snippetPaths: function() {
-    if (this.app) {
-      var freestyleOptions = this.app.options.freestyle || {};
-      return freestyleOptions.snippetPaths || ['snippets'];
-    }
-    return ['snippets'];
+  isDevelopingAddon() {
+    return false;
   },
 
-  snippetSearchPaths: function() {
-    if (this.app) {
-      var freestyleOptions = this.app.options.freestyle || {};
-      return freestyleOptions.snippetSearchPaths || ['app'];
+  setupPreprocessorRegistry(type, registry) {
+    if (type !== 'parent') {
+      return;
     }
-    return ['app'];
+    let pluginObj = this._buildPlugin();
+    pluginObj.parallelBabel = {
+      requireFile: __filename,
+      buildUsing: '_buildPlugin',
+      params: {},
+    };
+    registry.add('htmlbars-ast-plugin', pluginObj);
   },
 
   included: function(app, parentAddon) {
@@ -52,9 +32,14 @@ module.exports = {
     if (!this.app && target.app) {
       this.app = target.app;
     }
-  },
-
-  isDevelopingAddon: function() {
-    return false;
   }
+  _buildPlugin() {
+    return {
+      name: 'component-attributes',
+      plugin: require('./lib/ast-transform'),
+      baseDir() {
+        return __dirname;
+      },
+    };
+  },
 };

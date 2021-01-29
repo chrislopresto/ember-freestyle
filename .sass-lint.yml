@@ -6,5 +6,6 @@ rules:
 files:
     ignore:
       - '**/x-foo.scss'
+      - '**/x-bar.scss'
       - '**/reset.scss'
       - '**/freestyle-palette-item.scss'

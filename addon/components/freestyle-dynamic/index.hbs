@@ -1,0 +1,31 @@
+<div class="FreestyleDynamic">
+
+  <FreestyleAnnotation>
+    <h3 class="FreestyleDynamic-header">{{this.headerTitle}}</h3>
+    <form class="FreestyleDynamic-form">
+      {{#each-in @dynamicProperties as |propertyName propertyHash|}}
+        <FreestyleDynamicInput
+          @propertyName={{propertyName}}
+          @value={{propertyHash.value}}
+          @options={{propertyHash.options}}
+          @inputType={{propertyHash.inputType}}
+          @description={{propertyHash.description}}
+          @min={{propertyHash.min}}
+          @max={{propertyHash.max}}
+          @changeValueTo={{fn this.changeValueTo propertyName}} />
+      {{/each-in}}
+    </form>
+  </FreestyleAnnotation>
+
+  <FreestyleUsage
+    @slug={{@slug}}
+    @title={{@title}}
+    @isDynamic={{true}}
+    @componentName={{@componentName}}
+    @source={{@source}}
+    @dynamicProperties={{@dynamicProperties}}
+  >
+    {{yield this.dynamicPropertyValues}}
+  </FreestyleUsage>
+
+</div>
