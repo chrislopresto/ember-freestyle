@@ -7,7 +7,7 @@ module.exports = {
     return false;
   },
 
-  included: function(app, parentAddon) {
+  included: function (app, parentAddon) {
     this._super.included.apply(this, arguments);
     // support for nested addon
     // see: https://github.com/ember-cli/ember-cli/issues/3718
