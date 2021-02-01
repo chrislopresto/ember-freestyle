@@ -5,11 +5,8 @@
   @required={{@required}}
   @defaultValue={{@defaultValue}}
 >
-  {{#if @value}}
-    <JsonViewer
-      @json={{@value}}
-      @options={{hash collapseDepth=@jsonCollapseDepth}}
-      class="FreestyleUsageArgument-jsonViewer"
-    />
-  {{/if}}
+  <Freestyle::Usage::Object::Control
+    @value={{@value}}
+    @jsonCollapseDepth={{@jsonCollapseDepth}}
+  />
 </Freestyle::Usage::Argument>

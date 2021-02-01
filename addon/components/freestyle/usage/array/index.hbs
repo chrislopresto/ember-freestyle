@@ -1,0 +1,57 @@
+<Freestyle::Usage::Argument
+  @type="Array"
+  @typeLabel={{concat "[" @type "]"}}
+  @name={{@name}}
+  @description={{@description}}
+  @required={{@required}}
+  @defaultValue={{@defaultValue}}
+>
+  {{#each @items key=@identity as |item index|}}
+    <div class="FreestyleUsageArray-item">
+
+      {{#if this.useStringControl}}
+        <Freestyle::Usage::String::Control
+          @value={{item}}
+          @onInput={{fn this.updateItem index}}
+        />
+
+      {{else if this.useNumberControl}}
+        <Freestyle::Usage::Number::Control
+          @value={{item}}
+          @onInput={{fn this.updateItem index}}
+        />
+
+      {{else if this.useBooleanControl}}
+        <Freestyle::Usage::Bool::Control
+          @value={{item}}
+          @onInput={{fn this.updateItem index}}
+        />
+
+      {{else if this.useObjectControl}}
+        <Freestyle::Usage::Object::Control
+          @value={{item}}
+          @jsonCollapseDepth={{@jsonCollapseDepth}}
+        />
+
+      {{else}}
+        {{item}}
+      {{/if}}
+
+      {{#unless @readOnly}}
+        <button
+          type="button"
+          class="FreestyleUsageArray-removeItem"
+          {{on 'click' (fn this.removeItem index)}}
+        >Remove</button>
+      {{/unless}}
+    </div>
+  {{/each}}
+
+  {{#unless @readOnly}}
+    <button
+      class="FreestyleUsageArray-addItem"
+      type="button"
+      {{on 'click' this.addItem}}
+    >+ Add</button>
+  {{/unless}}
+</Freestyle::Usage::Argument>

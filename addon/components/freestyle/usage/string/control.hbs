@@ -1,0 +1,13 @@
+{{#if @options}}
+  <select {{on 'change' this.onInput}}>
+    {{#each @options as |optionValue|}}
+      <option value={{optionValue}} selected={{eq optionValue @value}}>{{optionValue}}</option>
+    {{/each}}
+  </select>
+{{else}}
+  <input
+    type="text"
+    value={{@value}}
+    {{on this.inputEvent (pick 'target.value' @onInput)}}
+  />
+{{/if}}

@@ -6,17 +6,9 @@
   @array={{@array}}
   @defaultValue={{@defaultValue}}
 >
-  {{#if @options}}
-    <select {{on 'change' this.onInput}}>
-      {{#each @options as |optionValue|}}
-        <option value={{optionValue}} selected={{eq optionValue @value}}>{{optionValue}}</option>
-      {{/each}}
-    </select>
-  {{else}}
-    <input
-      type="text"
-      value={{@value}}
-      {{on 'input' this.onInput}}
-    />
-  {{/if}}
+  <Freestyle::Usage::String::Control
+    @options={{@options}}
+    @value={{@value}}
+    @onInput={{@onInput}}
+  />
 </Freestyle::Usage::Argument>

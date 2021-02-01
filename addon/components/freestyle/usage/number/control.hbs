@@ -1,0 +1,19 @@
+
+{{#if (is-present @min @max)}}
+  <input
+    type="range"
+    value={{@value}}
+    min={{@min}}
+    max={{@max}}
+    step={{if @step @step 1}}
+    {{on 'input' this.onInput}}
+  />
+  {{@value}}
+{{else}}
+  <input
+    type="number"
+    value={{@value}}
+    step={{if @step @step 1}}
+    {{on 'input' this.onInput}}
+  />
+{{/if}}

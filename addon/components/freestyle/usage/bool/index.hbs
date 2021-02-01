@@ -5,9 +5,8 @@
   @required={{@required}}
   @defaultValue={{@defaultValue}}
 >
-  <input
-    type="checkbox"
-    checked={{@value}}
-    {{on 'input' this.onInput}}
+  <Freestyle::Usage::Bool::Control
+    @value={{@value}}
+    @onInput={{@onInput}}
   />
 </Freestyle::Usage::Argument>
