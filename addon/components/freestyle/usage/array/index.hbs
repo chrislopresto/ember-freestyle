@@ -1,0 +1,34 @@
+<Freestyle::Usage::Argument
+  @type="Array"
+  @typeLabel={{concat "[" @type "]"}}
+  @name={{@name}}
+  @description={{@description}}
+  @required={{@required}}
+  @array={{@array}}
+  @defaultValue={{@defaultValue}}
+>
+  {{#each @items as |item index|}}
+    <div class="FreestyleUsageArray-item">
+      {{#if this.useStringControl}}
+        <Freestyle::Usage::String::Control
+          @value={{item}}
+          @onInput={{fn this.updateItem index}}
+        />
+      {{else}}
+        {{item}}
+      {{/if}}
+
+      <button
+        type="button"
+        class="FreestyleUsageArray-removeItem"
+        {{on 'click' (fn this.removeItem index)}}
+      >Remove</button>
+    </div>
+  {{/each}}
+
+  <button
+    class="FreestyleUsageArray-addItem"
+    type="button"
+    {{on 'click' this.addItem}}
+  >Add</button>
+</Freestyle::Usage::Argument>
