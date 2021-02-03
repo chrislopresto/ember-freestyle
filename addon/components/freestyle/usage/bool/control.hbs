@@ -1,5 +1,9 @@
-<input
-  type="checkbox"
-  checked={{@value}}
-  {{on 'input' this.onInput}}
-/>
+<label
+  class={{concat "FreestyleUsageBoolean" (if @value ' is-checked')}}
+>
+  <input
+    type="checkbox"
+    checked={{@value}}
+    {{on 'input' (pick 'target.checked' @onInput)}}
+  />
+</label>

@@ -10,19 +10,19 @@ export default class FreestyleUsageStringComponent extends Component {
   @action addItem() {
     let { onChange, items } = this.args;
     items.push('');
-    onChange(items);
+    onChange && onChange(items);
   }
 
   @action updateItem(index, value) {
     let { onChange, items } = this.args;
     items[index] = value;
-    onChange(items);
+    onChange && onChange(items);
   }
 
   @action removeItem(index) {
     let { onChange, items } = this.args;
     items.splice(index, 1);
-    onChange(items);
+    onChange && onChange(items);
   }
 
   @equal('args.type', STRING) useStringControl;

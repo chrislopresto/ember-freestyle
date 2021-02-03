@@ -71,6 +71,7 @@
     }
     tr {
       border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
     }
     tr:nth-child(even) {
       background-color: #f9f9f9;
@@ -112,6 +113,26 @@
   &-jsonViewer {
     font-size: 0.8rem;
     min-width: 300px;
+  }
+}
+
+.FreestyleUsageBoolean {
+  position: relative;
+  display: flex;
+
+  &:after {
+    content: "False";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 27px;
+    font-family: monospace;
+    color: #999;
+  }
+  &.is-checked:after {
+    content: "True";
+    color: #333;
+    font-weight: 700;
   }
 }
 
