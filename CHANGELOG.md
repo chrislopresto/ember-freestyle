@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.3](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.2...v0.12.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* Test and fix for Args.String with [@options](https://github.com/options) code path ([c8cd62a](https://github.com/chrislopresto/ember-freestyle/commit/c8cd62a8429c2a9cbfe530ea269068f476dfc30b))
+
 ### [0.12.2](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.1...v0.12.2) (2021-02-04)
 
 
