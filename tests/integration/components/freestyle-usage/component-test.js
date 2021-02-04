@@ -18,7 +18,6 @@ module('Integration | Component | freestyle usage', function (hooks) {
   hooks.beforeEach(function () {
     this.owner.register('service:emberFreestyle', FreestyleStub);
     this.emberFreestyle = this.owner.lookup('service:emberFreestyle');
-    usage.setContext(this);
   });
 
   hooks.afterEach(function () {
