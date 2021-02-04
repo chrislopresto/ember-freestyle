@@ -1,5 +1,5 @@
 {{#if @options}}
-  <select {{on 'change' this.onInput}}>
+  <select {{on 'change' (pick 'target.value' @onInput)}}>
     {{#each @options as |optionValue|}}
       <option value={{optionValue}} selected={{eq optionValue @value}}>{{optionValue}}</option>
     {{/each}}
