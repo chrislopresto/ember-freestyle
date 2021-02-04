@@ -93,7 +93,7 @@
     "prettier": "^2.2.1",
     "qunit-dom": "^1.6.0",
     "remarkable": "^2.0.0",
-    "standard-version": "^8.0.1"
+    "standard-version": "^9.1.0"
   },
   "engines": {
     "node": "10.* || >= 12"
