@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.2](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.1...v0.12.2) (2021-02-04)
+
+
+### Features
+
+* <Freestyle::Usage> ([f5baa3e](https://github.com/chrislopresto/ember-freestyle/commit/f5baa3eb930762bae72678f61e624289ab8fd4a2))
+
+
+### Bug Fixes
+
+* Don't run AST transform on freestyle itself, just on it's parent app/addon ([e086fbf](https://github.com/chrislopresto/ember-freestyle/commit/e086fbf84f6b34f21e4ac4336cbd986542786ba6))
+* Support for nested addon ([93c6183](https://github.com/chrislopresto/ember-freestyle/commit/93c618363799055de5a325d9d80132b8417f18ca))
+
 ### [0.12.1](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.0...v0.12.1) (2020-09-22)
 
 ## [0.12.0](https://github.com/chrislopresto/ember-freestyle/compare/v0.11.10...v0.12.0) (2020-05-21)
