@@ -5,11 +5,12 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   emberFreestyle: service(),
 
-  queryParams: ['l', 'n', 'c', 'm', 'f', 's', 'ss'],
+  queryParams: ['l', 'n', 'c', 'a', 'm', 'f', 's', 'ss'],
 
   l: alias('emberFreestyle.showLabels'),
   n: alias('emberFreestyle.showNotes'),
   c: alias('emberFreestyle.showCode'),
+  a: alias('emberFreestyle.showApi'),
 
   m: alias('emberFreestyle.showMenu'),
 

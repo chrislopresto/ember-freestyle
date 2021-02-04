@@ -12,6 +12,7 @@ export default Component.extend({
   showLabels: alias('emberFreestyle.showLabels'),
   showNotes: alias('emberFreestyle.showNotes'),
   showCode: alias('emberFreestyle.showCode'),
+  showApi: alias('emberFreestyle.showApi'),
 
   showHeader: true,
   showFocus: true,

@@ -32,7 +32,7 @@ module.exports = {
 
   _buildPlugin() {
     return {
-      name: 'component-attributes',
+      name: 'component-freestyle-source-extracter',
       plugin: require('./lib/ast-transform'),
       baseDir() {
         return __dirname;

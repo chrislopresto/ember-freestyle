@@ -33,6 +33,69 @@
     </Section.subsection>
   </FreestyleSection>
 
+  <FreestyleSection @name="Freestyle::Usage">
+    <Freestyle::Usage @name="ProgressIcon">
+      <:description>
+        This component shows a visual progress indicator of the fraction complete a task is.
+      </:description>
+      <:example>
+          <ProgressIcon
+            @size={{this.size}}
+            @isCancelled={{this.isCancelled}}
+            @isComplete={{this.isComplete}}
+            @fractionComplete={{this.fractionComplete}}
+          />
+      </:example>
+
+      <:api as |Args|>
+        <Args.Number
+          @name="size"
+          @required={{true}}
+          @min={{10}}
+          @max={{60}}
+          @description="the size of the circle, in px"
+          @value={{this.size}}
+          @onInput={{fn (mut this.size)}}
+        />
+        <Args.Number
+          @name="fractionComplete"
+          @defaultValue={{0}}
+          @min={{0}}
+          @max={{1}}
+          @step={{0.1}}
+          @description="completeness from 0 to 1"
+          @value={{this.fractionComplete}}
+          @onInput={{fn (mut this.fractionComplete)}}
+        />
+        <Args.Bool
+          @name="isCancelled"
+          @defaults={{false}}
+          @description='when true shows an "x" icon'
+          @value={{this.isCancelled}}
+          @onInput={{fn (mut this.isCancelled)}}
+        />
+        <Args.Bool
+          @name="isComplete"
+          @defaults={{false}}
+          @description='when true shows a checkmark icon'
+          @value={{this.isComplete}}
+          @onInput={{fn (mut this.isComplete)}}
+        />
+      </:api>
+    </Freestyle::Usage>
+    <Freestyle::Usage @slug="ProgressIcon-followup">
+      <:description>
+        Simple example at 100%
+      </:description>
+      <:example>
+          <ProgressIcon
+            @size={{this.size}}
+            @fractionComplete={{1}}
+          />
+      </:example>
+    </Freestyle::Usage>
+  </FreestyleSection>
+
   <FreestyleSection @name="Foo Things" as |Section|>
 
     <Section.subsection @name="Foo Subsection A">
@@ -93,7 +156,7 @@
 
   </FreestyleSection>
 
-  <FreestyleSection @name="Dynamic Properties">
+  <FreestyleSection @name="Dynamic Properties" data-test-section="dynamic">
     <FreestyleDynamic
       @slug='dynamic-properties'
       @dynamicProperties={{this.dynamicProperties}}
