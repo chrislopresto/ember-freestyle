@@ -45,6 +45,7 @@ A basic example:
       @value={{this.isError}}
       @onInput={{fn (mut this.isError)}}
     />
+  </:api>
 </Freestyle::Usage>
 ```
 ## API
