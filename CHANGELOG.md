@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.4](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.3...v0.12.4) (2021-02-17)
+
+
+### Bug Fixes
+
+* Improve handling of named-blocks-polyfill mangled hbs ([c456bff](https://github.com/chrislopresto/ember-freestyle/commit/c456bff7059e3ac85d60d7b262eb4156ae528e2d))
+
 ### [0.12.3](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.2...v0.12.3) (2021-02-04)
 
 
