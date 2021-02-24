@@ -1,9 +1,11 @@
 <ul class="FreestyleMenu">
-  <li class="FreestyleMenu-item">
-    <LinkTo @query={{hash s=null ss=null f=null}} class="FreestyleMenu-itemLink">
-      All
-    </LinkTo>
-  </li>
+  {{#if this.menuIncludesAllItem}}
+    <li class="FreestyleMenu-item">
+      <LinkTo @query={{hash s=null ss=null f=null}} class="FreestyleMenu-itemLink">
+        All
+      </LinkTo>
+    </li>
+  {{/if}}
   {{#each this.menu as |section|}}
     <li class="FreestyleMenu-item">
       <LinkTo @query={{hash f=null s=section.name ss=null}} class="FreestyleMenu-itemLink">

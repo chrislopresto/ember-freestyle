@@ -12,6 +12,7 @@ export default class EmberFreestyleService extends Service {
 
   @tracked menu = null;
   @tracked showMenu = true;
+  @tracked menuIncludesAllItem = true;
 
   defaultTheme = 'zenburn';
 
