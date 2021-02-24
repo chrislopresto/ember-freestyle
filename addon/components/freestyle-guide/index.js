@@ -1,24 +1,36 @@
 import { inject as service } from '@ember/service';
-import { alias } from '@ember/object/computed';
-import Component from '@ember/component';
+import { reads } from 'macro-decorators';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-export default Component.extend({
-  tagName: '',
+export default class FreestyleGuide extends Component {
+  @service emberFreestyle;
 
-  emberFreestyle: service(),
-  highlightJsTheme: alias('emberFreestyle.defaultTheme'),
+  constructor() {
+    super(...arguments);
+    if (this.args.highlightJsTheme) {
+      this.highlightJsTheme = this.args.highlightJsTheme;
+    }
+  }
 
-  showMenu: alias('emberFreestyle.showMenu'),
-  showAside: false,
+  get highlightJsTheme() {
+    return this.emberFreestyle.defaultTheme;
+  }
+  set highlightJsTheme(val) {
+    this.emberFreestyle.set('defaultTheme', val);
+  }
+
+  @reads('emberFreestyle.showMenu') showMenu;
+  @tracked showAside = false;
 
   @action
   toggleNav() {
-    this.toggleProperty('showMenu');
-  },
+    this.emberFreestyle.set('showMenu', !this.showMenu);
+  }
 
   @action
   toggleAside() {
-    this.toggleProperty('showAside');
-  },
-});
+    this.showAside = !this.showAside;
+  }
+}
