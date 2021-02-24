@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import freestyleGuide from '../pages/freestyle-guide';
+import { pauseTest } from '@ember/test-helpers';
 
 module('Acceptance | section navigation', function (hooks) {
   setupApplicationTest(hooks);
@@ -15,8 +16,9 @@ module('Acceptance | section navigation', function (hooks) {
     assert.equal(freestyleGuide.header.subtitle, 'Living Style Guide');
   });
 
-  test('verifying menu sections', (assert) => {
+  test('verifying menu sections', async (assert) => {
     assert.expect(6);
+    await pauseTest();
     assert.equal(freestyleGuide.menu.sections.length, 6);
     assert.equal(freestyleGuide.menu.sections.objectAt(0).text, 'All');
     assert.equal(freestyleGuide.menu.sections.objectAt(1).text, 'Albums');

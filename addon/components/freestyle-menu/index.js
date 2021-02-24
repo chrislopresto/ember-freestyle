@@ -7,5 +7,5 @@ export default Component.extend({
 
   emberFreestyle: service(),
   menuIncludesAllItem: readOnly('emberFreestyle.menuIncludesAllItem'),
-  menu: readOnly('emberFreestyle.menu')
+  menu: readOnly('emberFreestyle.menu'),
 });

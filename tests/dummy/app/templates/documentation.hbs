@@ -257,6 +257,25 @@
   }
     </code></pre>
 
+    <h2>Showing/Hiding the "All" component view</h2>
+
+    <p>
+      You might find that rendering all your freestyle components in one page isn't desirable. The page might run slow,
+      or you might want to encourage developers to use sub-sections. To not show the all menu option, override the menuIncludesAllItem to be false. 
+    </p>
+
+    <b><p>app/services/ember-freestyle.js</p></b>
+
+    <pre><code class="javascript language-javascript">
+    import BaseService from 'ember-freestyle/services/ember-freestyle';
+
+    export default BaseService.extend({
+      menuIncludesAllItem: false,
+    });
+    </code></pre>
+
+
+
     <h2>Living Style Guide Driven Development</h2>
 
     <p>
