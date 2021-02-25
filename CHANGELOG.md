@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.6](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.5...v0.12.6) (2021-02-25)
+
+
+### Bug Fixes
+
+* Switch to `has-block` ([6ea33e6](https://github.com/chrislopresto/ember-freestyle/commit/6ea33e6d2d6a8c9820af9af7a52142f441a1ec95))
+
 ### [0.12.5](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.4...v0.12.5) (2021-02-24)
 
 ### [0.12.4](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.3...v0.12.4) (2021-02-17)
