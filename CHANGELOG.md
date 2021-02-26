@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.7](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.6...v0.12.7) (2021-02-26)
+
+
+### Bug Fixes
+
+* Only avoid preprocessing ember-freestyle's templates not the templates of an addon that depends on it ([8b3df73](https://github.com/chrislopresto/ember-freestyle/commit/8b3df7364fbcccb946993f581b0244ae9f0fa311))
+
 ### [0.12.6](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.5...v0.12.6) (2021-02-25)
 
 
