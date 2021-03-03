@@ -7,7 +7,7 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-34-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-37-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
@@ -152,6 +152,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://twitter.com/fivetanley"><img src="https://avatars0.githubusercontent.com/u/1275021?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stanley Stuart</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=fivetanley" title="Code">💻</a></td>
     <td align="center"><a href="https://mcmanus.io"><img src="https://avatars2.githubusercontent.com/u/9383?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt McManus</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=mattmcmanus" title="Code">💻</a></td>
     <td align="center"><a href="http://suzidao.com"><img src="https://avatars0.githubusercontent.com/u/6305709?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Suzi Dao</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=suzidao" title="Code">💻</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=suzidao" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/raytiley"><img src="https://avatars.githubusercontent.com/u/41680?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ray Tiley</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=raytiley" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/lucasmerat"><img src="https://avatars.githubusercontent.com/u/32575355?v=4?s=100" width="100px;" alt=""/><br /><sub><b>lucasmerat</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=lucasmerat" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/skwongr"><img src="https://avatars.githubusercontent.com/u/19978361?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kit</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=skwongr" title="Code">💻</a></td>
   </tr>
 </table>
 

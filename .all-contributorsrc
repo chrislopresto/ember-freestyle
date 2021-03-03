@@ -329,6 +329,33 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "raytiley",
+      "name": "Ray Tiley",
+      "avatar_url": "https://avatars.githubusercontent.com/u/41680?v=4",
+      "profile": "https://github.com/raytiley",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "lucasmerat",
+      "name": "lucasmerat",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32575355?v=4",
+      "profile": "https://github.com/lucasmerat",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "skwongr",
+      "name": "Kit",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19978361?v=4",
+      "profile": "https://github.com/skwongr",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
