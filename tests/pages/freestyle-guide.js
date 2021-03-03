@@ -33,10 +33,9 @@ export default PageObject.create({
   content: {
     scope: '.FreestyleGuide-content',
 
-    sections: collection('.FreestyleSection', {
+    visibleSections: collection('.FreestyleSection--showing', {
       text: text('.FreestyleSection-name'),
-
-      subsections: collection('.FreestyleSubsection', {
+      visibleSubsections: collection('.FreestyleSubsection.is-showing', {
         text: text('.FreestyleSubsection-name'),
         collections: collection('.FreestyleCollection', {
           title: text('.FreestyleCollection-title'),
@@ -59,5 +58,6 @@ export default PageObject.create({
         }),
       }),
     }),
+    allVisibleSubsections: collection('.FreestyleSubsection.is-showing', {}),
   },
 });

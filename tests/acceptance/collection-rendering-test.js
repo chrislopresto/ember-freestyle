@@ -11,13 +11,13 @@ module('Acceptance | collection rendering', function (hooks) {
   });
 
   test('verifying freestyle collection', (assert) => {
-    let sectionFooThings = freestyleGuide.content.sections.objectAt(2);
+    let sectionFooThings = freestyleGuide.content.visibleSections.objectAt(2);
     assert.equal(
-      sectionFooThings.subsections.objectAt(0).collections.length,
+      sectionFooThings.visibleSubsections.objectAt(0).collections.length,
       1
     );
 
-    let fooCollection = sectionFooThings.subsections
+    let fooCollection = sectionFooThings.visibleSubsections
       .objectAt(0)
       .collections.objectAt(0);
     assert.equal(fooCollection.title, 'Foo Collection');

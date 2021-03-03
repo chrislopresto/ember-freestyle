@@ -1,9 +1,10 @@
 <div
   class="FreestyleSection {{if this.show 'FreestyleSection--showing' 'FreestyleSection--hidden'}}"
+    {{did-insert (fn this.emberFreestyle.registerSection @name null)}}
   ...attributes
 >
   {{#if this.show}}
-    {{#if this.hasName}}
+    {{#if @name}}
       <div class="FreestyleSection-name">
         {{@name}}
       </div>

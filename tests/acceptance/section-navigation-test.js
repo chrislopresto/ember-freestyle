@@ -15,8 +15,9 @@ module('Acceptance | section navigation', function (hooks) {
     assert.equal(freestyleGuide.header.subtitle, 'Living Style Guide');
   });
 
-  test('verifying menu sections', (assert) => {
+  test('verifying menu sections', async (assert) => {
     assert.expect(6);
+
     assert.equal(freestyleGuide.menu.sections.length, 6);
     assert.equal(freestyleGuide.menu.sections.objectAt(0).text, 'All');
     assert.equal(freestyleGuide.menu.sections.objectAt(1).text, 'Albums');
@@ -45,5 +46,27 @@ module('Acceptance | section navigation', function (hooks) {
     assert.equal(sectionVisualStyle.subsections.length, 2);
     assert.equal(sectionVisualStyle.subsections.objectAt(0).text, 'Typography');
     assert.equal(sectionVisualStyle.subsections.objectAt(1).text, 'Color');
+  });
+
+  module('with allowRenderingAllSections set to false', function (hooks) {
+    hooks.beforeEach(async function () {
+      let service = this.owner.lookup('service:ember-freestyle');
+      service.allowRenderingAllSections = false;
+    });
+    test('verifying menu sections', async (assert) => {
+      assert.expect(5);
+
+      assert.equal(freestyleGuide.menu.sections.length, 5);
+      assert.equal(freestyleGuide.menu.sections.objectAt(0).text, 'Albums');
+      assert.equal(freestyleGuide.menu.sections.objectAt(2).text, 'Foo Things');
+      assert.equal(
+        freestyleGuide.menu.sections.objectAt(3).text,
+        'Dynamic Properties'
+      );
+      assert.equal(
+        freestyleGuide.menu.sections.objectAt(4).text,
+        'Visual Style'
+      );
+    });
   });
 });

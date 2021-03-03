@@ -25,10 +25,17 @@
   <main class="FreestyleGuide-body">
     <article class="FreestyleGuide-content">
       {{yield}}
+      {{#if (and (not this.allowRenderingAllSections) (not this.isSectionSelected))}}
+        <div class="FreestyleGuide-chooseSectionMessage" data-test-choose-section>
+          <span>Choose a section from the menu</span>
+        </div>
+      {{/if}}
     </article>
     {{#if this.showMenu}}
       <nav class="FreestyleGuide-nav">
-        <FreestyleMenu />
+        <FreestyleMenu
+          @includeAllOption={{this.allowRenderingAllSections}}
+        />
       </nav>
     {{/if}}
     {{#if this.showAside}}

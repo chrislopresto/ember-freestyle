@@ -3,7 +3,7 @@ import { reads } from 'macro-decorators';
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-
+import { isBlank } from '@ember/utils';
 export default class FreestyleGuide extends Component {
   @service emberFreestyle;
 
@@ -19,6 +19,12 @@ export default class FreestyleGuide extends Component {
   }
   set highlightJsTheme(val) {
     this.emberFreestyle.set('defaultTheme', val);
+  }
+  @reads('emberFreestyle.allowRenderingAllSections', true)
+  allowRenderingAllSections;
+
+  get isSectionSelected() {
+    return !isBlank(this.emberFreestyle.section);
   }
 
   @reads('emberFreestyle.showMenu') showMenu;
