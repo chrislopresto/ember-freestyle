@@ -237,6 +237,29 @@
       {{/let}}
     </p>
 
+    <h2>Showing/Hiding the "All" components view</h2>
+
+    <p>
+      You might find that rendering all your freestyle components in one page isn't desirable. The page might run slow,
+      or you might want to encourage developers to use sub-sections. To hide the all menu option, and
+      set the ember-freestyle service's `allowRenderingAllSections` to false. 
+    </p>
+
+    <b><p>app/routes/application.js</p></b>
+
+    <pre><code class="javascript language-javascript">
+  import Route from '@ember/routing/route';
+  import { inject as service } from '@ember/service';
+
+  export default class ApplicationRoute extends Route {
+    @service emberFreestyle;
+
+    beforeModel() {
+      this.emberFreestyle.allowRenderingAllSections = false;
+    }
+  }
+    </code></pre>
+
     <h2>Removing Ember Freestyle from Your Production Payload</h2>
 
     <p>
@@ -256,24 +279,6 @@
     };
   }
     </code></pre>
-
-    <h2>Showing/Hiding the "All" component view</h2>
-
-    <p>
-      You might find that rendering all your freestyle components in one page isn't desirable. The page might run slow,
-      or you might want to encourage developers to use sub-sections. To hide the all menu option, override the menuIncludesAllItem to be false. 
-    </p>
-
-    <b><p>app/services/ember-freestyle.js</p></b>
-
-    <pre><code class="javascript language-javascript">
-    import BaseService from 'ember-freestyle/services/ember-freestyle';
-
-    export default BaseService.extend({
-      menuIncludesAllItem: false,
-    });
-    </code></pre>
-
 
 
     <h2>Living Style Guide Driven Development</h2>

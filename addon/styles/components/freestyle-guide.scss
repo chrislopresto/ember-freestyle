@@ -107,4 +107,13 @@ $FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1, 0 2px 10px 0 $Fr
       order: 1;
     }
   }
+
+  &-chooseSectionMessage {
+    display: flex;
+    height: 100%;
+    font-size: 1.4rem;
+    & > span {
+      margin: auto;
+    }
+  }
 }

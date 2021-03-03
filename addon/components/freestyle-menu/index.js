@@ -6,6 +6,6 @@ export default Component.extend({
   tagName: '',
 
   emberFreestyle: service(),
-  menuIncludesAllItem: readOnly('emberFreestyle.menuIncludesAllItem'),
+  includeAllOption: true,
   menu: readOnly('emberFreestyle.menu'),
 });

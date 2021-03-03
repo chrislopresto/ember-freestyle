@@ -4,6 +4,8 @@ import { isPresent } from '@ember/utils';
 import { A } from '@ember/array';
 import { Promise } from 'rsvp';
 import { tracked } from '@glimmer/tracking';
+import { isBlank } from '@ember/utils';
+
 export default class EmberFreestyleService extends Service {
   @tracked showLabels = true;
   @tracked showNotes = true;
@@ -12,7 +14,7 @@ export default class EmberFreestyleService extends Service {
 
   @tracked menu = null;
   @tracked showMenu = true;
-  @tracked menuIncludesAllItem = true;
+  @tracked allowRenderingAllSections = true;
 
   defaultTheme = 'zenburn';
 
@@ -23,6 +25,22 @@ export default class EmberFreestyleService extends Service {
 
   get notFocused() {
     return !this.focus;
+  }
+
+  shouldShowSection(sectionName) {
+    let focusedSection = this.section;
+    if (isBlank(focusedSection) && this.allowRenderingAllSections) {
+      return true;
+    }
+    return sectionName === focusedSection;
+  }
+
+  shouldShowSubsection(sectionName, subsectionName) {
+    if (!this.shouldShowSection(sectionName)) {
+      return false;
+    }
+    let focusedSubsection = this.subsection;
+    return isBlank(focusedSubsection) || subsectionName === focusedSubsection;
   }
 
   hljsVersion = '9.12.0';
