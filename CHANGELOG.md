@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.8](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.7...v0.12.8) (2021-03-03)
+
+
+### Features
+
+* Add option to not show all in menu ([#372](https://github.com/chrislopresto/ember-freestyle/issues/372)) ([5395fec](https://github.com/chrislopresto/ember-freestyle/commit/5395fec0b36bcc22a3b74fe297675d1e576a2747))
+
 ### [0.12.7](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.6...v0.12.7) (2021-02-26)
 
 
