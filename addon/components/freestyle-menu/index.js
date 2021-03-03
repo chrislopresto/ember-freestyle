@@ -1,11 +1,9 @@
 import { inject as service } from '@ember/service';
-import { readOnly } from '@ember/object/computed';
-import Component from '@ember/component';
+import { reads } from 'macro-decorators';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  tagName: '',
-
-  emberFreestyle: service(),
-  includeAllOption: true,
-  menu: readOnly('emberFreestyle.menu'),
-});
+export default class FreestyleMenu extends Component {
+  @service emberFreestyle;
+  @reads('args.includeAllOption', true) includeAllOption;
+  @reads('emberFreestyle.menu') menu;
+}

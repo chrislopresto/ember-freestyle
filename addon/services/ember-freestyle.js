@@ -5,7 +5,7 @@ import { A } from '@ember/array';
 import { Promise } from 'rsvp';
 import { tracked } from '@glimmer/tracking';
 import { isBlank } from '@ember/utils';
-
+import { action } from '@ember/object';
 export default class EmberFreestyleService extends Service {
   @tracked showLabels = true;
   @tracked showNotes = true;
@@ -113,6 +113,7 @@ export default class EmberFreestyleService extends Service {
 
   // menu - tree structure of named sections with named subsections
 
+  @action
   registerSection(sectionName, subsectionName = '') {
     let menu = this.menu || A([]);
     if (!menu.filterBy('name', sectionName).length) {

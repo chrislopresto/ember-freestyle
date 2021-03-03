@@ -1,22 +1,11 @@
 /* eslint-disable ember/no-component-lifecycle-hooks */
 
 import { inject as service } from '@ember/service';
-import { and } from '@ember/object/computed';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  tagName: '',
-
-  emberFreestyle: service(),
+export default class FreestyleSection extends Component {
+  @service emberFreestyle;
   get show() {
-    return this.emberFreestyle.shouldShowSection(this.name);
-  },
-
-  showName: and('emberFreestyle.notFocused', 'name'),
-  hasName: and('showName', 'name'),
-
-  willRender() {
-    this._super(...arguments);
-    this.emberFreestyle.registerSection(this.name);
-  },
-});
+    return this.emberFreestyle.shouldShowSection(this.args.name);
+  }
+}
