@@ -932,28 +932,26 @@
     ember-modifier-manager-polyfill "^1.1.0"
 
 "@ember/test-helpers@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-2.1.4.tgz#18cc78f3f9230a66955eb4307541129b53ebd487"
-  integrity sha512-CcDAWfzYE4r1YApufPPINm0IZL223yv/JiG61rjZr0KPyGBCOWjA9b//bY+jdAwZIEsmoMDfMbSS3p1u3c6i5w==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-2.2.3.tgz#237c2de48a9e85492374b91e825cb142675858cc"
+  integrity sha512-qpLz0wwHrY49JzmS2qznpEjrfZUhrWemgSXu48xgJAZnjXBa52libZgl7mzwnHmmo4YtUBgQtJSRPUp/coYFNA==
   dependencies:
-    "@ember/test-waiters" "^2.3.2"
+    "@ember/test-waiters" "^2.4.0"
     broccoli-debug "^0.6.5"
     broccoli-funnel "^3.0.3"
-    ember-auto-import "^1.10.0"
-    ember-cli-babel "^7.22.1"
+    ember-cli-babel "^7.23.1"
     ember-cli-htmlbars "^5.2.0"
-    ember-destroyable-polyfill "^2.0.2"
-    es6-promise "^4.2.8"
+    ember-destroyable-polyfill "^2.0.3"
 
-"@ember/test-waiters@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@ember/test-waiters/-/test-waiters-2.3.2.tgz#5d416d25209b25b16116df0a01a856437362b7eb"
-  integrity sha512-4zDQd14br6VzvBf0PD/dm6Vg9nG33WUW14UGI26k+iOGG9iY++pHL5+PnrvCxxrZ9867EPTULy8K2oneenAtSw==
+"@ember/test-waiters@^2.4.0":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@ember/test-waiters/-/test-waiters-2.4.2.tgz#28e38d00edc96bcdc8c42592933d8f1b4171d1a1"
+  integrity sha512-WNbprLvC5PsgjnoX0cWa5/2dP3sbDDLjc6JYNUfrFlmZfsuKU9/+Ioyi0V6cx9mzpWLdfkSZMW+bw/rItjPKVg==
   dependencies:
     calculate-cache-key-for-tree "^2.0.0"
-    ember-cli-babel "^7.21.0"
-    ember-cli-typescript "^3.1.4"
-    ember-cli-version-checker "^5.1.1"
+    ember-cli-babel "^7.23.1"
+    ember-cli-typescript "^4.1.0"
+    ember-cli-version-checker "^5.1.2"
     semver "^7.3.2"
 
 "@embroider/core@0.33.0", "@embroider/core@^0.33.0":
@@ -4965,7 +4963,7 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-ember-auto-import@^1.10.0, ember-auto-import@^1.10.1:
+ember-auto-import@^1.10.1:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.10.1.tgz#6c93a875e494aa0a58b759867d3f20adfd514ae3"
   integrity sha512-7bOWzPELlVwdWDOkB+phDIjg8BNW+/2RiLLQ+Xa/eIvCLT4ABYhHV5wqW5gs5BnXTDVLfE4ddKZdllnGuPGGDQ==
@@ -5031,7 +5029,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.11.0, ember-cli-babel@^6.16.0,
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.0.0, ember-cli-babel@^7.10.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.19.0, ember-cli-babel@^7.21.0, ember-cli-babel@^7.22.1, ember-cli-babel@^7.23.0, ember-cli-babel@^7.23.1, ember-cli-babel@^7.7.3:
+ember-cli-babel@^7.0.0, ember-cli-babel@^7.10.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.19.0, ember-cli-babel@^7.22.1, ember-cli-babel@^7.23.0, ember-cli-babel@^7.23.1, ember-cli-babel@^7.7.3:
   version "7.23.1"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.23.1.tgz#d1517228ede08a5d4b045c78a7429728e956b30b"
   integrity sha512-qYggmt3hRs6QJ6cRkww3ahMpyP8IEV2KFrIRO/Z6hu9MkE/8Y28Xd5NjQl6fPV3oLoG0vwuHzhNe3Jr7Wec8zw==
@@ -5348,7 +5346,7 @@ ember-cli-typescript@^2.0.2:
     stagehand "^1.0.0"
     walk-sync "^1.0.0"
 
-ember-cli-typescript@^3.1.3, ember-cli-typescript@^3.1.4:
+ember-cli-typescript@^3.1.3:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-3.1.4.tgz#21d6ccd670d1f2e34c9cce68c6e32c442f46806b"
   integrity sha512-HJ73kL45OGRmIkPhBNFt31I1SGUvdZND+LCH21+qpq3pPlFpJG8GORyXpP+2ze8PbnITNLzwe5AwUrpyuRswdQ==
@@ -5367,6 +5365,22 @@ ember-cli-typescript@^3.1.3, ember-cli-typescript@^3.1.4:
     semver "^6.3.0"
     stagehand "^1.0.0"
     walk-sync "^2.0.0"
+
+ember-cli-typescript@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-4.1.0.tgz#2ff17be2e6d26b58c88b1764cb73887e7176618b"
+  integrity sha512-zSuKG8IQuYE3vS+c7V0mHJqwrN/4Wo9Wr50+0NUjnZH3P99ChynczQHu/P7WSifkO6pF6jaxwzf09XzWvG8sVw==
+  dependencies:
+    ansi-to-html "^0.6.6"
+    broccoli-stew "^3.0.0"
+    debug "^4.0.0"
+    execa "^4.0.0"
+    fs-extra "^9.0.1"
+    resolve "^1.5.0"
+    rsvp "^4.8.1"
+    semver "^7.3.2"
+    stagehand "^1.0.0"
+    walk-sync "^2.2.0"
 
 ember-cli-version-checker@^2.0.0, ember-cli-version-checker@^2.1.0, ember-cli-version-checker@^2.1.2:
   version "2.2.0"
@@ -5393,7 +5407,7 @@ ember-cli-version-checker@^4.1.0:
     semver "^6.3.0"
     silent-error "^1.1.1"
 
-ember-cli-version-checker@^5.1.1:
+ember-cli-version-checker@^5.1.1, ember-cli-version-checker@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-5.1.2.tgz#649c7b6404902e3b3d69c396e054cea964911ab0"
   integrity sha512-rk7GY+FmLn/2e22HsZs0Ycrz8HQ1W3Fv+2TFOuEFW9optnDXDgkntPBIl6gact/LHsfBM5RKbM3dHsIIeLgl0Q==
@@ -5521,7 +5535,7 @@ ember-compatibility-helpers@^1.1.2, ember-compatibility-helpers@^1.2.0, ember-co
     ember-cli-version-checker "^5.1.1"
     semver "^5.4.1"
 
-ember-destroyable-polyfill@^2.0.2:
+ember-destroyable-polyfill@^2.0.2, ember-destroyable-polyfill@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/ember-destroyable-polyfill/-/ember-destroyable-polyfill-2.0.3.tgz#1673ed66609a82268ef270a7d917ebd3647f11e1"
   integrity sha512-TovtNqCumzyAiW0/OisSkkVK93xnVF4NRU6+FN0ubpfwEOpRrmM2RqDwXI6YAChCgSHON1cz0DfQStpA1Gjuuw==
@@ -5987,11 +6001,6 @@ es6-promise@^1.0.0:
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-1.0.0.tgz#f90d3629faa7c26166ae4df77c89bacdeb8dca7f"
   integrity sha1-+Q02KfqnwmFmrk33fIm6zeuNyn8=
 
-es6-promise@^4.2.8:
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
-  integrity sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==
-
 es6-set@~0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/es6-set/-/es6-set-0.1.5.tgz#d2b3ec5d4d800ced818db538d28974db0a73ccb1"
@@ -6391,7 +6400,7 @@ execa@^3.0.0:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
-execa@^4.1.0:
+execa@^4.0.0, execa@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-4.1.0.tgz#4e5491ad1572f2f17a77d388c6c857135b22847a"
   integrity sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==
