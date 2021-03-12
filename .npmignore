@@ -6,7 +6,9 @@
 /bower_components/
 
 # misc
+/.all-contributorsrc
 /.bowerrc
+/.dependabot
 /.editorconfig
 /.ember-cli
 /.env*
@@ -16,12 +18,22 @@
 /.git/
 /.github/
 /.gitignore
+/.node-version
+/.prettierignore
+/.prettierrc.js
+/.sass-lint.yml
 /.template-lintrc.js
 /.watchmanconfig
 /bower.json
+/Brewfile
+/config/deploy.js
 /config/ember-try.js
 /CONTRIBUTING.md
+/doc
 /ember-cli-build.js
+/FREESTYLE_USAGE_API.md
+/jsconfig.json
+/script
 /testem.js
 /tests/
 /yarn.lock
