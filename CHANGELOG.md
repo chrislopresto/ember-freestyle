@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.9](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.8...v0.12.9) (2021-03-12)
+
+
+### Bug Fixes
+
+* @ember/render-modifiers must be a normal dependency ([4bacc17](https://github.com/chrislopresto/ember-freestyle/commit/4bacc1755df39f0e75a1741ae7401150030e63b0))
+
 ### [0.12.8](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.7...v0.12.8) (2021-03-03)
 
 
