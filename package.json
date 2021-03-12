@@ -35,6 +35,7 @@
     "contributors:generate": "all-contributors generate"
   },
   "dependencies": {
+    "@ember/render-modifiers": "^1.0.2",
     "ember-auto-import": "^1.10.1",
     "ember-cli-babel": "^7.23.0",
     "ember-cli-htmlbars": "^5.3.1",
@@ -51,7 +52,6 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
-    "@ember/render-modifiers": "^1.0.2",
     "@ember/test-helpers": "^2.1.4",
     "@glimmer/component": "^1.0.3",
     "@glimmer/tracking": "^1.0.3",
