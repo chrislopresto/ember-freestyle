@@ -356,6 +356,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "lolmaus",
+      "name": "Andrey Mikhaylov (lolmaus)",
+      "avatar_url": "https://avatars.githubusercontent.com/u/200884?v=4",
+      "profile": "https://lolma.us/",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7

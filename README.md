@@ -7,7 +7,7 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-37-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-38-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
@@ -157,6 +157,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/lucasmerat"><img src="https://avatars.githubusercontent.com/u/32575355?v=4?s=100" width="100px;" alt=""/><br /><sub><b>lucasmerat</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=lucasmerat" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/skwongr"><img src="https://avatars.githubusercontent.com/u/19978361?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kit</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/commits?author=skwongr" title="Code">💻</a></td>
+    <td align="center"><a href="https://lolma.us/"><img src="https://avatars.githubusercontent.com/u/200884?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrey Mikhaylov (lolmaus)</b></sub></a><br /><a href="https://github.com/chrislopresto/ember-freestyle/issues?q=author%3Alolmaus" title="Bug reports">🐛</a> <a href="https://github.com/chrislopresto/ember-freestyle/commits?author=lolmaus" title="Code">💻</a></td>
   </tr>
 </table>
 
