@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.10](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.9...v0.12.10) (2021-03-17)
+
+
+### Bug Fixes
+
+* blueprint subsection invocation ([#515](https://github.com/chrislopresto/ember-freestyle/issues/515)) ([ad7f63a](https://github.com/chrislopresto/ember-freestyle/commit/ad7f63abf60f2b7013b91881ea2aa0484835226b))
+
 ### [0.12.9](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.8...v0.12.9) (2021-03-12)
 
 
