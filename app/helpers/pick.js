@@ -1,1 +1,1 @@
-export { default, pick } from 'ember-freestyle/helpers/pick';
+export { default } from 'ember-freestyle/helpers/pick';
