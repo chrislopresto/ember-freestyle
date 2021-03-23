@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.11](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.10...v0.12.11) (2021-03-23)
+
+
+### Bug Fixes
+
+* Move glimmer/tracker to the deps list since ([3a39dc6](https://github.com/chrislopresto/ember-freestyle/commit/3a39dc6daa2d6a69f6b1e090c19e216edf3fef8d))
+* rendering a color palette ([336af81](https://github.com/chrislopresto/ember-freestyle/commit/336af817a43553a3662ebb0cc4b0d174fcf0b23b))
+
 ### [0.12.10](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.9...v0.12.10) (2021-03-17)
 
 
