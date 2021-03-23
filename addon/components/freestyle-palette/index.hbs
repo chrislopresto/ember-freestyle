@@ -1,7 +1,7 @@
 <div class='FreestylePalette'>
-  <div class='FreestylePalette-title'>{{@title}}</div>
-  <div class='FreestylePalette-description'>{{@description}}</div>
-  {{#each @colors as |color|}}
+  <div class='FreestylePalette-title'>{{this.title}}</div>
+  <div class='FreestylePalette-description'>{{this.description}}</div>
+  {{#each this.colors as |color|}}
     <FreestylePaletteItem @color={{color}} />
   {{/each}}
   {{yield}}

@@ -5,6 +5,7 @@ import { computed } from '@ember/object';
 export default Component.extend({
   tagName: '',
   title: 'Freestyle Palette',
+  description: 'Represents all colors used in this project.',
 
   colors: computed('colorPalette', function () {
     return A(
