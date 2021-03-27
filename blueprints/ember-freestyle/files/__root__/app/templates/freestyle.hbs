@@ -1,32 +1,26 @@
 <FreestyleGuide
-  @title='Ember Freestyle'
-  @subtitle='Living Style Guide'
+  @title="Ember Freestyle"
+  @subtitle="Living Style Guide"
 >
-  <FreestyleSection @name='Visual Style' as |Section|>
-    <Section.subsection @name='Typography'>
-
-      <FreestyleUsage @slug='typography-times' @title='Times New Roman'>
-        <FreestyleTypeface @fontFamily='Times New Roman' />
+  <FreestyleSection @name="Visual Style" as |Section|>
+    <Section.subsection @name="Typography">
+      <FreestyleUsage @slug="typography-times" @title="Times New Roman">
+        <FreestyleTypeface @fontFamily="Times New Roman" />
       </FreestyleUsage>
 
-      <FreestyleUsage @slug='typography-helvetica' @title='Helvetica'>
-        <FreestyleTypeface @fontFamily='Helvetica' />
+      <FreestyleUsage @slug="typography-helvetica" @title="Helvetica">
+        <FreestyleTypeface @fontFamily="Helvetica" />
       </FreestyleUsage>
-
     </Section.subsection>
 
-    <Section.subsection @name='Color'>
-
-      <FreestyleUsage @slug='fp' @title='Freestyle Palette' @usageTitle='Usage'>
-
+    <Section.subsection @name="Color">
+      <FreestyleUsage @slug="fp" @title="Freestyle Palette" @usageTitle="Usage">
         <FreestylePalette
           @colorPalette={{this.colorPalette}}
-          @title='Dummy App Color Palette'
-          @description='This component displays the color palette specified in freestyle/palette.json'
+          @title="Dummy App Color Palette"
+          @description="This component displays the color palette specified in app/controllers/freestyle.js"
         />
       </FreestyleUsage>
-
     </Section.subsection>
-
   </FreestyleSection>
 </FreestyleGuide>
