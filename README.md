@@ -50,7 +50,12 @@ This installation process is opinionated in order to get you going quickly.
 
     ![](doc/freestyle-generated.png)
 
-All of the generated output is optional. If you don't want a `freestyle` route, for example, feel free to get rid of it in and add a `freestyle-guide` somewhere else in your app.
+This plugin does not include any css into your final build by default. To use the default css import
+it in your `app.sass` or similar.
+
+```sass
+@import ember-freestyle
+// rest of your style
 
 You can use the `freestyle-guide` component anywhere you'd like in your app. You can organize your components into multiple Freestyle guides if you want to. You can even use the constituent components like `freestyle-usage` on their own.
 
