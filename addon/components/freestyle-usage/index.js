@@ -1,6 +1,6 @@
 /* eslint-disable ember/no-component-lifecycle-hooks */
 import { inject as service } from '@ember/service';
-import { and, readOnly } from '@ember/object/computed';
+import { and, or, readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { action } from '@ember/object';
@@ -22,7 +22,7 @@ let FreestyleUsage = Component.extend({
   }),
   defaultTheme: readOnly('emberFreestyle.defaultTheme'),
   // highlightJsTheme - passed in
-  computedTheme: computed.or('defaultTheme', 'highlightJsTheme'),
+  computedTheme: or('defaultTheme', 'highlightJsTheme'),
 
   hasLabels: and('showLabels', 'title'),
   hasCode: computed('showCode', 'slug', 'source', function () {
