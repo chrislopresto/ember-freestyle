@@ -4,6 +4,6 @@
   <input
     type="checkbox"
     checked={{@value}}
-    {{on 'input' (pick 'target.checked' @onInput)}}
+    {{on 'input' this.callOnInput}}
   />
 </label>
