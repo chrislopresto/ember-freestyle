@@ -1,5 +1,5 @@
 
-{{#if (is-present @min @max)}}
+{{#if this.shouldRenderRangeInput}}
   <input
     type="range"
     value={{@value}}
