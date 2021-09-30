@@ -12,10 +12,6 @@ module.exports = function (defaults) {
     snippetSearchPaths: ['tests/dummy/app'],
   });
 
-  if (defaults.project.findAddonByName('ember-native-dom-event-dispatcher')) {
-    app.vendorFiles = { 'jquery.js': null };
-  }
-
   /*
     This build file specifies the options for the dummy test app of this
     addon, located in `/tests/dummy`
