@@ -9,13 +9,13 @@ module('Acceptance | section navigation', function (hooks) {
     await freestyleGuide.visit();
   });
 
-  test('verifying header', (assert) => {
+  test('verifying header', function (assert) {
     assert.expect(2);
     assert.equal(freestyleGuide.header.title, 'Ember Freestyle');
     assert.equal(freestyleGuide.header.subtitle, 'Living Style Guide');
   });
 
-  test('verifying menu sections', async (assert) => {
+  test('verifying menu sections', async function (assert) {
     assert.expect(6);
 
     assert.equal(freestyleGuide.menu.sections.length, 6);
@@ -53,7 +53,7 @@ module('Acceptance | section navigation', function (hooks) {
       let service = this.owner.lookup('service:ember-freestyle');
       service.allowRenderingAllSections = false;
     });
-    test('verifying menu sections', async (assert) => {
+    test('verifying menu sections', async function (assert) {
       assert.expect(5);
 
       assert.equal(freestyleGuide.menu.sections.length, 5);

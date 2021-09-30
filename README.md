@@ -23,7 +23,7 @@ To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-f
 ### Compatibility
 
 * Ember.js v3.16 or above
-* Ember CLI v2.13 or above
+* Ember CLI v3.16 or above
 * Node.js v10 or above
 
 ### Support

@@ -1,3 +1,5 @@
+{{! template-lint-disable require-input-label }}
+
 {{#if @options}}
   <select {{on 'change' this.callOnInput}}>
     {{#each @options as |optionValue|}}

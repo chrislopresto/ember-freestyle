@@ -14,7 +14,7 @@ module('Integration | Component | freestyle/usage/bool', function (hooks) {
     assert.expect(4);
     this.set('value', true);
     this.set('onInput', function (value) {
-      assert.equal(value, false);
+      assert.false(value);
     });
     await render(hbs`<Freestyle::Usage::Bool
       @name="Enabled"

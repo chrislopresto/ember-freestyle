@@ -9,7 +9,7 @@ module('Acceptance | section rendering', function (hooks) {
     await freestyleGuide.visit();
   });
 
-  test('verifying guide sections', (assert) => {
+  test('verifying guide sections', function (assert) {
     assert.expect(6);
     assert.equal(freestyleGuide.content.visibleSections.length, 5);
     assert.equal(
@@ -31,7 +31,7 @@ module('Acceptance | section rendering', function (hooks) {
     assert.dom('[data-test-choose-section]').doesNotExist();
   });
 
-  test('verifying guide subsections', (assert) => {
+  test('verifying guide subsections', function (assert) {
     assert.expect(6);
     let sectionFooThings = freestyleGuide.content.visibleSections.objectAt(2);
     assert.equal(sectionFooThings.visibleSubsections.length, 2);
@@ -56,7 +56,7 @@ module('Acceptance | section rendering', function (hooks) {
     );
   });
 
-  test('freestyle annotations show up', (assert) => {
+  test('freestyle annotations show up', function (assert) {
     assert.expect(1);
     let sectionFooThings = freestyleGuide.content.visibleSections.objectAt(2);
     assert.ok(
@@ -74,7 +74,7 @@ module('Acceptance | section rendering', function (hooks) {
       let service = this.owner.lookup('service:ember-freestyle');
       service.allowRenderingAllSections = false;
     });
-    test('verifying guide sections', async (assert) => {
+    test('verifying guide sections', async function (assert) {
       assert.expect(3);
       assert.equal(
         freestyleGuide.content.visibleSections.length,
