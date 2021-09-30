@@ -15,7 +15,7 @@
     {{#if @required}}
       <span class="FreestyleUsageArgument-required">Required</span>
     {{/if}}
-    {{#if (is-present @defaultValue)}}
+    {{#if this.shouldRenderDefaultValue}}
       <span class="FreestyleUsageArgument-default u-codePill">
         {{@defaultValue}}
       </span>

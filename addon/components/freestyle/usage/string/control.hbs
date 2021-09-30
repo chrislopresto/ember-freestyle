@@ -1,5 +1,5 @@
 {{#if @options}}
-  <select {{on 'change' (pick 'target.value' @onInput)}}>
+  <select {{on 'change' this.callOnInput}}>
     {{#each @options as |optionValue|}}
       <option value={{optionValue}} selected={{eq optionValue @value}}>{{optionValue}}</option>
     {{/each}}
@@ -8,6 +8,6 @@
   <input
     type="text"
     value={{@value}}
-    {{on this.inputEvent (pick 'target.value' @onInput)}}
+    {{on this.inputEvent this.callOnInput}}
   />
 {{/if}}
