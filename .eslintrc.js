@@ -20,38 +20,23 @@ module.exports = {
     browser: true,
   },
   rules: {
-    'arrow-parens': ['error', 'always'],
-    'arrow-spacing': ['error', { before: true, after: true }],
-    'newline-after-var': 'off',
-    'newline-before-return': 'off',
-    'ember/no-classic-components': 'off',
     'ember/no-classic-classes': 'off',
-    'no-magic-numbers': ['off', { ignore: [-1, 0, 1] }],
-    'object-curly-spacing': ['error', 'always'],
-    'prefer-const': 'off',
-    'prefer-rest-params': 'off',
-    'space-before-blocks': ['error', 'always'],
+    'ember/no-classic-components': 'off',
   },
   overrides: [
     // node files
     {
       files: [
-        '.eslintrc.js',
-        '.prettierrc.js',
-        '.template-lintrc.js',
-        'ember-cli-build.js',
-        'index.js',
-        'testem.js',
-        'blueprints/*/index.js',
-        'config/**/*.js',
-        'tests/dummy/config/**/*.js',
-        'lib/**',
-      ],
-      excludedFiles: [
-        'addon/**',
-        'addon-test-support/**',
-        'app/**',
-        'tests/dummy/app/**',
+        './.eslintrc.js',
+        './.prettierrc.js',
+        './.template-lintrc.js',
+        './ember-cli-build.js',
+        './index.js',
+        './testem.js',
+        './blueprints/*/index.js',
+        './config/**/*.js',
+        './lib/**/*.js',
+        './tests/dummy/config/**/*.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -61,28 +46,12 @@ module.exports = {
         node: true,
       },
       plugins: ['node'],
-      rules: Object.assign(
-        {},
-        require('eslint-plugin-node').configs.recommended.rules,
-        {
-          // add your custom rules and overrides for node files here
-        }
-      ),
+      extends: ['plugin:node/recommended'],
     },
-
-    // test files
     {
-      files: ['tests/**/*.js'],
-      excludedFiles: ['tests/dummy/**/*.js'],
-      env: {
-        embertest: true,
-      },
-      plugins: ['ember'],
-      extends: [
-        'eslint:recommended',
-        'plugin:ember/recommended',
-        'plugin:prettier/recommended',
-      ],
+      // Test files:
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
     },
   ],
 };
