@@ -19,6 +19,8 @@
 #$     allowedToFail: false
 #$   - scenario: ember-lts-3.20
 #$     allowedToFail: false
+#$   - scenario: ember-lts-3.24
+#$     allowedToFail: false
 #$   - scenario: ember-release
 #$     allowedToFail: false
 #$   - scenario: ember-beta
@@ -181,6 +183,7 @@ jobs:
         ember-try-scenario: [
           ember-lts-3.16,
           ember-lts-3.20,
+          ember-lts-3.24,
           ember-release,
           ember-default-with-jquery,
           ember-classic
