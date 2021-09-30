@@ -10,7 +10,9 @@ module('Acceptance | collection rendering', function (hooks) {
     await freestyleGuide.visit();
   });
 
-  test('verifying freestyle collection', (assert) => {
+  test('verifying freestyle collection', function (assert) {
+    assert.expect(18);
+
     let sectionFooThings = freestyleGuide.content.visibleSections.objectAt(2);
     assert.equal(
       sectionFooThings.visibleSubsections.objectAt(0).collections.length,

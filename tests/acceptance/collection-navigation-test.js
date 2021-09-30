@@ -19,7 +19,7 @@ module('Acceptance | collection navigation', function (hooks) {
     await freestyleGuide.visit();
   });
 
-  test('verifying variantListItem selection', async (assert) => {
+  test('verifying variantListItem selection', async function (assert) {
     assert.expect(36);
 
     let fooCollection = freestyleGuide.content.visibleSections
