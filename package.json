@@ -45,7 +45,6 @@
     "ember-json-viewer": "^0.6.0",
     "ember-modifier": "^2.1.0",
     "ember-named-blocks-polyfill": "^0.2.4",
-    "ember-runtime-enumerable-includes-polyfill": "^2.0.0",
     "ember-truth-helpers": "^3.0.0",
     "macro-decorators": "^0.1.2",
     "sass": "^1.17.0",
