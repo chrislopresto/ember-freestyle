@@ -1,14 +1,50 @@
-import { computed } from '@ember/object';
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
 
 export default FreestyleController.extend({
+  color: null,
+  colorPalette: null,
+  dynamicProperties: null,
   fractionComplete: 0.4,
-  size: 24,
   isCancelled: false,
   isComplete: false,
+  size: 24,
 
-  dynamicProperties: computed(function () {
-    return {
+  init() {
+    this._super(...arguments);
+
+    this.color = {
+      name: 'amber',
+      base: '#ffc107',
+    };
+
+    this.colorPalette = {
+      primary: {
+        name: 'cyan',
+        description: 'something toply cyanish',
+        base: '#00bcd4',
+        light: '#b2ebf2',
+        dark: '#0097a7',
+      },
+      accent: {
+        name: 'amber',
+        base: '#ffc107',
+      },
+      secondary: {
+        name: 'greyish',
+        base: '#b6b6b6',
+      },
+      foreground: {
+        name: 'blackish',
+        base: '#212121',
+        light: '#727272',
+      },
+      background: {
+        name: 'white',
+        base: '#ffffff',
+      },
+    };
+
+    this.dynamicProperties = {
       blockContent: {
         value: 'Dynamic Block Content',
         inputType: 'textarea',
@@ -39,67 +75,5 @@ export default FreestyleController.extend({
         description: 'Width of the inner border, in pixels',
       },
     };
-  }),
-
-  /* BEGIN-FREESTYLE-USAGE fpi--notes
-### A few notes regarding freestyle-palette-item
-
-- Accepts a color object
-- Looks very nice
-
-And another thing...
-
-###### Markdown note demonstrating prettified code
-
-```
-import Ember from 'ember';
-
-export default Ember.Component.extend({
-  // ...
-  color: {
-    name: 'amber',
-    base: '#ffc107'
-  }
-  // ...
-});
-```
-  END-FREESTYLE-USAGE */
-
-  colorPalette: computed(function () {
-    return {
-      primary: {
-        name: 'cyan',
-        description: 'something toply cyanish',
-        base: '#00bcd4',
-        light: '#b2ebf2',
-        dark: '#0097a7',
-      },
-      accent: {
-        name: 'amber',
-        base: '#ffc107',
-      },
-      secondary: {
-        name: 'greyish',
-        base: '#b6b6b6',
-      },
-      foreground: {
-        name: 'blackish',
-        base: '#212121',
-        light: '#727272',
-      },
-      background: {
-        name: 'white',
-        base: '#ffffff',
-      },
-    };
-  }),
-
-  // BEGIN-FREESTYLE-USAGE fpi
-  color: computed(function () {
-    return {
-      name: 'amber',
-      base: '#ffc107',
-    };
-  }),
-  // END-FREESTYLE-USAGE
+  },
 });

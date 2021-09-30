@@ -22,7 +22,7 @@
 #$   - scenario: ember-release
 #$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
+#$     allowedToFail: true
 #$   - scenario: ember-canary
 #$     allowedToFail: true
 #$   - scenario: ember-default-with-jquery
@@ -182,12 +182,13 @@ jobs:
           ember-lts-3.16,
           ember-lts-3.20,
           ember-release,
-          ember-beta,
           ember-default-with-jquery,
           ember-classic
         ]
         allow-failure: [false]
         include:
+          - ember-try-scenario: ember-beta
+            allow-failure: true
           - ember-try-scenario: ember-canary
             allow-failure: true
 
