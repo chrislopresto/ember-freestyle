@@ -39,8 +39,8 @@
   {{#if this.showFocus}}
     <div class="FreestyleUsageControls-item FreestyleUsageControls-item--focus">
       <div class="FreestyleUsageControls-itemControl">
-        <label for="focus" class="FreestyleUsageControls-label--focus">Focus a section
-          <Input class="FreestyleUsageControls-input--focus" @value={{this.focus}} @name="focus" @enter={{this.setFocus}} />
+        <label class="FreestyleUsageControls-label--focus">Focus a section
+          <Input class="FreestyleUsageControls-input--focus" @value={{this.focus}} @enter={{this.setFocus}} />
         </label>
         <button class="FreestyleUsageControls-button" onclick={{this.setFocus}} type="button">Focus</button>
       </div>
