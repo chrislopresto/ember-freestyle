@@ -1,8 +1,7 @@
 import { assign } from '@ember/polyfills';
 import Component from '@ember/component';
-import { set, get, computed } from '@ember/object';
+import { action, set, get, computed } from '@ember/object';
 import { assert } from '@ember/debug';
-import { action } from '@ember/object';
 
 export default Component.extend({
   tagName: '',

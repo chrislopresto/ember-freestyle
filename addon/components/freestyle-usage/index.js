@@ -2,8 +2,7 @@
 import { inject as service } from '@ember/service';
 import { and, or, readOnly } from '@ember/object/computed';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
-import { action } from '@ember/object';
+import { action, computed } from '@ember/object';
 
 let FreestyleUsage = Component.extend({
   tagName: '',

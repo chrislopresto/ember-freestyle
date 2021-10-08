@@ -1,11 +1,11 @@
 /* global hljs */
 import Service from '@ember/service';
-import { isPresent } from '@ember/utils';
+import { isBlank, isPresent } from '@ember/utils';
 import { A } from '@ember/array';
 import { Promise } from 'rsvp';
 import { tracked } from '@glimmer/tracking';
-import { isBlank } from '@ember/utils';
 import { action } from '@ember/object';
+
 export default class EmberFreestyleService extends Service {
   @tracked showLabels = true;
   @tracked showNotes = true;
