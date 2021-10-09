@@ -21,7 +21,7 @@
 /.node-version
 /.prettierignore
 /.prettierrc.js
-/.sass-lint.yml
+/.stylelintrc.js
 /.template-lintrc.js
 /.watchmanconfig
 /bower.json
