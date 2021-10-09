@@ -1,13 +1,22 @@
-{{! template-lint-disable no-unknown-arguments-for-builtin-components }}
-
 <div class="FreestyleDynamic-input">
   <label for={{this.inputId}}>
     {{@propertyName}}:
   </label>
   {{#if this.isCheckbox}}
-    <Input @type="checkbox" @checked={{readonly @value}} id={{this.inputId}} @change={{this.toggleCheckbox}} />
+    <input
+      checked={{@value}}
+      id={{this.inputId}}
+      type="checkbox"
+      {{on "input" this.toggleCheckbox}}
+    >
   {{else if this.isTextarea}}
-    <Textarea @value={{@value}} id={{this.inputId}} rows={{5}} cols={{40}} @key-up={{this.sendChangedText}} />
+    <textarea
+      cols="40"
+      id={{this.inputId}}
+      rows="5"
+      value={{@value}}
+      {{on "input" this.sendChangedText}}
+    />
   {{else if this.isSelect}}
     <select id={{this.inputId}} {{on "change" this.onChange}}>
       {{#each @options as |option|}}
@@ -15,12 +24,29 @@
       {{/each}}
     </select>
   {{else if this.isNumber}}
-    <Input @type="number" @value={{@value}} id={{this.inputId}} @input={{this.onChangeWithNumericCoercion}} />
+    <input
+      id={{this.inputId}}
+      type="number"
+      value={{@value}}
+      {{on "input" this.onChangeWithNumericCoercion}}
+    >
   {{else if this.isRange}}
-    <Input @type="range" id={{this.inputId}} min={{@min}} max={{@max}} @input={{this.onChangeWithNumericCoercion}} @value={{readonly @value}} />
+    <input
+      id={{this.inputId}}
+      max={{@max}}
+      min={{@min}}
+      type="range"
+      value={{@value}}
+      {{on "input" this.onChangeWithNumericCoercion}}
+    >
     {{@value}}
   {{else}}
-    <Input @value={{@value}} id={{this.inputId}} @key-up={{this.onChange}} />
+    <input
+      id={{this.inputId}}
+      type="text"
+      value={{@value}}
+      {{on "input" this.onChange}}
+    >
   {{/if}}
   {{#if @description}}
     <small class="FreestyleDynamic-inputDescription">

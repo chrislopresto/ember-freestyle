@@ -27,8 +27,8 @@ export default Component.extend({
     this.changeValueTo(ev.target.value);
   },
   @action
-  sendChangedText(text) {
-    this.changeValueTo(text);
+  sendChangedText(ev) {
+    this.changeValueTo(ev.target.value);
   },
   @action
   onChangeWithNumericCoercion(ev) {
