@@ -1,7 +1,8 @@
 $FreestyleCollection-maxWidth: $FreestyleGuide-maxWidth !default;
-$FreestyleCollection-shadow1: rgba(0, 0, 0, .16);
-$FreestyleCollection-shadow2: rgba(0, 0, 0, .12);
-$FreestyleCollection-boxShadow: 0 2px 5px 0 $FreestyleCollection-shadow1, 0 2px 10px 0 $FreestyleCollection-shadow2;
+$FreestyleCollection-shadow1: rgba(0, 0, 0, 0.16);
+$FreestyleCollection-shadow2: rgba(0, 0, 0, 0.12);
+$FreestyleCollection-boxShadow: 0 2px 5px 0 $FreestyleCollection-shadow1,
+  0 2px 10px 0 $FreestyleCollection-shadow2;
 
 .FreestyleCollection {
   max-width: $FreestyleCollection-maxWidth;
@@ -34,7 +35,7 @@ $FreestyleCollection-boxShadow: 0 2px 5px 0 $FreestyleCollection-shadow1, 0 2px 
     float: left;
     font-size: 14px;
     height: 48px;
-    letter-spacing: .8px;
+    letter-spacing: 0.8px;
     line-height: 48px;
     margin: 0;
     min-width: 120px;

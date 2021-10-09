@@ -11,7 +11,7 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
   }
 
   &-notes {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 
   &-rendered {
@@ -24,11 +24,11 @@ $FreestyleUsage-maxWidth: $FreestyleGuide-maxWidth !default;
 
   &-sourceContainer {
     pre {
-      font-size: .8rem;
+      font-size: 0.8rem;
       margin-top: 0;
 
       &.hljs {
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
       }
     }
   }

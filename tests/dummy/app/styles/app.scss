@@ -24,7 +24,7 @@ h4,
 h5,
 h6,
 p {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 h1,
@@ -50,13 +50,13 @@ a {
   }
 
   code {
-    padding: 0 .5em;
+    padding: 0 0.5em;
   }
 }
 
 .u-outdent {
   margin: 0 -1rem;
-  padding: .5rem 1rem !important; // sass-lint:disable-line no-important
+  padding: 0.5rem 1rem !important;
 }
 
 .readable-width {

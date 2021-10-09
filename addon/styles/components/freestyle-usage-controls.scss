@@ -1,11 +1,12 @@
 $FreestyleUsageControls-backgroundColor: #fff !default;
-$FreestyleUsageControls-shadow1: rgba(0, 0, 0, .16);
-$FreestyleUsageControls-shadow2: rgba(0, 0, 0, .12);
-$FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1, 0 2px 10px 0 $FreestyleUsageControls-shadow2;
+$FreestyleUsageControls-shadow1: rgba(0, 0, 0, 0.16);
+$FreestyleUsageControls-shadow2: rgba(0, 0, 0, 0.12);
+$FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1,
+  0 2px 10px 0 $FreestyleUsageControls-shadow2;
 
 .FreestyleUsageControls {
   background: $FreestyleUsageControls-backgroundColor;
-  font-size: .9rem;
+  font-size: 0.9rem;
   padding: 1rem;
   text-align: left;
   width: 200px;
@@ -13,7 +14,7 @@ $FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1, 
   &-header {
     color: $FreestyleGuide-color--primary;
     font-weight: bold;
-    margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
     text-transform: uppercase;
   }
 
@@ -22,22 +23,22 @@ $FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1, 
     display: flex;
 
     &--focus {
-      padding-top: .6rem;
+      padding-top: 0.6rem;
     }
   }
 
   &-itemControl {
     cursor: pointer;
-    padding-right: .1rem;
+    padding-right: 0.1rem;
   }
 
   &-itemLabel {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   &-input {
     &--focus {
-      margin-bottom: .2rem;
+      margin-bottom: 0.2rem;
     }
   }
 
@@ -47,8 +48,8 @@ $FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1, 
     box-shadow: $FreestyleUsageControls-boxShadow;
     color: $FreestyleGuide-color--background;
     cursor: pointer;
-    font-size: .6rem;
-    padding: .4rem 1rem;
+    font-size: 0.6rem;
+    padding: 0.4rem 1rem;
     text-transform: uppercase;
   }
 }

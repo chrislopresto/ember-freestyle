@@ -15,7 +15,7 @@
     margin-top: 1.5rem;
   }
   &-description {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
     font-size: 1.1rem;
     color: #666;
   }
@@ -40,7 +40,7 @@
 
     &:after {
       content: 'Preview';
-      font-size: .7rem;
+      font-size: 0.7rem;
       position: absolute;
       right: 0;
       top: 0;
@@ -78,7 +78,7 @@
     }
     th,
     td {
-      padding: .5rem 1rem;
+      padding: 0.5rem 1rem;
     }
   }
 
@@ -87,12 +87,11 @@
   }
 }
 
-
 /*
   FreestyleUsageArgument
 */
 .FreestyleUsageArgument {
-  font-size: .8rem;
+  font-size: 0.8rem;
 
   &-name {
     font-weight: bold;
@@ -103,7 +102,7 @@
   }
 
   &-required {
-    color: #D81C38;
+    color: #d81c38;
     font-style: oblique;
   }
   &-default {
@@ -121,7 +120,7 @@
   display: flex;
 
   &:after {
-    content: "False";
+    content: 'False';
     display: block;
     position: absolute;
     top: 2px;
@@ -130,7 +129,7 @@
     color: #999;
   }
   &.is-checked:after {
-    content: "True";
+    content: 'True';
     color: #333;
     font-weight: 700;
   }
@@ -138,7 +137,7 @@
 
 .FreestyleUsageArray {
   &-item {
-    margin: 0 0 .5em 0;
+    margin: 0 0 0.5em 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -151,14 +150,14 @@
     cursor: pointer;
     padding: 2px 4px;
     text-transform: uppercase;
-    letter-spacing: .5px;
-    font-size: .8em;
+    letter-spacing: 0.5px;
+    font-size: 0.8em;
     border-radius: 4px;
   }
 
   &-removeItem {
     color: #999;
-    opacity: .5;
+    opacity: 0.5;
   }
 
   &-addItem {
@@ -179,6 +178,6 @@
   color: #777;
   display: inline-block;
   font-family: monospace;
-  margin-right: .2em;
+  margin-right: 0.2em;
   padding: 1px 7px;
 }
