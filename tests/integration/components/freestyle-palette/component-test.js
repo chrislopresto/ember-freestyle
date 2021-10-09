@@ -17,22 +17,20 @@ const COLOR_PALETTE = {
 module('Integration | Component | freestyle-palette', function (hooks) {
   setupRenderingTest(hooks);
 
+  hooks.beforeEach(function () {
+    this.colorPalette = {};
+  });
+
   test('it renders a color palette', async function (assert) {
-    await render(hbs`
-      <FreestylePalette
-        @colorPalette={{hash}}
-      />
-    `);
-
-    assert.dom('.FreestylePaletteItem').doesNotExist();
-
-    this.colorPalette = COLOR_PALETTE;
-
     await render(hbs`
       <FreestylePalette
         @colorPalette={{this.colorPalette}}
       />
     `);
+
+    assert.dom('.FreestylePaletteItem').doesNotExist();
+
+    this.set('colorPalette', COLOR_PALETTE);
 
     assert.dom('.FreestylePaletteItem').exists({ count: 2 });
 
@@ -54,7 +52,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
   test('it renders a title', async function (assert) {
     await render(hbs`
       <FreestylePalette
-        @colorPalette={{hash}}
+        @colorPalette={{this.colorPalette}}
       />
     `);
 
@@ -62,7 +60,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
 
     await render(hbs`
       <FreestylePalette
-        @colorPalette={{hash}}
+        @colorPalette={{this.colorPalette}}
         @title="Different Title"
       />
     `);
@@ -73,7 +71,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
   test('it renders a description', async function (assert) {
     await render(hbs`
       <FreestylePalette
-        @colorPalette={{hash}}
+        @colorPalette={{this.colorPalette}}
       />
     `);
 
@@ -83,7 +81,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
 
     await render(hbs`
       <FreestylePalette
-        @colorPalette={{hash}}
+        @colorPalette={{this.colorPalette}}
         @description="Different description."
       />
     `);
