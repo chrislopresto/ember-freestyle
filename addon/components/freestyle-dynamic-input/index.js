@@ -1,7 +1,6 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { action, computed } from '@ember/object';
 import { equal } from '@ember/object/computed';
-import { action } from '@ember/object';
 
 export default Component.extend({
   tagName: '',
