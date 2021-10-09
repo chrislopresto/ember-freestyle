@@ -3,8 +3,7 @@ import { and, not } from '@ember/object/computed';
 import { A } from '@ember/array';
 import { next } from '@ember/runloop';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
-import { action } from '@ember/object';
+import { action, computed } from '@ember/object';
 
 export default Component.extend({
   tagName: '',

@@ -1,9 +1,8 @@
 /* eslint-disable ember/no-component-lifecycle-hooks */
 /* eslint-disable ember/require-tagless-components */
-import { set } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import { computed, get } from '@ember/object';
+import { computed, get, set } from '@ember/object';
 
 export default Component.extend({
   initialHighlightComplete: false,
