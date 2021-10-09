@@ -2,7 +2,7 @@
   position: relative;
   background-color: blue;
   border-radius: 100px;
-  transition: background-color 0.2s ease-in;;
+  transition: background-color 0.2s ease-in;
 }
 
 .ProgressIcon.is-cancelled {
@@ -19,5 +19,5 @@
   height: 100%;
   transform: rotate(-90deg);
   stroke-dasharray: 0 60;
-  transition: stroke-dasharray 0.4s ease-in;;
+  transition: stroke-dasharray 0.4s ease-in;
 }
