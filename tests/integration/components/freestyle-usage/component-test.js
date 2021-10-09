@@ -84,19 +84,17 @@ module('Integration | Component | freestyle usage', function (hooks) {
     this.set('emberFreestyle.showCode', true);
 
     await render(hbs`
-    {{!-- template-lint-disable no-curly-component-invocation --}}
-    {{!-- template-lint-disable no-implicit-this --}}
       <FreestyleUsage @slug='componentA'>
-        {{this.indented-far-before-blank-line}}
+        {{this.indentedFarBeforeBlankLine}}
 
-        {{after-blank-line}}
+        {{this.afterBlankLine}}
       </FreestyleUsage>
     `);
     let rawSnippet = usage.usageSection.rawSource;
 
     assert.equal(
       rawSnippet.trim().split('\n').get('lastObject'),
-      '{{after-blank-line}}'
+      '{{this.afterBlankLine}}'
     );
   });
 
