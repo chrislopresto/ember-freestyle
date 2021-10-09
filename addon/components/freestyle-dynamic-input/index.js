@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { action, computed } from '@ember/object';
 import { equal } from '@ember/object/computed';
+import { guidFor } from '@ember/object/internals';
 
 export default Component.extend({
   tagName: '',
@@ -11,8 +12,8 @@ export default Component.extend({
   isNumber: equal('inputType', 'number'),
   isRange: equal('inputType', 'range'),
 
-  inputId: computed('elementId', 'propertyName', function () {
-    return `${this.elementId}_${this.propertyName}`;
+  inputId: computed('propertyName', function () {
+    return `${guidFor(this)}_${this.propertyName}`;
   }),
 
   @action
