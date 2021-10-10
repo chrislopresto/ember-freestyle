@@ -31,7 +31,7 @@
 #$     allowedToFail: false
 #$   - scenario: ember-classic
 #$     allowedToFail: false
-#$ nodeVersion: 10.x
+#$ nodeVersion: 12.x
 #$ packageManager: yarn
 #
 
