@@ -6,7 +6,6 @@ module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     // Add options here
     autoprefixer: {
-      browsers: ['last 2 version', '> 10%'],
       cascade: false,
     },
     snippetSearchPaths: ['tests/dummy/app'],
