@@ -6,8 +6,8 @@
     "ember-addon"
   ],
   "volta": {
-    "node": "12.20.1",
-    "yarn": "1.22.10"
+    "node": "12.22.6",
+    "yarn": "1.22.15"
   },
   "repository": "https://github.com/chrislopresto/ember-freestyle.git",
   "license": "MIT",
