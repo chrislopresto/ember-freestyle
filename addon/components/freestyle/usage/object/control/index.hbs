@@ -1,7 +1,5 @@
 {{#if @value}}
-  <JsonViewer
-    @json={{@value}}
-    @options={{hash collapseDepth=@jsonCollapseDepth}}
-    class="FreestyleUsageArgument-jsonViewer"
-  />
+  <div class="FreestyleUsageArgument-jsonViewer">
+    {{this.jsonTree}}
+  </div>
 {{/if}}

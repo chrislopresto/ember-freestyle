@@ -5,7 +5,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 const ARGUMENT = '.FreestyleUsageArgument';
 const NAME = `${ARGUMENT}-name`;
-const PREVIEW = `${ARGUMENT}-controls--Object .json-viewer`;
+const PREVIEW = `${ARGUMENT}-controls--Object .FreestyleUsageArgument-jsonViewer`;
 
 module('Integration | Component | freestyle/usage/object', function (hooks) {
   setupRenderingTest(hooks);
@@ -30,7 +30,7 @@ module('Integration | Component | freestyle/usage/object', function (hooks) {
     await render(hbs`<Freestyle::Usage::Object
       @name="Collectibles"
       @value={{this.value}}
-      @jsonCollapseDepth={{1}}
+      @jsonCollapseDepth={{3}}
     />`);
 
     assert.dom(NAME).containsText('Collectibles');
