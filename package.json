@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
-    "@ember/test-helpers": "^2.4.2",
+    "@ember/test-helpers": "^2.5.0",
     "@embroider/test-setup": "^0.45.0",
     "all-contributors-cli": "^6.14.1",
     "babel-eslint": "^10.1.0",
