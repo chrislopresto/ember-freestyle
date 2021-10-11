@@ -5,10 +5,6 @@
   "keywords": [
     "ember-addon"
   ],
-  "volta": {
-    "node": "12.22.6",
-    "yarn": "1.22.15"
-  },
   "repository": "https://github.com/chrislopresto/ember-freestyle.git",
   "license": "MIT",
   "author": "Chris LoPresto",
@@ -35,6 +31,10 @@
     "postrelease": "./script/postrelease",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
+  },
+  "resolutions": {
+    "ember-cli-deploy-git/ember-cli-babel": "^7.26.6",
+    "ember-cli-page-object/ember-cli-babel": "^7.26.6"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.0",
@@ -116,5 +116,9 @@
     "after": [
       "ember-named-blocks-polyfill"
     ]
+  },
+  "volta": {
+    "node": "12.22.6",
+    "yarn": "1.22.15"
   }
 }
