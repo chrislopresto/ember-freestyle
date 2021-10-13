@@ -16,8 +16,8 @@ export default Component.extend({
       {
         for: 'ember-freestyle',
         id: 'freestyle-showdown-content-component',
-        since: '0.12.12',
-        until: '0.13.0',
+        since: '0.13.0',
+        until: '0.14.0',
       }
     );
 
