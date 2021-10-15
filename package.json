@@ -50,7 +50,7 @@
     "ember-truth-helpers": "^3.0.0",
     "json-formatter-js": "^2.3.4",
     "macro-decorators": "^0.1.2",
-    "sass": "^1.42.1",
+    "sass": "^1.43.2",
     "strip-indent": "^3.0.0"
   },
   "devDependencies": {
