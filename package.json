@@ -34,7 +34,8 @@
   },
   "resolutions": {
     "ember-cli-deploy-git/ember-cli-babel": "^7.26.6",
-    "ember-cli-page-object/ember-cli-babel": "^7.26.6"
+    "ember-cli-page-object/ember-cli-babel": "^7.26.6",
+    "socket.io": "4.2.0"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.0",
