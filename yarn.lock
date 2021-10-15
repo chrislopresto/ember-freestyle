@@ -5269,10 +5269,10 @@ ember-cli-normalize-entity-name@^1.0.0:
   dependencies:
     silent-error "^1.0.0"
 
-ember-cli-page-object@1.17.7:
-  version "1.17.7"
-  resolved "https://registry.yarnpkg.com/ember-cli-page-object/-/ember-cli-page-object-1.17.7.tgz#a35c4cc1ece147e9752604cbc2266038660a84f6"
-  integrity sha512-sp7lunZa9p57cNm6og86F12SBx5Tt/7dWndfIKGE9Kol3QP2/72qiUVauhbfoUDSjfYLG2xEAFWDbiLHPMPYsg==
+ember-cli-page-object@1.17.8:
+  version "1.17.8"
+  resolved "https://registry.yarnpkg.com/ember-cli-page-object/-/ember-cli-page-object-1.17.8.tgz#b612a3f6d7c419c25a8fd6b3dc99c42bb2687360"
+  integrity sha512-6LEEXF9MnWs6f6hCXg6Q9zwMlcEDxkLFs4f3Jfo3MY5rav4BejBqdfFJhqF12njRjXan0R3EGK2P73ksYR76wg==
   dependencies:
     broccoli-file-creator "^2.1.1"
     broccoli-merge-trees "^2.0.0"
