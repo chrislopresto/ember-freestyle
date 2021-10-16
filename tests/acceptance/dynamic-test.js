@@ -1,153 +1,99 @@
-import { module, test } from 'qunit';
+import { click, fillIn, select, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import freestyleDynamic from '../pages/freestyle-dynamic';
-import { waitUntil } from '@ember/test-helpers';
+import { module, test } from 'qunit';
+
+function selector(childSelector) {
+  return `[data-test-section="dynamic"] ${childSelector}`;
+}
+
+const SELECTOR = {
+  BAR: selector('.x-Bar'),
+  BAR_DESCRIPTION: selector('.x-Bar-description'),
+  BAR_RANK: selector('.x-Bar-rank'),
+  CHECKBOX_TASTEFUL: selector('input[type="checkbox"]:not(:checked)'),
+  CHECKBOX_VISIBLE: selector('input[type="checkbox"]'),
+  INPUT_RANK: selector('input[type="number"]'),
+  SELECT_SIZE: selector('select'),
+  SOURCE_CONTAINER: selector('.FreestyleUsage-sourceContainer'),
+  TEXTAREA_CONTENT: selector('textarea'),
+};
 
 module('Acceptance | dynamic', function (hooks) {
   setupApplicationTest(hooks);
 
-  hooks.beforeEach(async function (assert) {
-    assert.includes = function (container, item, message) {
-      this.pushResult({
-        result: container.indexOf(item) !== -1,
-        actual: container,
-        expected: String(container) + ' contains ' + item,
-        message: message,
-      });
-    };
-    await freestyleDynamic.visit();
+  hooks.beforeEach(async function () {
+    await visit('/acceptance?s=Dynamic Properties');
   });
 
   test('block content', async function (assert) {
-    assert.expect(8);
-    assert.strictEqual(
-      freestyleDynamic.blockContentInputValue,
-      'Dynamic Block Content',
-      'The input starts with the initial value'
-    );
-    assert.strictEqual(
-      freestyleDynamic.blockContentRendered,
-      'Dynamic Block Content Static block content Reference another dynamic prop in block: is tasteful: false',
-      'The rendered block can show dynamic and static content'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      '<p>Dynamic Block Content</p>',
-      'The snippet shows the initial dynamic block content'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      '<p>Static block content</p>',
-      'The snippet shows the static block content'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      '<p> Reference another dynamic prop in block: is tasteful: false </p>',
-      'The snippet can include a block that references multiple dynamic properties'
-    );
-    await freestyleDynamic.changeBlockContentInput('Something new');
-    assert.strictEqual(
-      freestyleDynamic.blockContentRendered,
-      'Something new Static block content Reference another dynamic prop in block: is tasteful: false',
-      'The rendered block content changes when the input changes'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      '<p>Something new</p>',
-      'The snippet changes when the input changes'
-    );
-    await freestyleDynamic.toggleTastefulInput();
-    assert.strictEqual(
-      freestyleDynamic.blockContentRendered,
-      'Something new Static block content Reference another dynamic prop in block: is tasteful: true',
-      'The rendered block content changes when another dynamic property input changes'
-    );
+    assert.dom(SELECTOR.TEXTAREA_CONTENT).hasValue('Dynamic Block Content');
+
+    assert
+      .dom(SELECTOR.BAR_DESCRIPTION)
+      .hasText(
+        'Dynamic Block Content Static block content Reference another dynamic prop in block: is tasteful: false'
+      );
+
+    assert
+      .dom(SELECTOR.SOURCE_CONTAINER)
+      .includesText('<p>Dynamic Block Content</p>')
+      .includesText('<p>Static block content</p>')
+      .includesText(
+        '<p> Reference another dynamic prop in block: is tasteful: false </p>'
+      );
+
+    await fillIn(SELECTOR.TEXTAREA_CONTENT, 'Something new');
+
+    assert
+      .dom(SELECTOR.BAR_DESCRIPTION)
+      .hasText(
+        'Something new Static block content Reference another dynamic prop in block: is tasteful: false'
+      );
+
+    assert.dom(SELECTOR.SOURCE_CONTAINER).includesText('<p>Something new</p>');
+
+    await click(SELECTOR.CHECKBOX_TASTEFUL);
+
+    assert
+      .dom(SELECTOR.BAR_DESCRIPTION)
+      .hasText(
+        'Something new Static block content Reference another dynamic prop in block: is tasteful: true'
+      );
   });
 
   test('select input', async function (assert) {
-    assert.expect(5);
-    assert.strictEqual(
-      freestyleDynamic.selectInputValue,
-      'medium',
-      'The input starts with the initial value'
-    );
-    assert.ok(
-      freestyleDynamic.isMedium,
-      'The rendered block reflects the initial value'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      `size='medium'`,
-      'The snippet shows initial value'
-    );
-    await freestyleDynamic.changeSelectInput('small');
-    assert.ok(
-      freestyleDynamic.isSmall,
-      'The rendered component changes when the select changes'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      `size='small'`,
-      'The snippet changes when the select changes'
-    );
+    assert.dom(SELECTOR.SELECT_SIZE).hasValue('medium');
+    assert.dom(SELECTOR.BAR).hasClass('x-Bar--medium');
+    assert.dom(SELECTOR.SOURCE_CONTAINER).includesText(`@size='medium'`);
+
+    await select(SELECTOR.SELECT_SIZE, 'small');
+
+    assert.dom(SELECTOR.SELECT_SIZE).hasValue('small');
+    assert.dom(SELECTOR.BAR).hasClass('x-Bar--small');
+    assert.dom(SELECTOR.SOURCE_CONTAINER).includesText(`@size='small'`);
   });
 
   test('number input', async function (assert) {
-    assert.expect(5);
-    assert.strictEqual(
-      freestyleDynamic.numberInputValue,
-      '10',
-      'The input starts with the initial value'
-    );
-    assert.strictEqual(
-      freestyleDynamic.numberRendered,
-      '10',
-      'The rendered block reflects the initial value'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      'rank={{10}}',
-      'The snippet shows initial value'
-    );
-    await freestyleDynamic.changeNumberInput('5');
-    assert.strictEqual(
-      freestyleDynamic.numberRendered,
-      '5',
-      'The rendered component changes when the input changes'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      'rank={{5}}',
-      'The snippet changes when the input changes'
-    );
+    assert.dom(SELECTOR.INPUT_RANK).hasValue('10');
+    assert.dom(SELECTOR.BAR_RANK).hasText('10');
+    assert.dom(SELECTOR.SOURCE_CONTAINER).includesText('@rank={{10}}');
+
+    await fillIn(SELECTOR.INPUT_RANK, '5');
+
+    assert.dom(SELECTOR.INPUT_RANK).hasValue('5');
+    assert.dom(SELECTOR.BAR_RANK).hasText('5');
+    assert.dom(SELECTOR.SOURCE_CONTAINER).includesText('@rank={{5}}');
   });
 
   test('checkbox input', async function (assert) {
-    assert.expect(5);
-    assert.strictEqual(
-      freestyleDynamic.checkboxInputValue,
-      'on',
-      'The input starts with the initial value'
-    );
-    assert.ok(
-      freestyleDynamic.isVisible,
-      'The rendered component reflects the initial value'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      'isVisible={{true}}',
-      'The snippet shows initial value'
-    );
-    await freestyleDynamic.toggleCheckbox();
-    await waitUntil(() => !freestyleDynamic.isVisible);
-    assert.notOk(
-      freestyleDynamic.isVisible,
-      'The rendered component changes when the checkbox changes'
-    );
-    assert.includes(
-      freestyleDynamic.sourceContainer,
-      'isVisible={{false}}',
-      'The snippet changes when the checkbox changes'
-    );
+    assert.dom(SELECTOR.CHECKBOX_VISIBLE).isChecked();
+    assert.dom(SELECTOR.BAR_RANK).isVisible();
+    assert.dom(SELECTOR.SOURCE_CONTAINER).includesText('@isVisible={{true}}');
+
+    await click(SELECTOR.CHECKBOX_VISIBLE);
+
+    assert.dom(SELECTOR.CHECKBOX_VISIBLE).isNotChecked();
+    assert.dom(SELECTOR.BAR_RANK).isNotVisible();
+    assert.dom(SELECTOR.SOURCE_CONTAINER).includesText('@isVisible={{false}}');
   });
 });
