@@ -1,58 +1,55 @@
-import { A } from '@ember/array';
-import { module, test } from 'qunit';
+import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import freestyleGuide from '../pages/freestyle-guide';
+import { module, test } from 'qunit';
+
+const SELECTOR = {
+  ANNOTATION: '.FreestyleAnnotation',
+  COLLECTION: '.FreestyleCollection',
+  COLLECTION_TITLE: '.FreestyleCollection-title',
+  USAGE_TITLE: '.FreestyleUsage-title',
+  VARIANT: '.FreestyleVariant',
+  VARIANT_ITEM: '.FreestyleCollection-variantListItem',
+  VARIANT_ITEM_ACTIVE: '.FreestyleCollection-variantListItem--active',
+  VARIANT_ITEM_ALL: '.FreestyleCollection-variantListItem:nth-child(1)',
+  VARIANT_ITEM_CLASSIC: '.FreestyleCollection-variantListItem:nth-child(5)',
+  VARIANT_ITEM_ELEGANT: '.FreestyleCollection-variantListItem:nth-child(6)',
+  VARIANT_ITEM_HYPER: '.FreestyleCollection-variantListItem:nth-child(4)',
+  VARIANT_ITEM_NORMAL: '.FreestyleCollection-variantListItem:nth-child(2)',
+  VARIANT_ITEM_SPECIAL: '.FreestyleCollection-variantListItem:nth-child(3)',
+  VARIANT_ITEM_TASTEFUL: '.FreestyleCollection-variantListItem:nth-child(7)',
+};
 
 module('Acceptance | collection rendering', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(async function () {
-    await freestyleGuide.visit();
+    await visit('/acceptance?s=Foo Things&ss=Foo Subsection A');
   });
 
   test('verifying freestyle collection', function (assert) {
-    assert.expect(18);
+    assert.dom(SELECTOR.COLLECTION).exists({ count: 1 });
+    assert.dom(SELECTOR.COLLECTION_TITLE).hasText('Foo Collection');
 
-    let sectionFooThings = freestyleGuide.content.visibleSections.objectAt(2);
-    assert.equal(
-      sectionFooThings.visibleSubsections.objectAt(0).collections.length,
-      1
-    );
+    assert.dom(SELECTOR.VARIANT_ITEM).exists({ count: 7 });
+    assert.dom(SELECTOR.VARIANT_ITEM_ALL).hasText('all');
+    assert.dom(SELECTOR.VARIANT_ITEM_ACTIVE).hasText('normal');
+    assert.dom(SELECTOR.VARIANT_ITEM_NORMAL).hasText('normal');
+    assert.dom(SELECTOR.VARIANT_ITEM_SPECIAL).hasText('special');
+    assert.dom(SELECTOR.VARIANT_ITEM_HYPER).hasText('hyper');
+    assert.dom(SELECTOR.VARIANT_ITEM_CLASSIC).hasText('classic');
+    assert.dom(SELECTOR.VARIANT_ITEM_ELEGANT).hasText('elegant');
+    assert.dom(SELECTOR.VARIANT_ITEM_TASTEFUL).hasText('tasteful');
 
-    let fooCollection = sectionFooThings.visibleSubsections
-      .objectAt(0)
-      .collections.objectAt(0);
-    assert.equal(fooCollection.title, 'Foo Collection');
+    assert.dom(SELECTOR.VARIANT).exists({ count: 6 });
+    assert.dom(SELECTOR.ANNOTATION).includesText('A Note About Normal');
+    assert.dom(SELECTOR.USAGE_TITLE).hasText('Normal');
 
-    // variantListItems have all variants plus an 'all' choice at he front of the list
-    assert.equal(fooCollection.variantListItems.length, 7);
-    assert.equal(fooCollection.variantListItems.objectAt(0).text, 'all');
-    assert.equal(fooCollection.variantListItems.objectAt(1).text, 'normal');
-    assert.equal(fooCollection.variantListItems.objectAt(2).text, 'special');
-    assert.equal(fooCollection.variantListItems.objectAt(3).text, 'hyper');
-    assert.equal(fooCollection.variantListItems.objectAt(5).text, 'elegant');
-    assert.equal(fooCollection.variantListItems.objectAt(6).text, 'tasteful');
+    const variants = this.element.querySelectorAll(SELECTOR.VARIANT);
 
-    // we start with 'normal' as the default key
-    assert.equal(
-      fooCollection.activeVariantListItemLabelText,
-      'normal',
-      'Normal variant is selected'
-    );
-    assert.equal(fooCollection.variants.length, 6);
-
-    // which displays only the (first) normal variant
-    assert.ok(
-      fooCollection.variants
-        .objectAt(0)
-        .annotationContains('A Note About Normal'),
-      'Normal annotation renders'
-    );
-    assert.equal(fooCollection.variants.objectAt(0).usageTitle, 'Normal');
-
-    // and all others are empty
-    A([1, 2, 3, 4, 5]).forEach((idx) => {
-      assert.equal(fooCollection.variants.objectAt(idx).text, '');
-    });
+    assert.dom(variants[1]).isNotVisible();
+    assert.dom(variants[2]).isNotVisible();
+    assert.dom(variants[3]).isNotVisible();
+    assert.dom(variants[4]).isNotVisible();
+    assert.dom(variants[5]).isNotVisible();
   });
 });
