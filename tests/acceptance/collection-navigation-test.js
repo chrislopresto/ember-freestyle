@@ -1,48 +1,83 @@
-import { A } from '@ember/array';
-import { module, test } from 'qunit';
+import { click, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import freestyleGuide from '../pages/freestyle-guide';
+import { module, test } from 'qunit';
 
-let variantKeys = A([
-  'normal',
-  'special',
-  'hyper',
-  'classic',
-  'elegant',
-  'tasteful',
-]);
+const SELECTOR = {
+  USAGE_TITLE: '.FreestyleUsage-title',
+  VARIANT: '.FreestyleVariant',
+  VARIANT_ITEM_ALL: '.FreestyleCollection-variantListItem:nth-child(1)',
+  VARIANT_ITEM_CLASSIC: '.FreestyleCollection-variantListItem:nth-child(5)',
+  VARIANT_ITEM_ELEGANT: '.FreestyleCollection-variantListItem:nth-child(6)',
+  VARIANT_ITEM_HYPER: '.FreestyleCollection-variantListItem:nth-child(4)',
+  VARIANT_ITEM_NORMAL: '.FreestyleCollection-variantListItem:nth-child(2)',
+  VARIANT_ITEM_SPECIAL: '.FreestyleCollection-variantListItem:nth-child(3)',
+  VARIANT_ITEM_TASTEFUL: '.FreestyleCollection-variantListItem:nth-child(7)',
+};
 
 module('Acceptance | collection navigation', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(async function () {
-    await freestyleGuide.visit();
+    await visit('/acceptance?s=Foo Things&ss=Foo Subsection A');
   });
 
-  test('verifying variantListItem selection', async function (assert) {
-    assert.expect(36);
+  test('verifying variant selection', async function (assert) {
+    const variants = this.element.querySelectorAll(SELECTOR.VARIANT);
 
-    let fooCollection = freestyleGuide.content.visibleSections
-      .objectAt(2)
-      .visibleSubsections.objectAt(0)
-      .collections.objectAt(0);
+    await click(SELECTOR.VARIANT_ITEM_ALL);
+    assert.dom(variants[0]).isVisible();
+    assert.dom(variants[1]).isVisible();
+    assert.dom(variants[2]).isVisible();
+    assert.dom(variants[3]).isVisible();
+    assert.dom(variants[4]).isVisible();
+    assert.dom(variants[5]).isVisible();
 
-    for (let idx = 0; idx < variantKeys.length; idx++) {
-      let activeVariant = variantKeys[idx];
+    await click(SELECTOR.VARIANT_ITEM_NORMAL);
+    assert.dom(SELECTOR.USAGE_TITLE).hasText('Normal');
+    assert.dom(variants[1]).isNotVisible();
+    assert.dom(variants[2]).isNotVisible();
+    assert.dom(variants[3]).isNotVisible();
+    assert.dom(variants[4]).isNotVisible();
+    assert.dom(variants[5]).isNotVisible();
 
-      await fooCollection.selectVariant(activeVariant);
-      assert.equal(
-        fooCollection.variants.objectAt(idx).usageTitle.toLowerCase(),
-        activeVariant
-      );
-      variantKeys
-        .reject((each) => {
-          return each === activeVariant;
-        })
-        .map((otherVariant) => {
-          let otherIndex = variantKeys.indexOf(otherVariant);
-          assert.equal(fooCollection.variants.objectAt(otherIndex).text, '');
-        });
-    }
+    await click(SELECTOR.VARIANT_ITEM_SPECIAL);
+    assert.dom(SELECTOR.USAGE_TITLE).hasText('Special');
+    assert.dom(variants[0]).isNotVisible();
+    assert.dom(variants[2]).isNotVisible();
+    assert.dom(variants[3]).isNotVisible();
+    assert.dom(variants[4]).isNotVisible();
+    assert.dom(variants[5]).isNotVisible();
+
+    await click(SELECTOR.VARIANT_ITEM_HYPER);
+    assert.dom(SELECTOR.USAGE_TITLE).hasText('Hyper');
+    assert.dom(variants[0]).isNotVisible();
+    assert.dom(variants[1]).isNotVisible();
+    assert.dom(variants[3]).isNotVisible();
+    assert.dom(variants[4]).isNotVisible();
+    assert.dom(variants[5]).isNotVisible();
+
+    await click(SELECTOR.VARIANT_ITEM_CLASSIC);
+    assert.dom(SELECTOR.USAGE_TITLE).hasText('Classic');
+    assert.dom(variants[0]).isNotVisible();
+    assert.dom(variants[1]).isNotVisible();
+    assert.dom(variants[2]).isNotVisible();
+    assert.dom(variants[4]).isNotVisible();
+    assert.dom(variants[5]).isNotVisible();
+
+    await click(SELECTOR.VARIANT_ITEM_ELEGANT);
+    assert.dom(SELECTOR.USAGE_TITLE).hasText('Elegant');
+    assert.dom(variants[0]).isNotVisible();
+    assert.dom(variants[1]).isNotVisible();
+    assert.dom(variants[2]).isNotVisible();
+    assert.dom(variants[3]).isNotVisible();
+    assert.dom(variants[5]).isNotVisible();
+
+    await click(SELECTOR.VARIANT_ITEM_TASTEFUL);
+    assert.dom(SELECTOR.USAGE_TITLE).hasText('Tasteful');
+    assert.dom(variants[0]).isNotVisible();
+    assert.dom(variants[1]).isNotVisible();
+    assert.dom(variants[2]).isNotVisible();
+    assert.dom(variants[3]).isNotVisible();
+    assert.dom(variants[4]).isNotVisible();
   });
 });

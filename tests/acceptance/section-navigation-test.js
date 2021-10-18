@@ -1,72 +1,79 @@
-import { module, test } from 'qunit';
+import { settled, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import freestyleGuide from '../pages/freestyle-guide';
+import { module, test } from 'qunit';
+
+const SELECTOR = {
+  GUIDE_SUBTITLE: '.FreestyleGuide-subtitle',
+  GUIDE_TITLE: '.FreestyleGuide-title',
+  MENU_ITEM: '.FreestyleMenu-item',
+  MENU_ITEM_LINK: '.FreestyleMenu-itemLink',
+  SUBMENU_ITEM_LINK: '.FreestyleMenu-submenuItemLink',
+};
 
 module('Acceptance | section navigation', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(async function () {
-    await freestyleGuide.visit();
+    await visit('/acceptance');
   });
 
   test('verifying header', function (assert) {
-    assert.expect(2);
-    assert.equal(freestyleGuide.header.title, 'Ember Freestyle');
-    assert.equal(freestyleGuide.header.subtitle, 'Living Style Guide');
+    assert.dom(SELECTOR.GUIDE_TITLE).hasText('Ember Freestyle');
+    assert.dom(SELECTOR.GUIDE_SUBTITLE).hasText('Living Style Guide');
   });
 
-  test('verifying menu sections', async function (assert) {
-    assert.expect(6);
+  test('verifying menu sections', function (assert) {
+    assert.dom(SELECTOR.MENU_ITEM).exists({ count: 6 });
 
-    assert.equal(freestyleGuide.menu.sections.length, 6);
-    assert.equal(freestyleGuide.menu.sections.objectAt(0).text, 'All');
-    assert.equal(freestyleGuide.menu.sections.objectAt(1).text, 'Albums');
-    assert.equal(freestyleGuide.menu.sections.objectAt(3).text, 'Foo Things');
-    assert.equal(
-      freestyleGuide.menu.sections.objectAt(4).text,
-      'Dynamic Properties'
+    const menuItemLinks = this.element.querySelectorAll(
+      SELECTOR.MENU_ITEM_LINK
     );
-    assert.equal(freestyleGuide.menu.sections.objectAt(5).text, 'Visual Style');
+
+    assert.dom(menuItemLinks[0]).hasText('All');
+    assert.dom(menuItemLinks[1]).hasText('Albums');
+    assert.dom(menuItemLinks[2]).hasText('Freestyle::Usage');
+    assert.dom(menuItemLinks[3]).hasText('Foo Things');
+    assert.dom(menuItemLinks[4]).hasText('Dynamic Properties');
+    assert.dom(menuItemLinks[5]).hasText('Visual Style');
   });
 
   test('navigating directly to a subsection', function (assert) {
-    assert.expect(6);
-    let sectionFooThings = freestyleGuide.menu.sections.objectAt(3);
-    assert.equal(sectionFooThings.subsections.length, 2);
-    assert.equal(
-      sectionFooThings.subsections.objectAt(0).text,
-      'Foo Subsection A'
-    );
-    assert.equal(
-      sectionFooThings.subsections.objectAt(1).text,
-      'Foo Subsection B'
+    const submenuItemLinksFooThings = this.element.querySelectorAll(
+      `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`
     );
 
-    let sectionVisualStyle = freestyleGuide.menu.sections.objectAt(5);
-    assert.equal(sectionVisualStyle.subsections.length, 2);
-    assert.equal(sectionVisualStyle.subsections.objectAt(0).text, 'Typography');
-    assert.equal(sectionVisualStyle.subsections.objectAt(1).text, 'Color');
+    assert.dom(submenuItemLinksFooThings[0]).hasText('Foo Subsection A');
+    assert.dom(submenuItemLinksFooThings[1]).hasText('Foo Subsection B');
+
+    const submenuItemLinksVisualStyle = this.element.querySelectorAll(
+      `${SELECTOR.MENU_ITEM}:nth-child(6) ${SELECTOR.SUBMENU_ITEM_LINK}`
+    );
+
+    assert.dom(submenuItemLinksVisualStyle[0]).hasText('Typography');
+    assert.dom(submenuItemLinksVisualStyle[1]).hasText('Color');
   });
 
-  module('with allowRenderingAllSections set to false', function (hooks) {
+  module('with `allowRenderingAllSections` set to `false`', function (hooks) {
     hooks.beforeEach(async function () {
-      let service = this.owner.lookup('service:ember-freestyle');
-      service.allowRenderingAllSections = false;
-    });
-    test('verifying menu sections', async function (assert) {
-      assert.expect(5);
+      const emberFreestyle = this.owner.lookup('service:ember-freestyle');
 
-      assert.equal(freestyleGuide.menu.sections.length, 5);
-      assert.equal(freestyleGuide.menu.sections.objectAt(0).text, 'Albums');
-      assert.equal(freestyleGuide.menu.sections.objectAt(2).text, 'Foo Things');
-      assert.equal(
-        freestyleGuide.menu.sections.objectAt(3).text,
-        'Dynamic Properties'
+      emberFreestyle.allowRenderingAllSections = false;
+
+      await settled();
+    });
+
+    test('verifying menu sections', function (assert) {
+      assert.dom(SELECTOR.MENU_ITEM).exists({ count: 5 });
+
+      const menuItemLinks = this.element.querySelectorAll(
+        SELECTOR.MENU_ITEM_LINK
       );
-      assert.equal(
-        freestyleGuide.menu.sections.objectAt(4).text,
-        'Visual Style'
-      );
+
+      assert.dom(menuItemLinks[0]).hasText('Albums');
+      assert.dom(menuItemLinks[1]).hasText('Freestyle::Usage');
+      assert.dom(menuItemLinks[2]).hasText('Foo Things');
+      assert.dom(menuItemLinks[3]).hasText('Dynamic Properties');
+      assert.dom(menuItemLinks[4]).hasText('Visual Style');
     });
   });
 });
