@@ -33,8 +33,7 @@
     "contributors:generate": "all-contributors generate"
   },
   "resolutions": {
-    "ember-cli-deploy-git/ember-cli-babel": "^7.26.6",
-    "socket.io": "4.2.0"
+    "ember-cli-deploy-git/ember-cli-babel": "^7.26.6"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.0",
