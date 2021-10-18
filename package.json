@@ -32,9 +32,6 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
-  "resolutions": {
-    "ember-cli-deploy-git/ember-cli-babel": "^7.26.6"
-  },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.0",
     "@glimmer/component": "^1.0.4",
