@@ -11,7 +11,7 @@ module('Integration | Component | freestyle-guide', function (hooks) {
   });
 
   test('it sets the passed in `@highlightJsTheme` as the default theme on the `ember-freestyle` service', async function (assert) {
-    assert.equal(this.emberFreestyle.defaultTheme, 'zenburn');
+    assert.strictEqual(this.emberFreestyle.defaultTheme, 'zenburn');
 
     await render(hbs`
       <FreestyleGuide
@@ -19,6 +19,6 @@ module('Integration | Component | freestyle-guide', function (hooks) {
       />
     `);
 
-    assert.equal(this.emberFreestyle.defaultTheme, 'solarized-light');
+    assert.strictEqual(this.emberFreestyle.defaultTheme, 'solarized-light');
   });
 });
