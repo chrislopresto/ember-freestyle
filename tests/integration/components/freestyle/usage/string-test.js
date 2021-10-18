@@ -15,7 +15,7 @@ module('Integration | Component | freestyle/usage/string', function (hooks) {
     assert.expect(4);
     this.set('value', 'Bob');
     this.set('onInput', function (value) {
-      assert.equal(value, 'Robert');
+      assert.strictEqual(value, 'Robert');
     });
     await render(hbs`<Freestyle::Usage::String
       @name="Name"
@@ -34,7 +34,7 @@ module('Integration | Component | freestyle/usage/string', function (hooks) {
     this.set('value', 'Bob');
     this.set('options', ['Bob', 'Sue', 'Larry']);
     this.set('onInput', function (value) {
-      assert.equal(value, 'Larry');
+      assert.strictEqual(value, 'Larry');
     });
     await render(hbs`<Freestyle::Usage::String
       @name="Name"

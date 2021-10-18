@@ -81,7 +81,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
     const sourceNodes = sourceContainer.innerText.trim().split('\n');
     const lastSourceNode = sourceNodes[sourceNodes.length - 1];
 
-    assert.equal(lastSourceNode, '{{this.afterBlankLine}}');
+    assert.strictEqual(lastSourceNode, '{{this.afterBlankLine}}');
   });
 
   test('it does not render anything if the slug does not match the focus', async function (assert) {

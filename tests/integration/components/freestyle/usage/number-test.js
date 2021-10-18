@@ -14,7 +14,7 @@ module('Integration | Component | freestyle/usage/number', function (hooks) {
     assert.expect(3);
     this.set('value', 5);
     this.set('onInput', function (value) {
-      assert.equal(value, 6);
+      assert.strictEqual(value, 6);
     });
     await render(hbs`<Freestyle::Usage::Number
       @name="Count"
@@ -32,7 +32,7 @@ module('Integration | Component | freestyle/usage/number', function (hooks) {
       assert.expect(2);
       this.set('value', 5);
       this.set('onInput', function (value) {
-        assert.equal(value, 6);
+        assert.strictEqual(value, 6);
       });
       await render(hbs`<Freestyle::Usage::Number
         @name="Count"
