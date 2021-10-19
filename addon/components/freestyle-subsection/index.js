@@ -1,4 +1,3 @@
-/* eslint-disable ember/no-component-lifecycle-hooks */
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 
