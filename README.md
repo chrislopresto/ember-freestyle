@@ -2,36 +2,33 @@
 
 [![Build Status](https://github.com/chrislopresto/ember-freestyle/workflows/CI/badge.svg?branch=master)](https://github.com/chrislopresto/ember-freestyle/actions)
 
-![npm version](https://img.shields.io/npm/v/ember-freestyle?logo=npm)
-![Download count all time](https://img.shields.io/npm/dt/ember-freestyle.svg)
+![NPM Version](https://img.shields.io/npm/v/ember-freestyle?logo=npm)
+![Download Count All Time](https://img.shields.io/npm/dt/ember-freestyle.svg)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-freestyle.svg)](http://emberobserver.com/addons/ember-freestyle)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-39-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Ember Freestyle is an Ember addon that allows you to quickly create a component explorer for your Ember app.
+Ember Freestyle is an Ember addon that allows you to quickly create a component
+explorer for your Ember app.
 
 ## Documentation
 
-This README provides a lightweight overview of Ember Freestyle to get you going. More complete documentation can be found at https://chrislopresto.github.io/ember-freestyle
+This README provides a lightweight overview of Ember Freestyle to get you going.
+More complete documentation can be found at [https://chrislopresto.github.io/ember-freestyle](https://chrislopresto.github.io/ember-freestyle).
 
 ## Live Demo
 
-To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-freestyle/#/acceptance](https://chrislopresto.github.io/ember-freestyle/#/acceptance)
+To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-freestyle/#/acceptance](https://chrislopresto.github.io/ember-freestyle/#/acceptance).
 
-### Compatibility
+## Compatibility
 
 * Ember.js v3.16 or above
 * Ember CLI v3.16 or above
 * Node.js v12 or above
 
-### Support
-
-Ember Freestyle support is only provided for the 2 latest Ember versions
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 This installation process is opinionated in order to get you going quickly.
 
@@ -43,63 +40,51 @@ This installation process is opinionated in order to get you going quickly.
     - Add a `freestyle` template in your app
     - Add a `freestyle` controller in your app
 
-    *Note:* Ember CLI versions < 0.2.3 should use `ember install:addon` instead of `ember install`
-
-1. Add `this.route('freestyle');` to your `router.js` file
-1. Navigate to `/freestyle`. You should now see something like:
+2. Add `this.route('freestyle');` to your `app/router.js` file
+3. Navigate to `/freestyle`. You should now see something like:
 
     ![](doc/freestyle-generated.png)
 
-All of the generated output is optional. If you don't want a `freestyle` route, for example, feel free to get rid of it in and add a `freestyle-guide` somewhere else in your app.
+All of the generated output is optional. If you don't want a `freestyle` route,
+for example, feel free to get rid of it and add a `freestyle-guide` somewhere
+else in your app.
 
-You can use the `freestyle-guide` component anywhere you'd like in your app. You can organize your components into multiple Freestyle guides if you want to. You can even use the constituent components like `freestyle-usage` on their own.
+You can use the `freestyle-guide` component anywhere you'd like in your app.
+You can organize your components into multiple Freestyle guides if you want to.
+You can even use the constituent components like `freestyle-usage` on their own.
 
 ## Problems? No problem.
 
-Hopefully the installation instructions got you off to a smooth, seamless start. If you have any problems, feel free to chat with us in the [Ember Community Discord](https://discordapp.com/invite/zT3asNS) or [open an issue](https://github.com/chrislopresto/ember-freestyle/issues/new). As always, PRs are welcome!
+Hopefully the installation instructions got you off to a smooth, seamless start.
+If you have any problems, feel free to chat with us in the [Ember Community Discord](https://discord.gg/emberjs) or [open an issue](https://github.com/chrislopresto/ember-freestyle/issues/new). As always, PRs are welcome!
 
-## Removing Ember Freestyle from Your Production Payload
+## Removing Ember Freestyle from Your Production Build
 
-We recommend blacklisting Ember Freestyle for production builds using Ember CLI's [addon blacklist feature](https://ember-cli.com/user-guide/#whitelisting-and-blacklisting-assets).
+We recommend excluding Ember Freestyle from production builds using Ember CLI's
+`addons.blacklist` option.
 
-```javascript
-var environment = process.env.EMBER_ENV;
-var pluginsToBlacklist = environment === 'production' ? ['ember-freestyle'] : [];
+```js
+const environment = process.env.EMBER_ENV;
+const addonsToExclude = environment === 'production' ? ['ember-freestyle'] : [];
 
-module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
+module.exports = function (defaults) {
+  const app = new EmberAddon(defaults, {
     addons: {
-      blacklist: pluginsToBlacklist
-    }
+      blacklist: addonsToExclude,
+    },
   };
-}
+};
 ```
 
 ## Using Ember Freestyle Within an Addon
 
-### Dependency Configuration
+You should include `ember-freestyle` in your `devDependencies` so that apps
+using your addon will not include Ember Freestyle CSS and JavaScript in their
+production builds.
 
-You should include Ember Freestyle as a devDependency so that apps using your addon will not include
-Ember Freestyle CSS and JavaScript in their production payloads.
+## Contributing
 
-## Running
-
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Running tests
-
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
-
-### Running the dummy application
-
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
-
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 ## Contributors ✨
 
@@ -167,4 +152,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).
