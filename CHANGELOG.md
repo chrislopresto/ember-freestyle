@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.11...v0.13.0) (2021-10-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove the use of `ember-json-viewer`
+* drop support for Node v10
+
+### Features
+
+* deprecate `<FreestyleShowdownContent />` component ([78f2568](https://github.com/chrislopresto/ember-freestyle/commit/78f25681c40d33d56c1789601503f3d5ccca88da))
+
+
+### Bug Fixes
+
+* fix generated id for `freestyle-dynamic-input` component ([942c901](https://github.com/chrislopresto/ember-freestyle/commit/942c901293827e51f35a976623ccdeb0139181e9))
+* import computed.or directly ([ecb6811](https://github.com/chrislopresto/ember-freestyle/commit/ecb6811368e41c10466bf859e3bb9118f5683bfc))
+* import htmlSafe from @ember/template ([57ea33f](https://github.com/chrislopresto/ember-freestyle/commit/57ea33f6651342488e6cc6209a041dbc15ce977f))
+* make AST plugin functional ([87f521c](https://github.com/chrislopresto/ember-freestyle/commit/87f521ce1371a31f0f1fad9530a973f595819723))
+* resolve deprecations related to built-in component events ([a4d07c6](https://github.com/chrislopresto/ember-freestyle/commit/a4d07c6661299e9ab161a75a35a50ead5e755707))
+
+
+* drop support for Node v10 ([2add9c7](https://github.com/chrislopresto/ember-freestyle/commit/2add9c7152a5b58b9de45b4e188b836b656d5fb5))
+* remove the use of `ember-json-viewer` ([023f559](https://github.com/chrislopresto/ember-freestyle/commit/023f5591f5531d61188c20d4107447e26172d2b0))
+
 ### [0.12.11](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.10...v0.12.11) (2021-03-23)
 
 
