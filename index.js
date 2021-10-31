@@ -1,5 +1,9 @@
 'use strict';
 
+const DEFAULT_OPTIONS = {
+  includeStyles: true,
+};
+
 module.exports = {
   name: require('./package').name,
 
@@ -11,9 +15,19 @@ module.exports = {
     this._super.included.apply(this, arguments);
     // support for nested addon
     // see: https://github.com/ember-cli/ember-cli/issues/3718
-    var target = parentAddon || app;
+    const target = parentAddon || app;
+
     if (!this.app && target.app) {
       this.app = target.app;
+    }
+
+    const options = {
+      ...DEFAULT_OPTIONS,
+      ...this.app.options[this.name],
+    };
+
+    if (options.includeStyles === true) {
+      this.app.import('vendor/ember-freestyle.css');
     }
   },
 

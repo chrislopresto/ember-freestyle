@@ -8,6 +8,9 @@ module.exports = function (defaults) {
     autoprefixer: {
       cascade: false,
     },
+    'ember-freestyle': {
+      includeStyles: false,
+    },
     snippetSearchPaths: ['tests/dummy/app'],
   });
 
