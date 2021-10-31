@@ -1,0 +1,523 @@
+.FreestyleGuide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 320px;
+}
+.FreestyleGuide-header, .FreestyleGuide-footer {
+  display: flex;
+  flex: none;
+}
+.FreestyleGuide-header {
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px #b6b6b6;
+  padding: 0.5rem 1rem;
+}
+.FreestyleGuide-cta {
+  cursor: pointer;
+  display: inline-block;
+  flex-basis: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.FreestyleGuide-ctaIcon:hover {
+  fill: #00bcd4;
+}
+.FreestyleGuide-titleContainer {
+  padding: 0 1rem;
+  text-align: center;
+}
+.FreestyleGuide-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+@media (min-width: 600px) {
+  .FreestyleGuide-title {
+    font-size: 1.9rem;
+  }
+}
+.FreestyleGuide-subtitle {
+  margin: 0 auto;
+}
+.FreestyleGuide-body {
+  background-color: #fff;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+@media (min-width: 600px) {
+  .FreestyleGuide-body {
+    flex-direction: row;
+  }
+}
+.FreestyleGuide-content {
+  margin-top: 1.5rem;
+  overflow: auto;
+}
+@media (min-width: 600px) {
+  .FreestyleGuide-content {
+    flex: 1;
+    margin: 0;
+  }
+}
+.FreestyleGuide-nav {
+  background-color: #fff;
+  order: -1;
+  padding: 1rem;
+}
+@media (min-width: 600px) {
+  .FreestyleGuide-nav {
+    border-right: solid 1px #b6b6b6;
+    flex: 0 0 18rem;
+  }
+}
+.FreestyleGuide-aside {
+  background: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin-right: 0.5rem;
+  order: -2;
+  position: fixed;
+  right: 0.5rem;
+}
+@media (min-width: 600px) {
+  .FreestyleGuide-aside {
+    border-left: solid 1px #b6b6b6;
+    order: 1;
+  }
+}
+.FreestyleGuide-chooseSectionMessage {
+  display: flex;
+  height: 100%;
+  font-size: 1.4rem;
+}
+.FreestyleGuide-chooseSectionMessage > span {
+  margin: auto;
+}
+
+.FreestyleCollection {
+  max-width: 1200px;
+}
+.FreestyleCollection-title {
+  font-weight: bold;
+  padding: 1rem 1rem 0;
+  text-transform: uppercase;
+}
+.FreestyleCollection-variantList {
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #212121;
+  display: flex;
+  height: 48px;
+  list-style-type: none;
+  margin: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
+}
+.FreestyleCollection-variantListItem {
+  cursor: pointer;
+  display: block;
+  flex-grow: 1;
+  float: left;
+  font-size: 14px;
+  height: 48px;
+  letter-spacing: 0.8px;
+  line-height: 48px;
+  margin: 0;
+  min-width: 120px;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  width: 15%;
+}
+.FreestyleCollection-variantListItem:hover, .FreestyleCollection-variantListItem--active {
+  border-bottom: solid 3px #00bcd4;
+  color: #00bcd4;
+}
+
+.FreestyleDynamic-input {
+  margin-bottom: 10px;
+}
+.FreestyleDynamic-input input[type=text],
+.FreestyleDynamic-input textarea {
+  display: block;
+}
+.FreestyleDynamic-inputDescription {
+  display: block;
+}
+
+.FreestyleVariant--inline {
+  display: inline-block;
+}
+
+.FreestyleAnnotation {
+  font-size: 0.9rem;
+  padding: 0 1rem;
+}
+
+.FreestyleUsageControls {
+  background: #fff;
+  font-size: 0.9rem;
+  padding: 1rem;
+  text-align: left;
+  width: 200px;
+}
+.FreestyleUsageControls-header {
+  color: #00bcd4;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+.FreestyleUsageControls-item {
+  align-items: baseline;
+  display: flex;
+}
+.FreestyleUsageControls-item--focus {
+  padding-top: 0.6rem;
+}
+.FreestyleUsageControls-itemControl {
+  cursor: pointer;
+  padding-right: 0.1rem;
+}
+.FreestyleUsageControls-itemLabel {
+  font-size: 0.8rem;
+}
+.FreestyleUsageControls-input--focus {
+  margin-bottom: 0.2rem;
+}
+.FreestyleUsageControls-button {
+  background-color: #00bcd4;
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.6rem;
+  padding: 0.4rem 1rem;
+  text-transform: uppercase;
+}
+
+.FreestylePalette-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-bottom: 2px;
+  padding-top: 10px;
+}
+.FreestylePalette-description {
+  font-size: 0.8rem;
+  padding-bottom: 5px;
+}
+
+/* BEGIN-FREESTYLE-USAGE fpi--notes
+# Markdown Notes In SCSS!
+
+Hey look... these are `markdown` notes:
+
+- coming from scss
+- looking nice
+
+END-FREESTYLE-USAGE */
+.FreestylePaletteItem {
+  border: solid 1px #cecece;
+  display: inline-block;
+  margin: 0 5px 5px 0;
+}
+.FreestylePaletteItem-color {
+  height: 90px;
+  width: 160px;
+}
+.FreestylePaletteItem-info {
+  background-color: #fff;
+  border-top: solid 1px #cecece;
+  padding: 5px;
+}
+.FreestylePaletteItem-hex {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.FreestylePaletteItem-name {
+  color: #2f4f4f;
+  font-size: 11px;
+  margin-top: 0;
+}
+
+.FreestyleUsage {
+  max-width: 1200px;
+}
+.FreestyleUsage-title {
+  font-weight: bold;
+  padding: 1rem 1rem 0;
+  text-transform: uppercase;
+}
+.FreestyleUsage-rendered {
+  padding: 1rem;
+}
+.FreestyleUsage-usage {
+  padding-bottom: 10px;
+}
+.FreestyleUsage-sourceContainer pre {
+  font-size: 0.8rem;
+  margin-top: 0;
+}
+.FreestyleUsage-sourceContainer pre.hljs {
+  padding: 0.5rem 1rem;
+}
+.FreestyleUsage--inline {
+  border-bottom: 0;
+  display: inline-block;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .FreestyleUsage--inline {
+    max-width: inherit;
+    width: auto;
+  }
+}
+.FreestyleUsage-focusCta {
+  cursor: pointer;
+  fill: #b6b6b6;
+  position: relative;
+  top: 1px;
+}
+.FreestyleUsage-focusCta:hover {
+  fill: #00bcd4;
+}
+
+.FreestyleSection-name {
+  border-bottom: solid 1px #ccc;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  max-width: calc(1200px - 1rem);
+  padding: 1rem 0 0.4rem;
+  text-transform: uppercase;
+}
+.FreestyleSection--hidden {
+  display: none;
+}
+
+.FreestyleSubsection.is-hidden {
+  display: none;
+}
+.FreestyleSubsection-name {
+  font-size: 1.3rem;
+  margin: 0 1rem;
+  padding: 0.8rem 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.FreestyleMenu {
+  font-size: 14px;
+  list-style: none;
+  padding-left: 1rem;
+}
+.FreestyleMenu-item, .FreestyleMenu-submenuItem {
+  padding-top: 0.6rem;
+  text-transform: uppercase;
+}
+.FreestyleMenu-itemLink, .FreestyleMenu-submenuItemLink {
+  color: #212121;
+  text-decoration: none;
+}
+.FreestyleMenu-itemLink.active, .FreestyleMenu-submenuItemLink.active {
+  color: #00bcd4;
+  text-decoration: none;
+}
+.FreestyleMenu-itemLink:hover, .FreestyleMenu-submenuItemLink:hover {
+  color: #ffc107;
+  text-decoration: none;
+}
+.FreestyleMenu-submenu {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.FreestyleSource-title {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem 0.2rem;
+  text-transform: uppercase;
+}
+
+.FreestyleTypeface-previewHero, .FreestyleTypeface-previewSample {
+  font-family: inherit;
+}
+.FreestyleTypeface-previewHero {
+  font-size: 140px;
+  line-height: 1.05;
+}
+.FreestyleTypeface-previewSample {
+  font-size: 15px;
+  margin: 0;
+}
+
+.FreestyleUsage {
+  --radius: 4px;
+  --border-color: #eee;
+  padding: 0 1rem 1rem;
+  margin-bottom: 1rem;
+  max-width: 1200px;
+}
+.FreestyleUsage:last-child {
+  border-bottom: 1px solid #ccc;
+}
+.FreestyleUsage-name {
+  color: #333;
+  margin-top: 1.5rem;
+}
+.FreestyleUsage-description {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #666;
+}
+.FreestyleUsage-apiTitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0;
+}
+.FreestyleUsage-standaloneFocusCta {
+  float: right;
+  margin-right: 1rem;
+}
+.FreestyleUsage-preview {
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  position: relative;
+}
+.FreestyleUsage-preview:after {
+  content: "Preview";
+  font-size: 0.7rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #eee;
+  color: #777;
+  padding: 2px 8px;
+  display: block;
+  border-radius: 0 0 0 var(--radius);
+}
+.FreestyleUsage-sourceContainer, .FreestyleUsage-apiTable {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+.FreestyleUsage-apiTable {
+  width: 100%;
+  padding: 0.5rem 0 0.2rem;
+  border-collapse: collapse;
+}
+.FreestyleUsage-apiTable th {
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #777;
+}
+.FreestyleUsage-apiTable tr {
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+}
+.FreestyleUsage-apiTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.FreestyleUsage-apiTable th,
+.FreestyleUsage-apiTable td {
+  padding: 0.5rem 1rem;
+}
+.FreestyleUsage-sourceContainer {
+  margin-top: 1rem;
+}
+
+/*
+  FreestyleUsageArgument
+*/
+.FreestyleUsageArgument {
+  font-size: 0.8rem;
+}
+.FreestyleUsageArgument-name {
+  font-weight: bold;
+  width: 20%;
+}
+.FreestyleUsageArgument-description {
+  width: 40%;
+}
+.FreestyleUsageArgument-required {
+  color: #d81c38;
+  font-style: oblique;
+}
+.FreestyleUsageArgument-default {
+  font-family: monospace;
+}
+.FreestyleUsageArgument-jsonViewer {
+  background-color: #222;
+  min-width: 300px;
+  padding: 1rem;
+}
+
+.FreestyleUsageBoolean {
+  position: relative;
+  display: flex;
+}
+.FreestyleUsageBoolean:after {
+  content: "False";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 27px;
+  font-family: monospace;
+  color: #999;
+}
+.FreestyleUsageBoolean.is-checked:after {
+  content: "True";
+  color: #333;
+  font-weight: 700;
+}
+
+.FreestyleUsageArray-item {
+  margin: 0 0 0.5em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.FreestyleUsageArray-removeItem, .FreestyleUsageArray-addItem {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  padding: 2px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.8em;
+  border-radius: 4px;
+}
+.FreestyleUsageArray-removeItem {
+  color: #999;
+  opacity: 0.5;
+}
+.FreestyleUsageArray-addItem {
+  font-weight: 700;
+  padding: 3px 8px;
+  color: #666;
+  background: #ddd;
+}
+.FreestyleUsageArray-item:hover .FreestyleUsageArray-removeItem {
+  opacity: 1;
+}
+
+.u-codePill {
+  background-color: #eee;
+  border-radius: 2px;
+  color: #777;
+  display: inline-block;
+  font-family: monospace;
+  margin-right: 0.2em;
+  padding: 1px 7px;
+}

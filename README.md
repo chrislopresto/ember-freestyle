@@ -58,12 +58,41 @@ You can even use the constituent components like `freestyle-usage` on their own.
 Hopefully the installation instructions got you off to a smooth, seamless start.
 If you have any problems, feel free to chat with us in the [Ember Community Discord](https://discord.gg/emberjs) or [open an issue](https://github.com/chrislopresto/ember-freestyle/issues/new). As always, PRs are welcome!
 
-## Removing Ember Freestyle from Your Production Build
+## Excluding Ember Freestyle's Styles
+
+If you want to exclude Ember Freestyle's styles, you can set the `includeStyles`
+option to `false` in your `ember-cli-build.js` file:
+
+```js
+// ember-cli-build.js
+
+module.exports = function (defaults) {
+  const app = new EmberApp(defaults, {
+    'ember-freestyle': {
+      includeStyles: false,
+    },
+  };
+};
+```
+
+This might be useful in case you want to define your own styles _or_ if you are
+using `ember-cli-sass` and want to import Ember Freestyle's styles explicitly:
+
+```scss
+$FreestyleGuide-color--primary: #C70039;
+$FreestyleGuide-color--accent: #DAF7A6;
+
+@import 'ember-freestyle';
+```
+
+## Excluding Ember Freestyle from Your Production Build
 
 We recommend excluding Ember Freestyle from production builds using Ember CLI's
 `addons.blacklist` option.
 
 ```js
+// ember-cli-build.js
+
 const environment = process.env.EMBER_ENV;
 const addonsToExclude = environment === 'production' ? ['ember-freestyle'] : [];
 
