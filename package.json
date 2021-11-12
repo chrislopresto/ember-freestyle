@@ -93,11 +93,11 @@
     "remarkable": "^2.0.0",
     "sass": "^1.43.4",
     "standard-version": "^9.3.2",
-    "stylelint": "^13.13.1",
+    "stylelint": "^14.0.1",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-recommended-scss": "^4.3.0",
+    "stylelint-config-recommended-scss": "^5.0.1",
     "stylelint-prettier": "^1.2.0",
-    "stylelint-scss": "^3.21.0"
+    "stylelint-scss": "^4.0.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
