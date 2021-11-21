@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.1](https://github.com/chrislopresto/ember-freestyle/compare/v0.13.0...v0.13.1) (2021-11-21)
+
+
+### Features
+
+* remove dependency on `ember-cli-sass` and `sass` ([5482db1](https://github.com/chrislopresto/ember-freestyle/commit/5482db1b11332526e6916f2147e59216120b5fd2))
+
+
+### Bug Fixes
+
+* pass down [@hide](https://github.com/hide)Controls argument ([c8eac40](https://github.com/chrislopresto/ember-freestyle/commit/c8eac406cc1e59b99f659b68fed7af5b4722d5d4))
+
 ## [0.13.0](https://github.com/chrislopresto/ember-freestyle/compare/v0.12.11...v0.13.0) (2021-10-29)
 
 
