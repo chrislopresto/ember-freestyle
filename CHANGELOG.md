@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.13.1](https://github.com/chrislopresto/ember-freestyle/compare/v0.13.0...v0.13.1) (2021-11-21)
 
+This release didn't make it to npm. 0.13.2 has the same stuff.
 
 ### Features
 
