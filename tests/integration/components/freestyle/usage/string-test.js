@@ -48,4 +48,12 @@ module('Integration | Component | freestyle/usage/string', function (hooks) {
     assert.dom(SELECT_CONTROL).hasValue('Bob');
     await select(SELECT_CONTROL, 'Larry');
   });
+
+  test('Does not render the controls', async function (assert) {
+    await render(hbs`<Freestyle::Usage::String
+      @hideControls={{true}}
+    />`);
+
+    assert.dom(CONTROL).doesNotExist();
+  });
 });
