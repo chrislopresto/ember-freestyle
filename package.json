@@ -91,7 +91,7 @@
     "qunit": "^2.16.0",
     "qunit-dom": "^2.0.0",
     "remarkable": "^2.0.0",
-    "sass": "^1.43.4",
+    "sass": "^1.43.5",
     "standard-version": "^9.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^9.0.3",
