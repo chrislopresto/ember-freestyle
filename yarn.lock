@@ -1870,10 +1870,10 @@
     semver "^7.3.5"
     typescript-memoize "^1.0.1"
 
-"@embroider/test-setup@^0.47.2":
-  version "0.47.2"
-  resolved "https://registry.yarnpkg.com/@embroider/test-setup/-/test-setup-0.47.2.tgz#acf3fa6a38fa97ff577be49df44d6ab30e2dc054"
-  integrity sha512-zTiNaicOeBJWQ+uAJOEg4Z4plmvF2Ckze+tMZ0sycp2o09UV72WC8s9L3pssWOGgHMV6Kl+eCfFQelWwUOqz1Q==
+"@embroider/test-setup@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@embroider/test-setup/-/test-setup-1.1.0.tgz#d92186298e43571c5948a552357624e1a3daec33"
+  integrity sha512-p33GxYArGUw3zRUo1Oxv15o9/tn+rkS41QQdNay1Ztuy7DwWKFkCZaKQ1vuGC721WTEKBnwPlbQO/0RADcHqgw==
   dependencies:
     lodash "^4.17.21"
     resolve "^1.20.0"
