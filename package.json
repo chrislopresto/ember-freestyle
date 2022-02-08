@@ -46,7 +46,7 @@
     "ember-truth-helpers": "^3.0.0",
     "json-formatter-js": "^2.3.4",
     "macro-decorators": "^0.1.2",
-    "strip-indent": "^3.0.0"
+    "strip-indent": "^4.0.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
