@@ -27,6 +27,7 @@ To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-f
 * Ember.js v3.16 or above
 * Ember CLI v3.16 or above
 * Node.js v12 or above
+* Ember Auto Import v2 or above
 
 ## Installation
 
