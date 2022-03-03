@@ -18,6 +18,7 @@
 /.git/
 /.github/
 /.gitignore
+/.husky/
 /.node-version
 /.prettierignore
 /.prettierrc.js
