@@ -1,4 +1,9 @@
 @import 'ember-freestyle';
+@import './components/x-foo';
+@import './components/x-bar';
+@import './components/album-cover';
+@import './components/progress-icon';
+@import './components/markdown-content';
 
 html,
 body {
@@ -66,9 +71,3 @@ a {
   max-width: 60em;
   width: 100%;
 }
-
-@import 'components/x-foo';
-@import 'components/x-bar';
-@import 'components/album-cover';
-@import 'components/progress-icon';
-@import 'components/markdown-content';
