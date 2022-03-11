@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/chrislopresto/ember-freestyle/compare/v0.13.2...v0.14.0) (2022-03-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove `freestyle-showdown-content` component
+* update `ember-modifier` to v3
+* update to Ember v4.2
+
+* remove `freestyle-showdown-content` component ([5956a9e](https://github.com/chrislopresto/ember-freestyle/commit/5956a9ea183ddb7274a83478c7dbdcaab86a93d8))
+* update `ember-modifier` to v3 ([700eb07](https://github.com/chrislopresto/ember-freestyle/commit/700eb071847449f9843f7dc767b26cf843aa492d))
+* update to Ember v4.2 ([f6646a2](https://github.com/chrislopresto/ember-freestyle/commit/f6646a223880ce7882d1412aa38bc109b2f4f649))
+
 ### [0.13.2](https://github.com/chrislopresto/ember-freestyle/compare/v0.13.1...v0.13.2) (2021-11-21)
 
 ### [0.13.1](https://github.com/chrislopresto/ember-freestyle/compare/v0.13.0...v0.13.1) (2021-11-21)
