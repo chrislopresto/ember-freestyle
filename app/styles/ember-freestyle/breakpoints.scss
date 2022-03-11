@@ -1,0 +1,10 @@
+// TODO: Replace with actual breakpoint system.
+$FreestyleBreakpoints: (
+  large: 600px,
+);
+
+@mixin freestyle-breakpoint($name: 'large') {
+  @media (min-width: map-get($FreestyleBreakpoints, $name)) {
+    @content;
+  }
+}
