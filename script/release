@@ -8,4 +8,4 @@ echo "Pushing tags to GitHub..."
 git push --follow-tags origin master
 
 echo "Publishing package to npm..."
-npm publish
+npm_config_registry=https://registry.npmjs.org/ npm publish
