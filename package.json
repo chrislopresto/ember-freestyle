@@ -89,13 +89,13 @@
     "qunit": "^2.18.0",
     "qunit-dom": "^2.0.0",
     "remarkable": "^2.0.0",
-    "sass": "^1.49.7",
+    "sass": "^1.50.0",
     "standard-version": "^9.3.2",
     "stylelint": "^14.5.3",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^4.1.0",
+    "stylelint-scss": "^4.2.0",
     "webpack": "^5.69.1"
   },
   "engines": {
