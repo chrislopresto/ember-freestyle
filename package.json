@@ -93,7 +93,7 @@
     "standard-version": "^9.3.2",
     "stylelint": "^14.5.3",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.2.0",
     "webpack": "^5.69.1"
