@@ -41,7 +41,7 @@
     "ember-auto-import": "^2.4.0",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.0.1",
-    "ember-modifier": "^3.1.0",
+    "ember-modifier": "^3.2.7",
     "ember-named-blocks-polyfill": "^0.2.5",
     "ember-truth-helpers": "^3.0.0",
     "json-formatter-js": "^2.3.4",
@@ -95,7 +95,7 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^4.1.0",
+    "stylelint-scss": "^4.2.0",
     "webpack": "^5.69.1"
   },
   "engines": {
