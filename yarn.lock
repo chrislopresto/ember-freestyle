@@ -9983,10 +9983,10 @@ qunit-dom@^2.0.0:
     ember-cli-babel "^7.23.0"
     ember-cli-version-checker "^5.1.1"
 
-qunit@^2.18.0:
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.18.0.tgz#5a3efc8ee609e9d8f207a1ad317a9b02bb14bc6b"
-  integrity sha512-Xw/zUm5t1JY8SNErki/qtw4fCuaaOZL+bPloZU+0kto+fO8j1JV9MQWqXO4kATfhEyJohlsKZpfg1HF7GOkpXw==
+qunit@^2.18.2:
+  version "2.18.2"
+  resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.18.2.tgz#87ed3c85f12feec6ea6bf8dd2f8867b059732cbc"
+  integrity sha512-Ux+x9pIU38/F+r3jOl35QzGHPPupMifUvhczCqHgzYWX76fCjPg6VqM84ox1D57fhAXHtpS4Jl91EV8gDoCHPg==
   dependencies:
     commander "7.2.0"
     node-watch "0.7.3"
@@ -10578,10 +10578,10 @@ sane@^5.0.1:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass@^1.49.7:
-  version "1.49.9"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.9.tgz#b15a189ecb0ca9e24634bae5d1ebc191809712f9"
-  integrity sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==
+sass@^1.50.1:
+  version "1.50.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.50.1.tgz#e9b078a1748863013c4712d2466ce8ca4e4ed292"
+  integrity sha512-noTnY41KnlW2A9P8sdwESpDmo+KBNkukI1i8+hOK3footBUcohNHtdOJbckp46XO95nuvcHDDZ+4tmOnpK3hjw==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
