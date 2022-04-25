@@ -5609,10 +5609,10 @@ ember-source@~4.2.0:
     semver "^7.3.4"
     silent-error "^1.1.1"
 
-ember-template-lint@^4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.4.1.tgz#781224d485707d14b5af2fe267d7df8c82cb4c68"
-  integrity sha512-9ejLTAf00yP1XboEHWeATajUfWoe+FOtkr42GHz8Y5ktpbmrqjs0H45JRTBJX7d7pbN1aHveZtkQC7rzO1dApg==
+ember-template-lint@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.5.0.tgz#239dacb6be004ce78ca0cb3147fe728edf05d43e"
+  integrity sha512-cH4FWDtYG3UqBAI5cBucidUgfGhua5jEc0Ookf+Jv3aeNHJWHt3MZc8g4pH2VYzPlGbEoOBd/EUzUVkmKDZYDQ==
   dependencies:
     "@lint-todo/utils" "^13.0.2"
     aria-query "^5.0.0"
@@ -5625,6 +5625,7 @@ ember-template-lint@^4.4.1:
     get-stdin "^9.0.0"
     globby "^13.1.1"
     is-glob "^4.0.3"
+    language-tags "^1.0.5"
     micromatch "^4.0.5"
     resolve "^1.22.0"
     v8-compile-cache "^2.3.0"
@@ -8107,6 +8108,18 @@ known-css-properties@^0.24.0:
   version "0.24.0"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.24.0.tgz#19aefd85003ae5698a5560d2b55135bf5432155c"
   integrity sha512-RTSoaUAfLvpR357vWzAz/50Q/BmHfmE6ETSWfutT0AJiw10e6CmcdYRQJlLRd95B53D0Y2aD1jSxD3V3ySF+PA==
+
+language-subtag-registry@~0.3.2:
+  version "0.3.21"
+  resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"
+  integrity sha512-L0IqwlIXjilBVVYKFT37X9Ih11Um5NEl9cbJIuU/SwP/zEEAbBPOnEeeuxVMf45ydWQRDQN3Nqc96OgbH1K+Pg==
+
+language-tags@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/language-tags/-/language-tags-1.0.5.tgz#d321dbc4da30ba8bf3024e040fa5c14661f9193a"
+  integrity sha1-0yHbxNowuovzAk4ED6XBRmH5GTo=
+  dependencies:
+    language-subtag-registry "~0.3.2"
 
 leek@0.0.24:
   version "0.0.24"
