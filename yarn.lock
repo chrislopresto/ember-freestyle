@@ -1240,10 +1240,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@lint-todo/utils@^13.0.2":
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/@lint-todo/utils/-/utils-13.0.2.tgz#0d2fc6cc24452564dd2ee97be01437aa92b4c1a8"
-  integrity sha512-tLZfEjU5i7KThQbWZ4u5dLUJx9+euGnytz402uAH4VRa0jMxyc2HNXw+h6qPdKxM/wGAvwEQGn7l1j2kyLI7rQ==
+"@lint-todo/utils@^13.0.3":
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/@lint-todo/utils/-/utils-13.0.3.tgz#ca222f38738b43eb43384d56e7292ba9cab3e891"
+  integrity sha512-7Grdii4L/ae8FiykBcsEfum3m9yxVKPNQXpqJDPhWMHsReEunaQDkx/WLsjiNBctRb+roNHZQuXQYlJwoTlqOw==
   dependencies:
     "@types/eslint" "^7.2.13"
     find-up "^5.0.0"
@@ -3909,10 +3909,10 @@ chrome-trace-event@^1.0.2:
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.3.tgz#1015eced4741e15d06664a957dbbf50d041e26ac"
   integrity sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==
 
-ci-info@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.3.0.tgz#b4ed1fb6818dea4803a55c623041f9165d2066b2"
-  integrity sha512-riT/3vI5YpVH6/qomlDnJow6TBee2PBKSEpx3O32EGPYbWGIRsIlGRms3Sm74wYE1JMo8RnO04Hb12+v1J5ICw==
+ci-info@^3.3.0, ci-info@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.3.2.tgz#6d2967ffa407466481c6c90b6e16b3098f080128"
+  integrity sha512-xmDt/QIAdeZ9+nfdPsaBCpMvHNLFiLdjj59qjqn+6iPe6YmHGQ35sBnQ8uslRBXFmXkiZQOJRjvQeoGppoTjjg==
 
 cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.4"
@@ -5609,27 +5609,27 @@ ember-source@~4.2.0:
     semver "^7.3.4"
     silent-error "^1.1.1"
 
-ember-template-lint@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.5.0.tgz#239dacb6be004ce78ca0cb3147fe728edf05d43e"
-  integrity sha512-cH4FWDtYG3UqBAI5cBucidUgfGhua5jEc0Ookf+Jv3aeNHJWHt3MZc8g4pH2VYzPlGbEoOBd/EUzUVkmKDZYDQ==
+ember-template-lint@^4.10.1:
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.10.1.tgz#2c348187a7bce15f0fdf371f6f3f54e3717b0a0a"
+  integrity sha512-uFJ4jjzbYuVKTeTEVqzLDQR7XHFbSLQDZoFC6XZ3OMxX07YArmM78MKBOAJ6ri9fVCd1LD9j99j6qXwUWqWr1g==
   dependencies:
-    "@lint-todo/utils" "^13.0.2"
+    "@lint-todo/utils" "^13.0.3"
     aria-query "^5.0.0"
     chalk "^4.1.2"
-    ci-info "^3.3.0"
+    ci-info "^3.3.2"
     date-fns "^2.28.0"
     ember-template-recast "^6.1.3"
     find-up "^6.3.0"
     fuse.js "^6.5.3"
     get-stdin "^9.0.0"
-    globby "^13.1.1"
+    globby "^13.1.2"
     is-glob "^4.0.3"
     language-tags "^1.0.5"
     micromatch "^4.0.5"
-    resolve "^1.22.0"
+    resolve "^1.22.1"
     v8-compile-cache "^2.3.0"
-    yargs "^17.4.1"
+    yargs "^17.5.1"
 
 ember-template-recast@^6.1.3:
   version "6.1.3"
@@ -7050,10 +7050,10 @@ globby@^11.0.3, globby@^11.1.0:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
-globby@^13.1.1:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/globby/-/globby-13.1.1.tgz#7c44a93869b0b7612e38f22ed532bfe37b25ea6f"
-  integrity sha512-XMzoDZbGZ37tufiv7g0N4F/zp3zkwdFtVbV3EHsVl1KQr4RPLfNoT068/97RPshz2J5xYNEjLKKBKaGHifBd3Q==
+globby@^13.1.2:
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-13.1.2.tgz#29047105582427ab6eca4f905200667b056da515"
+  integrity sha512-LKSDZXToac40u8Q1PQtZihbNdTYSNMuWe+K5l+oa6KgDzSvVrHXlJy40hUP522RjAIoNLJYBJi7ow+rbFpIhHQ==
   dependencies:
     dir-glob "^3.0.1"
     fast-glob "^3.2.11"
@@ -7601,10 +7601,17 @@ is-callable@^1.1.4, is-callable@^1.2.4:
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.4.tgz#47301d58dd0259407865547853df6d61fe471945"
   integrity sha512-nsuwtxZfMX67Oryl9LCQ+upnC0Z0BgpwntpS89m1H/TLF0zNfzfLMV/9Wa/6MZsj0acpEjAO0KF1xT6ZdLl95w==
 
-is-core-module@^2.5.0, is-core-module@^2.8.1:
+is-core-module@^2.5.0:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.8.1.tgz#f59fdfca701d5879d0a6b100a40aa1560ce27211"
   integrity sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==
+  dependencies:
+    has "^1.0.3"
+
+is-core-module@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.9.0.tgz#e1c34429cd51c6dd9e09e0799e396e27b19a9c69"
+  integrity sha512-+5FPy5PnwmO3lvfMb0AsoPaBG+5KHUI0wYFXOtYPnVVVspTFUuMZNfNaNVRt3FZadstu2c8x23vykRW/NBoU6A==
   dependencies:
     has "^1.0.3"
 
@@ -10418,12 +10425,12 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
-resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.14.2, resolve@^1.17.0, resolve@^1.20.0, resolve@^1.22.0, resolve@^1.3.3, resolve@^1.4.0, resolve@^1.5.0:
-  version "1.22.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.0.tgz#5e0b8c67c15df57a89bdbabe603a002f21731198"
-  integrity sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==
+resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.14.2, resolve@^1.17.0, resolve@^1.20.0, resolve@^1.22.1, resolve@^1.3.3, resolve@^1.4.0, resolve@^1.5.0:
+  version "1.22.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.1.tgz#27cb2ebb53f91abb49470a928bba7558066ac177"
+  integrity sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==
   dependencies:
-    is-core-module "^2.8.1"
+    is-core-module "^2.9.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
@@ -12521,10 +12528,10 @@ yargs@^16.0.0, yargs@^16.2.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yargs@^17.4.1:
-  version "17.4.1"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.4.1.tgz#ebe23284207bb75cee7c408c33e722bfb27b5284"
-  integrity sha512-WSZD9jgobAg3ZKuCQZSa3g9QOJeCCqLoLAykiWgmXnDo9EPnn4RPf5qVTtzgOx66o6/oqhcA5tHtJXpG8pMt3g==
+yargs@^17.5.1:
+  version "17.5.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.5.1.tgz#e109900cab6fcb7fd44b1d8249166feb0b36e58e"
+  integrity sha512-t6YAJcxDkNX7NFYiVtKvWUz8l+PaKTLiL63mJYWR2GnHq2gjEWISzsLp9wg3aY36dY1j+gfIEL3pIF+XlJJfbA==
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"
