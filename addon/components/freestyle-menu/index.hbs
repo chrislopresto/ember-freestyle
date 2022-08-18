@@ -11,15 +11,17 @@
       <LinkTo @query={{hash f=null s=section.name ss=null}} class="FreestyleMenu-itemLink">
         {{section.name}}
       </LinkTo>
-      {{#each section.subsections as |subsection|}}
+      {{#if section.subsections.length}}
         <ul class="FreestyleMenu-submenu">
-          <li class="FreestyleMenu-submenuItem">
-            <LinkTo @query={{hash f=null s=section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
-              {{subsection.name}}
-            </LinkTo>
-          </li>
+          {{#each section.subsections as |subsection|}}
+            <li class="FreestyleMenu-submenuItem">
+              <LinkTo @query={{hash f=null s=section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
+                {{subsection.name}}
+              </LinkTo>
+            </li>
+          {{/each}}
         </ul>
-      {{/each}}
+      {{/if}}
     </li>
   {{/each}}
 </ul>
