@@ -39,6 +39,12 @@ $FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1,
     text-align: center;
   }
 
+  &-cta--aside {
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+
   &-ctaIcon {
     &:hover {
       fill: $FreestyleGuide-color--primary;
@@ -113,6 +119,7 @@ $FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1,
     display: flex;
     height: 100%;
     font-size: 1.4rem;
+
     & > span {
       margin: auto;
     }
