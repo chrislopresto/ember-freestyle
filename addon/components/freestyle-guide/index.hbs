@@ -38,7 +38,15 @@
       </nav>
     {{/if}}
     {{#if this.showAside}}
-      <aside class="FreestyleGuide-aside">
+      <aside class="FreestyleGuide-aside"
+        {{focus-trap
+          focusTrapOptions=(hash
+            onDeactivate=(fn (mut this.showAside) false)
+            allowOutsideClick=true
+            escapeDeactivates=true
+          )
+        }}
+      >
         <FreestyleUsageControls />
       </aside>
     {{/if}}
