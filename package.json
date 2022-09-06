@@ -96,7 +96,7 @@
     "stylelint-config-recommended-scss": "^7.0.0",
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.3.0",
-    "webpack": "^5.73.0"
+    "webpack": "^5.74.0"
   },
   "engines": {
     "node": "14.* || >= 16"
