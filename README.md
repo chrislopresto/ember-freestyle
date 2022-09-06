@@ -89,7 +89,7 @@ $FreestyleGuide-color--accent: #DAF7A6;
 ## Excluding Ember Freestyle from Your Production Build
 
 We recommend excluding Ember Freestyle from production builds using Ember CLI's
-`addons.blacklist` option.
+`addons.exclude` option.
 
 ```js
 // ember-cli-build.js
@@ -98,9 +98,9 @@ const environment = process.env.EMBER_ENV;
 const addonsToExclude = environment === 'production' ? ['ember-freestyle'] : [];
 
 module.exports = function (defaults) {
-  const app = new EmberAddon(defaults, {
+  const app = new EmberApp(defaults, {
     addons: {
-      blacklist: addonsToExclude,
+      exclude: addonsToExclude,
     },
   };
 };
