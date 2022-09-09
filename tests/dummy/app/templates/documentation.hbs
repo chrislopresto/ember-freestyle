@@ -242,7 +242,7 @@
     <p>
       You might find that rendering all your freestyle components in one page isn't desirable. The page might run slow,
       or you might want to encourage developers to use sub-sections. To hide the all menu option, and
-      set the ember-freestyle service's `allowRenderingAllSections` to false. 
+      set the ember-freestyle service's `allowRenderingAllSections` to false.
     </p>
 
     <b><p>app/routes/application.js</p></b>
@@ -263,21 +263,22 @@
     <h2>Removing Ember Freestyle from Your Production Payload</h2>
 
     <p>
-      We recommend blacklisting Ember Freestyle for production builds using Ember CLI's
-      <a href="https://ember-cli.com/user-guide/#whitelisting-and-blacklisting-assets">addon blacklist feature</a>.
+      We recommend excluding Ember Freestyle from production builds using Ember CLI's `addons.exclude` option.
     </p>
 
     <pre><code class="javascript language-javascript">
-  var environment = process.env.EMBER_ENV;
-  var pluginsToBlacklist = environment === 'production' ? ['ember-freestyle'] : [];
+  // ember-cli-build.js
 
-  module.exports = function(defaults) {
-    var app = new EmberApp(defaults, {
+  const environment = process.env.EMBER_ENV;
+  const addonsToExclude = environment === 'production' ? ['ember-freestyle'] : [];
+
+  module.exports = function (defaults) {
+    const app = new EmberApp(defaults, {
       addons: {
-        blacklist: pluginsToBlacklist
-      }
+        exclude: addonsToExclude,
+      },
     };
-  }
+  };
     </code></pre>
 
 
