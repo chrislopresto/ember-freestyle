@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file.
 
 ## [0.14.0](https://github.com/chrislopresto/ember-freestyle/compare/v0.13.2...v0.14.0) (2022-03-11)
 
