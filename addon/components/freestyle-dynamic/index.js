@@ -1,4 +1,3 @@
-import { assign } from '@ember/polyfills';
 import Component from '@ember/component';
 import { action, set, get, computed } from '@ember/object';
 import { assert } from '@ember/debug';
@@ -38,7 +37,7 @@ export default Component.extend({
   @action
   changeValueTo(property, newValue) {
     // Make a copy and then reset dynamicProperties, to force template changes
-    let dynamicProperties = assign({}, this.dynamicProperties);
+    let dynamicProperties = { ...this.dynamicProperties };
     set(dynamicProperties, `${property}.value`, newValue);
 
     this.set('dynamicProperties', dynamicProperties);
