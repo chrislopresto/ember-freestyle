@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## v0.15.0 (2022-09-14)
+
+#### :rocket: Enhancement
+* [#828](https://github.com/chrislopresto/ember-freestyle/pull/828) Render headings instead of divs ([@KamiKillertO](https://github.com/KamiKillertO))
+
+#### :bug: Bug Fix
+* [#827](https://github.com/chrislopresto/ember-freestyle/pull/827) Fix aside menu ([@KamiKillertO](https://github.com/KamiKillertO))
+* [#823](https://github.com/chrislopresto/ember-freestyle/pull/823) Fix rendering too many submenus ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :memo: Documentation
+* [#835](https://github.com/chrislopresto/ember-freestyle/pull/835) Recommend `exclude` option instead of `blacklist` option ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :house: Internal
+* [#844](https://github.com/chrislopresto/ember-freestyle/pull/844) Move to release-it to manage release and CHANGELOG. ([@lukemelia](https://github.com/lukemelia))
+* [#836](https://github.com/chrislopresto/ember-freestyle/pull/836) Update Ember to v4.6 ([@bertdeblock](https://github.com/bertdeblock))
+* [#837](https://github.com/chrislopresto/ember-freestyle/pull/837) Use spread syntax instead of Ember's `assign` polyfill ([@bertdeblock](https://github.com/bertdeblock))
+* [#810](https://github.com/chrislopresto/ember-freestyle/pull/810) Update Ember to v4.4 ([@bertdeblock](https://github.com/bertdeblock))
+* [#752](https://github.com/chrislopresto/ember-freestyle/pull/752) Resolve `ember-modifier` deprecations ([@bertdeblock](https://github.com/bertdeblock))
+
+#### Committers: 3
+- Benjamin JEGARD ([@KamiKillertO](https://github.com/KamiKillertO))
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+
 ## [0.14.0](https://github.com/chrislopresto/ember-freestyle/compare/v0.13.2...v0.14.0) (2022-03-11)
 
 
