@@ -28,9 +28,7 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "prerelease": "./script/prerelease",
-    "release": "./script/release",
-    "postrelease": "./script/postrelease",
+    "release": "release-it",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
@@ -88,9 +86,10 @@
     "prettier": "^2.7.1",
     "qunit": "^2.19.1",
     "qunit-dom": "^2.0.0",
+    "release-it": "^15.4.1",
+    "@release-it-plugins/lerna-changelog": "^5.0.0",
     "remarkable": "^2.0.0",
     "sass": "^1.54.8",
-    "standard-version": "^9.5.0",
     "stylelint": "^14.11.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-scss": "^7.0.0",
@@ -100,6 +99,13 @@
   },
   "engines": {
     "node": "14.* || >= 16"
+  },
+  "volta": {
+    "node": "14.19.3",
+    "yarn": "1.22.19"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "ember": {
     "edition": "octane"
@@ -114,8 +120,22 @@
       "ember-named-blocks-polyfill"
     ]
   },
-  "volta": {
-    "node": "14.19.3",
-    "yarn": "1.22.19"
+  "release-it": {
+    "plugins": {
+      "@release-it-plugins/lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": false
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    },
+    "hooks": {
+      "after:release": "ember deploy production"
+    }
   }
 }
