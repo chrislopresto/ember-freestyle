@@ -172,10 +172,9 @@
   &lt;/FreestyleAnnotation&gt;
     </code></pre>
 
-    <h3>&lt;Freestyle::Usage&gt; <strong>NEW! EXPERIMENTAL!</strong></h3>
+    <h3>&lt;Freestyle::Usage&gt; <strong>NEW!</strong></h3>
     <p>We're exploring a new approach to documenting components inspired by
-      StoryBook DocBlocks. It's still highly experimental and will evolve over the coming
-      months. Use at your own risk!</p>
+      StoryBook DocBlocks. It's still evolving but we're using it quite happily.</p>
 
       <p>For more information, <a href="https://github.com/chrislopresto/ember-freestyle/blob/master/FREESTYLE_USAGE_API.md">check out the latest documentation.</a></p>
 
@@ -225,7 +224,7 @@
 
     <h3>MarkdownExample Component</h3>
     <p>
-      {{#let (get-code-snippet "markdown-example.js") as |snippet|}}
+      {{#let (get-code-snippet "markdown-example.ts") as |snippet|}}
       <pre {{freestyle-highlight}} class={{snippet.language}}>{{snippet.source}}</pre>
       {{/let}}
     </p>

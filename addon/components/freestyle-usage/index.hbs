@@ -1,4 +1,8 @@
-<div class="FreestyleUsage {{if @inline 'FreestyleUsage--inline'}}">
+<div
+  class="FreestyleUsage {{if @inline 'FreestyleUsage--inline'}}"
+  {{did-insert this.ensureTheme}}
+  ...attributes
+>
   {{#if this.show}}
     {{#if this.hasLabels}}
       <div class="FreestyleUsage-title">
@@ -14,7 +18,7 @@
       <div class="FreestyleUsage-usage">
         {{#if @source}}
           <div class="FreestyleUsage-sourceContainer">
-            <FreestyleSource @source={{@source}} @isDynamic={{@isDynamic}} @dynamicProperties={{this.dynamicProperties}} @title="Source" />
+            <FreestyleSource @source={{@source}} @isDynamic={{@isDynamic}} @dynamicProperties={{this.dynamicProperties}} />
           </div>
         {{/if}}
       </div>
