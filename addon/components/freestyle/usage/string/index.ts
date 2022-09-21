@@ -10,7 +10,7 @@ interface Signature {
     hideControls?: boolean;
     value?: string;
     options?: string[];
-    onInput: (val: string | null) => void;
+    onInput: (val: string | null | undefined) => void;
   };
   Blocks: EmptyObject;
 }

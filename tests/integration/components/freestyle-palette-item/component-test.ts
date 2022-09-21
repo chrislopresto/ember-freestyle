@@ -1,13 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
-import { TestContext } from '@ember/test-helpers';
-import { PaletteItem } from '../../../../addon/components/freestyle-palette/index';
+import { hbs } from 'ember-cli-htmlbars';
+import { PaletteItem } from 'ember-freestyle/components/freestyle-palette/index';
+import type { TestContext } from '@ember/test-helpers';
 
 interface Context extends TestContext {
   color: PaletteItem;
 }
+
 module('Integration | Component | freestyle palette item', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -21,7 +22,7 @@ module('Integration | Component | freestyle palette item', function (hooks) {
       base: color,
     };
 
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestylePaletteItem @color={{this.color}} />
     `);
 

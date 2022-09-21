@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { TestContext } from '@ember/test-helpers';
 
 interface Context extends TestContext {
@@ -22,7 +22,7 @@ module('Integration | Component | freestyle/usage/bool', function (hooks) {
     this.set('onInput', function (value: boolean) {
       assert.false(value);
     });
-    await render(hbs`<Freestyle::Usage::Bool
+    await render<Context>(hbs`<Freestyle::Usage::Bool
       @name="Enabled"
       @value={{this.value}}
       @onInput={{this.onInput}}

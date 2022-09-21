@@ -1,13 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { TestContext } from '@ember/test-helpers';
 import { ColorPalette } from 'ember-freestyle/components/freestyle-palette';
 
 interface Context extends TestContext {
   colorPalette: ColorPalette;
 }
+
 const COLOR_PALETTE = {
   black: {
     base: 'black',
@@ -27,7 +28,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
   });
 
   test('it renders a color palette', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestylePalette
         @colorPalette={{this.colorPalette}}
       />
@@ -57,7 +58,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
   });
 
   test('it renders a title', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestylePalette
         @colorPalette={{this.colorPalette}}
       />
@@ -65,7 +66,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
 
     assert.dom('.FreestylePalette-title').hasText('Freestyle Palette');
 
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestylePalette
         @colorPalette={{this.colorPalette}}
         @title="Different Title"
@@ -76,7 +77,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
   });
 
   test('it renders a description', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestylePalette
         @colorPalette={{this.colorPalette}}
       />
@@ -86,7 +87,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
       .dom('.FreestylePalette-description')
       .hasText('Represents all colors used in this project.');
 
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestylePalette
         @colorPalette={{this.colorPalette}}
         @description="Different description."

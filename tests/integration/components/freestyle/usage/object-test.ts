@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { TestContext } from '@ember/test-helpers';
 
 interface Context extends TestContext {
@@ -32,7 +32,7 @@ module('Integration | Component | freestyle/usage/object', function (hooks) {
         },
       ],
     });
-    await render(hbs`<Freestyle::Usage::Object
+    await render<Context>(hbs`<Freestyle::Usage::Object
       @name="Collectibles"
       @value={{this.value}}
       @jsonCollapseDepth={{3}}

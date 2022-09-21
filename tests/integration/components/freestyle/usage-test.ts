@@ -1,7 +1,15 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
+import type { TestContext } from '@ember/test-helpers';
+
+interface Context extends TestContext {
+  fractionComplete: number;
+  isCancelled: boolean;
+  isComplete: boolean;
+  size: number;
+}
 
 const USAGE = '.FreestyleUsage';
 const DESCRIPTION = `${USAGE}-description`;
@@ -20,19 +28,19 @@ module('Integration | Component | freestyle/usage', function (hooks) {
       isComplete: false,
     });
 
-    await render(hbs`
+    await render<Context>(hbs`
       <Freestyle::Usage @name="ProgressIcon">
         <:description>
           This component shows a visual progress indicator of the fraction complete a task is.
         </:description>
 
         <:example>
-            <ProgressIcon
-              @size={{this.size}}
-              @isCancelled={{this.isCancelled}}
-              @isComplete={{this.isComplete}}
-              @fractionComplete={{this.fractionComplete}}
-            />
+          <ProgressIcon
+            @size={{this.size}}
+            @isCancelled={{this.isCancelled}}
+            @isComplete={{this.isComplete}}
+            @fractionComplete={{this.fractionComplete}}
+          />
         </:example>
 
         <:api as |Args|>

@@ -1,12 +1,15 @@
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import EmberFreestyleService from 'ember-freestyle/services/ember-freestyle';
 import { TestContext } from '@ember/test-helpers';
+import { ContentValue } from '@glint/template';
 
 interface Context extends TestContext {
   emberFreestyle: EmberFreestyleService;
+  indentedFarBeforeBlankLine: ContentValue;
+  afterBlankLine: ContentValue;
 }
 
 const SELECTOR = {
@@ -27,7 +30,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
   });
 
   test('it renders the block source', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleUsage @slug="componentA">
         hello from component A
       </FreestyleUsage>
@@ -39,7 +42,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
   });
 
   test('it renders the title and the focus button if a title is passed in and the guide is set to show labels', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleUsage @slug="componentA" @title="Title A">
         hello from component A
       </FreestyleUsage>
@@ -53,7 +56,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
   test('it does not render the title if the guide is set to not show labels', async function (this: Context, assert) {
     this.emberFreestyle.showLabels = false;
 
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleUsage @slug="componentA" @title="Title A">
         hello from component A
       </FreestyleUsage>
@@ -64,7 +67,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
   });
 
   test('it renders the passed in block', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleUsage @slug="componentA">
         hello from component A
       </FreestyleUsage>
@@ -74,7 +77,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
   });
 
   test('it ignores blank lines when unindenting', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleUsage @slug="componentA">
         {{this.indentedFarBeforeBlankLine}}
 
@@ -95,7 +98,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
   test('it does not render anything if the slug does not match the focus', async function (this: Context, assert) {
     this.emberFreestyle.focus = 'someOtherComponent';
 
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleUsage @slug="componentA" @title="Title A">
         hello from component A
       </FreestyleUsage>
@@ -107,7 +110,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
   });
 
   test('it renders the passed in block for angle bracket components', async function (this: Context, assert) {
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleUsage @slug="componentA">
         hello from component A
       </FreestyleUsage>

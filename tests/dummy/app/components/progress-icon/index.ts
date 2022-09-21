@@ -13,7 +13,7 @@ interface Signature {
   Blocks: EmptyObject;
 }
 
-export default class extends Component<Signature> {
+export default class ProgressIcon extends Component<Signature> {
   get inProgress(): boolean {
     return !(this.args.isCancelled || this.args.isComplete);
   }
@@ -31,5 +31,11 @@ export default class extends Component<Signature> {
       styles.push(`background-size: ${size * 0.666}px ${size * 0.666}px`);
     }
     return htmlSafe(styles.join(';'));
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ProgressIcon: typeof ProgressIcon;
   }
 }

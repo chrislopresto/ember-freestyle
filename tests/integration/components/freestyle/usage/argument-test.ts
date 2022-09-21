@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { TestContext } from '@ember/test-helpers';
 
 interface Context extends TestContext {
@@ -37,7 +37,7 @@ module('Integration | Component | freestyle/usage/argument', function (hooks) {
   });
 
   async function renderComponent() {
-    return render(hbs`
+    return render<Context>(hbs`
       <Freestyle::Usage::Argument
         @name={{this.name}}
         @type={{this.type}}
@@ -75,7 +75,7 @@ module('Integration | Component | freestyle/usage/argument', function (hooks) {
 
   module('accepts yields for custom controls', function () {
     test('renders the controls', async function (this: Context, assert) {
-      await render(hbs`
+      await render<Context>(hbs`
         <Freestyle::Usage::Argument
           @name={{this.name}}
           @type={{this.type}}

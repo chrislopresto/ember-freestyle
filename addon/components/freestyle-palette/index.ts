@@ -19,6 +19,7 @@ interface Signature {
   Args: {
     colorPalette: ColorPalette;
     title?: string;
+    description?: string;
   };
   Blocks: {
     default: [];

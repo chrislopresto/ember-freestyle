@@ -1,5 +1,5 @@
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import EmberFreestyleService from '../../../../addon/services/ember-freestyle';
@@ -21,7 +21,7 @@ module('Integration | Component | freestyle-guide', function (hooks) {
   test('it sets the passed in `@highlightJsTheme` as the default theme on the `ember-freestyle` service', async function (this: Context, assert) {
     assert.strictEqual(this.emberFreestyle.defaultTheme, 'zenburn');
 
-    await render(hbs`
+    await render<Context>(hbs`
       <FreestyleGuide
         @highlightJsTheme="solarized-light"
       />

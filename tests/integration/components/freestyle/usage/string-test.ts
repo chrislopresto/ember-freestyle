@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, fillIn, select } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { TestContext } from '@ember/test-helpers';
 
 interface Context extends TestContext {
@@ -24,7 +24,7 @@ module('Integration | Component | freestyle/usage/string', function (hooks) {
     this.set('onInput', function (value: string) {
       assert.strictEqual(value, 'Robert');
     });
-    await render(hbs`<Freestyle::Usage::String
+    await render<Context>(hbs`<Freestyle::Usage::String
       @name="Name"
       @value={{this.value}}
       @onInput={{this.onInput}}
@@ -43,7 +43,7 @@ module('Integration | Component | freestyle/usage/string', function (hooks) {
     this.set('onInput', function (value: string) {
       assert.strictEqual(value, 'Larry');
     });
-    await render(hbs`<Freestyle::Usage::String
+    await render<Context>(hbs`<Freestyle::Usage::String
       @name="Name"
       @value={{this.value}}
       @options={{this.options}}
@@ -57,8 +57,9 @@ module('Integration | Component | freestyle/usage/string', function (hooks) {
   });
 
   test('Does not render the controls', async function (this: Context, assert) {
-    await render(hbs`<Freestyle::Usage::String
+    await render<Context>(hbs`<Freestyle::Usage::String
       @hideControls={{true}}
+      @onInput={{this.onInput}}
     />`);
 
     assert.dom(CONTROL).doesNotExist();

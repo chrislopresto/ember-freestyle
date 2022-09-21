@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, fillIn, click } from '@ember/test-helpers';
 import { A } from '@ember/array';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 import { TestContext } from '@ember/test-helpers';
 import MutableArray from '@ember/array/mutable';
 
@@ -44,7 +44,7 @@ module('Integration | Component | freestyle/usage/array', function (hooks) {
 
   test('Simply prints the value if an known type is passed in', async function (this: Context, assert) {
     this.set('items', A(['Bob']));
-    await render(hbs`<Freestyle::Usage::Array
+    await render<Context>(hbs`<Freestyle::Usage::Array
       @name="Names"
       @type="Borg"
       @description="A list of names"
@@ -64,7 +64,7 @@ module('Integration | Component | freestyle/usage/array', function (hooks) {
     });
 
     test('Can add, update and remove items', async function (this: Context, assert) {
-      await render(hbs`<Freestyle::Usage::Array
+      await render<Context>(hbs`<Freestyle::Usage::Array
         @name="Names"
         @type="String"
         @description="A list of names"
@@ -99,7 +99,7 @@ module('Integration | Component | freestyle/usage/array', function (hooks) {
     });
 
     test('Can display the checkboxes', async function (this: Context, assert) {
-      await render(hbs`<Freestyle::Usage::Array
+      await render<Context>(hbs`<Freestyle::Usage::Array
         @name="Updates"
         @type="Boolean"
         @description="A list of updates"
@@ -124,7 +124,7 @@ module('Integration | Component | freestyle/usage/array', function (hooks) {
     });
 
     test('Can display the numbers', async function (this: Context, assert) {
-      await render(hbs`<Freestyle::Usage::Array
+      await render<Context>(hbs`<Freestyle::Usage::Array
         @name="Scores"
         @type="Number"
         @description="A list of numbers"
@@ -149,7 +149,7 @@ module('Integration | Component | freestyle/usage/array', function (hooks) {
     });
 
     test('Can be marked as readonly and not allow changes', async function (this: Context, assert) {
-      await render(hbs`<Freestyle::Usage::Array
+      await render<Context>(hbs`<Freestyle::Usage::Array
         @name="Users"
         @type="Object"
         @description="A list of users"
