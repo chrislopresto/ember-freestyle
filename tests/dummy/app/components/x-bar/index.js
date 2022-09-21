@@ -1,18 +1,16 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 
-export default Component.extend({
-  tagName: '',
-  title: 'Default Title',
-  description: 'Default Description',
-  size: 'medium',
-  showBorder: true,
-  isVisible: true,
-  isTasteful: false,
+export default class XBar extends Component {
+  title = 'Default Title';
+  description = 'Default Description';
+  size = 'medium';
+  showBorder = true;
+  isVisible = true;
+  isTasteful = false;
 
-  innerBorderThicknessStyle: computed('innerBorderThickness', function () {
-    const innerBorderThickness = this.innerBorderThickness;
+  get innerBorderThicknessStyle() {
+    const innerBorderThickness = this.args.innerBorderThickness;
 
     // allow 0
     if (innerBorderThickness != null) {
@@ -20,5 +18,5 @@ export default Component.extend({
     } else {
       return '';
     }
-  }),
-});
+  }
+}

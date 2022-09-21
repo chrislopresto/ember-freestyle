@@ -22,13 +22,6 @@ module.exports = {
     browser: true,
   },
   rules: {
-    'ember/no-classic-classes': 'off',
-    'ember/no-classic-components': 'off',
-
-    // this needs to be off because things like import and export statements are
-    // "unsupported", even though we're transpiling them first.
-    'node/no-unsupported-features/es-syntax': 'off',
-
     // Type overloads cause false positives. typescript errors on duplicates, so
     // this doesn't need to be replaced.
     'no-dupe-class-members': 'off',
@@ -66,8 +59,8 @@ module.exports = {
     '@typescript-eslint/no-for-in-array': 'error',
   },
   overrides: [
-    // node files
     {
+      // node files
       files: [
         './.eslintrc.js',
         './.prettierrc.js',
@@ -100,6 +93,13 @@ module.exports = {
       // test files
       files: ['tests/**/*-test.{js,ts}'],
       extends: ['plugin:qunit/recommended'],
+    },
+    {
+      // JS files
+      files: ['tests/**/*.js'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+      },
     },
   ],
 };

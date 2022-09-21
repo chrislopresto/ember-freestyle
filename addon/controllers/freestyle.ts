@@ -1,21 +1,26 @@
-import { inject as service } from '@ember/service';
-import { alias } from '@ember/object/computed';
 import Controller from '@ember/controller';
+import type EmberFreestyleService from 'ember-freestyle/services/ember-freestyle';
 
-export default Controller.extend({
-  emberFreestyle: service(),
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { inject as service } from '@ember/service';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { alias } from '@ember/object/computed';
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
-  queryParams: ['l', 'n', 'c', 'a', 'm', 'f', 's', 'ss'],
+export default class FreestyleController extends Controller {
+  @service('ember-freestyle') declare emberFreestyle: EmberFreestyleService;
 
-  l: alias('emberFreestyle.showLabels'),
-  n: alias('emberFreestyle.showNotes'),
-  c: alias('emberFreestyle.showCode'),
-  a: alias('emberFreestyle.showApi'),
+  queryParams = ['l', 'n', 'c', 'a', 'm', 'f', 's', 'ss'];
 
-  m: alias('emberFreestyle.showMenu'),
+  @alias('emberFreestyle.showLabels') declare l: boolean;
+  @alias('emberFreestyle.showNotes') declare n: boolean;
+  @alias('emberFreestyle.showCode') declare c: boolean;
+  @alias('emberFreestyle.showApi') declare a: boolean;
 
-  f: alias('emberFreestyle.focus'),
+  @alias('emberFreestyle.showMenu') declare m: boolean;
 
-  s: alias('emberFreestyle.section'),
-  ss: alias('emberFreestyle.subsection'),
-});
+  @alias('emberFreestyle.focus') declare f: string;
+
+  @alias('emberFreestyle.section') declare s: string;
+  @alias('emberFreestyle.subsection') declare ss: string;
+}
