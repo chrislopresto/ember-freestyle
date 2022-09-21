@@ -83,17 +83,7 @@
         />
       </:api>
     </Freestyle::Usage>
-    <Freestyle::Usage @slug="ProgressIcon-followup">
-      <:description>
-        Simple example at 100%
-      </:description>
-      <:example>
-          <ProgressIcon
-            @size={{this.size}}
-            @fractionComplete={{1}}
-          />
-      </:example>
-    </Freestyle::Usage>
+    <SimpleProgressIconUsage @slug="ProgressIcon-followup" @size={{this.size}} />
   </FreestyleSection>
 
   <FreestyleSection @name="Foo Things" as |Section|>
