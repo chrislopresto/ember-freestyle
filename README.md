@@ -23,10 +23,12 @@ To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-f
 
 ## Compatibility
 
-* Ember.js v3.16 or above
-* Ember CLI v3.16 or above
+* Ember.js v3.24 or above
+* Ember CLI v3.24 or above
 * Node.js v14 or above
 * Ember Auto Import v2 or above
+
+ember-freestyle includes Typescript types and provides `addon/glint.ts` for Glint usage
 
 ## Installation
 

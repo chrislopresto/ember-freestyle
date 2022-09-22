@@ -1,0 +1,74 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noEmitOnError": false,
+    "noEmit": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "baseUrl": ".",
+    "module": "es6",
+    "experimentalDecorators": true,
+    "skipLibCheck": false,
+    "traceResolution": false,
+    "paths": {
+      "fetch": [
+        "../../node_modules/ember-fetch"
+      ],
+      "dummy/tests/*": [
+        "tests/*"
+      ],
+      "dummy/*": [
+        "tests/dummy/app/*",
+        "app/*"
+      ],
+      "ember-freestyle": [
+        "addon"
+      ],
+      "ember-freestyle/*": [
+        "addon/*"
+      ],
+      "ember-freestyle/test-support": [
+        "addon-test-support"
+      ],
+      "ember-freestyle/test-support/*": [
+        "addon-test-support/*"
+      ],
+      "*": [
+        "types/*"
+      ],
+      "@glimmer/tracking": [
+        "../../node_modules/@glimmer/tracking/dist/types"
+      ],
+    }
+  },
+  "glint": {
+    "environment": ["ember-loose"],
+    "transform": {
+      "exclude": [
+        "app/**/*",
+        "tests/dummy/app/**/*"
+      ]
+    }
+  },
+  "include": [
+    "app/**/*.ts",
+    "addon/**/*.ts",
+    "tests/**/*",
+    "types/**/*",
+    "test-support/**/*",
+    "addon-test-support/**/*",
+  ]
+}

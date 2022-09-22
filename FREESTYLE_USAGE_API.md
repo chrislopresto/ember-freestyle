@@ -10,8 +10,9 @@
     - [`<Args.Action>`](#argsaction)
     - [`<Args.Yield>`](#argsyield)
     - [`<Args.Object>`](#argsobject)
+  - [Example source code](#example-source-code)
 
-This component is an experimental API which to accomplish two goals:
+This component has API which aims to accomplish two goals:
 1. Increase the flexibility of testing a components edge cases, while reducing the overal amount of boilerplate code that needs to be written
 2. Clearly document how a component can be used. 
 
@@ -114,3 +115,12 @@ When a component expects a type of javascript object as an input. The API row wi
 |`@name`|`String`|Optional, if the component has a named block|
 |`@value`|`Object`|Optional. Will display a pretty printed and syntax highlighted representation in the controls column|
 |`@jsonCollapseDepth`|`Number`| In the preview, how many levels in should the json object be collapsed on initial render|
+
+## Example source code
+
+An AST transform takes the contents of the `<:example>...</:example>` named block and makes it available to the Freestyle::Usage component for
+rendering with syntax highlighting.
+
+The AST transform works by looking for a compoent invocation of the form `<Freestyle::Usage> ... `. This works find for traditional Ember templates
+that use global lookup for components. To facilitate strict mode templates (`.gjs/.gts`), the code also looks for `<FreestyleUsage>...`. Name your
+import accordingly in order to benefit from this feature.

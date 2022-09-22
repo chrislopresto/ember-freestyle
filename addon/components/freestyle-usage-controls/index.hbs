@@ -1,4 +1,4 @@
-<div class="FreestyleUsageControls">
+<div class="FreestyleUsageControls" {{did-insert this.setup}}>
   {{#if this.showHeader}}
     <div class="FreestyleUsageControls-header">
       Settings
@@ -42,7 +42,7 @@
         <label class="FreestyleUsageControls-label--focus">Focus a section
           <Input class="FreestyleUsageControls-input--focus" @value={{this.focus}} @enter={{this.setFocus}} />
         </label>
-        <button class="FreestyleUsageControls-button" onclick={{this.setFocus}} type="button">Focus</button>
+        <button class="FreestyleUsageControls-button" {{on 'click' this.setFocus}} type="button">Focus</button>
       </div>
     </div>
   {{/if}}

@@ -1,9 +1,9 @@
-<ul class='FreestyleCollection-variantList'>
+<ul class='FreestyleCollection-variantList' ...attributes>
   {{#each @variants as |variantKey|}}
     <li
       class='FreestyleCollection-variantListItem {{if (eq @activeKey variantKey) 'FreestyleCollection-variantListItem--active'}}'
       role="button"
-      onclick={{fn this.onClickItem variantKey}}
+      {{on 'click' (fn @onClickVariant variantKey)}}
     >
       {{variantKey}}
     </li>

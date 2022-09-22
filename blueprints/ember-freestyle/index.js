@@ -3,6 +3,7 @@ var path = require('path');
 module.exports = {
   name: 'ember-freestyle',
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   normalizeEntityName: function () {},
 
   fileMapTokens: function () {
