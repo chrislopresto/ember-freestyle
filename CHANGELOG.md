@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 
 
+
+## v0.16.0-beta.0 (2022-09-22)
+
+#### :boom: Breaking Change
+* [#847](https://github.com/chrislopresto/ember-freestyle/pull/847) Convert to Glimmer, Typescript, & Glint ([@lukemelia](https://github.com/lukemelia))
+
+#### Committers: 1
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+
 ## v0.15.0 (2022-09-14)
 
 #### :rocket: Enhancement
