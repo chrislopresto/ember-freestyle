@@ -92,8 +92,12 @@ $FreestyleGuide-boxShadow: 0 2px 5px 0 $FreestyleGuide-shadow1,
 
   &-nav {
     background-color: $FreestyleGuide-color--background;
+    height: 100vh;
     order: -1;
+    overflow: auto;
     padding: 1rem;
+    position: sticky;
+    top: 0;
 
     @include freestyle-breakpoint(large) {
       border-right: solid 1px $FreestyleGuide-color--secondary;
