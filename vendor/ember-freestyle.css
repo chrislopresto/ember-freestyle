@@ -69,8 +69,12 @@
 }
 .FreestyleGuide-nav {
   background-color: #fff;
+  height: 100vh;
   order: -1;
+  overflow: auto;
   padding: 1rem;
+  position: sticky;
+  top: 0;
 }
 @media (min-width: 600px) {
   .FreestyleGuide-nav {
