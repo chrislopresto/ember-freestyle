@@ -86,7 +86,7 @@
     "@types/rsvp": "^4.0.4",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
-    "all-contributors-cli": "^6.20.4",
+    "all-contributors-cli": "^6.23.1",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~4.7.0",
     "ember-cli-autoprefixer": "^2.0.0",
