@@ -1,6 +1,7 @@
 import type FreestyleUsage from 'ember-freestyle/components/freestyle/usage';
 import type FreestyleUsageArgument from 'ember-freestyle/components/freestyle/usage/argument';
 import type FreestyleUsageArray from 'ember-freestyle/components/freestyle/usage/array';
+import type FreestyleUsageBasicCssVariable from 'ember-freestyle/components/freestyle/usage/basic-css-variable';
 import type FreestyleUsageBool from 'ember-freestyle/components/freestyle/usage/bool';
 import type FreestyleUsageBoolControl from 'ember-freestyle/components/freestyle/usage/bool/control';
 import type FreestyleUsageNumber from 'ember-freestyle/components/freestyle/usage/number';
@@ -28,6 +29,7 @@ import type FreestyleUsageControls from 'ember-freestyle/components/freestyle-us
 import type FreestyleVariant from 'ember-freestyle/components/freestyle-variant';
 import type FreestyleVariantList from 'ember-freestyle/components/freestyle-variant-list';
 import FreestyleHighlight from './modifiers/freestyle-highlight';
+import CssVarsHelper from './helpers/css-vars';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
@@ -40,6 +42,7 @@ declare module '@glint/environment-ember-loose/registry' {
     'freestyle/usage/bool': typeof FreestyleUsageBool;
     'Freestyle::Usage::Bool::Control': typeof FreestyleUsageBoolControl;
     'Freestyle::Usage::Number': typeof FreestyleUsageNumber;
+    'freestyle/usage/basic-css-variable': typeof FreestyleUsageBasicCssVariable;
     'freestyle/usage/number': typeof FreestyleUsageNumber;
     'Freestyle::Usage::Number::Control': typeof FreestyleUsageNumberControl;
     'Freestyle::Usage::Object': typeof FreestyleUsageObject;
@@ -70,5 +73,6 @@ declare module '@glint/environment-ember-loose/registry' {
     FreestyleVariantList: typeof FreestyleVariantList;
     'freestyle-variant-list': typeof FreestyleVariantList;
     'freestyle-highlight': typeof FreestyleHighlight;
+    'css-vars': typeof CssVarsHelper;
   }
 }

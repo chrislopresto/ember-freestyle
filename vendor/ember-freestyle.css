@@ -387,7 +387,10 @@ END-FREESTYLE-USAGE */
   font-size: 1.1rem;
   color: #666;
 }
-.FreestyleUsage-apiTitle {
+.FreestyleUsage-api + .FreestyleUsage-cssVars {
+  margin-top: 1rem;
+}
+.FreestyleUsage-apiTitle, .FreestyleUsage-cssVarsTitle {
   font-size: 0.9rem;
   font-weight: bold;
   margin: 0;
@@ -415,30 +418,31 @@ END-FREESTYLE-USAGE */
   display: block;
   border-radius: 0 0 0 var(--radius);
 }
-.FreestyleUsage-sourceContainer, .FreestyleUsage-apiTable {
+.FreestyleUsage-sourceContainer, .FreestyleUsage-apiTable, .FreestyleUsage-cssVarsTable {
   margin-left: -1rem;
   margin-right: -1rem;
 }
-.FreestyleUsage-apiTable {
+.FreestyleUsage-apiTable, .FreestyleUsage-cssVarsTable {
   width: 100%;
   padding: 0.5rem 0 0.2rem;
   border-collapse: collapse;
 }
-.FreestyleUsage-apiTable th {
+.FreestyleUsage-apiTable th, .FreestyleUsage-cssVarsTable th {
   text-align: left;
   font-size: 0.8rem;
   font-weight: 600;
   color: #777;
 }
-.FreestyleUsage-apiTable tr {
+.FreestyleUsage-apiTable tr, .FreestyleUsage-cssVarsTable tr {
   border-bottom: 1px solid var(--border-color);
   vertical-align: top;
 }
-.FreestyleUsage-apiTable tr:nth-child(even) {
+.FreestyleUsage-apiTable tr:nth-child(even), .FreestyleUsage-cssVarsTable tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 .FreestyleUsage-apiTable th,
-.FreestyleUsage-apiTable td {
+.FreestyleUsage-apiTable td, .FreestyleUsage-cssVarsTable th,
+.FreestyleUsage-cssVarsTable td {
   padding: 0.5rem 1rem;
 }
 .FreestyleUsage-sourceContainer {
@@ -448,24 +452,30 @@ END-FREESTYLE-USAGE */
 /*
   FreestyleUsageArgument
 */
-.FreestyleUsageArgument {
+.FreestyleUsageArgument,
+.FreestyleUsageCssVar {
   font-size: 0.8rem;
 }
-.FreestyleUsageArgument-name {
+.FreestyleUsageArgument-name,
+.FreestyleUsageCssVar-name {
   font-weight: bold;
   width: 20%;
 }
-.FreestyleUsageArgument-description {
+.FreestyleUsageArgument-description,
+.FreestyleUsageCssVar-description {
   width: 40%;
 }
-.FreestyleUsageArgument-required {
+.FreestyleUsageArgument-required,
+.FreestyleUsageCssVar-required {
   color: #d81c38;
   font-style: oblique;
 }
-.FreestyleUsageArgument-default {
+.FreestyleUsageArgument-default,
+.FreestyleUsageCssVar-default {
   font-family: monospace;
 }
-.FreestyleUsageArgument-jsonViewer {
+.FreestyleUsageArgument-jsonViewer,
+.FreestyleUsageCssVar-jsonViewer {
   background-color: #222;
   min-width: 300px;
   padding: 1rem;

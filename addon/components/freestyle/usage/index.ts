@@ -30,6 +30,11 @@ interface Signature {
         Yield: any;
       }
     ];
+    cssVars: [
+      {
+        Basic: any;
+      }
+    ];
   };
 }
 

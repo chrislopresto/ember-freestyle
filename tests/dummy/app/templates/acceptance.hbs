@@ -39,12 +39,19 @@
         This component shows a visual progress indicator of the fraction complete a task is.
       </:description>
       <:example>
+        <div
+          style={{css-vars
+            progress-icon-background-color=this.progressIconBackgroundColor.value
+            progress-icon-stroke-color=this.progressIconStrokeColor.value
+          }}
+        >
           <ProgressIcon
             @size={{this.size}}
             @isCancelled={{this.isCancelled}}
             @isComplete={{this.isComplete}}
             @fractionComplete={{this.fractionComplete}}
           />
+        </div>
       </:example>
 
       <:api as |Args|>
@@ -82,6 +89,24 @@
           @onInput={{fn (mut this.isComplete)}}
         />
       </:api>
+      <:cssVars as |Css|>
+        <Css.Basic
+          @name="progress-icon-background-color"
+          @type="color"
+          @description="Color of the background area"
+          @defaultValue={{this.progressIconBackgroundColor.defaults}}
+          @value={{this.progressIconBackgroundColor.value}}
+          @onInput={{this.progressIconBackgroundColor.update}}
+        />
+        <Css.Basic
+          @name="progress-icon-stroke-color"
+          @type="color"
+          @description="Color of the progress bar area"
+          @defaultValue={{this.progressIconStrokeColor.defaults}}
+          @value={{this.progressIconStrokeColor.value}}
+          @onInput={{this.progressIconStrokeColor.update}}
+        />
+      </:cssVars>
     </Freestyle::Usage>
     <SimpleProgressIconUsage @slug="ProgressIcon-followup" @size={{this.size}} />
   </FreestyleSection>

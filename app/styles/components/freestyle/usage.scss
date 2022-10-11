@@ -20,7 +20,12 @@
     color: #666;
   }
 
-  &-apiTitle {
+  &-api + &-cssVars {
+    margin-top: 1rem;
+  }
+
+  &-apiTitle,
+  &-cssVarsTitle {
     font-size: 0.9rem;
     font-weight: bold;
     margin: 0;
@@ -53,12 +58,14 @@
   }
 
   &-sourceContainer,
-  &-apiTable {
+  &-apiTable,
+  &-cssVarsTable {
     margin-left: -1rem;
     margin-right: -1rem;
   }
 
-  &-apiTable {
+  &-apiTable,
+  &-cssVarsTable {
     width: 100%;
     padding: 0.5rem 0 0.2rem;
     border-collapse: collapse;
@@ -90,7 +97,8 @@
 /*
   FreestyleUsageArgument
 */
-.FreestyleUsageArgument {
+.FreestyleUsageArgument,
+.FreestyleUsageCssVar {
   font-size: 0.8rem;
 
   &-name {

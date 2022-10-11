@@ -24,13 +24,12 @@ export default class ProgressIcon extends Component<Signature> {
     );
   }
 
-  get elementStyle(): ReturnType<typeof htmlSafe> {
-    const { size } = this.args;
-    const styles = [`width: ${size}px`, `height: ${size}px`];
+  get backgroundSizeStyle(): string {
     if (this.args.isCancelled || this.args.isComplete) {
-      styles.push(`background-size: ${size * 0.666}px ${size * 0.666}px`);
+      const size = this.args.size;
+      return `background-size: ${size * 0.666}px ${size * 0.666}px`;
     }
-    return htmlSafe(styles.join(';'));
+    return '';
   }
 }
 

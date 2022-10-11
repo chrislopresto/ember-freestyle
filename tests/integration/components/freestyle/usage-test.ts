@@ -3,12 +3,15 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import type { TestContext } from '@ember/test-helpers';
+import { CSSVariableInfo } from 'ember-freestyle';
 
 interface Context extends TestContext {
   fractionComplete: number;
   isCancelled: boolean;
   isComplete: boolean;
   size: number;
+  progressIconBackgroundColor: CSSVariableInfo;
+  progressIconStrokeColor: CSSVariableInfo;
 }
 
 const USAGE = '.FreestyleUsage';
@@ -16,6 +19,7 @@ const DESCRIPTION = `${USAGE}-description`;
 const RENDERED = `${USAGE}-preview`;
 const SOURCE = `${USAGE}-sourceContainer pre`;
 const ARGUMENT = `${USAGE}Argument`;
+const CSS_VAR = `${USAGE}CssVar`;
 
 module('Integration | Component | freestyle/usage', function (hooks) {
   setupRenderingTest(hooks);
@@ -26,6 +30,10 @@ module('Integration | Component | freestyle/usage', function (hooks) {
       size: 24,
       isCancelled: false,
       isComplete: false,
+      progressIconBackgroundColor: new CSSVariableInfo(
+        'process-icon-background-color'
+      ),
+      progressIconStrokeColor: new CSSVariableInfo('process-icon-stroke-color'),
     });
 
     await render<Context>(hbs`
@@ -35,12 +43,19 @@ module('Integration | Component | freestyle/usage', function (hooks) {
         </:description>
 
         <:example>
-          <ProgressIcon
-            @size={{this.size}}
-            @isCancelled={{this.isCancelled}}
-            @isComplete={{this.isComplete}}
-            @fractionComplete={{this.fractionComplete}}
-          />
+          <div
+            style={{css-vars
+              progress-icon-background-color=this.progressIconBackgroundColor.value
+              progress-icon-stroke-color=this.progressIconStrokeColor.value
+            }}
+          >
+            <ProgressIcon
+              @size={{this.size}}
+              @isCancelled={{this.isCancelled}}
+              @isComplete={{this.isComplete}}
+              @fractionComplete={{this.fractionComplete}}
+            />
+          </div>
         </:example>
 
         <:api as |Args|>
@@ -78,13 +93,32 @@ module('Integration | Component | freestyle/usage', function (hooks) {
             @onInput={{fn (mut this.isComplete)}}
           />
         </:api>
+        <:cssVars as |Css|>
+          <Css.Basic
+            @name="progress-icon-background-color"
+            @type="color"
+            @description="Color of the background area"
+            @defaultValue={{this.progressIconBackgroundColor.defaults}}
+            @value={{this.progressIconBackgroundColor.value}}
+            @onInput={{this.progressIconBackgroundColor.update}}
+          />
+          <Css.Basic
+            @name="progress-icon-stroke-color"
+            @type="color"
+            @description="Color of the progress bar area"
+            @defaultValue={{this.progressIconStrokeColor.defaults}}
+            @value={{this.progressIconStrokeColor.value}}
+            @onInput={{this.progressIconStrokeColor.update}}
+          />
+        </:cssVars>
       </Freestyle::Usage>
     `);
 
     assert.dom(USAGE).exists();
     assert.dom(DESCRIPTION).exists();
-    assert.dom(`${RENDERED} > div`).hasClass('ProgressIcon');
+    assert.dom(`${RENDERED} > div > div`).hasClass('ProgressIcon');
     assert.dom(ARGUMENT).exists({ count: 4 });
+    assert.dom(CSS_VAR).exists({ count: 2 });
     assert.dom(SOURCE).hasClass('handlebars');
   });
 });

@@ -1,0 +1,37 @@
+<tr class="FreestyleUsageCssVar">
+  <td class="FreestyleUsageCssVar-name">
+    {{#if @name}}{{@name}}{{/if}}
+  </td>
+
+  <td class="FreestyleUsageCssVar-description">
+    <span class="FreestyleUsageCssVar-type u-codePill">
+      {{@type}}
+    </span>
+
+    {{@description}}
+  </td>
+
+  <td class="FreestyleUsageCssVar-details">
+    {{#if this.shouldRenderDefaultValue}}
+      <span class="FreestyleUsageCssVar-default u-codePill">
+        {{@defaultValue.raw}}
+      </span>
+      {{#if this.shouldRenderDefaultComputed}}
+        ({{@defaultValue.computed}})
+      {{/if}}
+    {{/if}}
+  </td>
+
+  <td class={{concat
+    "FreestyleUsageCssVar-controls "
+    "FreestyleUsageCssVar-controls--string"
+  }}>
+    {{#unless @hideControls}}
+      <Freestyle::Usage::String::Control
+        @options={{@options}}
+        @value={{@value}}
+        @onInput={{@onInput}}
+      />
+    {{/unless}}
+  </td>
+</tr>
