@@ -15,13 +15,11 @@ function getRootStyleDeclarations(): CSSStyleDeclaration[] {
         }
       })
       .filter(Boolean)
-      .map((rules: CSSRuleList) => Array.from(rules))
-      .flat();
+      .flatMap((rules: CSSRuleList) => Array.from(rules));
 
     rootStyleDeclarations = allRules
       .filter((rule: CSSStyleRule) => rule.selectorText === ':root')
-      .map((rule: CSSStyleRule) => rule.style)
-      .flat();
+      .flatMap((rule: CSSStyleRule) => rule.style);
   }
   return rootStyleDeclarations;
 }
@@ -47,14 +45,14 @@ export class CSSVariableInfo {
 
   constructor(name: string) {
     this.name = name;
-    const intialValue = getComputedStyle(document.body)
+    const initialValue = getComputedStyle(document.body)
       .getPropertyValue(`--${name}`)
       ?.trim();
     this.defaults = {
       raw: getRootVariableDefinition(name)?.trim(),
-      computed: intialValue,
+      computed: initialValue,
     };
-    this.value = intialValue;
+    this.value = initialValue;
   }
 
   @action
@@ -62,6 +60,11 @@ export class CSSVariableInfo {
     this.value = val;
   }
 }
+
+const memoizationMap = new WeakMap<
+  Record<string, unknown>,
+  Map<string, CSSVariableInfo>
+>();
 
 /* This decorator dasherizes the property name it is decorating to get
    a css variable name. The default value is looked up on a `:root`
@@ -71,11 +74,24 @@ export class CSSVariableInfo {
 export function cssVariable(target: any, key: string): PropertyDescriptor {
   const desc: PropertyDescriptor = {
     get(): CSSVariableInfo {
-      const name = dasherize(key);
-      if (target[`_${key}`] === undefined) {
-        target[`_${key}`] = new CSSVariableInfo(name);
+      if (!memoizationMap.get(target)) {
+        memoizationMap.set(target, new Map());
       }
-      return target[`_${key}`];
+      const memoizedInfos = memoizationMap.get(target);
+      if (memoizedInfos) {
+        let result = memoizedInfos.get(key);
+        if (!result) {
+          // TODO: extract a method to convert property name to CSS Variable name and make it configurable
+          const name = dasherize(key);
+          result = new CSSVariableInfo(name);
+          memoizedInfos.set(key, result);
+        }
+        return result;
+      } else {
+        throw new Error(
+          'Unexpected missing key in cssVariable decorator implementation'
+        );
+      }
     },
   };
 
