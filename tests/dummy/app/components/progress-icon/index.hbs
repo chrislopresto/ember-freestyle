@@ -1,11 +1,15 @@
+{{!-- template-lint-disable no-forbidden-elements --}}
+<style type="text/css">
+  #{{this.elementId}} {
+    width: {{concat @size 'px'}};
+    height: {{concat @size 'px'}};
+    background-size: {{this.backgroundSizeStyle}};
+  }
+</style>
 <div
+  id={{this.elementId}}
   class="ProgressIcon {{if @isCancelled "is-cancelled"}} {{if @isComplete "is-complete"}}"
   ...attributes
-  {{style
-    width=(concat @size 'px')
-    height=(concat @size 'px')
-    backgroundSize=this.backgroundSizeStyle
-  }}
 >
   {{#if this.inProgress}}
     <div class="ProgressIcon-progressPie" style={{this.pieStyle}}>

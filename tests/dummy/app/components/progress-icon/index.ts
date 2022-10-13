@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { type EmptyObject } from '@ember/component/helper';
+import { guidFor } from '@ember/object/internals';
 
 interface Signature {
   Element: HTMLDivElement;
@@ -14,6 +15,10 @@ interface Signature {
 }
 
 export default class ProgressIcon extends Component<Signature> {
+  get elementId() {
+    return guidFor(this);
+  }
+
   get inProgress(): boolean {
     return !(this.args.isCancelled || this.args.isComplete);
   }
@@ -24,12 +29,12 @@ export default class ProgressIcon extends Component<Signature> {
     );
   }
 
-  get backgroundSizeStyle(): string {
+  get backgroundSizeStyle(): string | undefined {
     if (this.args.isCancelled || this.args.isComplete) {
       const size = this.args.size;
       return `${size * 0.666}px ${size * 0.666}px`;
     }
-    return '';
+    return undefined;
   }
 }
 

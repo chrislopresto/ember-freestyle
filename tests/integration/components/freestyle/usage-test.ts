@@ -31,9 +31,13 @@ module('Integration | Component | freestyle/usage', function (hooks) {
       isCancelled: false,
       isComplete: false,
       progressIconBackgroundColor: new CSSVariableInfo(
-        'process-icon-background-color'
+        'process-icon-background-color',
+        'ProgressIcon'
       ),
-      progressIconStrokeColor: new CSSVariableInfo('process-icon-stroke-color'),
+      progressIconStrokeColor: new CSSVariableInfo(
+        'process-icon-stroke-color',
+        'ProgressIcon'
+      ),
     });
 
     await render<Context>(hbs`

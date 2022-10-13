@@ -1,10 +1,11 @@
 :root {
   --freestyle-light-gray: #e8e8e8; // example to demo chaining
-  --progress-icon-background-color: blue;
-  --progress-icon-stroke-color: var(--freestyle-light-gray);
 }
 
 .ProgressIcon {
+  --progress-icon-background-color: blue;
+  --progress-icon-stroke-color: var(--freestyle-light-gray);
+
   position: relative;
   background-color: var(--progress-icon-background-color);
   border-radius: 100px;

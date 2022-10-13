@@ -1,16 +1,9 @@
 import FreestyleController from 'ember-freestyle/controllers/freestyle';
-import { cssVariable } from 'ember-freestyle';
 
 export default class extends FreestyleController {
   color = null;
   colorPalette = null;
   dynamicProperties = null;
-  fractionComplete = 0.4;
-  isCancelled = false;
-  isComplete = false;
-  size = 24;
-  @cssVariable progressIconBackgroundColor;
-  @cssVariable progressIconStrokeColor;
 
   color = {
     name: 'amber',
