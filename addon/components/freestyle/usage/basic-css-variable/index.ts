@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { isPresent } from '@ember/utils';
 import { type CSSVariableDefaults } from 'ember-freestyle';
 
 interface Signature {
@@ -17,7 +16,7 @@ interface Signature {
 
 export default class FreestyleUsageBasicCssVariableComponent extends Component<Signature> {
   get shouldRenderDefaultValue(): boolean {
-    return isPresent(this.args.defaultValue);
+    return this.args.defaultValue !== undefined;
   }
   get shouldRenderDefaultComputed(): boolean {
     const { defaultValue } = this.args;
