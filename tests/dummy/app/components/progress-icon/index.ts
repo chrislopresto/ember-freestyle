@@ -27,7 +27,7 @@ export default class ProgressIcon extends Component<Signature> {
   get backgroundSizeStyle(): string {
     if (this.args.isCancelled || this.args.isComplete) {
       const size = this.args.size;
-      return `background-size: ${size * 0.666}px ${size * 0.666}px`;
+      return `${size * 0.666}px ${size * 0.666}px`;
     }
     return '';
   }

@@ -106,6 +106,7 @@
     "ember-resolver": "^8.0.3",
     "ember-source": "~4.7.0",
     "ember-source-channel-url": "^3.0.0",
+    "ember-style-modifier": "^0.8.0",
     "ember-template-imports": "^3.1.1",
     "ember-template-lint": "^4.14.0",
     "ember-try": "^2.0.0",
