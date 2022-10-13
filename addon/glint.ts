@@ -29,7 +29,6 @@ import type FreestyleUsageControls from 'ember-freestyle/components/freestyle-us
 import type FreestyleVariant from 'ember-freestyle/components/freestyle-variant';
 import type FreestyleVariantList from 'ember-freestyle/components/freestyle-variant-list';
 import FreestyleHighlight from './modifiers/freestyle-highlight';
-import CssVarsHelper from './helpers/css-vars';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
@@ -74,6 +73,5 @@ declare module '@glint/environment-ember-loose/registry' {
     FreestyleVariantList: typeof FreestyleVariantList;
     'freestyle-variant-list': typeof FreestyleVariantList;
     'freestyle-highlight': typeof FreestyleHighlight;
-    'css-vars': typeof CssVarsHelper;
   }
 }

@@ -48,10 +48,10 @@ module('Integration | Component | freestyle/usage', function (hooks) {
 
         <:example>
           <div
-            style={{css-vars
-              progress-icon-background-color=this.progressIconBackgroundColor.value
-              progress-icon-stroke-color=this.progressIconStrokeColor.value
-            }}
+            style={{html-safe (concat
+              "--progress-icon-background-color: " this.progressIconBackgroundColor.value "; "
+              "--progress-icon-stroke-color: " this.progressIconStrokeColor.value "; "
+            )}}
           >
             <ProgressIcon
               @size={{this.size}}

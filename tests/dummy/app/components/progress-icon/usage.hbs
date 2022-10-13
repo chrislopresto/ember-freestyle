@@ -8,10 +8,11 @@
       @isCancelled={{this.isCancelled}}
       @isComplete={{this.isComplete}}
       @fractionComplete={{this.fractionComplete}}
-      style={{css-vars
-        progress-icon-background-color=this.progressIconBackgroundColor.value
-        progress-icon-stroke-color=this.progressIconStrokeColor.value
-      }}
+      {{!-- You should use a more robust method of building styles than this --}}
+      style={{html-safe (concat
+        "--progress-icon-background-color: " this.progressIconBackgroundColor.value "; "
+        "--progress-icon-stroke-color: " this.progressIconStrokeColor.value "; "
+      )}}
     />
   </:example>
 

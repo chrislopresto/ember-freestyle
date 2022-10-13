@@ -3,7 +3,8 @@ import '@glint/environment-ember-loose';
 import AndHelper from 'ember-truth-helpers/helpers/and';
 import EqHelper from 'ember-truth-helpers/helpers/eq';
 import NotHelper from 'ember-truth-helpers/helpers/not';
-import { ModifierLike } from '@glint/template';
+import { HelperLike, ModifierLike } from '@glint/template';
+import { SafeString } from '@ember/template/-private/handlebars';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
@@ -15,5 +16,9 @@ declare module '@glint/environment-ember-loose/registry' {
     }>;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     'focus-trap': ModifierLike<{ Args: { Named: any } }>;
+    'html-safe': HelperLike<{
+      Args: { Positional: [string] };
+      Return: SafeString;
+    }>;
   }
 }
