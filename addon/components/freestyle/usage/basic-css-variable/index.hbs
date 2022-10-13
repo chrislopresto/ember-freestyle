@@ -1,6 +1,6 @@
 <tr class="FreestyleUsageCssVar">
   <td class="FreestyleUsageCssVar-name">
-    {{#if @name}}{{@name}}{{/if}}
+    {{@name}}
   </td>
 
   <td class="FreestyleUsageCssVar-description">
@@ -22,10 +22,7 @@
     {{/if}}
   </td>
 
-  <td class={{concat
-    "FreestyleUsageCssVar-controls "
-    "FreestyleUsageCssVar-controls--string"
-  }}>
+  <td class="FreestyleUsageCssVar-controls FreestyleUsageCssVar-controls--string">
     {{#unless @hideControls}}
       <Freestyle::Usage::String::Control
         @options={{@options}}
