@@ -42,6 +42,7 @@ declare module '@glint/environment-ember-loose/registry' {
     'freestyle/usage/bool': typeof FreestyleUsageBool;
     'Freestyle::Usage::Bool::Control': typeof FreestyleUsageBoolControl;
     'Freestyle::Usage::Number': typeof FreestyleUsageNumber;
+    'Freestyle::Usage::BasicCssVariable': typeof FreestyleUsageBasicCssVariable;
     'freestyle/usage/basic-css-variable': typeof FreestyleUsageBasicCssVariable;
     'freestyle/usage/number': typeof FreestyleUsageNumber;
     'Freestyle::Usage::Number::Control': typeof FreestyleUsageNumberControl;
