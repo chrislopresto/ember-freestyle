@@ -125,7 +125,7 @@
     "release-it": "^15.4.1",
     "remarkable": "^2.0.1",
     "sass": "^1.54.9",
-    "stylelint": "^14.12.1",
+    "stylelint": "^14.14.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-scss": "^7.0.0",
     "stylelint-prettier": "^2.0.0",
