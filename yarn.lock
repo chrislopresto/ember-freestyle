@@ -1766,10 +1766,10 @@
     "@types/htmlbars-inline-precompile" "*"
     "@types/rsvp" "*"
 
-"@types/ember__application@*", "@types/ember__application@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@types/ember__application/-/ember__application-4.0.1.tgz#1bdbd4bf4a995558c5e6297856ad705f181899cc"
-  integrity sha512-dKyiEHpZRENCRNyS9PQOnYjrcO4QsmeTU+csmiH8B3McYBCp1AKwlnjOd6eTs3O69WDcUq2mFk6BAQM49bAF7Q==
+"@types/ember__application@*", "@types/ember__application@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@types/ember__application/-/ember__application-4.0.2.tgz#7cccb221eaaedd0e8cfc8a550fedc9554da2014c"
+  integrity sha512-7xxuWoxhMseM3c4iR0EGumcbyaSkGygVwef80G4ALPN3WOmmbIWROzw2JC3O9lZU0H+DtueDYuNfz+U7i0yXyQ==
   dependencies:
     "@glimmer/component" "^1.1.0"
     "@types/ember" "*"
