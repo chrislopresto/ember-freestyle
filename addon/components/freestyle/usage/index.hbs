@@ -56,6 +56,32 @@
       {{/if}}
     {{/if}}
 
+    {{#if (has-block 'cssVars')}}
+      {{#if this.showApi}}
+        <div class="FreestyleUsage-cssVars">
+          <h3 class="FreestyleUsage-cssVarsTitle">CSS Variables API</h3>
+
+          <table class="FreestyleUsage-cssVarsTable">
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Description</th>
+                <th>Default</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{yield
+                (hash
+                  Basic=(component 'freestyle/usage/basic-css-variable' )
+                )
+              to="cssVars"}}
+            </tbody>
+          </table>
+        </div>
+      {{/if}}
+    {{/if}}
+
     {{#if this.showSource}}
       <div class="FreestyleUsage-sourceContainer" {{did-insert this.highlightSource}}>
         <FreestyleSource @source={{@source}} />

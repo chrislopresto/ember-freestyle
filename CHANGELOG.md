@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 
 
+
+## v0.17.0-alpha-css-vars-api.0 (2022-10-17)
+
+#### :rocket: Enhancement
+* [#856](https://github.com/chrislopresto/ember-freestyle/pull/856) Make the navigation menu sticky ([@bertdeblock](https://github.com/bertdeblock))
+
+#### Committers: 1
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+
 ## v0.16.0-beta.0 (2022-09-22)
 
 #### :boom: Breaking Change

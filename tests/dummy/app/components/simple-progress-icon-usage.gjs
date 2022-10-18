@@ -10,7 +10,7 @@ export default class SimpleProgressIconUsage extends Component {
       </:description>
       <:example>
           <ProgressIcon
-            @size={{@size}}
+            @size={{24}}
             @fractionComplete={{1}}
           />
       </:example>
