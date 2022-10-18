@@ -2,12 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-
-
-
 ## v0.17.0 (2022-10-18)
 
-## v0.17.0-alpha-css-vars-api.0 (2022-10-17)
+#### :rocket: Enhancement
+* [#856](https://github.com/chrislopresto/ember-freestyle/pull/856) Make the navigation menu sticky ([@bertdeblock](https://github.com/bertdeblock))
+* [#867](https://github.com/chrislopresto/ember-freestyle/pull/867) Add an optional "CSS Variables" block to Freestyle::Usage ([@lukemelia](https://github.com/lukemelia))
+
+#### Committers: 1
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
 
 #### :rocket: Enhancement
 * [#856](https://github.com/chrislopresto/ember-freestyle/pull/856) Make the navigation menu sticky ([@bertdeblock](https://github.com/bertdeblock))
