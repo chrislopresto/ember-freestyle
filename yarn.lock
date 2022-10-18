@@ -2602,10 +2602,10 @@ ajv@^8.0.0, ajv@^8.0.1, ajv@^8.8.0:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
-all-contributors-cli@^6.20.4:
-  version "6.20.4"
-  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-6.20.4.tgz#de69d243206cb821f8c33ef0b57e9f511ceb7e25"
-  integrity sha512-oLOrCGh1LjR/EkaESbLe7faTX1tq8TP4pcR6CvkKED5O9E7Yahk5DiexR8roghluljwI20m2JX2I6UTYV7/tLg==
+all-contributors-cli@^6.24.0:
+  version "6.24.0"
+  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-6.24.0.tgz#25c480c5c6e921532873114c2d6487816e6c22e0"
+  integrity sha512-7oSKr2PnqxsOotuSwciltcFTS1eVRdjR0cn99hbElfff7gRQBShVhsf/XBprY41sLcgqTk0l0MKgKv6QNgZdMg==
   dependencies:
     "@babel/runtime" "^7.7.6"
     async "^3.1.0"
