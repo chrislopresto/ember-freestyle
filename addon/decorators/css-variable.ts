@@ -75,8 +75,12 @@ export class CSSVariableInfo {
     let raw = cssVarAuthoredValue(variableName, '.' + cssClassName);
     raw = raw?.trim() ?? undefined;
 
-    let computed = cssVarComputedValue(variableName, cssClassName);
+    let computed: string | undefined = cssVarComputedValue(
+      variableName,
+      cssClassName
+    );
     computed = computed?.trim() ?? undefined;
+    computed = computed === '' ? undefined : computed;
 
     this.defaults = {
       raw,
