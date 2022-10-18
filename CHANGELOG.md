@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 
 
 
+## v0.17.0 (2022-10-18)
+
 ## v0.17.0-alpha-css-vars-api.0 (2022-10-17)
 
 #### :rocket: Enhancement
