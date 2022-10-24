@@ -6369,10 +6369,10 @@ ember-style-modifier@^0.8.0:
     ember-cli-babel "^7.26.6"
     ember-modifier "^3.2.7"
 
-ember-template-imports@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-3.1.1.tgz#9b7a4f37c0a638b3d3d9894dade494efceb30f9a"
-  integrity sha512-ZsujuOwaF6lWDDeKC0NleCUAC8f06CfxWQPmejNnxg5gUdqHFTfW9L++X9RLLV/pJZ6eCtax7L94XkXQJ1LfBA==
+ember-template-imports@^3.1.1, ember-template-imports@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-3.1.2.tgz#c2f5ec824c9873cc8e82843b2f4777178e191c35"
+  integrity sha512-8ocUuIxXeY7S5FQQf9hcLBCyGKNvSxXz9cV/dkUUMvGcnfh8NblrglqPggXmCbBcv4eDAoEzDmOfiGccD5kEJQ==
   dependencies:
     babel-import-util "^0.2.0"
     broccoli-stew "^3.0.0"
