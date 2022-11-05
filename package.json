@@ -124,7 +124,7 @@
     "prettier": "^2.7.1",
     "qunit": "^2.19.3",
     "qunit-dom": "^2.0.0",
-    "release-it": "^14.10.0",
+    "release-it": "^15.5.0",
     "remarkable": "^2.0.1",
     "sass": "^1.55.0",
     "stylelint": "^14.14.0",
