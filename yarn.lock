@@ -1706,10 +1706,10 @@
     "@types/ember__component" "*"
     "@types/ember__object" "*"
 
-"@types/ember__controller@*", "@types/ember__controller@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@types/ember__controller/-/ember__controller-4.0.1.tgz#f181eafc669dfaa29df68746c62941af3b75588a"
-  integrity sha512-4hX+CjjX2KBpcOyEpcs1SSBmxYlavdAZqcyR23JUnBS+dGjlku15BQu6ZXFKIf84x7izNhC+TrYvAOeLE/Af3w==
+"@types/ember__controller@*", "@types/ember__controller@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/ember__controller/-/ember__controller-4.0.4.tgz#8b46d811804ea8420dea8ae15744cd649f6cdb12"
+  integrity sha512-+f0knTIJJkRX5xijeSI/n4FvLfhMFFxIxODyFFFFB483EryYuts3QzpTwU5D66WQ5rAbZvpPRXRMPTTCNJoUhg==
   dependencies:
     "@types/ember__object" "*"
 
