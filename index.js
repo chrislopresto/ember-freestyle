@@ -32,7 +32,7 @@ module.exports = {
   },
 
   setupPreprocessorRegistry(type, registry) {
-    if (type === 'self' && registry.app.name === 'ember-freestyle') {
+    if (type !== 'parent') {
       return;
     }
     let pluginObj = this._buildPlugin();
