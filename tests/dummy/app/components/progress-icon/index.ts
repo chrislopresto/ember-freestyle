@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import { type EmptyObject } from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
 
 interface Signature {
@@ -11,7 +10,6 @@ interface Signature {
     fractionComplete: number;
     size: number;
   };
-  Blocks: EmptyObject;
 }
 
 export default class ProgressIcon extends Component<Signature> {

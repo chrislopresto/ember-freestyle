@@ -2,19 +2,13 @@ import Component from '@glimmer/component';
 import { schedule } from '@ember/runloop';
 import { capitalize } from '@ember/string';
 import type EmberFreestyleService from '../../services/ember-freestyle';
-import { type EmptyObject } from '@ember/component/helper';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { inject as service } from '@ember/service';
 import { action, get, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 /* eslint-enable @typescript-eslint/no-unused-vars */
 
-interface Signature {
-  Args: EmptyObject;
-  Blocks: EmptyObject;
-}
-
-export default class FreestyleUsageControls extends Component<Signature> {
+export default class FreestyleUsageControls extends Component {
   @service('ember-freestyle') declare emberFreestyle: EmberFreestyleService;
 
   get showLabels(): boolean {

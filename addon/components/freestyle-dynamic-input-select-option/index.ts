@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { type EmptyObject } from '@ember/component/helper';
 import { AttrValue } from '@glint/template';
 
 interface Signature {
@@ -8,7 +7,6 @@ interface Signature {
     optionValue: AttrValue;
     selectedValue: AttrValue;
   };
-  Blocks: EmptyObject;
 }
 
 export default class FreestyleDynamicInputSelectOption extends Component<Signature> {
