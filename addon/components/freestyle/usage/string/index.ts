@@ -1,5 +1,4 @@
 import templateOnlyComponent from '@ember/component/template-only';
-import { type EmptyObject } from '@ember/component/helper';
 
 interface Signature {
   Args: {
@@ -12,7 +11,6 @@ interface Signature {
     options?: string[];
     onInput: (val: string | null | undefined) => void;
   };
-  Blocks: EmptyObject;
 }
 const FreestyleUsageStringComponent = templateOnlyComponent<Signature>();
 export default FreestyleUsageStringComponent;

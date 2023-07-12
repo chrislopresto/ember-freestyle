@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { type EmptyObject } from '@ember/component/helper';
 import { InputType, SupportedValue } from '../freestyle-dynamic';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { action } from '@ember/object';
@@ -19,7 +18,6 @@ interface Signature {
     max?: number;
     changeValueTo: (val: SupportedValue) => void;
   };
-  Blocks: EmptyObject;
 }
 
 export default class FreestyleDynamicInput extends Component<Signature> {

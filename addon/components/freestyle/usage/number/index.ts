@@ -1,5 +1,4 @@
 import templateOnlyComponent from '@ember/component/template-only';
-import { type EmptyObject } from '@ember/component/helper';
 
 interface Signature {
   Args: {
@@ -14,7 +13,6 @@ interface Signature {
     step?: number;
     onInput: (val: number) => void;
   };
-  Blocks: EmptyObject;
 }
 const FreestyleUsageNumberComponent = templateOnlyComponent<Signature>();
 export default FreestyleUsageNumberComponent;
