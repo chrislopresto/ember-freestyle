@@ -3303,7 +3303,7 @@ babel-plugin-ember-template-compilation@^1.0.0:
     magic-string "^0.25.7"
     string.prototype.matchall "^4.0.5"
 
-babel-plugin-ember-template-compilation@^2.0.1:
+babel-plugin-ember-template-compilation@^2.0.0, babel-plugin-ember-template-compilation@^2.0.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-ember-template-compilation/-/babel-plugin-ember-template-compilation-2.1.0.tgz#b1c2a50782cc3f3d7a4953da52ed735a69d995f4"
   integrity sha512-hAAH5WS36Go/z7wQf9V8FITElTmSC5ybGFSqefpQxqkKuLeDO1XYtmVlG43ww3QJEE1tsH3pb7uLXQTzhV9nXg==
@@ -5272,6 +5272,11 @@ core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
+core-js@^3.4.1:
+  version "3.31.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.31.1.tgz#f2b0eea9be9da0def2c5fece71064a7e5d687653"
+  integrity sha512-2sKLtfq1eFST7l7v62zaqXacPc7uG8ZAya8ogijLhTtaKNcpzpB4TMoTw2Si+8GYKRwFPMMtUT0263QFWFfqyQ==
+
 core-object@2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/core-object/-/core-object-2.0.6.tgz#60134b9c40ff69b27bc15e82db945e4df782961b"
@@ -6009,6 +6014,26 @@ ember-cli-htmlbars@^6.1.1:
     silent-error "^1.1.1"
     walk-sync "^2.2.0"
 
+ember-cli-htmlbars@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-6.2.0.tgz#18ec48ee1c93f9eed862a64eb24a9d14604f1dfc"
+  integrity sha512-j5EGixjGau23HrqRiW/JjoAovg5UBHfjbyN7wX5ekE90knIEqUUj1z/Mo/cTx/J2VepQ2lE6HdXW9LWQ/WdMtw==
+  dependencies:
+    "@ember/edition-utils" "^1.2.0"
+    babel-plugin-ember-template-compilation "^2.0.0"
+    babel-plugin-htmlbars-inline-precompile "^5.3.0"
+    broccoli-debug "^0.6.5"
+    broccoli-persistent-filter "^3.1.2"
+    broccoli-plugin "^4.0.3"
+    ember-cli-version-checker "^5.1.2"
+    fs-tree-diff "^2.0.1"
+    hash-for-dep "^1.5.1"
+    heimdalljs-logger "^0.1.10"
+    js-string-escape "^1.0.1"
+    semver "^7.3.4"
+    silent-error "^1.1.1"
+    walk-sync "^2.2.0"
+
 ember-cli-inject-live-reload@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-inject-live-reload/-/ember-cli-inject-live-reload-2.1.0.tgz#ef63c733c133024d5726405a3c247fa12e88a385"
@@ -6505,7 +6530,7 @@ ember-style-modifier@^0.8.0:
     ember-cli-babel "^7.26.6"
     ember-modifier "^3.2.7"
 
-ember-template-imports@^3.1.1, ember-template-imports@^3.3.1, ember-template-imports@^3.4.2:
+ember-template-imports@^3.1.1, ember-template-imports@^3.3.1, ember-template-imports@^3.4.1, ember-template-imports@^3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-3.4.2.tgz#6cf7de7d4b8348a0fddf3aaec4947aa1211289e6"
   integrity sha512-OS8TUVG2kQYYwP3netunLVfeijPoOKIs1SvPQRTNOQX4Pu8xGGBEZmrv0U1YTnQn12Eg+p6w/0UdGbUnITjyzw==
@@ -11554,10 +11579,27 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
+prettier-plugin-ember-template-tag@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-ember-template-tag/-/prettier-plugin-ember-template-tag-0.3.2.tgz#dcf4e402951d6766a9880308ea6a405c9ea5a5f1"
+  integrity sha512-L/15ujsvuOpuIB9y9XJJs/QOPgdot76T0U1Q34C19igS1lsaL/cdRw8rXIVC5Z2x362yZI33Qodo//7kK7ItkA==
+  dependencies:
+    "@babel/core" "^7.20.12"
+    "@glimmer/syntax" "^0.84.2"
+    ember-cli-htmlbars "^6.2.0"
+    ember-template-imports "^3.4.1"
+    prettier "^2.8.3"
+    ts-replace-all "^1.0.0"
+
 prettier@^2.5.1, prettier@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
   integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
+
+prettier@^2.8.3:
+  version "2.8.8"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
+  integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
 printf@^0.6.1:
   version "0.6.1"
@@ -13766,6 +13808,13 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
+
+ts-replace-all@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ts-replace-all/-/ts-replace-all-1.0.0.tgz#ef28283ccdb4da7d69fb03cf543e09e51711659b"
+  integrity sha512-6uBtdkw3jHXkPtx/e9xB/5vcngMm17CyJYsS2YZeQ+9FdRnt6Ev5g931Sg2p+dxbtMGoCm13m3ax/obicTZIkQ==
+  dependencies:
+    core-js "^3.4.1"
 
 tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"

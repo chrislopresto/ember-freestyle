@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-empty-glimmer-component-classes */
 import Component from '@glimmer/component';
 import FreestyleUsage from 'ember-freestyle/components/freestyle/usage';
 import ProgressIcon from 'dummy/components/progress-icon';

@@ -4,19 +4,21 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures: {
-      legacyDecorators: true,
+    requireConfigFile: false,
+    babelOptions: {
+      plugins: [
+        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
+      ],
     },
   },
   plugins: ['ember', '@typescript-eslint'],
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:ember/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:ember/recommended',
   ],
   env: {
     browser: true,
@@ -91,12 +93,12 @@ module.exports = {
     },
     {
       // test files
-      files: ['tests/**/*-test.{js,ts}'],
+      files: ['tests/**/*-test.{js,ts,gjs}'],
       extends: ['plugin:qunit/recommended'],
     },
     {
       // JS files
-      files: ['tests/**/*.js'],
+      files: ['tests/**/*.{js,gjs}'],
       rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
       },
