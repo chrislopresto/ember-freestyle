@@ -57,7 +57,7 @@
     "@ember/test-helpers": "^2.8.1",
     "@embroider/test-setup": "^1.8.3",
     "@glint/core": "^0.9.4",
-    "@glint/environment-ember-loose": "^0.9.4",
+    "@glint/environment-ember-loose": "^0.9.7",
     "@release-it-plugins/lerna-changelog": "^5.0.0",
     "@tsconfig/ember": "^1.0.1",
     "@types/ember": "^4.0.1",
