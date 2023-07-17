@@ -1939,10 +1939,10 @@
     "@types/ember__routing" "*"
     "@types/ember__service" "*"
 
-"@types/ember__runloop@*", "@types/ember__runloop@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@types/ember__runloop/-/ember__runloop-4.0.1.tgz#7f6e45af7dbf1158655ef3ad852852b0bf87065f"
-  integrity sha512-3HrsavVrdgxUkYptQUv/e9RwJG02cV9WbnJxKSvwl9ZYpeX4JbuDVucjTWk5BAvJUVtbiQLPGzLEHZ6daoCbbg==
+"@types/ember__runloop@*", "@types/ember__runloop@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/ember__runloop/-/ember__runloop-4.0.3.tgz#d43c8a38c4e21943e5600603f2c09745be0925fd"
+  integrity sha512-F6Ujl02xAFOAuOwlAJVdZg64PzacgyRfaCTicY2hyBA4rDpkVVNUsICAJw1NYEUJC6nTaeeanmBGPiZH1htJkw==
   dependencies:
     "@types/ember" "*"
     "@types/ember__runloop" "*"
