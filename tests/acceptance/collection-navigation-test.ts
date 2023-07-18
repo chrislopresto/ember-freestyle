@@ -1,4 +1,4 @@
-import { click, visit } from '@ember/test-helpers';
+import { click, findAll, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
@@ -22,7 +22,7 @@ module('Acceptance | collection navigation', function (hooks) {
   });
 
   test('verifying variant selection', async function (assert) {
-    const variants = this.element.querySelectorAll(SELECTOR.VARIANT);
+    const variants = findAll(SELECTOR.VARIANT);
 
     await click(SELECTOR.VARIANT_ITEM_ALL);
     assert.dom(variants[0]).isVisible();

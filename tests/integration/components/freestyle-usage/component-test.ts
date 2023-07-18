@@ -1,4 +1,4 @@
-import { render } from '@ember/test-helpers';
+import { find, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -85,9 +85,7 @@ module('Integration | Component | freestyle-usage', function (hooks) {
       </FreestyleUsage>
     `);
 
-    const sourceContainer = this.element.querySelector(
-      SELECTOR.SOURCE_CONTAINER
-    ) as HTMLElement;
+    const sourceContainer = find(SELECTOR.SOURCE_CONTAINER) as HTMLElement;
 
     const sourceNodes = sourceContainer.innerText.trim().split('\n');
     const lastSourceNode = sourceNodes[sourceNodes.length - 1];

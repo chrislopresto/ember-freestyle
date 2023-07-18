@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { findAll, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { TestContext } from '@ember/test-helpers';
 import { ColorPalette } from 'ember-freestyle/components/freestyle-palette';
@@ -40,7 +40,7 @@ module('Integration | Component | freestyle-palette', function (hooks) {
 
     assert.dom('.FreestylePaletteItem').exists({ count: 2 });
 
-    const paletteItems = this.element.querySelectorAll('.FreestylePaletteItem');
+    const paletteItems = findAll('.FreestylePaletteItem');
 
     Object.keys(COLOR_PALETTE).forEach(
       (key: 'black' | 'white', index: number) => {

@@ -1,4 +1,4 @@
-import { visit } from '@ember/test-helpers';
+import { findAll, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
@@ -44,7 +44,7 @@ module('Acceptance | collection rendering', function (hooks) {
     assert.dom(SELECTOR.ANNOTATION).includesText('A Note About Normal');
     assert.dom(SELECTOR.USAGE_TITLE).hasText('Normal');
 
-    const variants = this.element.querySelectorAll(SELECTOR.VARIANT);
+    const variants = findAll(SELECTOR.VARIANT);
 
     assert.dom(variants[1]).isNotVisible();
     assert.dom(variants[2]).isNotVisible();

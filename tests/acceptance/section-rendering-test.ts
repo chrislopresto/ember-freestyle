@@ -1,4 +1,4 @@
-import { settled, visit } from '@ember/test-helpers';
+import { findAll, settled, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import EmberFreestyleService from '../../addon/services/ember-freestyle';
@@ -21,7 +21,7 @@ module('Acceptance | section rendering', function (hooks) {
   test('verifying guide sections', function (assert) {
     assert.dom(SELECTOR.SECTION_SHOWING).exists({ count: 5 });
 
-    const sectionNames = this.element.querySelectorAll(SELECTOR.SECTION_NAME);
+    const sectionNames = findAll(SELECTOR.SECTION_NAME);
 
     assert.dom(sectionNames[0]).hasText('Albums');
     assert.dom(sectionNames[1]).hasText('Freestyle::Usage');
@@ -33,7 +33,7 @@ module('Acceptance | section rendering', function (hooks) {
   });
 
   test('verifying guide subsections', function (assert) {
-    const subsectionsFooThings = this.element.querySelectorAll(
+    const subsectionsFooThings = findAll(
       `${SELECTOR.SECTION_SHOWING}:nth-child(3) ${SELECTOR.SUBSECTION_SHOWING}`
     );
 
@@ -45,7 +45,7 @@ module('Acceptance | section rendering', function (hooks) {
       .dom(subsectionsFooThings[1].querySelector(SELECTOR.SUBSECTION_NAME))
       .hasText('Foo Subsection B');
 
-    const subsectionsVisualStyle = this.element.querySelectorAll(
+    const subsectionsVisualStyle = findAll(
       `${SELECTOR.SECTION_SHOWING}:nth-child(5) ${SELECTOR.SUBSECTION_SHOWING}`
     );
 
