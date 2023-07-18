@@ -22,6 +22,10 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+            '@ember/test-helpers': '2.8.1',
+            'ember-qunit': '5.1.5',
+            '@types/ember__test-helpers': '^2.8.1',
+            '@types/ember-qunit': '^5.0.2',
           },
         },
       },
@@ -81,6 +85,10 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~3.28.0',
+            '@ember/test-helpers': '2.8.1',
+            'ember-qunit': '5.1.5',
+            '@types/ember__test-helpers': '^2.8.1',
+            '@types/ember-qunit': '^5.0.2',
           },
           ember: {
             edition: 'classic',
