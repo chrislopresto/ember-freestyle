@@ -1,4 +1,4 @@
-import { settled, visit } from '@ember/test-helpers';
+import { findAll, settled, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import EmberFreestyleService from '../../addon/services/ember-freestyle';
@@ -26,9 +26,7 @@ module('Acceptance | section navigation', function (hooks) {
   test('verifying menu sections', function (assert) {
     assert.dom(SELECTOR.MENU_ITEM).exists({ count: 6 });
 
-    const menuItemLinks = this.element.querySelectorAll(
-      SELECTOR.MENU_ITEM_LINK
-    );
+    const menuItemLinks = findAll(SELECTOR.MENU_ITEM_LINK);
 
     assert.dom(menuItemLinks[0]).hasText('All');
     assert.dom(menuItemLinks[1]).hasText('Albums');
@@ -39,14 +37,14 @@ module('Acceptance | section navigation', function (hooks) {
   });
 
   test('navigating directly to a subsection', function (assert) {
-    const submenuItemLinksFooThings = this.element.querySelectorAll(
+    const submenuItemLinksFooThings = findAll(
       `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`
     );
 
     assert.dom(submenuItemLinksFooThings[0]).hasText('Foo Subsection A');
     assert.dom(submenuItemLinksFooThings[1]).hasText('Foo Subsection B');
 
-    const submenuItemLinksVisualStyle = this.element.querySelectorAll(
+    const submenuItemLinksVisualStyle = findAll(
       `${SELECTOR.MENU_ITEM}:nth-child(6) ${SELECTOR.SUBMENU_ITEM_LINK}`
     );
 
@@ -68,9 +66,7 @@ module('Acceptance | section navigation', function (hooks) {
     test('verifying menu sections', function (assert) {
       assert.dom(SELECTOR.MENU_ITEM).exists({ count: 5 });
 
-      const menuItemLinks = this.element.querySelectorAll(
-        SELECTOR.MENU_ITEM_LINK
-      );
+      const menuItemLinks = findAll(SELECTOR.MENU_ITEM_LINK);
 
       assert.dom(menuItemLinks[0]).hasText('Albums');
       assert.dom(menuItemLinks[1]).hasText('Freestyle::Usage');
