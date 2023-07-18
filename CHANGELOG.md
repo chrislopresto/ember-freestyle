@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## v0.18.0 (2023-07-18)
+
+#### :rocket: Enhancement
+* [#929](https://github.com/chrislopresto/ember-freestyle/pull/929) Support `ember-modifier` v4 ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :bug: Bug Fix
+* [#928](https://github.com/chrislopresto/ember-freestyle/pull/928) Fix compatibility with `ember-cli` v5 ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :house: Internal
+* [#950](https://github.com/chrislopresto/ember-freestyle/pull/950) Update versions of ember-qunit and ember-test-helpers ([@lukemelia](https://github.com/lukemelia))
+* [#949](https://github.com/chrislopresto/ember-freestyle/pull/949) Fix type errors ([@bertdeblock](https://github.com/bertdeblock))
+
+#### Committers: 2
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+
 ## v0.17.0 (2022-10-18)
 
 #### :rocket: Enhancement
