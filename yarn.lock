@@ -1612,10 +1612,10 @@
   dependencies:
     "@octokit/openapi-types" "^12.11.0"
 
-"@release-it-plugins/lerna-changelog@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@release-it-plugins/lerna-changelog/-/lerna-changelog-5.0.0.tgz#cbbbc47fd40ef212f2d7c0e24867d3fcea4cd232"
-  integrity sha512-nMhAUptKSfIsiY0c//HuBcd2VT7D/IoxAQNwRgPx+jf3FM7HA5KD4KSl3oLoz4uA4GjvypWQP4ODX8UbWjmUZA==
+"@release-it-plugins/lerna-changelog@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@release-it-plugins/lerna-changelog/-/lerna-changelog-6.0.0.tgz#f6c163a2b929c67c6878ae5a034dab08e23c17d9"
+  integrity sha512-/1xNLriHKKTdM+/LSQIng5V25gipw0brAXtWVQcOBR63NmW/Ftnd2IJpnM5WzFkOCcL9hoqc8rcIMMv1EOcaIg==
   dependencies:
     execa "^5.1.1"
     lerna-changelog "^2.2.0"
