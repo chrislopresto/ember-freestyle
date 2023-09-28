@@ -1,0 +1,12 @@
+{{! template-lint-disable require-input-label }}
+
+{{#if @options}}
+  <select {{on 'change' this.callOnChange}}>
+    {{#each @options as |componentLike|}}
+      <option
+        value={{componentLike.name}}
+        selected={{eq componentLike.name @value.name}}
+      >{{componentLike.name}}</option>
+    {{/each}}
+  </select>
+{{/if}}
