@@ -7,7 +7,7 @@ import { action } from '@ember/object';
 import { Remarkable } from 'remarkable';
 import stripIndent from 'strip-indent';
 
-export default class extends Component {
+export default class MarkdownContent extends Component {
   @tracked rawMarkdown: string | undefined;
 
   @action

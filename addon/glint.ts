@@ -10,6 +10,8 @@ import type FreestyleUsageObject from 'ember-freestyle/components/freestyle/usag
 import type FreestyleUsageObjectControl from 'ember-freestyle/components/freestyle/usage/object/control';
 import type FreestyleUsageString from 'ember-freestyle/components/freestyle/usage/string';
 import type FreestyleUsageStringControl from 'ember-freestyle/components/freestyle/usage/string/control';
+import type FreestyleUsageComponentLike from 'ember-freestyle/components/freestyle/usage/component-like';
+import type FreestyleUsageComponentLikeControl from 'ember-freestyle/components/freestyle/usage/component-like/control';
 import type FreestyleAnnotation from 'ember-freestyle/components/freestyle-annotation';
 import type FreestyleCollection from 'ember-freestyle/components/freestyle-collection';
 import type FreestyleDynamic from 'ember-freestyle/components/freestyle-dynamic';
@@ -51,6 +53,9 @@ declare module '@glint/environment-ember-loose/registry' {
     'Freestyle::Usage::String': typeof FreestyleUsageString;
     'freestyle/usage/string': typeof FreestyleUsageString;
     'Freestyle::Usage::String::Control': typeof FreestyleUsageStringControl;
+    'Freestyle::Usage::ComponentLike': typeof FreestyleUsageComponentLike;
+    'freestyle/usage/component-like': typeof FreestyleUsageComponentLike;
+    'Freestyle::Usage::ComponentLike::Control': typeof FreestyleUsageComponentLikeControl;
     FreestyleAnnotation: typeof FreestyleAnnotation;
     FreestyleCollection: typeof FreestyleCollection;
     FreestyleDynamic: typeof FreestyleDynamic;

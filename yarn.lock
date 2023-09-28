@@ -1369,7 +1369,7 @@
     "@glint/config" "^0.9.7"
     "@glint/template" "^0.9.7"
 
-"@glint/template@^0.9.7":
+"@glint/template@^0.9.4", "@glint/template@^0.9.7":
   version "0.9.7"
   resolved "https://registry.yarnpkg.com/@glint/template/-/template-0.9.7.tgz#8736f357482841962bc66e75831f189f33677165"
   integrity sha512-MCp8GxQDIbH8ZzfNxHhVqCSKlydBgQfBEwJLDpN81lgFRCldSDPueIbk8sz3EhpGiZJVdNQbpGeYIDsUXe1ocg==

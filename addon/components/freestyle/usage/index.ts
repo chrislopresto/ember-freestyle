@@ -20,13 +20,14 @@ interface Signature {
     example: [];
     api: [
       {
+        Action: any;
         Array: any;
         Base: any;
         Bool: any;
+        Component: any;
         Number: any;
         Object: any;
         String: any;
-        Action: any;
         Yield: any;
       }
     ];
