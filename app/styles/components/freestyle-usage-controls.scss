@@ -1,7 +1,8 @@
 $FreestyleUsageControls-backgroundColor: #fff !default;
 $FreestyleUsageControls-shadow1: rgba(0, 0, 0, 0.16);
 $FreestyleUsageControls-shadow2: rgba(0, 0, 0, 0.12);
-$FreestyleUsageControls-boxShadow: 0 2px 5px 0 $FreestyleUsageControls-shadow1,
+$FreestyleUsageControls-boxShadow:
+  0 2px 5px 0 $FreestyleUsageControls-shadow1,
   0 2px 10px 0 $FreestyleUsageControls-shadow2;
 
 .FreestyleUsageControls {

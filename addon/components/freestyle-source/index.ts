@@ -42,15 +42,15 @@ export default class FreestyleSource extends Component<Signature> {
       // First, replace in-block dynamic properties
       sourceCode = sourceCode.replace(
         `={{dynamic.${property}}}`,
-        `=${angleAssignmentVal}`
+        `=${angleAssignmentVal}`,
       );
       sourceCode = sourceCode.replace(
         `=dynamic.${property}`,
-        `=${curlyAssignmentVal}`
+        `=${curlyAssignmentVal}`,
       );
       sourceCode = sourceCode.replace(
         `{{dynamic.${property}}}`,
-        expressionVal as string
+        expressionVal as string,
       );
     });
 

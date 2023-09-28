@@ -51,5 +51,5 @@ module(
 
       assert.dom(CONTROL).doesNotExist();
     });
-  }
+  },
 );

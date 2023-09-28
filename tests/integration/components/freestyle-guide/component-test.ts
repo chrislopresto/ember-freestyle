@@ -14,7 +14,7 @@ module('Integration | Component | freestyle-guide', function (hooks) {
 
   hooks.beforeEach(function (this: Context) {
     this.emberFreestyle = this.owner.lookup(
-      'service:ember-freestyle'
+      'service:ember-freestyle',
     ) as EmberFreestyleService;
   });
 

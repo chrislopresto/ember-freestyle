@@ -23,7 +23,7 @@ export default class ProgressIcon extends Component<Signature> {
 
   get pieStyle(): ReturnType<typeof htmlSafe> {
     return htmlSafe(
-      `stroke-dasharray: ${this.args.fractionComplete * 60.0} 60`
+      `stroke-dasharray: ${this.args.fractionComplete * 60.0} 60`,
     );
   }
 

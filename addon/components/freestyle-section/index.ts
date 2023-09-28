@@ -12,7 +12,7 @@ interface Signature {
   };
   Blocks: {
     default: [
-      { subsection: WithBoundArgs<typeof FreestyleSubsection, 'section'> }
+      { subsection: WithBoundArgs<typeof FreestyleSubsection, 'section'> },
     ];
   };
 }

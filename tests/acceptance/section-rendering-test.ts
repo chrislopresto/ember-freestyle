@@ -34,7 +34,7 @@ module('Acceptance | section rendering', function (hooks) {
 
   test('verifying guide subsections', function (assert) {
     const subsectionsFooThings = findAll(
-      `${SELECTOR.SECTION_SHOWING}:nth-child(3) ${SELECTOR.SUBSECTION_SHOWING}`
+      `${SELECTOR.SECTION_SHOWING}:nth-child(3) ${SELECTOR.SUBSECTION_SHOWING}`,
     );
 
     assert
@@ -46,7 +46,7 @@ module('Acceptance | section rendering', function (hooks) {
       .hasText('Foo Subsection B');
 
     const subsectionsVisualStyle = findAll(
-      `${SELECTOR.SECTION_SHOWING}:nth-child(5) ${SELECTOR.SUBSECTION_SHOWING}`
+      `${SELECTOR.SECTION_SHOWING}:nth-child(5) ${SELECTOR.SUBSECTION_SHOWING}`,
     );
 
     assert
@@ -67,7 +67,7 @@ module('Acceptance | section rendering', function (hooks) {
   module('with `allowRenderingAllSections` set to `false`', function (hooks) {
     hooks.beforeEach(async function () {
       const emberFreestyle = this.owner.lookup(
-        'service:ember-freestyle'
+        'service:ember-freestyle',
       ) as EmberFreestyleService;
 
       emberFreestyle.allowRenderingAllSections = false;

@@ -29,12 +29,12 @@ interface Signature {
         Object: any;
         String: any;
         Yield: any;
-      }
+      },
     ];
     cssVars: [
       {
         Basic: any;
-      }
+      },
     ];
   };
 }

@@ -25,5 +25,5 @@ export default class OrHelper<
   B = UnsetValue,
   C = UnsetValue,
   D = UnsetValue,
-  E = UnsetValue
+  E = UnsetValue,
 > extends Helper<OrHelperSignature<A, B, C, D, E>> {}

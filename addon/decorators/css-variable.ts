@@ -37,7 +37,7 @@ export function cssVariable(target: TargetInstance, key: string): any;
 export function cssVariable(options: Partial<CSSVariableDecoratorOptions>): any;
 export function cssVariable(
   targetOrOptions: TargetInstance | CSSVariableDecoratorOptions,
-  key?: string
+  key?: string,
 ): any {
   if (typeof key === 'string') {
     return {
@@ -77,7 +77,7 @@ export class CSSVariableInfo {
 
     let computed: string | undefined = cssVarComputedValue(
       variableName,
-      cssClassName
+      cssClassName,
     );
     computed = computed?.trim() ?? undefined;
     computed = computed === '' ? undefined : computed;
@@ -114,7 +114,7 @@ interface CSSVariableDecoratorOptions {
 function getCssVariableInfoMemoized(
   target: TargetInstance,
   key: string,
-  options: CSSVariableDecoratorOptions
+  options: CSSVariableDecoratorOptions,
 ): CSSVariableInfo {
   if (!memoizationMap.get(target)) {
     memoizationMap.set(target, new Map());
@@ -130,21 +130,21 @@ function getCssVariableInfoMemoized(
     return result;
   } else {
     throw new Error(
-      'Unexpected missing key in cssVariable decorator implementation'
+      'Unexpected missing key in cssVariable decorator implementation',
     );
   }
 }
 
 function prepareOptions(
   targetInstance: TargetInstance,
-  userSpecifiedOptions: Partial<CSSVariableDecoratorOptions>
+  userSpecifiedOptions: Partial<CSSVariableDecoratorOptions>,
 ): CSSVariableDecoratorOptions {
   let options = userSpecifiedOptions;
   if (!options.cssClassName) {
     const cssClassName = targetInstance['cssClassName'];
     if (!cssClassName) {
       throw new Error(
-        'Must specify `cssClassName` as an option to @cssVariable decorator or define `cssClassName` on the class owning the decorated property'
+        'Must specify `cssClassName` as an option to @cssVariable decorator or define `cssClassName` on the class owning the decorated property',
       );
     }
     options = Object.assign({}, options, { cssClassName });
@@ -154,6 +154,6 @@ function prepareOptions(
       toVariableName: dasherize,
     },
     options as Pick<CSSVariableDecoratorOptions, 'cssClassName'> &
-      Partial<CSSVariableDecoratorOptions>
+      Partial<CSSVariableDecoratorOptions>,
   );
 }
