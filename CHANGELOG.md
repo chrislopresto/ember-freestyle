@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 
 
+
+## v0.19.0 (2023-09-28)
+
+#### :boom: Breaking Change
+* [#957](https://github.com/chrislopresto/ember-freestyle/pull/957) Add `@ember/string` as a peer dependency ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :rocket: Enhancement
+* [#963](https://github.com/chrislopresto/ember-freestyle/pull/963) Add an Api type to Freestyle::Usage for when you expect a component as argument ([@lukemelia](https://github.com/lukemelia))
+
+#### :bug: Bug Fix
+* [#957](https://github.com/chrislopresto/ember-freestyle/pull/957) Add `@ember/string` as a peer dependency ([@bertdeblock](https://github.com/bertdeblock))
+
+#### Committers: 2
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+
 ## v0.18.0 (2023-07-18)
 
 #### :rocket: Enhancement
