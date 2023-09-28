@@ -38,14 +38,14 @@ module('Acceptance | section navigation', function (hooks) {
 
   test('navigating directly to a subsection', function (assert) {
     const submenuItemLinksFooThings = findAll(
-      `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`
+      `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
 
     assert.dom(submenuItemLinksFooThings[0]).hasText('Foo Subsection A');
     assert.dom(submenuItemLinksFooThings[1]).hasText('Foo Subsection B');
 
     const submenuItemLinksVisualStyle = findAll(
-      `${SELECTOR.MENU_ITEM}:nth-child(6) ${SELECTOR.SUBMENU_ITEM_LINK}`
+      `${SELECTOR.MENU_ITEM}:nth-child(6) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
 
     assert.dom(submenuItemLinksVisualStyle[0]).hasText('Typography');
@@ -55,7 +55,7 @@ module('Acceptance | section navigation', function (hooks) {
   module('with `allowRenderingAllSections` set to `false`', function (hooks) {
     hooks.beforeEach(async function () {
       const emberFreestyle = this.owner.lookup(
-        'service:ember-freestyle'
+        'service:ember-freestyle',
       ) as EmberFreestyleService;
 
       emberFreestyle.allowRenderingAllSections = false;

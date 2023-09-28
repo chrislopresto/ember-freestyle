@@ -32,11 +32,11 @@ module('Integration | Component | freestyle/usage', function (hooks) {
       isComplete: false,
       progressIconBackgroundColor: new CSSVariableInfo(
         'process-icon-background-color',
-        'ProgressIcon'
+        'ProgressIcon',
       ),
       progressIconStrokeColor: new CSSVariableInfo(
         'process-icon-stroke-color',
-        'ProgressIcon'
+        'ProgressIcon',
       ),
     });
 

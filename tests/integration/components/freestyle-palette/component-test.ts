@@ -45,15 +45,15 @@ module('Integration | Component | freestyle-palette', function (hooks) {
     Object.keys(COLOR_PALETTE).forEach(
       (key: 'black' | 'white', index: number) => {
         const paletteItemHex = paletteItems[index].querySelector(
-          '.FreestylePaletteItem-hex'
+          '.FreestylePaletteItem-hex',
         );
         const paletteItemName = paletteItems[index].querySelector(
-          '.FreestylePaletteItem-name'
+          '.FreestylePaletteItem-name',
         );
 
         assert.dom(paletteItemHex).hasText(COLOR_PALETTE[key].base);
         assert.dom(paletteItemName).hasText(COLOR_PALETTE[key].name);
-      }
+      },
     );
   });
 

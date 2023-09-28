@@ -36,7 +36,7 @@ export default class FreestylePalette extends Component<Signature> {
     return A(
       Object.keys(colorPalette).map((k) => {
         return colorPalette[k];
-      })
+      }),
     );
   }
 }

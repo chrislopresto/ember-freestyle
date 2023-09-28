@@ -23,5 +23,5 @@ export default class AndHelper<
   B = UnsetValue,
   C = UnsetValue,
   D = UnsetValue,
-  E = UnsetValue
+  E = UnsetValue,
 > extends Helper<AndHelperSignature<A, B, C, D, E>> {}

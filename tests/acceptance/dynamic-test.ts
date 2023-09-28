@@ -31,7 +31,7 @@ module('Acceptance | dynamic', function (hooks) {
     assert
       .dom(SELECTOR.BAR_DESCRIPTION)
       .hasText(
-        'Dynamic Block Content Static block content Reference another dynamic prop in block: is tasteful: false'
+        'Dynamic Block Content Static block content Reference another dynamic prop in block: is tasteful: false',
       );
 
     assert
@@ -39,7 +39,7 @@ module('Acceptance | dynamic', function (hooks) {
       .includesText('<p>Dynamic Block Content</p>')
       .includesText('<p>Static block content</p>')
       .includesText(
-        '<p> Reference another dynamic prop in block: is tasteful: false </p>'
+        '<p> Reference another dynamic prop in block: is tasteful: false </p>',
       );
 
     await fillIn(SELECTOR.TEXTAREA_CONTENT, 'Something new');
@@ -47,7 +47,7 @@ module('Acceptance | dynamic', function (hooks) {
     assert
       .dom(SELECTOR.BAR_DESCRIPTION)
       .hasText(
-        'Something new Static block content Reference another dynamic prop in block: is tasteful: false'
+        'Something new Static block content Reference another dynamic prop in block: is tasteful: false',
       );
 
     assert.dom(SELECTOR.SOURCE_CONTAINER).includesText('<p>Something new</p>');
@@ -57,7 +57,7 @@ module('Acceptance | dynamic', function (hooks) {
     assert
       .dom(SELECTOR.BAR_DESCRIPTION)
       .hasText(
-        'Something new Static block content Reference another dynamic prop in block: is tasteful: true'
+        'Something new Static block content Reference another dynamic prop in block: is tasteful: true',
       );
   });
 

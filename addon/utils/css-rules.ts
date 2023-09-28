@@ -26,7 +26,7 @@ function getStyleDeclarations(selector: string): CSSStyleDeclaration[] {
 
 export function getCssVariableDefinition(
   variableName: string,
-  selector: string
+  selector: string,
 ): string {
   // find the last declaration of the selector that contains a value
   // for the CSS variable we're interested in
@@ -40,7 +40,7 @@ export function getCssVariableDefinition(
 
 export function getComputedValueForCssVariable(
   variableName: string,
-  cssClassName: string
+  cssClassName: string,
 ): string {
   let element = document.querySelector('.' + cssClassName);
   let tempElement;
@@ -54,7 +54,7 @@ export function getComputedValueForCssVariable(
     element = tempElement;
   }
   const result = getComputedStyle(element).getPropertyValue(
-    `--${variableName}`
+    `--${variableName}`,
   );
   tempElement?.remove();
   return result;

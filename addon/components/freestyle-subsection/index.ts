@@ -18,7 +18,7 @@ export default class FreestyleSubsection extends Component<Signature> {
   get show(): boolean {
     return this.emberFreestyle.shouldShowSubsection(
       this.args.section,
-      this.args.name
+      this.args.name,
     );
   }
 }

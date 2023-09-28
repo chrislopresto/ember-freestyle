@@ -46,7 +46,7 @@ export default class FreestyleDynamic extends Component<Signature> {
     if (this.args.dynamicProperties) {
       assert(
         `dynamicProperties passed into freestyle-dynamic must be an object.  You passed: ${this.args.dynamicProperties}`,
-        typeof this.args.dynamicProperties === 'object'
+        typeof this.args.dynamicProperties === 'object',
       );
       this._dynamicProperties = this.args.dynamicProperties;
     }
@@ -63,7 +63,7 @@ export default class FreestyleDynamic extends Component<Signature> {
     Object.keys(dynamicProperties).forEach((propertyName) => {
       dynamicPropertyValues[propertyName] = get(
         dynamicProperties,
-        `${propertyName}.value`
+        `${propertyName}.value`,
       ) as SupportedValue;
     });
     return dynamicPropertyValues;

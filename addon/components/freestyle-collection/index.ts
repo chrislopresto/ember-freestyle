@@ -20,7 +20,7 @@ interface Signature {
   };
   Blocks: {
     default: [
-      { variant: WithBoundArgs<typeof FreestyleVariant, 'collection'> }
+      { variant: WithBoundArgs<typeof FreestyleVariant, 'collection'> },
     ];
   };
 }
