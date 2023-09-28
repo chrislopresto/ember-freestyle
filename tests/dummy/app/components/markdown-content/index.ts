@@ -7,7 +7,14 @@ import { action } from '@ember/object';
 import { Remarkable } from 'remarkable';
 import stripIndent from 'strip-indent';
 
-export default class MarkdownContent extends Component {
+interface Signature {
+  Element: HTMLDivElement;
+  Blocks: {
+    default: [];
+  };
+}
+
+export default class MarkdownContent extends Component<Signature> {
   @tracked rawMarkdown: string | undefined;
 
   @action
