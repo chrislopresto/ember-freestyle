@@ -1930,10 +1930,10 @@
     "@types/ember__array" "*"
     "@types/ember__object" "*"
 
-"@types/ember__component@*", "@types/ember__component@^4.0.10":
-  version "4.0.14"
-  resolved "https://registry.yarnpkg.com/@types/ember__component/-/ember__component-4.0.14.tgz#11f3b65d2fdff1e31eb1eecdae87248b50b1c764"
-  integrity sha512-qqEJOCxxPJrfYpgs8+8Zjrc8uRzpbhALtsG6nf/LoB4DkXisSd+C6a3n04ACvGfDa+1uVA3SZ8sTqKPgx6nM9g==
+"@types/ember__component@*", "@types/ember__component@^4.0.18":
+  version "4.0.18"
+  resolved "https://registry.yarnpkg.com/@types/ember__component/-/ember__component-4.0.18.tgz#6ab61dcc2d67f72ea1d80cf0aaef3ea8953e6653"
+  integrity sha512-TUTSNL4HLYazBFxc2g/C9GUn4/0akKFfB8IRqjGHyyByKiaNbnf992Dxu6Zfl62QtuhLEHzpfppLGuQLwY448w==
   dependencies:
     "@types/ember" "*"
     "@types/ember__component" "*"
