@@ -2046,10 +2046,10 @@
   dependencies:
     "@types/ember__application" "*"
 
-"@types/ember__utils@*", "@types/ember__utils@^4.0.1":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@types/ember__utils/-/ember__utils-4.0.3.tgz#e5f9920c8dc55b2814df8fff21b60d5a5f6d1f8c"
-  integrity sha512-o+0oRoT72wcxq4aqZTVEcPJKkKORig6mggs6OWrssCKF+cFZIkO7MNSkHy8ad88xNuyiGETIrBaXkr7XpNY1qg==
+"@types/ember__utils@*", "@types/ember__utils@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/ember__utils/-/ember__utils-4.0.4.tgz#d5676a3c05697ab0d1c0437fd866228b08672f3e"
+  integrity sha512-RP6Phi3/oYskNxrH2rm4ZK0yNjxCRKRyY0A796gE2Mv31S6+kkRobqZ/LpH9bVa2FUgdl/4XZIyX/W4L1UWwig==
   dependencies:
     "@types/ember" "*"
 

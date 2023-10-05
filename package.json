@@ -81,7 +81,7 @@
     "@types/ember__string": "^3.0.9",
     "@types/ember__template": "^4.0.0",
     "@types/ember__test": "^4.0.0",
-    "@types/ember__utils": "^4.0.1",
+    "@types/ember__utils": "^4.0.4",
     "@types/qunit": "^2.19.3",
     "@types/remarkable": "^2.0.3",
     "@types/rsvp": "^4.0.4",
