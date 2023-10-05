@@ -128,7 +128,7 @@
     "qunit-dom": "^2.0.0",
     "release-it": "^14.10.0",
     "remarkable": "^2.0.1",
-    "sass": "^1.55.0",
+    "sass": "^1.68.0",
     "stylelint": "^15.10.3",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recommended-scss": "^13.0.0",
