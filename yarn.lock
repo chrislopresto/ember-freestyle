@@ -1884,10 +1884,10 @@
     "@types/ember__object" "*"
     "@types/ember__owner" "*"
 
-"@types/ember@*", "@types/ember@^4.0.1":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@types/ember/-/ember-4.0.4.tgz#279eecf5628ef130d5a660d5aafc6cb0a84d3b41"
-  integrity sha512-MeByM2it6topE4s53+OGS0qHL3mvZIP2+U+eUlhN2w4d9oA6XzP9iaXROA2Eqxjmt4UAJiHHcR2uZ5TVcbEzfw==
+"@types/ember@*", "@types/ember@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@types/ember/-/ember-4.0.6.tgz#f4cef20576f17aed6f11f0adfcf9236c2dd807ca"
+  integrity sha512-5CAqPP20l1CWXT1E0NoiBnQUKqwuPSBq0JJVadEIX65CUzVz3zUIFvNoSl1erePwOeCIiQn9pHa568XwZnD6Mw==
   dependencies:
     "@types/ember__application" "*"
     "@types/ember__array" "*"
@@ -1905,7 +1905,6 @@
     "@types/ember__template" "*"
     "@types/ember__test" "*"
     "@types/ember__utils" "*"
-    "@types/htmlbars-inline-precompile" "*"
     "@types/rsvp" "*"
 
 "@types/ember__application@*", "@types/ember__application@^4.0.2":
@@ -2136,11 +2135,6 @@
   version "9.12.4"
   resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.4.tgz#8c3496bd1b50cc04aeefd691140aa571d4dbfa34"
   integrity sha512-t2szdkwmg2JJyuCM20e8kR2X59WCE5Zkl4bzm1u1Oukjm79zpbiAv+QjnwLnuuV0WHEcX2NgUItu0pAMKuOPww==
-
-"@types/htmlbars-inline-precompile@*":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@types/htmlbars-inline-precompile/-/htmlbars-inline-precompile-3.0.0.tgz#4d3f19eeb2af9f4605620e13a566dae3952a4f68"
-  integrity sha512-n1YwM/Q937KmS9W4Ytran71nzhhcT2FDQI00eRGBNUyeErLZspBdDBewEe1F8tcRlUdsCVo2AZBLJsRjEceTRg==
 
 "@types/http-errors@*":
   version "2.0.1"
