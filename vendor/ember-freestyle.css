@@ -307,7 +307,6 @@ END-FREESTYLE-USAGE */
   margin: 0 1rem;
   max-width: calc(1200px - 1rem);
   padding: 1rem 0 0.4rem;
-  text-transform: uppercase;
 }
 .FreestyleSection--hidden {
   display: none;
@@ -320,7 +319,6 @@ END-FREESTYLE-USAGE */
   font-size: 1.3rem;
   margin: 0 1rem;
   padding: 0.8rem 0 0.4rem;
-  text-transform: uppercase;
 }
 
 .FreestyleMenu {
@@ -329,19 +327,24 @@ END-FREESTYLE-USAGE */
   padding-left: 1rem;
 }
 .FreestyleMenu-item, .FreestyleMenu-submenuItem {
-  padding-top: 0.6rem;
-  text-transform: uppercase;
+  padding-top: 0.1rem;
 }
 .FreestyleMenu-itemLink, .FreestyleMenu-submenuItemLink {
+  border-radius: 6px;
   color: #212121;
+  display: block;
+  padding: 0.3rem 0.3rem 0.3rem 0.5rem;
   text-decoration: none;
 }
 .FreestyleMenu-itemLink.active, .FreestyleMenu-submenuItemLink.active {
-  color: #00bcd4;
+  background-color: #00bcd4;
+  color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 .FreestyleMenu-itemLink:hover, .FreestyleMenu-submenuItemLink:hover {
-  color: #ffc107;
+  background-color: #00bcd4;
+  color: white;
   text-decoration: none;
 }
 .FreestyleMenu-submenu {
