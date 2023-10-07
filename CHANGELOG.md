@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 
 
+
+## v0.20.0 (2023-10-07)
+
+#### :rocket: Enhancement
+* [#973](https://github.com/chrislopresto/ember-freestyle/pull/973) Eliminate uppercase'ing of menu items and update menu item hover state ([@lukemelia](https://github.com/lukemelia))
+
+#### Committers: 1
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+
 ## v0.19.0 (2023-09-28)
 
 #### :boom: Breaking Change
