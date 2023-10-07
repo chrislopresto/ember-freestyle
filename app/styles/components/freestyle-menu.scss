@@ -5,22 +5,27 @@
 
   &-item,
   &-submenuItem {
-    padding-top: 0.6rem;
-    text-transform: uppercase;
+    padding-top: 0.1rem;
   }
 
   &-itemLink,
   &-submenuItemLink {
+    border-radius: 6px;
     color: $FreestyleGuide-color--foreground;
+    display: block;
+    padding: 0.3rem 0.3rem 0.3rem 0.5rem;
     text-decoration: none;
 
     &.active {
-      color: $FreestyleGuide-color--primary;
+      background-color: $FreestyleGuide-color--primary;
+      color: white;
       text-decoration: none;
+      font-weight: bold;
     }
 
     &:hover {
-      color: $FreestyleGuide-color--accent;
+      background-color: $FreestyleGuide-color--primary;
+      color: white;
       text-decoration: none;
     }
   }
