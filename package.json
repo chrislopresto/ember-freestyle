@@ -84,7 +84,7 @@
     "@types/ember__utils": "^4.0.4",
     "@types/qunit": "^2.19.3",
     "@types/remarkable": "^2.0.3",
-    "@types/rsvp": "^4.0.4",
+    "@types/rsvp": "^4.0.5",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.40.1",
     "all-contributors-cli": "^6.24.0",
