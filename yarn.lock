@@ -2229,10 +2229,10 @@
     "@types/glob" "*"
     "@types/node" "*"
 
-"@types/rsvp@*", "@types/rsvp@^4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@types/rsvp/-/rsvp-4.0.4.tgz#55e93e7054027f1ad4b4ebc1e60e59eb091e2d32"
-  integrity sha512-J3Ol++HCC7/hwZhanDvggFYU/GtxHxE/e7cGRWxR04BF7Tt3TqJZ84BkzQgDxmX0uu8IagiyfmfoUlBACh2Ilg==
+"@types/rsvp@*", "@types/rsvp@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@types/rsvp/-/rsvp-4.0.6.tgz#cf66672a7e738425f09a81e0c7def2bd1c8b6c38"
+  integrity sha512-2CgsI0j74ULhrZrqcMwZ7nSvcyX767KaJDefxCnrNSp1D4MuLX8qxOPHwHz7/5b2FC94ILh3Db6du6QAvpc+Qw==
 
 "@types/semver@^7.3.12":
   version "7.5.0"
