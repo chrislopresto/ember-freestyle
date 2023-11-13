@@ -1983,13 +1983,12 @@
     "@types/ember" "*"
     "@types/ember__owner" "*"
 
-"@types/ember__object@*", "@types/ember__object@^4.0.4":
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.6.tgz#7209aec3f8b6b581a669067265b35f554a5e695a"
-  integrity sha512-BVjR2+Q1hQowHnRw9TVwoSOcEly14o3XathEd+wYERLRfl2kbCB/Yh1hutraXqWu3WFuhbxLCS/5FJUCdQcRIg==
+"@types/ember__object@*", "@types/ember__object@^4.0.10":
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.10.tgz#74511d963e597ffaf26cfeac84ea837ec95d61c5"
+  integrity sha512-J5/IFY02iYi+df89NAmKnZljOnqPyW/ZIdcaZW8oz1PVLmi1SjbPMu+gGLa7v0RyAa/ZdUF0qQMMCDL8CLyXGA==
   dependencies:
     "@types/ember" "*"
-    "@types/ember__object" "*"
     "@types/rsvp" "*"
 
 "@types/ember__owner@*":
