@@ -1,5 +1,7 @@
 import '@glint/environment-ember-loose';
 
+import type FreestyleRegistry from 'ember-freestyle/template-registry';
+
 import AndHelper from 'ember-truth-helpers/helpers/and';
 import EqHelper from 'ember-truth-helpers/helpers/eq';
 import NotHelper from 'ember-truth-helpers/helpers/not';
@@ -7,7 +9,7 @@ import { HelperLike, ModifierLike } from '@glint/template';
 import { SafeString } from '@ember/template/-private/handlebars';
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
+  export default interface Registry extends FreestyleRegistry {
     and: typeof AndHelper;
     eq: typeof EqHelper;
     not: typeof NotHelper;

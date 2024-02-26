@@ -44,7 +44,7 @@ module(
     });
 
     test('Does not render the controls', async function (this: Context, assert) {
-      await render<Context>(hbs`<Freestyle::Usage::ComponentLike 
+      await render<Context>(hbs`<Freestyle::Usage::ComponentLike
       @hideControls={{true}}
       @onChange={{this.onChange}}
     />`);
