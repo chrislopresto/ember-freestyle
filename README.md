@@ -28,7 +28,7 @@ To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-f
 * Node.js v18 or above
 * Ember Auto Import v2 or above
 
-ember-freestyle includes Typescript types and provides `addon/glint.ts` for Glint usage
+ember-freestyle includes TypeScript types, and provides a template registry that can be imported from `ember-freestyle/template-registry` for Glint usage.
 
 ## Installation
 
