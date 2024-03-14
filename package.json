@@ -73,7 +73,7 @@
     "@types/ember__error": "^4.0.3",
     "@types/ember__helper": "^4.0.0",
     "@types/ember__modifier": "^4.0.2",
-    "@types/ember__object": "^4.0.4",
+    "@types/ember__object": "^4.0.11",
     "@types/ember__polyfills": "^4.0.0",
     "@types/ember__routing": "^4.0.10",
     "@types/ember__runloop": "^4.0.1",
