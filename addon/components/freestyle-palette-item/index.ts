@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import { SafeString } from '@ember/template/-private/handlebars';
+import { type SafeString } from '@ember/template';
 import { PaletteItem } from '../freestyle-palette';
 
 interface Signature {
