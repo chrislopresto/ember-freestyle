@@ -6,7 +6,7 @@ import AndHelper from 'ember-truth-helpers/helpers/and';
 import EqHelper from 'ember-truth-helpers/helpers/eq';
 import NotHelper from 'ember-truth-helpers/helpers/not';
 import { HelperLike, ModifierLike } from '@glint/template';
-import { SafeString } from '@ember/template/-private/handlebars';
+import { type SafeString } from '@ember/template';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends FreestyleRegistry {
