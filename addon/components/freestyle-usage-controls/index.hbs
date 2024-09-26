@@ -1,4 +1,4 @@
-<div class="FreestyleUsageControls" {{did-insert this.setup}}>
+<div class="FreestyleUsageControls" {{this.setup}}>
   {{#if this.showHeader}}
     <div class="FreestyleUsageControls-header">
       Settings
@@ -7,7 +7,7 @@
   <div class="FreestyleUsageControls-item">
     <div class="FreestyleUsageControls-itemControl">
       <label class="FreestyleUsageControls-itemLabel">
-        <Input @type="checkbox" @checked={{this.showLabels}} />
+        <input type="checkbox" checked={{this.showLabels}} {{on 'click' (this.toggle 'showLabels')}} />
         Show Labels
       </label>
     </div>
@@ -15,7 +15,7 @@
   <div class="FreestyleUsageControls-item">
     <div class="FreestyleUsageControls-itemControl">
       <label class="FreestyleUsageControls-itemLabel">
-        <Input @type="checkbox" @checked={{this.showNotes}} />
+        <input type="checkbox" checked={{this.showNotes}} {{on 'click' (this.toggle 'showNotes')}} />
         Show Notes
       </label>
     </div>
@@ -23,7 +23,7 @@
   <div class="FreestyleUsageControls-item">
     <div class="FreestyleUsageControls-itemControl">
       <label class="FreestyleUsageControls-itemLabel">
-        <Input @type="checkbox" @checked={{this.showCode}} />
+        <input type="checkbox" checked={{this.showCode}} {{on 'click' (this.toggle 'showCode')}} />
         Show Code
       </label>
     </div>
@@ -31,7 +31,7 @@
   <div class="FreestyleUsageControls-item">
     <div class="FreestyleUsageControls-itemControl">
       <label class="FreestyleUsageControls-itemLabel">
-        <Input @type="checkbox" @checked={{this.showApi}} />
+        <input type="checkbox" checked={{this.showApi}} {{on 'click' (this.toggle 'showApi')}} />
         Show API
       </label>
     </div>
@@ -39,9 +39,8 @@
   {{#if this.showFocus}}
     <div class="FreestyleUsageControls-item FreestyleUsageControls-item--focus">
       <div class="FreestyleUsageControls-itemControl">
-        <label class="FreestyleUsageControls-label--focus">Focus a section
-          <Input class="FreestyleUsageControls-input--focus" @value={{this.focus}} @enter={{this.setFocus}} />
-        </label>
+        {{!-- template-lint-disable require-input-label --}}
+        <input type="text" class="FreestyleUsageControls-input--focus" value={{this.focus}} {{on 'input' this.updateFocus}} {{on 'keydown' this.setFocusOnEnterKey}} />
         <button class="FreestyleUsageControls-button" {{on 'click' this.setFocus}} type="button">Focus</button>
       </div>
     </div>

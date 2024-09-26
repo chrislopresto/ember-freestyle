@@ -7,11 +7,8 @@ import { Falsy, UnsetValue } from './-private/shared';
 // and objects with an `isTruthy` method. In these cases, we just won't
 // narrow as much as we potentially could.
 
-type AndPair<A, B> = Falsy<A> extends true
-  ? A
-  : B extends UnsetValue
-  ? A
-  : A | B;
+type AndPair<A, B> =
+  Falsy<A> extends true ? A : B extends UnsetValue ? A : A | B;
 
 interface AndHelperSignature<A, B, C, D, E> {
   Args: { Positional: [A, B?, C?, D?, E?] };

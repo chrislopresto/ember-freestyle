@@ -1,11 +1,9 @@
 import Component from '@glimmer/component';
 import EmberFreestyleService from '../../services/ember-freestyle';
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
 import { reads } from 'macro-decorators';
-import { action, get } from '@ember/object';
-/* eslint-enable @typescript-eslint/no-unused-vars */
+import { get } from '@ember/object';
+import { modifier } from 'ember-modifier';
 
 interface Signature {
   Args: {
@@ -22,7 +20,7 @@ export default class FreestyleSource extends Component<Signature> {
     string,
     unknown
   >;
-  @tracked initialHighlightComplete = false;
+  initialHighlightComplete = false;
   preElement: HTMLElement | undefined;
 
   private dynamafy(sourceCode: string) {
@@ -82,12 +80,11 @@ export default class FreestyleSource extends Component<Signature> {
     return result;
   }
 
-  @action
-  highlight(preElement: HTMLElement): void {
+  highlight = modifier((preElement: HTMLElement) => {
     this.preElement = preElement;
     if (preElement && this.renderableSource) {
       this.emberFreestyle.highlight(preElement);
     }
     this.initialHighlightComplete = true;
-  }
+  });
 }

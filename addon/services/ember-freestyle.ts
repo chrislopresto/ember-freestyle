@@ -1,15 +1,13 @@
 import Service from '@ember/service';
 import { isBlank, isPresent } from '@ember/utils';
-import { TrackedArray } from 'tracked-built-ins';
 import { Promise } from 'rsvp';
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-/* eslint-enable @typescript-eslint/no-unused-vars */
+import { scheduleOnce } from '@ember/runloop';
 
 export interface Section {
   name: string;
-  subsections: TrackedArray<Subsection>;
+  subsections: Subsection[];
 }
 
 interface Subsection {
@@ -22,7 +20,7 @@ export default class EmberFreestyleService extends Service {
   @tracked showCode = true;
   @tracked showApi = true;
 
-  @tracked menu: TrackedArray<Section> | null = null;
+  @tracked menu: Section[] = [];
   @tracked showMenu = true;
   @tracked allowRenderingAllSections = true;
 
@@ -125,16 +123,15 @@ export default class EmberFreestyleService extends Service {
 
   @action
   registerSection(sectionName: string, subsectionName = ''): void {
-    const menu: TrackedArray<Section> =
-      this.menu || new TrackedArray<Section>();
-    if (!menu.find((s) => s.name === sectionName)) {
-      menu.push({
+    this.menu;
+    if (!this.menu.find((s) => s.name === sectionName)) {
+      this.menu.push({
         name: sectionName,
-        subsections: new TrackedArray<Subsection>(),
+        subsections: [],
       });
     }
     if (isPresent(subsectionName)) {
-      const section = menu.find((s) => s.name === sectionName);
+      const section = this.menu.find((s) => s.name === sectionName);
       if (
         section &&
         !section.subsections.find((s) => s.name === subsectionName)
@@ -142,10 +139,16 @@ export default class EmberFreestyleService extends Service {
         section.subsections.push({
           name: subsectionName,
         });
+        section.subsections = [...section.subsections];
       }
     }
-    this.menu = menu;
+    scheduleOnce('afterRender', this, this.notifyMenuChanged);
   }
+
+  notifyMenuChanged = () => {
+    // eslint-disable-next-line no-self-assign
+    this.menu = this.menu;
+  };
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.
