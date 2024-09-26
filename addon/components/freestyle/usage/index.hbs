@@ -84,7 +84,7 @@
     {{/if}}
 
     {{#if this.showSource}}
-      <div class="FreestyleUsage-sourceContainer" {{did-insert this.highlightSource}}>
+      <div class="FreestyleUsage-sourceContainer" {{ensure-freestyle-theme @highlightJsTheme}}>
         <FreestyleSource @source={{@source}} />
       </div>
     {{/if}}

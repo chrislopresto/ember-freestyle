@@ -34,6 +34,7 @@ import type FreestyleUsageString from 'ember-freestyle/components/freestyle/usag
 
 // modifiers
 import type FreestyleHighlight from 'ember-freestyle/modifiers/freestyle-highlight';
+import EnsureFreestyleTheme from './modifiers/ensure-freestyle-theme';
 
 export default interface EmberFreestyleRegistry {
   // components
@@ -104,4 +105,5 @@ export default interface EmberFreestyleRegistry {
 
   // modifiers
   'freestyle-highlight': typeof FreestyleHighlight;
+  'ensure-freestyle-theme': typeof EnsureFreestyleTheme;
 }
