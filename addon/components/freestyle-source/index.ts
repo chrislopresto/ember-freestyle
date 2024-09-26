@@ -61,7 +61,11 @@ export default class FreestyleSource extends Component<Signature> {
     if (!this.args.source) {
       return '';
     }
-    let result = this.args.source.replace(/^(\s*\n)*/, '').replace(/\s*$/, '');
+    let result = this.args.source
+      .replace(/^(\s*\n)*/, '')
+      .replace(/\s*$/, '')
+      .replace(/&#123;/g, '{')
+      .replace(/&#125;/g, '}');
 
     if (this.args.isDynamic) {
       result = this.dynamafy(result);

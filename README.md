@@ -113,6 +113,31 @@ You should include `ember-freestyle` in your `devDependencies` so that apps
 using your addon will not include Ember Freestyle CSS and JavaScript in their
 production builds.
 
+### In V2 addons
+
+You will need to configure babel to run ember-freestyle's AST Transform in order to capture
+source code from Freestyle::Usage example blocks. For example:
+
+```js
+// babel.config.mjs
+import FreestyleTransform from 'ember-freestyle/lib/ast-transform.js';
+
+export default {
+  plugins: [
+    // ...
+    [
+      'babel-plugin-ember-template-compilation',
+      {
+        targetFormat: 'hbs',
+        transforms: [FreestyleTransform],
+      },
+    ],
+    // ...
+  ],
+};
+
+```
+
 ## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
