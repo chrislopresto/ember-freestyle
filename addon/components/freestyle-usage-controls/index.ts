@@ -2,11 +2,11 @@ import Component from '@glimmer/component';
 import { schedule } from '@ember/runloop';
 import { capitalize } from '@ember/string';
 import type EmberFreestyleService from '../../services/ember-freestyle';
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { inject as service } from '@ember/service';
 import { action, get, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-/* eslint-enable @typescript-eslint/no-unused-vars */
+import { modifier } from 'ember-modifier';
+import { helper } from '@ember/component/helper';
 
 export default class FreestyleUsageControls extends Component {
   @service('ember-freestyle') declare emberFreestyle: EmberFreestyleService;
@@ -40,11 +40,25 @@ export default class FreestyleUsageControls extends Component {
   showFocus = true;
   @tracked focus: string | null = null;
 
-  @action setup(): void {
+  setup = modifier(() => {
     schedule('afterRender', () => {
       this.focus = this.emberFreestyle.focus;
     });
-  }
+  });
+
+  toggle = helper(([prop]: [keyof this]) => {
+    return () => {
+      const currentValue = get(this, prop) as boolean;
+      const newValue = !currentValue;
+      return set(this, prop, newValue as this[keyof this]);
+    };
+  });
+
+  setFocusOnEnterKey = (ev: KeyboardEvent) => {
+    if (ev.key === 'Enter') {
+      this.setFocus();
+    }
+  };
 
   @action
   toggleUsage(usageType: 'labels' | 'notes' | 'code' | 'api'): void {
@@ -60,4 +74,8 @@ export default class FreestyleUsageControls extends Component {
   setFocus(): void {
     this.emberFreestyle.set('focus', this.focus);
   }
+
+  updateFocus = (ev: Event) => {
+    this.focus = (ev.target as HTMLInputElement).value;
+  };
 }

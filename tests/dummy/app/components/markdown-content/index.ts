@@ -1,11 +1,9 @@
 // BEGIN-SNIPPET markdown-example
 import Component from '@glimmer/component';
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-/* eslint-enable @typescript-eslint/no-unused-vars */
 import { Remarkable } from 'remarkable';
 import stripIndent from 'strip-indent';
+import { modifier } from 'ember-modifier';
 
 interface Signature {
   Element: HTMLDivElement;
@@ -17,10 +15,9 @@ interface Signature {
 export default class MarkdownContent extends Component<Signature> {
   @tracked rawMarkdown: string | undefined;
 
-  @action
-  extractMarkdown(element: HTMLElement): void {
+  extractMarkdown = modifier((element: HTMLElement): void => {
     this.rawMarkdown = element.querySelector('.MarkdownContent-raw')?.innerHTML;
-  }
+  });
 
   get renderedMarkdown(): string | null {
     if (this.rawMarkdown) {

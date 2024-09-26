@@ -71,14 +71,6 @@ export default class extends Component<Signature> {
     return this.args.slug || this.args.name;
   }
 
-  get computedTheme(): string {
-    return this.args.highlightJsTheme || this.emberFreestyle.defaultTheme;
-  }
-
-  @action highlightSource(): void {
-    this.emberFreestyle.ensureHljsTheme(this.computedTheme);
-  }
-
   @action setFocus(): void {
     this.emberFreestyle.focus = this.effectiveSlug ?? null;
   }

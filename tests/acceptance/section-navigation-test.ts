@@ -36,7 +36,7 @@ module('Acceptance | section navigation', function (hooks) {
     assert.dom(menuItemLinks[5]).hasText('Visual Style');
   });
 
-  test('navigating directly to a subsection', function (assert) {
+  test('navigating directly to a subsection', async function (assert) {
     const submenuItemLinksFooThings = findAll(
       `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
