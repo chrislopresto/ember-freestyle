@@ -1,5 +1,5 @@
 /*!
- * QUnit 2.19.4
+ * QUnit 2.22.0
  * https://qunitjs.com/
  *
  * Copyright OpenJS Foundation and other contributors
