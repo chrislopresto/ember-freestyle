@@ -46,13 +46,17 @@ export default class FreestyleUsageControls extends Component {
     });
   });
 
-  toggle = helper(([prop]: [keyof this]) => {
-    return () => {
-      const currentValue = get(this, prop) as boolean;
-      const newValue = !currentValue;
-      return set(this, prop, newValue as this[keyof this]);
-    };
-  });
+  toggle = helper(
+    ([prop]: ['showNotes' | 'showLabels' | 'showCode' | 'showApi']) => {
+      // eslint-disable-next-line @typescript-eslint/no-this-alias
+      const component = this;
+      return () => {
+        const currentValue = get(component, prop) as boolean;
+        const newValue = !currentValue;
+        set(component, prop, newValue);
+      };
+    },
+  );
 
   setFocusOnEnterKey = (ev: KeyboardEvent) => {
     if (ev.key === 'Enter') {
@@ -72,7 +76,7 @@ export default class FreestyleUsageControls extends Component {
 
   @action
   setFocus(): void {
-    this.emberFreestyle.set('focus', this.focus);
+    this.emberFreestyle.focus = this.focus;
   }
 
   updateFocus = (ev: Event) => {
