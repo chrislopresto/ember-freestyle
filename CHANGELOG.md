@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 
 
 
+
+## v0.21.0 (2024-09-27)
+
+#### :boom: Breaking Change
+* [#995](https://github.com/chrislopresto/ember-freestyle/pull/995) Provide an extendable template registry ([@bertdeblock](https://github.com/bertdeblock))
+* [#996](https://github.com/chrislopresto/ember-freestyle/pull/996) Drop support for Node versions below v18 ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :rocket: Enhancement
+* [#999](https://github.com/chrislopresto/ember-freestyle/pull/999) Update AST transform to replace curly braces ([@lukemelia](https://github.com/lukemelia))
+* [#995](https://github.com/chrislopresto/ember-freestyle/pull/995) Provide an extendable template registry ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :bug: Bug Fix
+* [#998](https://github.com/chrislopresto/ember-freestyle/pull/998) Fix import path for `SafeString` type ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :house: Internal
+* [#1005](https://github.com/chrislopresto/ember-freestyle/pull/1005) Type fixes ([@lukemelia](https://github.com/lukemelia))
+
+#### Committers: 3
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+- [@tintinthong](https://github.com/tintinthong)
+
 ## v0.20.0 (2023-10-07)
 
 #### :rocket: Enhancement
