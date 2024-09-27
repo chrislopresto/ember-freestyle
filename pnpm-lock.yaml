@@ -73,8 +73,8 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
       '@release-it-plugins/lerna-changelog':
-        specifier: ^5.0.0
-        version: 5.0.0(release-it@14.14.3(encoding@0.1.13))
+        specifier: ^7.0.0
+        version: 7.0.0(release-it@14.14.3(encoding@0.1.13))
       '@tsconfig/ember':
         specifier: ^3.0.1
         version: 3.0.8
@@ -1306,11 +1306,11 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@release-it-plugins/lerna-changelog@5.0.0':
-    resolution: {integrity: sha512-nMhAUptKSfIsiY0c//HuBcd2VT7D/IoxAQNwRgPx+jf3FM7HA5KD4KSl3oLoz4uA4GjvypWQP4ODX8UbWjmUZA==}
-    engines: {node: ^14.13.1 || >= 16}
+  '@release-it-plugins/lerna-changelog@7.0.0':
+    resolution: {integrity: sha512-IGHKdcUCyQ5ibtfkF2AQNMrMtyWF1aigic/ZWHPbD77B2zCcymzsyzVskhrGnHVeZGoOOG3vqGuE6U2INz8k6w==}
+    engines: {node: '>= 16'}
     peerDependencies:
-      release-it: ^14.0.0 || ^15.1.3
+      release-it: ^14.0.0 || ^15.1.3 || ^16.0.0 || ^17.0.0
 
   '@simple-dom/interface@1.4.0':
     resolution: {integrity: sha512-l5qumKFWU0S+4ZzMaLXFU8tQZsicHEMEyAxI5kDFGhJsRqDwe0a7/iPA/GdxlGyDKseQQAgIz5kzU7eXTrlSpA==}
@@ -8872,11 +8872,11 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@release-it-plugins/lerna-changelog@5.0.0(release-it@14.14.3(encoding@0.1.13))':
+  '@release-it-plugins/lerna-changelog@7.0.0(release-it@14.14.3(encoding@0.1.13))':
     dependencies:
       execa: 5.1.1
       lerna-changelog: 2.2.0
-      lodash.template: 4.5.0
+      lodash: 4.17.21
       mdast-util-from-markdown: 1.3.1
       release-it: 14.14.3(encoding@0.1.13)
       tmp: 0.2.3
@@ -8935,6 +8935,26 @@ snapshots:
       - '@babel/core'
       - supports-color
 
+  '@types/ember@4.0.11':
+    dependencies:
+      '@types/ember__application': 4.0.11(@babel/core@7.25.2)
+      '@types/ember__array': 4.0.10(@babel/core@7.25.2)
+      '@types/ember__component': 4.0.22(@babel/core@7.25.2)
+      '@types/ember__controller': 4.0.12(@babel/core@7.25.2)
+      '@types/ember__debug': 4.0.8(@babel/core@7.25.2)
+      '@types/ember__engine': 4.0.11(@babel/core@7.25.2)
+      '@types/ember__error': 4.0.6
+      '@types/ember__object': 4.0.12(@babel/core@7.25.2)
+      '@types/ember__polyfills': 4.0.6
+      '@types/ember__routing': 4.0.22(@babel/core@7.25.2)
+      '@types/ember__runloop': 4.0.10
+      '@types/ember__service': 4.0.9(@babel/core@7.25.2)
+      '@types/ember__string': 3.0.15
+      '@types/ember__template': 4.0.7
+      '@types/ember__test': 4.0.6(@babel/core@7.25.2)
+      '@types/ember__utils': 4.0.7
+      '@types/rsvp': 4.0.9
+
   '@types/ember@4.0.11(@babel/core@7.25.2)':
     dependencies:
       '@types/ember__application': 4.0.11(@babel/core@7.25.2)
@@ -8961,7 +8981,7 @@ snapshots:
   '@types/ember__application@4.0.11(@babel/core@7.25.2)':
     dependencies:
       '@glimmer/component': 1.1.2(@babel/core@7.25.2)
-      '@types/ember': 4.0.11(@babel/core@7.25.2)
+      '@types/ember': 4.0.11
       '@types/ember__engine': 4.0.11(@babel/core@7.25.2)
       '@types/ember__object': 4.0.12(@babel/core@7.25.2)
       '@types/ember__owner': 4.0.9
@@ -9042,6 +9062,10 @@ snapshots:
       - '@babel/core'
       - supports-color
 
+  '@types/ember__runloop@4.0.10':
+    dependencies:
+      '@types/ember': 4.0.11
+
   '@types/ember__runloop@4.0.10(@babel/core@7.25.2)':
     dependencies:
       '@types/ember': 4.0.11(@babel/core@7.25.2)
@@ -9066,6 +9090,10 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
+
+  '@types/ember__utils@4.0.7':
+    dependencies:
+      '@types/ember': 4.0.11
 
   '@types/ember__utils@4.0.7(@babel/core@7.25.2)':
     dependencies:
