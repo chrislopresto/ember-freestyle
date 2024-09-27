@@ -72,6 +72,7 @@
     "@types/ember__error": "^4.0.3",
     "@types/ember__helper": "^4.0.0",
     "@types/ember__object": "^4.0.4",
+    "@types/ember__owner": "^4.0.9",
     "@types/ember__polyfills": "^4.0.0",
     "@types/ember__routing": "^4.0.10",
     "@types/ember__runloop": "^4.0.1",
@@ -142,8 +143,8 @@
     "node": ">= 18"
   },
   "volta": {
-    "node": "18.19.1",
-    "yarn": "1.22.21"
+    "node": "20.14.0",
+    "pnpm": "9.2.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

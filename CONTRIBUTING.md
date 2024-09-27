@@ -4,12 +4,12 @@
 
 * `git clone git@github.com:chrislopresto/ember-freestyle.git`
 * `cd ember-freestyle`
-* `yarn install`
+* `pnpm install`
 
 ## Linting
 
-* `yarn lint`
-* `yarn lint:fix`
+* `pnpm lint`
+* `pnpm lint:fix`
 
 ## Running Tests
 
