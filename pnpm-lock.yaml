@@ -48,7 +48,7 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       tracked-built-ins:
-        specifier: ^3.1.0
+        specifier: ^3.1.0 || ^4.0.0
         version: 3.3.0
     devDependencies:
       '@ember/optional-features':
