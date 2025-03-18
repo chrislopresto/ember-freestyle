@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 
 
+## v0.22.0 (2025-03-18)
+
 ## v0.21.0 (2024-09-27)
 
 #### :boom: Breaking Change
