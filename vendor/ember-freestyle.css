@@ -397,6 +397,10 @@ END-FREESTYLE-USAGE */
   list-style: none;
   padding-left: 1rem;
 }
+.FreestyleMenu-submenuItem.is-highlighted > .FreestyleMenu-submenuItemLink {
+  background-color: rgba(0, 188, 212, 0.2);
+  color: #212121;
+}
 
 .FreestyleSource-title {
   font-size: 0.7rem;

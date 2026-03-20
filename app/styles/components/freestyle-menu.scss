@@ -87,4 +87,11 @@
     list-style: none;
     padding-left: 1rem;
   }
+
+  &-submenuItem {
+    &.is-highlighted > .FreestyleMenu-submenuItemLink {
+      background-color: rgba($FreestyleGuide-color--primary, 0.2);
+      color: $FreestyleGuide-color--foreground;
+    }
+  }
 }

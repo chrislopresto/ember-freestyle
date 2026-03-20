@@ -8,6 +8,8 @@
       role="searchbox"
       value={{this.filterText}}
       {{on "input" this.onFilterInput}}
+      {{on "keydown" this.handleKeydown}}
+      aria-activedescendant={{this.activeDescendantId}}
     />
   </li>
   {{#if this.includeAllOption}}
@@ -36,9 +38,14 @@
         {{/if}}
       </div>
       {{#if (and entry.subsections.length entry.isExpanded)}}
-        <ul class="FreestyleMenu-submenu">
+        <ul class="FreestyleMenu-submenu" role="listbox">
           {{#each entry.subsections as |subsection|}}
-            <li class="FreestyleMenu-submenuItem">
+            <li
+              class="FreestyleMenu-submenuItem {{if subsection.isHighlighted 'is-highlighted'}}"
+              id="freestyle-menu-item-{{subsection.flatIndex}}"
+              role="option"
+              aria-selected="{{if subsection.isHighlighted 'true' 'false'}}"
+            >
               <LinkTo @query={{hash f=null s=entry.section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
                 {{subsection.name}}
               </LinkTo>
