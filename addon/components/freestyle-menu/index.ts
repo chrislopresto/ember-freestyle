@@ -224,6 +224,16 @@ export default class FreestyleMenu extends Component<Signature> {
         ss: item.subsectionName,
       },
     });
+
+    // Scroll the content area to the target subsection after navigation renders
+    schedule('afterRender', null, () => {
+      const target = document.querySelector(
+        `.FreestyleSubsection[data-section="${item.sectionName}"][data-subsection="${item.subsectionName}"]`,
+      );
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   }
 
   scrollHighlightedIntoView(): void {
