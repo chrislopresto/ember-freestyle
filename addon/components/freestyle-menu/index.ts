@@ -192,12 +192,14 @@ export default class FreestyleMenu extends Component<Signature> {
       if (this.highlightedIndex < items.length - 1) {
         this.highlightedIndex++;
         schedule('afterRender', this, this.scrollHighlightedIntoView);
+        this.scrollContentToItem(items[this.highlightedIndex]);
       }
     } else if (event.key === 'ArrowUp') {
       event.preventDefault();
       if (this.highlightedIndex > 0) {
         this.highlightedIndex--;
         schedule('afterRender', this, this.scrollHighlightedIntoView);
+        this.scrollContentToItem(items[this.highlightedIndex]);
       }
     } else if (event.key === 'Enter') {
       event.preventDefault();
@@ -205,6 +207,16 @@ export default class FreestyleMenu extends Component<Signature> {
     } else if (event.key === 'Escape') {
       this.filterText = '';
       this.highlightedIndex = -1;
+    }
+  }
+
+  scrollContentToItem(item: FlatSubsectionItem | undefined): void {
+    if (!item) return;
+    const target = document.querySelector(
+      `.FreestyleSubsection[data-section="${item.sectionName}"][data-subsection="${item.subsectionName}"]`,
+    );
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
