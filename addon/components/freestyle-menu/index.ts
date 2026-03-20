@@ -5,7 +5,9 @@ import { inject as service } from '@ember/service';
 import { reads } from 'macro-decorators';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { action } from '@ember/object';
-import { tracked, cached } from '@glimmer/tracking';
+import { tracked } from '@glimmer/tracking';
+// @ts-expect-error cached exists at runtime in Ember 4.12+ but glint types don't include it
+import { cached } from '@glimmer/tracking';
 import { schedule } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import type RouterService from '@ember/routing/router-service';
@@ -290,5 +292,4 @@ export default class FreestyleMenu extends Component<Signature> {
       this.expandedSections.add(section.name);
     }
   }
-
 }

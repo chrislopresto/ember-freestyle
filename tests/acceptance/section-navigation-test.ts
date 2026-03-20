@@ -47,7 +47,11 @@ module('Acceptance | section navigation', function (hooks) {
 
   test('sections with subsections have collapse toggles with aria-expanded', function (assert) {
     const toggles = findAll(SELECTOR.COLLAPSE_TOGGLE);
-    assert.strictEqual(toggles.length, 3, 'sections with subsections have toggles');
+    assert.strictEqual(
+      toggles.length,
+      3,
+      'sections with subsections have toggles',
+    );
 
     for (const toggle of toggles) {
       assert.dom(toggle).hasAttribute('aria-expanded');
@@ -58,7 +62,9 @@ module('Acceptance | section navigation', function (hooks) {
   test('toggling a section reveals and hides subsections', async function (assert) {
     await click(findAll(SELECTOR.COLLAPSE_TOGGLE)[1] as Element); // Foo Things
 
-    assert.dom(findAll(SELECTOR.COLLAPSE_TOGGLE)[1]).hasAttribute('aria-expanded', 'true');
+    assert
+      .dom(findAll(SELECTOR.COLLAPSE_TOGGLE)[1])
+      .hasAttribute('aria-expanded', 'true');
 
     const submenuItemLinksFooThings = findAll(
       `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`,
@@ -97,17 +103,25 @@ module('Acceptance | section navigation', function (hooks) {
     assert.dom(visibleLinks[1]).hasText('Visual Style');
 
     const subsectionLinks = findAll(SELECTOR.SUBMENU_ITEM_LINK);
-    assert.strictEqual(subsectionLinks.length, 1, 'only matching subsection shown');
+    assert.strictEqual(
+      subsectionLinks.length,
+      1,
+      'only matching subsection shown',
+    );
     assert.dom(subsectionLinks[0]).hasText('Typography');
   });
 
   test('clearing search restores all sections', async function (assert) {
     await fillIn(SELECTOR.SEARCH_INPUT, 'foo');
     // "All" + 1 matching section
-    assert.dom(SELECTOR.COLLAPSE_TOGGLE).exists({ count: 1 }, 'only Foo Things toggle visible');
+    assert
+      .dom(SELECTOR.COLLAPSE_TOGGLE)
+      .exists({ count: 1 }, 'only Foo Things toggle visible');
 
     await fillIn(SELECTOR.SEARCH_INPUT, '');
-    assert.dom(SELECTOR.MENU_ITEM).exists({ count: 6 }, 'all sections restored');
+    assert
+      .dom(SELECTOR.MENU_ITEM)
+      .exists({ count: 6 }, 'all sections restored');
   });
 
   test('keyboard ArrowDown/ArrowUp moves highlight through subsections', async function (assert) {
@@ -118,7 +132,9 @@ module('Acceptance | section navigation', function (hooks) {
     await click(SELECTOR.SEARCH_INPUT);
 
     await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'ArrowDown');
-    assert.dom('.FreestyleMenu-submenuItem.is-highlighted').exists({ count: 1 });
+    assert
+      .dom('.FreestyleMenu-submenuItem.is-highlighted')
+      .exists({ count: 1 });
 
     await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'ArrowDown');
     const highlighted = findAll('.FreestyleMenu-submenuItem.is-highlighted');
@@ -128,15 +144,20 @@ module('Acceptance | section navigation', function (hooks) {
   test('Escape clears filter and highlight', async function (assert) {
     await fillIn(SELECTOR.SEARCH_INPUT, 'foo');
     // "All" + 1 matching section
-    assert.dom(SELECTOR.COLLAPSE_TOGGLE).exists({ count: 1 }, 'only Foo Things toggle visible');
+    assert
+      .dom(SELECTOR.COLLAPSE_TOGGLE)
+      .exists({ count: 1 }, 'only Foo Things toggle visible');
 
     await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'ArrowDown');
-    assert.dom('.FreestyleMenu-submenuItem.is-highlighted').exists({ count: 1 });
+    assert
+      .dom('.FreestyleMenu-submenuItem.is-highlighted')
+      .exists({ count: 1 });
 
     await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'Escape');
-    await settled();
 
-    assert.dom(SELECTOR.MENU_ITEM).exists({ count: 6 }, 'all sections restored');
+    assert
+      .dom(SELECTOR.MENU_ITEM)
+      .exists({ count: 6 }, 'all sections restored');
     assert
       .dom('.FreestyleMenu-submenuItem.is-highlighted')
       .doesNotExist('highlight cleared');

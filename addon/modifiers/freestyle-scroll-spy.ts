@@ -150,6 +150,5 @@ export default class FreestyleScrollSpy extends Modifier {
     this.observedElements.clear();
     if (io) io.disconnect();
     if (mo) mo.disconnect();
-    super.willDestroy();
   }
 }
