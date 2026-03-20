@@ -1,21 +1,34 @@
 <ul class="FreestyleMenu">
   {{#if this.includeAllOption}}
     <li class="FreestyleMenu-item">
-      <LinkTo @query={{hash s=null ss=null f=null}} class="FreestyleMenu-itemLink">
+      <LinkTo @query={{hash s=null ss=null f=null}} class="FreestyleMenu-itemLink" {{on "click" this.expandAllSections}}>
         All
       </LinkTo>
     </li>
   {{/if}}
-  {{#each this.menu as |section|}}
+  {{#each this.filteredMenu as |entry|}}
     <li class="FreestyleMenu-item">
-      <LinkTo @query={{hash f=null s=section.name ss=null}} class="FreestyleMenu-itemLink">
-        {{section.name}}
-      </LinkTo>
-      {{#if section.subsections.length}}
+      <div class="FreestyleMenu-itemHeader">
+        <LinkTo @query={{hash f=null s=entry.section.name ss=null}} class="FreestyleMenu-itemLink" {{on "click" (fn this.expandSection entry.section.name)}}>
+          {{#if entry.section.subsections.length}}
+            <span class="FreestyleMenu-chevron {{if entry.isExpanded 'is-expanded'}}"></span>
+          {{/if}}
+          {{entry.section.name}}
+        </LinkTo>
+        {{#if entry.section.subsections.length}}
+          <button
+            type="button"
+            class="FreestyleMenu-collapseToggle"
+            {{on "click" (fn this.toggleSection entry.section.name)}}
+            aria-label="Toggle {{entry.section.name}}"
+          ></button>
+        {{/if}}
+      </div>
+      {{#if (and entry.section.subsections.length entry.isExpanded)}}
         <ul class="FreestyleMenu-submenu">
-          {{#each section.subsections as |subsection|}}
+          {{#each entry.section.subsections as |subsection|}}
             <li class="FreestyleMenu-submenuItem">
-              <LinkTo @query={{hash f=null s=section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
+              <LinkTo @query={{hash f=null s=entry.section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
                 {{subsection.name}}
               </LinkTo>
             </li>

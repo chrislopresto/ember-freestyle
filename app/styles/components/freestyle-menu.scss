@@ -8,6 +8,39 @@
     padding-top: 0.1rem;
   }
 
+  &-itemHeader {
+    position: relative;
+  }
+
+  &-chevron {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid currentColor;
+    margin-right: 0.35rem;
+    transition: transform 0.15s ease;
+    vertical-align: middle;
+    opacity: 0.6;
+
+    &.is-expanded {
+      transform: rotate(90deg);
+    }
+  }
+
+  &-collapseToggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.8rem;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
   &-itemLink,
   &-submenuItemLink {
     border-radius: 6px;

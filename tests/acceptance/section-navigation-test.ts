@@ -1,4 +1,4 @@
-import { findAll, settled, visit } from '@ember/test-helpers';
+import { click, findAll, settled, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import EmberFreestyleService from '../../addon/services/ember-freestyle';
@@ -36,13 +36,24 @@ module('Acceptance | section navigation', function (hooks) {
     assert.dom(menuItemLinks[5]).hasText('Visual Style');
   });
 
-  test('navigating directly to a subsection', async function (assert) {
+  test('sections with subsections have collapse toggles', function (assert) {
+    assert.dom('.FreestyleMenu-submenu').doesNotExist('subsection lists are hidden by default');
+    assert.dom('.FreestyleMenu-collapseToggle').exists({ count: 3 }, 'sections with subsections have toggles');
+  });
+
+  test('toggling a section reveals and hides subsections', async function (assert) {
+    // toggles: [0]=Albums, [1]=Foo Things, [2]=Visual Style
+    await click(findAll('.FreestyleMenu-collapseToggle')[1] as Element); // Foo Things
+
     const submenuItemLinksFooThings = findAll(
       `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
 
     assert.dom(submenuItemLinksFooThings[0]).hasText('Foo Subsection A');
     assert.dom(submenuItemLinksFooThings[1]).hasText('Foo Subsection B');
+
+    // Re-query toggles since DOM re-renders on state change
+    await click(findAll('.FreestyleMenu-collapseToggle')[2] as Element); // Visual Style
 
     const submenuItemLinksVisualStyle = findAll(
       `${SELECTOR.MENU_ITEM}:nth-child(6) ${SELECTOR.SUBMENU_ITEM_LINK}`,
