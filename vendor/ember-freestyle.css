@@ -368,6 +368,9 @@ END-FREESTYLE-USAGE */
 .FreestyleMenu-item.is-active:not(.is-expanded) {
   background-color: rgba(0, 188, 212, 0.1);
 }
+.FreestyleMenu-item.is-active:not(.is-expanded) > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
+  font-weight: 600;
+}
 .FreestyleMenu-itemHeader {
   position: relative;
 }

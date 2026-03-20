@@ -56,6 +56,10 @@ $FreestyleMenu-color--active: #008a9e;
     // Section-level scroll spy active (sections without children)
     &.is-active:not(.is-expanded) {
       background-color: rgba($FreestyleGuide-color--primary, 0.1);
+
+      > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
+        font-weight: 600;
+      }
     }
   }
 
