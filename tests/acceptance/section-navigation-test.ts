@@ -1,4 +1,11 @@
-import { click, findAll, settled, visit } from '@ember/test-helpers';
+import {
+  click,
+  fillIn,
+  findAll,
+  settled,
+  triggerKeyEvent,
+  visit,
+} from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import EmberFreestyleService from '../../addon/services/ember-freestyle';
@@ -9,6 +16,8 @@ const SELECTOR = {
   MENU_ITEM: '.FreestyleMenu-item',
   MENU_ITEM_LINK: '.FreestyleMenu-itemLink',
   SUBMENU_ITEM_LINK: '.FreestyleMenu-submenuItemLink',
+  SEARCH_INPUT: '.FreestyleMenu-searchInput',
+  COLLAPSE_TOGGLE: '.FreestyleMenu-collapseToggle',
 };
 
 module('Acceptance | section navigation', function (hooks) {
@@ -36,32 +45,111 @@ module('Acceptance | section navigation', function (hooks) {
     assert.dom(menuItemLinks[5]).hasText('Visual Style');
   });
 
-  test('sections with subsections have collapse toggles', function (assert) {
-    // Only sections with subsections get collapse toggles (Albums, Foo Things, Visual Style)
-    assert.dom('.FreestyleMenu-collapseToggle').exists({ count: 3 }, 'sections with subsections have toggles');
+  test('sections with subsections have collapse toggles with aria-expanded', function (assert) {
+    const toggles = findAll(SELECTOR.COLLAPSE_TOGGLE);
+    assert.strictEqual(toggles.length, 3, 'sections with subsections have toggles');
+
+    for (const toggle of toggles) {
+      assert.dom(toggle).hasAttribute('aria-expanded');
+      assert.dom(toggle).hasAttribute('aria-label');
+    }
   });
 
   test('toggling a section reveals and hides subsections', async function (assert) {
-    // toggles: [0]=Albums, [1]=Foo Things, [2]=Visual Style
-    await click(findAll('.FreestyleMenu-collapseToggle')[1] as Element); // Foo Things
+    await click(findAll(SELECTOR.COLLAPSE_TOGGLE)[1] as Element); // Foo Things
 
-    // nth-child accounts for search <li> at position 1 and All <li> at position 2
+    assert.dom(findAll(SELECTOR.COLLAPSE_TOGGLE)[1]).hasAttribute('aria-expanded', 'true');
+
     const submenuItemLinksFooThings = findAll(
-      `${SELECTOR.MENU_ITEM}:nth-child(5) ${SELECTOR.SUBMENU_ITEM_LINK}`,
+      `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
 
     assert.dom(submenuItemLinksFooThings[0]).hasText('Foo Subsection A');
     assert.dom(submenuItemLinksFooThings[1]).hasText('Foo Subsection B');
 
     // Re-query toggles since DOM re-renders on state change
-    await click(findAll('.FreestyleMenu-collapseToggle')[2] as Element); // Visual Style
+    await click(findAll(SELECTOR.COLLAPSE_TOGGLE)[2] as Element); // Visual Style
 
     const submenuItemLinksVisualStyle = findAll(
-      `${SELECTOR.MENU_ITEM}:nth-child(7) ${SELECTOR.SUBMENU_ITEM_LINK}`,
+      `${SELECTOR.MENU_ITEM}:nth-child(6) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
 
     assert.dom(submenuItemLinksVisualStyle[0]).hasText('Typography');
     assert.dom(submenuItemLinksVisualStyle[1]).hasText('Color');
+  });
+
+  test('search filters sections by name', async function (assert) {
+    await fillIn(SELECTOR.SEARCH_INPUT, 'foo');
+
+    // "All" link + 1 matching section
+    const visibleLinks = findAll(SELECTOR.MENU_ITEM_LINK);
+    assert.dom(visibleLinks[1]).hasText('Foo Things');
+
+    // Subsections are auto-expanded when filtering
+    assert.dom(SELECTOR.SUBMENU_ITEM_LINK).exists({ count: 2 });
+  });
+
+  test('search filters by subsection name and keeps section header', async function (assert) {
+    await fillIn(SELECTOR.SEARCH_INPUT, 'typography');
+
+    // "All" link + matching section header
+    const visibleLinks = findAll(SELECTOR.MENU_ITEM_LINK);
+    assert.dom(visibleLinks[1]).hasText('Visual Style');
+
+    const subsectionLinks = findAll(SELECTOR.SUBMENU_ITEM_LINK);
+    assert.strictEqual(subsectionLinks.length, 1, 'only matching subsection shown');
+    assert.dom(subsectionLinks[0]).hasText('Typography');
+  });
+
+  test('clearing search restores all sections', async function (assert) {
+    await fillIn(SELECTOR.SEARCH_INPUT, 'foo');
+    // "All" + 1 matching section
+    assert.dom(SELECTOR.COLLAPSE_TOGGLE).exists({ count: 1 }, 'only Foo Things toggle visible');
+
+    await fillIn(SELECTOR.SEARCH_INPUT, '');
+    assert.dom(SELECTOR.MENU_ITEM).exists({ count: 6 }, 'all sections restored');
+  });
+
+  test('keyboard ArrowDown/ArrowUp moves highlight through subsections', async function (assert) {
+    // Expand Foo Things to get subsection items
+    await click(findAll(SELECTOR.COLLAPSE_TOGGLE)[1] as Element);
+
+    // Focus the search input for keyboard events
+    await click(SELECTOR.SEARCH_INPUT);
+
+    await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'ArrowDown');
+    assert.dom('.FreestyleMenu-submenuItem.is-highlighted').exists({ count: 1 });
+
+    await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'ArrowDown');
+    const highlighted = findAll('.FreestyleMenu-submenuItem.is-highlighted');
+    assert.strictEqual(highlighted.length, 1, 'only one item highlighted');
+  });
+
+  test('Escape clears filter and highlight', async function (assert) {
+    await fillIn(SELECTOR.SEARCH_INPUT, 'foo');
+    // "All" + 1 matching section
+    assert.dom(SELECTOR.COLLAPSE_TOGGLE).exists({ count: 1 }, 'only Foo Things toggle visible');
+
+    await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'ArrowDown');
+    assert.dom('.FreestyleMenu-submenuItem.is-highlighted').exists({ count: 1 });
+
+    await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'Escape');
+    await settled();
+
+    assert.dom(SELECTOR.MENU_ITEM).exists({ count: 6 }, 'all sections restored');
+    assert
+      .dom('.FreestyleMenu-submenuItem.is-highlighted')
+      .doesNotExist('highlight cleared');
+  });
+
+  test('Enter on highlighted item navigates', async function (assert) {
+    await fillIn(SELECTOR.SEARCH_INPUT, 'foo');
+    await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'ArrowDown');
+    await triggerKeyEvent(SELECTOR.SEARCH_INPUT, 'keydown', 'Enter');
+
+    // Should have navigated to Foo Things > Foo Subsection A
+    assert.dom('.FreestyleSection-name').hasText('Foo Things');
+    assert.dom('.FreestyleSubsection-name').hasText('Foo Subsection A');
   });
 
   module('with `allowRenderingAllSections` set to `false`', function (hooks) {

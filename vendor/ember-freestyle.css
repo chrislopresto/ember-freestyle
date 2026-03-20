@@ -328,7 +328,6 @@ END-FREESTYLE-USAGE */
   margin: 0;
 }
 .FreestyleMenu-search {
-  list-style: none;
   padding: 0 0.75rem 0.75rem;
 }
 .FreestyleMenu-searchInput {
@@ -349,6 +348,11 @@ END-FREESTYLE-USAGE */
 .FreestyleMenu-searchInput:focus {
   background-color: rgba(33, 33, 33, 0.1);
   box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.3);
+}
+.FreestyleMenu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 .FreestyleMenu-item {
   list-style: none;
@@ -393,6 +397,11 @@ END-FREESTYLE-USAGE */
   cursor: pointer;
   padding: 0;
 }
+.FreestyleMenu-collapseToggle:focus-visible {
+  outline: 2px solid #00bcd4;
+  outline-offset: -2px;
+  border-radius: 4px;
+}
 .FreestyleMenu-itemLink {
   border-radius: 100px;
   color: #212121;
@@ -404,7 +413,7 @@ END-FREESTYLE-USAGE */
 }
 .FreestyleMenu-itemLink.active {
   background-color: rgba(0, 188, 212, 0.18);
-  color: rgb(0, 120.1603773585, 135.5);
+  color: #008a9e;
   text-decoration: none;
   font-weight: 600;
 }
@@ -422,7 +431,7 @@ END-FREESTYLE-USAGE */
 }
 .FreestyleMenu-submenuItem.is-highlighted > .FreestyleMenu-submenuItemLink {
   background-color: rgba(0, 188, 212, 0.18);
-  color: rgb(0, 120.1603773585, 135.5);
+  color: #008a9e;
   font-weight: 600;
 }
 .FreestyleMenu-submenuItem.is-active > .FreestyleMenu-submenuItemLink {
@@ -441,7 +450,7 @@ END-FREESTYLE-USAGE */
 }
 .FreestyleMenu-submenuItemLink.active {
   background-color: rgba(0, 188, 212, 0.18);
-  color: rgb(0, 120.1603773585, 135.5);
+  color: #008a9e;
   text-decoration: none;
   font-weight: 600;
 }

@@ -5,7 +5,9 @@ import { inject as service } from '@ember/service';
 import { reads } from 'macro-decorators';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import { tracked, cached } from '@glimmer/tracking';
+import { schedule } from '@ember/runloop';
+import { guidFor } from '@ember/object/internals';
 import type RouterService from '@ember/routing/router-service';
 import type EmberFreestyleService from '../../services/ember-freestyle';
 import { type Section, type Subsection } from '../../services/ember-freestyle';
@@ -43,8 +45,12 @@ export default class FreestyleMenu extends Component<Signature> {
   @reads('emberFreestyle.menu') declare menu: TrackedArray<Section>;
 
   expandedSections = new TrackedSet<string>();
+  userCollapsedSections = new TrackedSet<string>();
   @tracked filterText = '';
   @tracked highlightedIndex = -1;
+
+  /** Stable prefix for element IDs to avoid collisions */
+  elementIdPrefix = `freestyle-menu-${guidFor(this)}`;
 
   get isFiltering(): boolean {
     return this.filterText.length > 0;
@@ -52,11 +58,12 @@ export default class FreestyleMenu extends Component<Signature> {
 
   get activeDescendantId(): string | undefined {
     if (this.highlightedIndex >= 0) {
-      return `freestyle-menu-item-${this.highlightedIndex}`;
+      return `${this.elementIdPrefix}-item-${this.highlightedIndex}`;
     }
     return undefined;
   }
 
+  @cached
   get filteredMenu(): FilteredSection[] {
     const filter = this.filterText.toLowerCase();
     const spySection = this.emberFreestyle.scrollSpySection;
@@ -64,7 +71,7 @@ export default class FreestyleMenu extends Component<Signature> {
     const hasKeyboardHighlight = this.highlightedIndex >= 0;
     let flatIndex = 0;
 
-    return this.menu
+    const result = this.menu
       .map((section: Section) => {
         let matchingSubs: Subsection[];
         let isExpanded: boolean;
@@ -73,12 +80,14 @@ export default class FreestyleMenu extends Component<Signature> {
           matchingSubs = section.subsections;
           isExpanded = this.isSectionExpanded(section.name);
 
-          // Auto-expand any section the scroll spy is currently pointing at
+          // Auto-expand when scroll spy points at this section,
+          // unless user explicitly collapsed it during this scroll-spy pass
           if (
             !isExpanded &&
             spySection === section.name &&
             !hasKeyboardHighlight &&
-            matchingSubs.length > 0
+            matchingSubs.length > 0 &&
+            !this.userCollapsedSections.has(section.name)
           ) {
             isExpanded = true;
           }
@@ -117,7 +126,6 @@ export default class FreestyleMenu extends Component<Signature> {
               isActive: false,
             }));
 
-        // Section-level active: scroll spy points at this section
         const isSectionActive =
           !hasKeyboardHighlight && spySection === section.name;
 
@@ -129,6 +137,21 @@ export default class FreestyleMenu extends Component<Signature> {
         };
       })
       .filter(Boolean) as FilteredSection[];
+
+    // Clean up collapsed overrides for sections no longer pointed at by scroll spy
+    if (spySection) {
+      for (const name of this.userCollapsedSections) {
+        if (name !== spySection) {
+          schedule('afterRender', () =>
+            this.userCollapsedSections.delete(name),
+          );
+        }
+      }
+      // Auto-scroll sidebar to keep the active item visible
+      schedule('afterRender', this, this.scrollActiveItemIntoView);
+    }
+
+    return result;
   }
 
   get flatSubsectionItems(): FlatSubsectionItem[] {
@@ -151,7 +174,6 @@ export default class FreestyleMenu extends Component<Signature> {
     if (currentSection && currentSection === sectionName) {
       return true;
     }
-
     return this.expandedSections.has(sectionName);
   }
 
@@ -169,13 +191,13 @@ export default class FreestyleMenu extends Component<Signature> {
       event.preventDefault();
       if (this.highlightedIndex < items.length - 1) {
         this.highlightedIndex++;
-        this.scrollHighlightedIntoView();
+        schedule('afterRender', this, this.scrollHighlightedIntoView);
       }
     } else if (event.key === 'ArrowUp') {
       event.preventDefault();
       if (this.highlightedIndex > 0) {
         this.highlightedIndex--;
-        this.scrollHighlightedIntoView();
+        schedule('afterRender', this, this.scrollHighlightedIntoView);
       }
     } else if (event.key === 'Enter') {
       event.preventDefault();
@@ -183,10 +205,6 @@ export default class FreestyleMenu extends Component<Signature> {
     } else if (event.key === 'Escape') {
       this.filterText = '';
       this.highlightedIndex = -1;
-      const input = event.target as HTMLInputElement;
-      if (input.tagName === 'INPUT') {
-        input.value = '';
-      }
     }
   }
 
@@ -210,10 +228,19 @@ export default class FreestyleMenu extends Component<Signature> {
 
   scrollHighlightedIntoView(): void {
     const el = document.getElementById(
-      `freestyle-menu-item-${this.highlightedIndex}`,
+      `${this.elementIdPrefix}-item-${this.highlightedIndex}`,
     );
     if (el) {
       el.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  scrollActiveItemIntoView(): void {
+    const activeEl = document.querySelector(
+      '.FreestyleMenu-submenuItem.is-active',
+    );
+    if (activeEl) {
+      activeEl.scrollIntoView({ block: 'nearest' });
     }
   }
 
@@ -221,20 +248,25 @@ export default class FreestyleMenu extends Component<Signature> {
   toggleSection(sectionName: string): void {
     if (this.expandedSections.has(sectionName)) {
       this.expandedSections.delete(sectionName);
+      this.userCollapsedSections.add(sectionName);
     } else {
       this.expandedSections.add(sectionName);
+      this.userCollapsedSections.delete(sectionName);
     }
   }
 
   @action
   expandSection(sectionName: string): void {
     this.expandedSections.add(sectionName);
+    this.userCollapsedSections.delete(sectionName);
   }
 
   @action
   expandAllSections(): void {
+    this.userCollapsedSections.clear();
     for (const section of this.menu) {
       this.expandedSections.add(section.name);
     }
   }
+
 }

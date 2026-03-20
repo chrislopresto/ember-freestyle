@@ -39,17 +39,6 @@ export default class EmberFreestyleService extends Service {
     if (this.isDestroyed || this.isDestroying) return;
     this.scrollSpySection = section;
     this.scrollSpySubsection = subsection;
-
-    // Auto-scroll the sidebar to keep the active menu item visible
-    requestAnimationFrame(() => {
-      if (this.isDestroyed || this.isDestroying) return;
-      const activeEl = document.querySelector(
-        '.FreestyleMenu-submenuItem.is-active',
-      );
-      if (activeEl) {
-        activeEl.scrollIntoView({ block: 'nearest' });
-      }
-    });
   }
 
   get notFocused(): boolean {

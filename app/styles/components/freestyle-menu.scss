@@ -1,3 +1,6 @@
+// Darker variant of primary for active text (avoids deprecated darken())
+$FreestyleMenu-color--active: #008a9e;
+
 .FreestyleMenu {
   font-size: 14px;
   list-style: none;
@@ -5,7 +8,6 @@
   margin: 0;
 
   &-search {
-    list-style: none;
     padding: 0 0.75rem 0.75rem;
   }
 
@@ -31,6 +33,12 @@
     }
   }
 
+  &-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
   // Top-level menu items (section groups)
   &-item {
     list-style: none;
@@ -38,7 +46,7 @@
     border-radius: 12px;
     transition: background-color 0.2s ease;
 
-    // Expanded group: tinted background, no hard border
+    // Expanded group: tinted background
     &.is-expanded {
       background-color: rgba($FreestyleGuide-color--primary, 0.06);
       margin-bottom: 2px;
@@ -72,7 +80,7 @@
     }
   }
 
-  // Invisible toggle overlay on chevron area
+  // Toggle overlay on chevron area
   &-collapseToggle {
     position: absolute;
     left: 0;
@@ -83,6 +91,12 @@
     border: none;
     cursor: pointer;
     padding: 0;
+
+    &:focus-visible {
+      outline: 2px solid $FreestyleGuide-color--primary;
+      outline-offset: -2px;
+      border-radius: 4px;
+    }
   }
 
   // Section header links
@@ -98,7 +112,7 @@
     // Ember active route
     &.active {
       background-color: rgba($FreestyleGuide-color--primary, 0.18);
-      color: darken($FreestyleGuide-color--primary, 15%);
+      color: $FreestyleMenu-color--active;
       text-decoration: none;
       font-weight: 600;
     }
@@ -122,11 +136,11 @@
     // Keyboard highlight
     &.is-highlighted > .FreestyleMenu-submenuItemLink {
       background-color: rgba($FreestyleGuide-color--primary, 0.18);
-      color: darken($FreestyleGuide-color--primary, 15%);
+      color: $FreestyleMenu-color--active;
       font-weight: 600;
     }
 
-    // Scroll spy active: bold text, no background (section group already has tint)
+    // Scroll spy active: bold text (section group already has tint)
     &.is-active > .FreestyleMenu-submenuItemLink {
       color: $FreestyleGuide-color--foreground;
       font-weight: 700;
@@ -147,7 +161,7 @@
     // Ember active route
     &.active {
       background-color: rgba($FreestyleGuide-color--primary, 0.18);
-      color: darken($FreestyleGuide-color--primary, 15%);
+      color: $FreestyleMenu-color--active;
       text-decoration: none;
       font-weight: 600;
     }
