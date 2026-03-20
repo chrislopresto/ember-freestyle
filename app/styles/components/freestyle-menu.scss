@@ -3,6 +3,26 @@
   list-style: none;
   padding-left: 1rem;
 
+  &-search {
+    list-style: none;
+    padding-bottom: 0.5rem;
+  }
+
+  &-searchInput {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid $FreestyleGuide-color--secondary;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+
+    &:focus {
+      border-color: $FreestyleGuide-color--primary;
+    }
+  }
+
   &-item,
   &-submenuItem {
     padding-top: 0.1rem;

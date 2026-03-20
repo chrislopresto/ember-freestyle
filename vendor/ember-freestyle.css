@@ -326,6 +326,23 @@ END-FREESTYLE-USAGE */
   list-style: none;
   padding-left: 1rem;
 }
+.FreestyleMenu-search {
+  list-style: none;
+  padding-bottom: 0.5rem;
+}
+.FreestyleMenu-searchInput {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #b6b6b6;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+.FreestyleMenu-searchInput:focus {
+  border-color: #00bcd4;
+}
 .FreestyleMenu-item, .FreestyleMenu-submenuItem {
   padding-top: 0.1rem;
 }

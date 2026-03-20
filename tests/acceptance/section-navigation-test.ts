@@ -46,7 +46,7 @@ module('Acceptance | section navigation', function (hooks) {
     await click(findAll('.FreestyleMenu-collapseToggle')[1] as Element); // Foo Things
 
     const submenuItemLinksFooThings = findAll(
-      `${SELECTOR.MENU_ITEM}:nth-child(4) ${SELECTOR.SUBMENU_ITEM_LINK}`,
+      `${SELECTOR.MENU_ITEM}:nth-child(5) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
 
     assert.dom(submenuItemLinksFooThings[0]).hasText('Foo Subsection A');
@@ -56,7 +56,7 @@ module('Acceptance | section navigation', function (hooks) {
     await click(findAll('.FreestyleMenu-collapseToggle')[2] as Element); // Visual Style
 
     const submenuItemLinksVisualStyle = findAll(
-      `${SELECTOR.MENU_ITEM}:nth-child(6) ${SELECTOR.SUBMENU_ITEM_LINK}`,
+      `${SELECTOR.MENU_ITEM}:nth-child(7) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );
 
     assert.dom(submenuItemLinksVisualStyle[0]).hasText('Typography');

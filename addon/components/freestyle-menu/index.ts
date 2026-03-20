@@ -5,12 +5,18 @@ import { inject as service } from '@ember/service';
 import { reads } from 'macro-decorators';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import type EmberFreestyleService from '../../services/ember-freestyle';
-import { type Section } from '../../services/ember-freestyle';
+import { type Section, type Subsection } from '../../services/ember-freestyle';
 import { TrackedArray, TrackedSet } from 'tracked-built-ins';
+
+export interface FilteredSubsection {
+  name: string;
+}
 
 export interface FilteredSection {
   section: Section;
+  subsections: FilteredSubsection[];
   isExpanded: boolean;
 }
 
@@ -26,12 +32,44 @@ export default class FreestyleMenu extends Component<Signature> {
   @reads('emberFreestyle.menu') declare menu: TrackedArray<Section>;
 
   expandedSections = new TrackedSet<string>();
+  @tracked filterText = '';
+
+  get isFiltering(): boolean {
+    return this.filterText.length > 0;
+  }
 
   get filteredMenu(): FilteredSection[] {
-    return this.menu.map((section: Section) => ({
-      section,
-      isExpanded: this.isSectionExpanded(section.name),
-    }));
+    const filter = this.filterText.toLowerCase();
+
+    return this.menu
+      .map((section: Section) => {
+        let matchingSubs: Subsection[];
+        let isExpanded: boolean;
+
+        if (!filter) {
+          matchingSubs = section.subsections;
+          isExpanded = this.isSectionExpanded(section.name);
+        } else {
+          const sectionMatches = section.name.toLowerCase().includes(filter);
+          matchingSubs = sectionMatches
+            ? section.subsections
+            : section.subsections.filter((sub: Subsection) =>
+                sub.name.toLowerCase().includes(filter),
+              );
+
+          if (!sectionMatches && matchingSubs.length === 0) {
+            return null;
+          }
+          isExpanded = true;
+        }
+
+        return {
+          section,
+          subsections: matchingSubs,
+          isExpanded,
+        };
+      })
+      .filter(Boolean) as FilteredSection[];
   }
 
   isSectionExpanded(sectionName: string): boolean {
@@ -40,6 +78,11 @@ export default class FreestyleMenu extends Component<Signature> {
       return true;
     }
     return this.expandedSections.has(sectionName);
+  }
+
+  @action
+  onFilterInput(event: Event): void {
+    this.filterText = (event.target as HTMLInputElement).value;
   }
 
   @action

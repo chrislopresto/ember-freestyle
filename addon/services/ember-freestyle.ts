@@ -10,7 +10,7 @@ export interface Section {
   subsections: Subsection[];
 }
 
-interface Subsection {
+export interface Subsection {
   name: string;
 }
 
