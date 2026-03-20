@@ -20,7 +20,7 @@
     </li>
   {{/if}}
   {{#each this.filteredMenu as |entry|}}
-    <li class="FreestyleMenu-item">
+    <li class="FreestyleMenu-item {{if entry.isExpanded 'is-expanded'}} {{if entry.isSectionActive 'is-active'}}">
       <div class="FreestyleMenu-itemHeader">
         <LinkTo @query={{hash f=null s=entry.section.name ss=null}} class="FreestyleMenu-itemLink" {{on "click" (fn this.expandSection entry.section.name)}}>
           {{#if entry.subsections.length}}
@@ -41,10 +41,10 @@
         <ul class="FreestyleMenu-submenu" role="listbox">
           {{#each entry.subsections as |subsection|}}
             <li
-              class="FreestyleMenu-submenuItem {{if subsection.isHighlighted 'is-highlighted'}}"
+              class="FreestyleMenu-submenuItem {{if subsection.isHighlighted 'is-highlighted'}} {{if subsection.isActive 'is-active'}}"
               id="freestyle-menu-item-{{subsection.flatIndex}}"
               role="option"
-              aria-selected="{{if subsection.isHighlighted 'true' 'false'}}"
+              aria-selected="{{if (or subsection.isHighlighted subsection.isActive) 'true' 'false'}}"
             >
               <LinkTo @query={{hash f=null s=entry.section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
                 {{subsection.name}}

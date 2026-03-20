@@ -37,7 +37,7 @@ module('Acceptance | section navigation', function (hooks) {
   });
 
   test('sections with subsections have collapse toggles', function (assert) {
-    assert.dom('.FreestyleMenu-submenu').doesNotExist('subsection lists are hidden by default');
+    // Only sections with subsections get collapse toggles (Albums, Foo Things, Visual Style)
     assert.dom('.FreestyleMenu-collapseToggle').exists({ count: 3 }, 'sections with subsections have toggles');
   });
 
@@ -45,6 +45,7 @@ module('Acceptance | section navigation', function (hooks) {
     // toggles: [0]=Albums, [1]=Foo Things, [2]=Visual Style
     await click(findAll('.FreestyleMenu-collapseToggle')[1] as Element); // Foo Things
 
+    // nth-child accounts for search <li> at position 1 and All <li> at position 2
     const submenuItemLinksFooThings = findAll(
       `${SELECTOR.MENU_ITEM}:nth-child(5) ${SELECTOR.SUBMENU_ITEM_LINK}`,
     );

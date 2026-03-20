@@ -343,7 +343,21 @@ END-FREESTYLE-USAGE */
 .FreestyleMenu-searchInput:focus {
   border-color: #00bcd4;
 }
-.FreestyleMenu-item, .FreestyleMenu-submenuItem {
+.FreestyleMenu-item {
+  list-style: none;
+  padding-top: 0.1rem;
+}
+.FreestyleMenu-item.is-expanded {
+  background-color: rgba(0, 188, 212, 0.06);
+  border-radius: 8px;
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+}
+.FreestyleMenu-item.is-active:not(.is-expanded) {
+  background-color: rgba(0, 188, 212, 0.08);
+  border-radius: 8px;
+}
+.FreestyleMenu-submenuItem {
   padding-top: 0.1rem;
 }
 .FreestyleMenu-itemHeader {
@@ -400,6 +414,10 @@ END-FREESTYLE-USAGE */
 .FreestyleMenu-submenuItem.is-highlighted > .FreestyleMenu-submenuItemLink {
   background-color: rgba(0, 188, 212, 0.2);
   color: #212121;
+}
+.FreestyleMenu-submenuItem.is-active > .FreestyleMenu-submenuItemLink {
+  color: #212121;
+  font-weight: 700;
 }
 
 .FreestyleSource-title {

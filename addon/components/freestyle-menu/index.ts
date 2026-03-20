@@ -15,12 +15,14 @@ export interface FilteredSubsection {
   name: string;
   flatIndex: number;
   isHighlighted: boolean;
+  isActive: boolean;
 }
 
 export interface FilteredSection {
   section: Section;
   subsections: FilteredSubsection[];
   isExpanded: boolean;
+  isSectionActive: boolean;
 }
 
 interface FlatSubsectionItem {
@@ -57,6 +59,9 @@ export default class FreestyleMenu extends Component<Signature> {
 
   get filteredMenu(): FilteredSection[] {
     const filter = this.filterText.toLowerCase();
+    const spySection = this.emberFreestyle.scrollSpySection;
+    const spySubsection = this.emberFreestyle.scrollSpySubsection;
+    const hasKeyboardHighlight = this.highlightedIndex >= 0;
     let flatIndex = 0;
 
     return this.menu
@@ -67,6 +72,16 @@ export default class FreestyleMenu extends Component<Signature> {
         if (!filter) {
           matchingSubs = section.subsections;
           isExpanded = this.isSectionExpanded(section.name);
+
+          // Auto-expand any section the scroll spy is currently pointing at
+          if (
+            !isExpanded &&
+            spySection === section.name &&
+            !hasKeyboardHighlight &&
+            matchingSubs.length > 0
+          ) {
+            isExpanded = true;
+          }
         } else {
           const sectionMatches = section.name.toLowerCase().includes(filter);
           matchingSubs = sectionMatches
@@ -84,22 +99,33 @@ export default class FreestyleMenu extends Component<Signature> {
         const enrichedSubs = isExpanded
           ? matchingSubs.map((sub: Subsection) => {
               const idx = flatIndex++;
+              const isScrollSpyActive =
+                !hasKeyboardHighlight &&
+                spySection === section.name &&
+                spySubsection === sub.name;
               return {
                 name: sub.name,
                 flatIndex: idx,
                 isHighlighted: idx === this.highlightedIndex,
+                isActive: isScrollSpyActive,
               };
             })
           : matchingSubs.map((sub: Subsection) => ({
               name: sub.name,
               flatIndex: -1,
               isHighlighted: false,
+              isActive: false,
             }));
+
+        // Section-level active: scroll spy points at this section
+        const isSectionActive =
+          !hasKeyboardHighlight && spySection === section.name;
 
         return {
           section,
           subsections: enrichedSubs,
           isExpanded,
+          isSectionActive,
         };
       })
       .filter(Boolean) as FilteredSection[];
@@ -125,6 +151,7 @@ export default class FreestyleMenu extends Component<Signature> {
     if (currentSection && currentSection === sectionName) {
       return true;
     }
+
     return this.expandedSections.has(sectionName);
   }
 

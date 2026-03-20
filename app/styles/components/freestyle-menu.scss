@@ -23,7 +23,23 @@
     }
   }
 
-  &-item,
+  &-item {
+    list-style: none;
+    padding-top: 0.1rem;
+
+    &.is-expanded {
+      background-color: rgba($FreestyleGuide-color--primary, 0.06);
+      border-radius: 8px;
+      margin-bottom: 2px;
+      padding-bottom: 2px;
+    }
+
+    &.is-active:not(.is-expanded) {
+      background-color: rgba($FreestyleGuide-color--primary, 0.08);
+      border-radius: 8px;
+    }
+  }
+
   &-submenuItem {
     padding-top: 0.1rem;
   }
@@ -92,6 +108,11 @@
     &.is-highlighted > .FreestyleMenu-submenuItemLink {
       background-color: rgba($FreestyleGuide-color--primary, 0.2);
       color: $FreestyleGuide-color--foreground;
+    }
+
+    &.is-active > .FreestyleMenu-submenuItemLink {
+      color: $FreestyleGuide-color--foreground;
+      font-weight: 700;
     }
   }
 }
