@@ -56,10 +56,6 @@ $FreestyleMenu-color--active: #008a9e;
     // Section-level scroll spy active (sections without children)
     &.is-active:not(.is-expanded) {
       background-color: rgba($FreestyleGuide-color--primary, 0.1);
-
-      > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
-        font-weight: 600;
-      }
     }
   }
 
@@ -114,11 +110,6 @@ $FreestyleMenu-color--active: #008a9e;
     font-weight: 500;
     letter-spacing: 0.01em;
 
-    // Bold when section is expanded
-    .is-expanded > .FreestyleMenu-itemHeader > & {
-      font-weight: 600;
-    }
-
     // Ember active route
     &.active {
       background-color: rgba($FreestyleGuide-color--primary, 0.18);
@@ -131,6 +122,16 @@ $FreestyleMenu-color--active: #008a9e;
       background-color: rgba($FreestyleGuide-color--foreground, 0.06);
       text-decoration: none;
     }
+
+    // Bold when section is expanded
+    .FreestyleMenu-item.is-expanded > .FreestyleMenu-itemHeader > & {
+      font-weight: 600;
+    }
+
+    // Bold when section is scroll-spy active (no children)
+    .FreestyleMenu-item.is-active > .FreestyleMenu-itemHeader > & {
+      font-weight: 600;
+    }
   }
 
   // Child item list
@@ -138,23 +139,6 @@ $FreestyleMenu-color--active: #008a9e;
     list-style: none;
     padding: 0 0 0.15rem;
     margin: 0;
-  }
-
-  &-submenuItem {
-    padding: 0 0.35rem;
-
-    // Keyboard highlight
-    &.is-highlighted > .FreestyleMenu-submenuItemLink {
-      background-color: rgba($FreestyleGuide-color--primary, 0.18);
-      color: $FreestyleMenu-color--active;
-      font-weight: 600;
-    }
-
-    // Scroll spy active: bold text (section group already has tint)
-    &.is-active > .FreestyleMenu-submenuItemLink {
-      color: $FreestyleGuide-color--foreground;
-      font-weight: 700;
-    }
   }
 
   // Child item links
@@ -181,5 +165,22 @@ $FreestyleMenu-color--active: #008a9e;
       color: $FreestyleGuide-color--foreground;
       text-decoration: none;
     }
+
+    // Keyboard highlight
+    .FreestyleMenu-submenuItem.is-highlighted > & {
+      background-color: rgba($FreestyleGuide-color--primary, 0.18);
+      color: $FreestyleMenu-color--active;
+      font-weight: 600;
+    }
+
+    // Scroll spy active: bold text (section group already has tint)
+    .FreestyleMenu-submenuItem.is-active > & {
+      color: $FreestyleGuide-color--foreground;
+      font-weight: 700;
+    }
+  }
+
+  &-submenuItem {
+    padding: 0 0.35rem;
   }
 }

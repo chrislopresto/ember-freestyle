@@ -368,9 +368,6 @@ END-FREESTYLE-USAGE */
 .FreestyleMenu-item.is-active:not(.is-expanded) {
   background-color: rgba(0, 188, 212, 0.1);
 }
-.FreestyleMenu-item.is-active:not(.is-expanded) > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
-  font-weight: 600;
-}
 .FreestyleMenu-itemHeader {
   position: relative;
 }
@@ -414,9 +411,6 @@ END-FREESTYLE-USAGE */
   font-weight: 500;
   letter-spacing: 0.01em;
 }
-.is-expanded > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
-  font-weight: 600;
-}
 .FreestyleMenu-itemLink.active {
   background-color: rgba(0, 188, 212, 0.18);
   color: #008a9e;
@@ -427,22 +421,16 @@ END-FREESTYLE-USAGE */
   background-color: rgba(33, 33, 33, 0.06);
   text-decoration: none;
 }
+.FreestyleMenu-item.is-expanded > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
+  font-weight: 600;
+}
+.FreestyleMenu-item.is-active > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
+  font-weight: 600;
+}
 .FreestyleMenu-submenu {
   list-style: none;
   padding: 0 0 0.15rem;
   margin: 0;
-}
-.FreestyleMenu-submenuItem {
-  padding: 0 0.35rem;
-}
-.FreestyleMenu-submenuItem.is-highlighted > .FreestyleMenu-submenuItemLink {
-  background-color: rgba(0, 188, 212, 0.18);
-  color: #008a9e;
-  font-weight: 600;
-}
-.FreestyleMenu-submenuItem.is-active > .FreestyleMenu-submenuItemLink {
-  color: #212121;
-  font-weight: 700;
 }
 .FreestyleMenu-submenuItemLink {
   border-radius: 100px;
@@ -464,6 +452,18 @@ END-FREESTYLE-USAGE */
   background-color: rgba(33, 33, 33, 0.06);
   color: #212121;
   text-decoration: none;
+}
+.FreestyleMenu-submenuItem.is-highlighted > .FreestyleMenu-submenuItemLink {
+  background-color: rgba(0, 188, 212, 0.18);
+  color: #008a9e;
+  font-weight: 600;
+}
+.FreestyleMenu-submenuItem.is-active > .FreestyleMenu-submenuItemLink {
+  color: #212121;
+  font-weight: 700;
+}
+.FreestyleMenu-submenuItem {
+  padding: 0 0.35rem;
 }
 
 .FreestyleSource-title {
