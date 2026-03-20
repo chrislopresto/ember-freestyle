@@ -1,47 +1,54 @@
 .FreestyleMenu {
   font-size: 14px;
   list-style: none;
-  padding-left: 1rem;
+  padding: 0;
+  margin: 0;
 
   &-search {
     list-style: none;
-    padding-bottom: 0.5rem;
+    padding: 0 0.75rem 0.75rem;
   }
 
   &-searchInput {
     box-sizing: border-box;
     width: 100%;
-    padding: 0.4rem 0.5rem;
-    border: 1px solid $FreestyleGuide-color--secondary;
-    border-radius: 6px;
-    font-size: 14px;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 100px;
+    font-size: 13px;
     font-family: inherit;
     outline: none;
+    background-color: rgba($FreestyleGuide-color--foreground, 0.06);
+    color: $FreestyleGuide-color--foreground;
+
+    &::placeholder {
+      color: rgba($FreestyleGuide-color--foreground, 0.5);
+    }
 
     &:focus {
-      border-color: $FreestyleGuide-color--primary;
+      background-color: rgba($FreestyleGuide-color--foreground, 0.1);
+      box-shadow: 0 0 0 2px rgba($FreestyleGuide-color--primary, 0.3);
     }
   }
 
+  // Top-level menu items (section groups)
   &-item {
     list-style: none;
-    padding-top: 0.1rem;
+    margin: 0 0.5rem;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
 
+    // Expanded group: tinted background, no hard border
     &.is-expanded {
       background-color: rgba($FreestyleGuide-color--primary, 0.06);
-      border-radius: 8px;
       margin-bottom: 2px;
       padding-bottom: 2px;
     }
 
+    // Section-level scroll spy active (sections without children)
     &.is-active:not(.is-expanded) {
-      background-color: rgba($FreestyleGuide-color--primary, 0.08);
-      border-radius: 8px;
+      background-color: rgba($FreestyleGuide-color--primary, 0.1);
     }
-  }
-
-  &-submenuItem {
-    padding-top: 0.1rem;
   }
 
   &-itemHeader {
@@ -52,24 +59,25 @@
     display: inline-block;
     width: 0;
     height: 0;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-left: 6px solid currentColor;
-    margin-right: 0.35rem;
-    transition: transform 0.15s ease;
+    border-top: 3.5px solid transparent;
+    border-bottom: 3.5px solid transparent;
+    border-left: 5px solid currentColor;
+    margin-right: 0.3rem;
+    transition: transform 0.2s ease;
     vertical-align: middle;
-    opacity: 0.6;
+    opacity: 0.5;
 
     &.is-expanded {
       transform: rotate(90deg);
     }
   }
 
+  // Invisible toggle overlay on chevron area
   &-collapseToggle {
     position: absolute;
     left: 0;
     top: 0;
-    width: 1.8rem;
+    width: 2rem;
     height: 100%;
     background: none;
     border: none;
@@ -77,42 +85,77 @@
     padding: 0;
   }
 
-  &-itemLink,
-  &-submenuItemLink {
-    border-radius: 6px;
+  // Section header links
+  &-itemLink {
+    border-radius: 100px;
     color: $FreestyleGuide-color--foreground;
     display: block;
-    padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+    padding: 0.45rem 0.75rem;
     text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.01em;
 
+    // Ember active route
     &.active {
-      background-color: $FreestyleGuide-color--primary;
-      color: white;
+      background-color: rgba($FreestyleGuide-color--primary, 0.18);
+      color: darken($FreestyleGuide-color--primary, 15%);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     &:hover {
-      background-color: $FreestyleGuide-color--primary;
-      color: white;
+      background-color: rgba($FreestyleGuide-color--foreground, 0.06);
       text-decoration: none;
     }
   }
 
+  // Child item list
   &-submenu {
     list-style: none;
-    padding-left: 1rem;
+    padding: 0 0 0.15rem;
+    margin: 0;
   }
 
   &-submenuItem {
+    padding: 0 0.35rem;
+
+    // Keyboard highlight
     &.is-highlighted > .FreestyleMenu-submenuItemLink {
-      background-color: rgba($FreestyleGuide-color--primary, 0.2);
-      color: $FreestyleGuide-color--foreground;
+      background-color: rgba($FreestyleGuide-color--primary, 0.18);
+      color: darken($FreestyleGuide-color--primary, 15%);
+      font-weight: 600;
     }
 
+    // Scroll spy active: bold text, no background (section group already has tint)
     &.is-active > .FreestyleMenu-submenuItemLink {
       color: $FreestyleGuide-color--foreground;
       font-weight: 700;
+    }
+  }
+
+  // Child item links
+  &-submenuItemLink {
+    border-radius: 100px;
+    color: rgba($FreestyleGuide-color--foreground, 0.7);
+    display: block;
+    padding: 0.3rem 0.75rem 0.3rem 1.75rem;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+
+    // Ember active route
+    &.active {
+      background-color: rgba($FreestyleGuide-color--primary, 0.18);
+      color: darken($FreestyleGuide-color--primary, 15%);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    &:hover {
+      background-color: rgba($FreestyleGuide-color--foreground, 0.06);
+      color: $FreestyleGuide-color--foreground;
+      text-decoration: none;
     }
   }
 }

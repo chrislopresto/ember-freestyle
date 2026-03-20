@@ -324,41 +324,45 @@ END-FREESTYLE-USAGE */
 .FreestyleMenu {
   font-size: 14px;
   list-style: none;
-  padding-left: 1rem;
+  padding: 0;
+  margin: 0;
 }
 .FreestyleMenu-search {
   list-style: none;
-  padding-bottom: 0.5rem;
+  padding: 0 0.75rem 0.75rem;
 }
 .FreestyleMenu-searchInput {
   box-sizing: border-box;
   width: 100%;
-  padding: 0.4rem 0.5rem;
-  border: 1px solid #b6b6b6;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 100px;
+  font-size: 13px;
   font-family: inherit;
   outline: none;
+  background-color: rgba(33, 33, 33, 0.06);
+  color: #212121;
+}
+.FreestyleMenu-searchInput::placeholder {
+  color: rgba(33, 33, 33, 0.5);
 }
 .FreestyleMenu-searchInput:focus {
-  border-color: #00bcd4;
+  background-color: rgba(33, 33, 33, 0.1);
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.3);
 }
 .FreestyleMenu-item {
   list-style: none;
-  padding-top: 0.1rem;
+  margin: 0 0.5rem;
+  border-radius: 12px;
+  transition: background-color 0.2s ease;
 }
 .FreestyleMenu-item.is-expanded {
   background-color: rgba(0, 188, 212, 0.06);
-  border-radius: 8px;
   margin-bottom: 2px;
   padding-bottom: 2px;
 }
 .FreestyleMenu-item.is-active:not(.is-expanded) {
-  background-color: rgba(0, 188, 212, 0.08);
-  border-radius: 8px;
-}
-.FreestyleMenu-submenuItem {
-  padding-top: 0.1rem;
+  background-color: rgba(0, 188, 212, 0.1);
 }
 .FreestyleMenu-itemHeader {
   position: relative;
@@ -367,13 +371,13 @@ END-FREESTYLE-USAGE */
   display: inline-block;
   width: 0;
   height: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 6px solid currentColor;
-  margin-right: 0.35rem;
-  transition: transform 0.15s ease;
+  border-top: 3.5px solid transparent;
+  border-bottom: 3.5px solid transparent;
+  border-left: 5px solid currentColor;
+  margin-right: 0.3rem;
+  transition: transform 0.2s ease;
   vertical-align: middle;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 .FreestyleMenu-chevron.is-expanded {
   transform: rotate(90deg);
@@ -382,42 +386,69 @@ END-FREESTYLE-USAGE */
   position: absolute;
   left: 0;
   top: 0;
-  width: 1.8rem;
+  width: 2rem;
   height: 100%;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
 }
-.FreestyleMenu-itemLink, .FreestyleMenu-submenuItemLink {
-  border-radius: 6px;
+.FreestyleMenu-itemLink {
+  border-radius: 100px;
   color: #212121;
   display: block;
-  padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+  padding: 0.45rem 0.75rem;
   text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
-.FreestyleMenu-itemLink.active, .FreestyleMenu-submenuItemLink.active {
-  background-color: #00bcd4;
-  color: white;
+.FreestyleMenu-itemLink.active {
+  background-color: rgba(0, 188, 212, 0.18);
+  color: rgb(0, 120.1603773585, 135.5);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
 }
-.FreestyleMenu-itemLink:hover, .FreestyleMenu-submenuItemLink:hover {
-  background-color: #00bcd4;
-  color: white;
+.FreestyleMenu-itemLink:hover {
+  background-color: rgba(33, 33, 33, 0.06);
   text-decoration: none;
 }
 .FreestyleMenu-submenu {
   list-style: none;
-  padding-left: 1rem;
+  padding: 0 0 0.15rem;
+  margin: 0;
+}
+.FreestyleMenu-submenuItem {
+  padding: 0 0.35rem;
 }
 .FreestyleMenu-submenuItem.is-highlighted > .FreestyleMenu-submenuItemLink {
-  background-color: rgba(0, 188, 212, 0.2);
-  color: #212121;
+  background-color: rgba(0, 188, 212, 0.18);
+  color: rgb(0, 120.1603773585, 135.5);
+  font-weight: 600;
 }
 .FreestyleMenu-submenuItem.is-active > .FreestyleMenu-submenuItemLink {
   color: #212121;
   font-weight: 700;
+}
+.FreestyleMenu-submenuItemLink {
+  border-radius: 100px;
+  color: rgba(33, 33, 33, 0.7);
+  display: block;
+  padding: 0.3rem 0.75rem 0.3rem 1.75rem;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.FreestyleMenu-submenuItemLink.active {
+  background-color: rgba(0, 188, 212, 0.18);
+  color: rgb(0, 120.1603773585, 135.5);
+  text-decoration: none;
+  font-weight: 600;
+}
+.FreestyleMenu-submenuItemLink:hover {
+  background-color: rgba(33, 33, 33, 0.06);
+  color: #212121;
+  text-decoration: none;
 }
 
 .FreestyleSource-title {
