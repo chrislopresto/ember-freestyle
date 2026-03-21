@@ -5,15 +5,15 @@ import { inject as service } from '@ember/service';
 import { reads } from 'macro-decorators';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-// @ts-expect-error cached exists at runtime in Ember 4.12+ but glint types don't include it
-import { cached } from '@glimmer/tracking';
+import { tracked, cached } from '@glimmer/tracking';
 import { schedule } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import type RouterService from '@ember/routing/router-service';
 import type EmberFreestyleService from '../../services/ember-freestyle';
 import { type Section, type Subsection } from '../../services/ember-freestyle';
 import { TrackedArray, TrackedSet } from 'tracked-built-ins';
+
+// ── Types ──────────────────────────────────────────────────────────────────
 
 export interface FilteredSubsection {
   name: string;
@@ -40,6 +40,27 @@ interface Signature {
   };
 }
 
+// ── DOM helpers ────────────────────────────────────────────────────────────
+
+function subsectionSelector(
+  sectionName: string,
+  subsectionName: string,
+): string {
+  return `.FreestyleSubsection[data-section="${sectionName}"][data-subsection="${subsectionName}"]`;
+}
+
+function scrollElementIntoView(
+  el: Element | null,
+  behavior: ScrollBehavior = 'auto',
+  block: ScrollLogicalPosition = 'nearest',
+): void {
+  if (el) {
+    el.scrollIntoView({ behavior, block });
+  }
+}
+
+// ── Component ──────────────────────────────────────────────────────────────
+
 export default class FreestyleMenu extends Component<Signature> {
   @service declare emberFreestyle: EmberFreestyleService;
   @service declare router: RouterService;
@@ -54,6 +75,8 @@ export default class FreestyleMenu extends Component<Signature> {
   /** Stable prefix for element IDs to avoid collisions */
   elementIdPrefix = `freestyle-menu-${guidFor(this)}`;
 
+  // ── Derived state ──────────────────────────────────────────────────────
+
   get isFiltering(): boolean {
     return this.filterText.length > 0;
   }
@@ -65,82 +88,105 @@ export default class FreestyleMenu extends Component<Signature> {
     return undefined;
   }
 
+  /**
+   * Sections filtered by search text, with expansion state resolved.
+   * Does NOT include highlight/active enrichment — that's in `filteredMenu`.
+   */
   @cached
-  get filteredMenu(): FilteredSection[] {
+  get visibleSections(): {
+    section: Section;
+    subsections: Subsection[];
+    isExpanded: boolean;
+  }[] {
     const filter = this.filterText.toLowerCase();
+    const spySection = this.emberFreestyle.scrollSpySection;
+    const hasKeyboardHighlight = this.highlightedIndex >= 0;
+
+    return this.menu
+      .map((section: Section) => {
+        if (!filter) {
+          let isExpanded = this.isSectionExpanded(section.name);
+
+          if (
+            !isExpanded &&
+            spySection === section.name &&
+            !hasKeyboardHighlight &&
+            section.subsections.length > 0 &&
+            !this.userCollapsedSections.has(section.name)
+          ) {
+            isExpanded = true;
+          }
+
+          return {
+            section,
+            subsections: section.subsections,
+            isExpanded,
+          };
+        }
+
+        const sectionMatches = section.name.toLowerCase().includes(filter);
+        const matchingSubs = sectionMatches
+          ? section.subsections
+          : section.subsections.filter((sub: Subsection) =>
+              sub.name.toLowerCase().includes(filter),
+            );
+
+        if (!sectionMatches && matchingSubs.length === 0) {
+          return null;
+        }
+
+        return { section, subsections: matchingSubs, isExpanded: true };
+      })
+      .filter(Boolean) as {
+      section: Section;
+      subsections: Subsection[];
+      isExpanded: boolean;
+    }[];
+  }
+
+  /**
+   * Enriches `visibleSections` with highlight/active state and flat indices
+   * for keyboard navigation and scroll spy. Also schedules sidebar
+   * auto-scroll when scroll spy is active.
+   */
+  get filteredMenu(): FilteredSection[] {
     const spySection = this.emberFreestyle.scrollSpySection;
     const spySubsection = this.emberFreestyle.scrollSpySubsection;
     const hasKeyboardHighlight = this.highlightedIndex >= 0;
     let flatIndex = 0;
 
-    const result = this.menu
-      .map((section: Section) => {
-        let matchingSubs: Subsection[];
-        let isExpanded: boolean;
-
-        if (!filter) {
-          matchingSubs = section.subsections;
-          isExpanded = this.isSectionExpanded(section.name);
-
-          // Auto-expand when scroll spy points at this section,
-          // unless user explicitly collapsed it during this scroll-spy pass
-          if (
-            !isExpanded &&
-            spySection === section.name &&
-            !hasKeyboardHighlight &&
-            matchingSubs.length > 0 &&
-            !this.userCollapsedSections.has(section.name)
-          ) {
-            isExpanded = true;
-          }
-        } else {
-          const sectionMatches = section.name.toLowerCase().includes(filter);
-          matchingSubs = sectionMatches
-            ? section.subsections
-            : section.subsections.filter((sub: Subsection) =>
-                sub.name.toLowerCase().includes(filter),
-              );
-
-          if (!sectionMatches && matchingSubs.length === 0) {
-            return null;
-          }
-          isExpanded = true;
-        }
-
+    const result = this.visibleSections.map(
+      ({ section, subsections, isExpanded }) => {
         const enrichedSubs = isExpanded
-          ? matchingSubs.map((sub: Subsection) => {
+          ? subsections.map((sub: Subsection) => {
               const idx = flatIndex++;
-              const isScrollSpyActive =
-                !hasKeyboardHighlight &&
-                spySection === section.name &&
-                spySubsection === sub.name;
               return {
                 name: sub.name,
                 flatIndex: idx,
                 isHighlighted: idx === this.highlightedIndex,
-                isActive: isScrollSpyActive,
+                isActive:
+                  !hasKeyboardHighlight &&
+                  spySection === section.name &&
+                  spySubsection === sub.name,
               };
             })
-          : matchingSubs.map((sub: Subsection) => ({
+          : subsections.map((sub: Subsection) => ({
               name: sub.name,
               flatIndex: -1,
               isHighlighted: false,
               isActive: false,
             }));
 
-        const isSectionActive =
-          !hasKeyboardHighlight && spySection === section.name;
-
         return {
           section,
           subsections: enrichedSubs,
           isExpanded,
-          isSectionActive,
+          isSectionActive: !hasKeyboardHighlight && spySection === section.name,
         };
-      })
-      .filter(Boolean) as FilteredSection[];
+      },
+    );
 
-    // Clean up collapsed overrides for sections no longer pointed at by scroll spy
+    // Clean up collapsed overrides for sections no longer in scroll spy
     if (spySection) {
       for (const name of this.userCollapsedSections) {
         if (name !== spySection) {
@@ -149,7 +195,6 @@ export default class FreestyleMenu extends Component<Signature> {
           );
         }
       }
-      // Auto-scroll sidebar to keep the active item visible
       schedule('afterRender', this, this.scrollActiveItemIntoView);
     }
 
@@ -179,6 +224,8 @@ export default class FreestyleMenu extends Component<Signature> {
     return this.expandedSections.has(sectionName);
   }
 
+  // ── Actions ────────────────────────────────────────────────────────────
+
   @action
   onFilterInput(event: Event): void {
     this.filterText = (event.target as HTMLInputElement).value;
@@ -187,84 +234,18 @@ export default class FreestyleMenu extends Component<Signature> {
 
   @action
   handleKeydown(event: KeyboardEvent): void {
-    const items = this.flatSubsectionItems;
-
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      if (this.highlightedIndex < items.length - 1) {
-        this.highlightedIndex++;
-        schedule('afterRender', this, this.scrollHighlightedIntoView);
-        this.scrollContentToItem(items[this.highlightedIndex]);
-      }
+      this.moveHighlight(1);
     } else if (event.key === 'ArrowUp') {
       event.preventDefault();
-      if (this.highlightedIndex > 0) {
-        this.highlightedIndex--;
-        schedule('afterRender', this, this.scrollHighlightedIntoView);
-        this.scrollContentToItem(items[this.highlightedIndex]);
-      }
+      this.moveHighlight(-1);
     } else if (event.key === 'Enter') {
       event.preventDefault();
       this.navigateToHighlighted();
     } else if (event.key === 'Escape') {
       this.filterText = '';
       this.highlightedIndex = -1;
-    }
-  }
-
-  scrollContentToItem(item: FlatSubsectionItem | undefined): void {
-    if (!item) return;
-    const target = document.querySelector(
-      `.FreestyleSubsection[data-section="${item.sectionName}"][data-subsection="${item.subsectionName}"]`,
-    );
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  navigateToHighlighted(): void {
-    const items = this.flatSubsectionItems;
-    if (this.highlightedIndex < 0 || this.highlightedIndex >= items.length) {
-      return;
-    }
-    const item = items[this.highlightedIndex];
-    if (!item) return;
-
-    this.expandedSections.add(item.sectionName);
-    this.router.transitionTo({
-      queryParams: {
-        f: null,
-        s: item.sectionName,
-        ss: item.subsectionName,
-      },
-    });
-
-    // Scroll the content area to the target subsection after navigation renders
-    schedule('afterRender', null, () => {
-      const target = document.querySelector(
-        `.FreestyleSubsection[data-section="${item.sectionName}"][data-subsection="${item.subsectionName}"]`,
-      );
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  }
-
-  scrollHighlightedIntoView(): void {
-    const el = document.getElementById(
-      `${this.elementIdPrefix}-item-${this.highlightedIndex}`,
-    );
-    if (el) {
-      el.scrollIntoView({ block: 'nearest' });
-    }
-  }
-
-  scrollActiveItemIntoView(): void {
-    const activeEl = document.querySelector(
-      '.FreestyleMenu-submenuItem.is-active',
-    );
-    if (activeEl) {
-      activeEl.scrollIntoView({ block: 'nearest' });
     }
   }
 
@@ -285,11 +266,64 @@ export default class FreestyleMenu extends Component<Signature> {
     this.userCollapsedSections.delete(sectionName);
   }
 
-  @action
-  expandAllSections(): void {
-    this.userCollapsedSections.clear();
-    for (const section of this.menu) {
-      this.expandedSections.add(section.name);
+  // ── Navigation ─────────────────────────────────────────────────────────
+
+  moveHighlight(direction: 1 | -1): void {
+    const items = this.flatSubsectionItems;
+    const nextIndex = this.highlightedIndex + direction;
+
+    if (nextIndex < 0 || nextIndex >= items.length) return;
+
+    this.highlightedIndex = nextIndex;
+    schedule('afterRender', this, this.scrollHighlightedIntoView);
+
+    const item = items[nextIndex];
+    if (item) {
+      this.scrollToSubsection(item.sectionName, item.subsectionName);
     }
+  }
+
+  navigateToHighlighted(): void {
+    const items = this.flatSubsectionItems;
+    if (this.highlightedIndex < 0 || this.highlightedIndex >= items.length) {
+      return;
+    }
+    const item = items[this.highlightedIndex];
+    if (!item) return;
+
+    this.expandedSections.add(item.sectionName);
+    this.router.transitionTo({
+      queryParams: {
+        f: null,
+        s: item.sectionName,
+        ss: item.subsectionName,
+      },
+    });
+
+    schedule('afterRender', () =>
+      this.scrollToSubsection(item.sectionName, item.subsectionName),
+    );
+  }
+
+  // ── Scroll helpers ─────────────────────────────────────────────────────
+
+  scrollToSubsection(sectionName: string, subsectionName: string): void {
+    const el = document.querySelector(
+      subsectionSelector(sectionName, subsectionName),
+    );
+    scrollElementIntoView(el, 'smooth', 'start');
+  }
+
+  scrollHighlightedIntoView(): void {
+    const el = document.getElementById(
+      `${this.elementIdPrefix}-item-${this.highlightedIndex}`,
+    );
+    scrollElementIntoView(el);
+  }
+
+  scrollActiveItemIntoView(): void {
+    scrollElementIntoView(
+      document.querySelector('.FreestyleMenu-submenuItem.is-active'),
+    );
   }
 }
