@@ -22,7 +22,7 @@
     </button>
   </header>
   <main class="FreestyleGuide-body">
-    <article class="FreestyleGuide-content">
+    <article class="FreestyleGuide-content" {{freestyle-scroll-spy}}>
       {{yield}}
       {{#if (and (not this.allowRenderingAllSections) (not this.isSectionSelected))}}
         <div class="FreestyleGuide-chooseSectionMessage" data-test-choose-section>

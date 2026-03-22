@@ -10,7 +10,7 @@ export interface Section {
   subsections: Subsection[];
 }
 
-interface Subsection {
+export interface Subsection {
   name: string;
 }
 
@@ -30,6 +30,16 @@ export default class EmberFreestyleService extends Service {
   @tracked section = null;
   @tracked subsection = null;
   @tracked focus: string | null = null;
+
+  @tracked scrollSpySection: string | null = null;
+  @tracked scrollSpySubsection: string | null = null;
+
+  @action
+  setScrollSpyActive(section: string | null, subsection: string | null): void {
+    if (this.isDestroyed || this.isDestroying) return;
+    this.scrollSpySection = section;
+    this.scrollSpySubsection = subsection;
+  }
 
   get notFocused(): boolean {
     return !this.focus;

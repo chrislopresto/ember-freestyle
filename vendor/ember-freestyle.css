@@ -324,32 +324,146 @@ END-FREESTYLE-USAGE */
 .FreestyleMenu {
   font-size: 14px;
   list-style: none;
-  padding-left: 1rem;
+  padding: 0;
+  margin: 0;
 }
-.FreestyleMenu-item, .FreestyleMenu-submenuItem {
-  padding-top: 0.1rem;
+.FreestyleMenu-search {
+  padding: 0 0.75rem 0.75rem;
 }
-.FreestyleMenu-itemLink, .FreestyleMenu-submenuItemLink {
-  border-radius: 6px;
+.FreestyleMenu-searchInput {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 100px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  background-color: rgba(33, 33, 33, 0.06);
+  color: #212121;
+}
+.FreestyleMenu-searchInput::placeholder {
+  color: rgba(33, 33, 33, 0.5);
+}
+.FreestyleMenu-searchInput:focus {
+  background-color: rgba(33, 33, 33, 0.1);
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.3);
+}
+.FreestyleMenu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.FreestyleMenu-item {
+  list-style: none;
+  margin: 0 0.5rem;
+  border-radius: 12px;
+  transition: background-color 0.2s ease;
+}
+.FreestyleMenu-item.is-expanded {
+  background-color: rgba(0, 188, 212, 0.06);
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+}
+.FreestyleMenu-item.is-active:not(.is-expanded) {
+  background-color: rgba(0, 188, 212, 0.1);
+}
+.FreestyleMenu-itemHeader {
+  position: relative;
+}
+.FreestyleMenu-chevron {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 3.5px solid transparent;
+  border-bottom: 3.5px solid transparent;
+  border-left: 5px solid currentColor;
+  margin-right: 0.3rem;
+  transition: transform 0.2s ease;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+.FreestyleMenu-chevron.is-expanded {
+  transform: rotate(90deg);
+}
+.FreestyleMenu-collapseToggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.FreestyleMenu-collapseToggle:focus-visible {
+  outline: 2px solid #00bcd4;
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+.FreestyleMenu-itemLink {
+  border-radius: 100px;
   color: #212121;
   display: block;
-  padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+  padding: 0.45rem 0.75rem 0.45rem 1.4rem;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.FreestyleMenu-itemLink.active {
+  background-color: rgba(0, 188, 212, 0.18);
+  color: #008a9e;
+  text-decoration: none;
+  font-weight: 600;
+}
+.FreestyleMenu-itemLink:hover {
+  background-color: rgba(33, 33, 33, 0.06);
   text-decoration: none;
 }
-.FreestyleMenu-itemLink.active, .FreestyleMenu-submenuItemLink.active {
-  background-color: #00bcd4;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+.FreestyleMenu-item.is-expanded > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
+  font-weight: 600;
 }
-.FreestyleMenu-itemLink:hover, .FreestyleMenu-submenuItemLink:hover {
-  background-color: #00bcd4;
-  color: white;
-  text-decoration: none;
+.FreestyleMenu-item.is-active > .FreestyleMenu-itemHeader > .FreestyleMenu-itemLink {
+  font-weight: 600;
 }
 .FreestyleMenu-submenu {
   list-style: none;
-  padding-left: 1rem;
+  padding: 0 0 0.15rem;
+  margin: 0;
+}
+.FreestyleMenu-submenuItemLink {
+  border-radius: 100px;
+  color: rgba(33, 33, 33, 0.7);
+  display: block;
+  padding: 0.3rem 0.75rem 0.3rem 1.75rem;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+.FreestyleMenu-submenuItemLink.active {
+  background-color: rgba(0, 188, 212, 0.18);
+  color: #008a9e;
+  text-decoration: none;
+  font-weight: 600;
+}
+.FreestyleMenu-submenuItemLink:hover {
+  background-color: rgba(33, 33, 33, 0.06);
+  color: #212121;
+  text-decoration: none;
+}
+.FreestyleMenu-submenuItem.is-highlighted > .FreestyleMenu-submenuItemLink {
+  background-color: rgba(0, 188, 212, 0.18);
+  color: #008a9e;
+  font-weight: 600;
+}
+.FreestyleMenu-submenuItem.is-active > .FreestyleMenu-submenuItemLink {
+  color: #212121;
+  font-weight: 700;
+}
+.FreestyleMenu-submenuItem {
+  padding: 0 0.35rem;
 }
 
 .FreestyleSource-title {

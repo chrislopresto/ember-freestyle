@@ -34,6 +34,7 @@ import type FreestyleUsageString from 'ember-freestyle/components/freestyle/usag
 
 // modifiers
 import type FreestyleHighlight from 'ember-freestyle/modifiers/freestyle-highlight';
+import type FreestyleScrollSpy from 'ember-freestyle/modifiers/freestyle-scroll-spy';
 import EnsureFreestyleTheme from './modifiers/ensure-freestyle-theme';
 
 export default interface EmberFreestyleRegistry {
@@ -105,5 +106,6 @@ export default interface EmberFreestyleRegistry {
 
   // modifiers
   'freestyle-highlight': typeof FreestyleHighlight;
+  'freestyle-scroll-spy': typeof FreestyleScrollSpy;
   'ensure-freestyle-theme': typeof EnsureFreestyleTheme;
 }

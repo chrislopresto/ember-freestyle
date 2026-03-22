@@ -39,6 +39,7 @@
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "ember-auto-import": "^2.4.3",
+    "ember-cached-decorator-polyfill": "^1.0.2",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-typescript": "^5.1.1",

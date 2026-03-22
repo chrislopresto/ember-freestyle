@@ -1,27 +1,57 @@
-<ul class="FreestyleMenu">
-  {{#if this.includeAllOption}}
-    <li class="FreestyleMenu-item">
-      <LinkTo @query={{hash s=null ss=null f=null}} class="FreestyleMenu-itemLink">
-        All
-      </LinkTo>
-    </li>
-  {{/if}}
-  {{#each this.menu as |section|}}
-    <li class="FreestyleMenu-item">
-      <LinkTo @query={{hash f=null s=section.name ss=null}} class="FreestyleMenu-itemLink">
-        {{section.name}}
-      </LinkTo>
-      {{#if section.subsections.length}}
-        <ul class="FreestyleMenu-submenu">
-          {{#each section.subsections as |subsection|}}
-            <li class="FreestyleMenu-submenuItem">
-              <LinkTo @query={{hash f=null s=section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
-                {{subsection.name}}
-              </LinkTo>
-            </li>
-          {{/each}}
-        </ul>
-      {{/if}}
-    </li>
-  {{/each}}
-</ul>
+<nav class="FreestyleMenu" aria-label="Component navigation">
+  <div class="FreestyleMenu-search">
+    <input
+      type="text"
+      class="FreestyleMenu-searchInput"
+      placeholder="Filter components..."
+      aria-label="Filter components"
+      value={{this.filterText}}
+      {{on "input" this.onFilterInput}}
+      {{on "keydown" this.handleKeydown}}
+    />
+  </div>
+  <ul class="FreestyleMenu-list">
+    {{#if this.includeAllOption}}
+      <li class="FreestyleMenu-item">
+        <LinkTo @query={{hash s=null ss=null f=null}} class="FreestyleMenu-itemLink">
+          All
+        </LinkTo>
+      </li>
+    {{/if}}
+    {{#each this.filteredMenu as |entry|}}
+      <li class="FreestyleMenu-item {{if entry.isExpanded 'is-expanded'}} {{if entry.isSectionActive 'is-active'}}">
+        <div class="FreestyleMenu-itemHeader">
+          <LinkTo @query={{hash f=null s=entry.section.name ss=null}} class="FreestyleMenu-itemLink" {{on "click" (fn this.expandSection entry.section.name)}}>
+            {{#if entry.subsections.length}}
+              <span class="FreestyleMenu-chevron {{if entry.isExpanded 'is-expanded'}}"></span>
+            {{/if}}
+            {{entry.section.name}}
+          </LinkTo>
+          {{#if entry.subsections.length}}
+            <button
+              type="button"
+              class="FreestyleMenu-collapseToggle"
+              {{on "click" (fn this.toggleSection entry.section.name)}}
+              aria-label="Toggle {{entry.section.name}}"
+              aria-expanded="{{if entry.isExpanded 'true' 'false'}}"
+            ></button>
+          {{/if}}
+        </div>
+        {{#if (and entry.subsections.length entry.isExpanded)}}
+          <ul class="FreestyleMenu-submenu">
+            {{#each entry.subsections as |subsection|}}
+              <li
+                class="FreestyleMenu-submenuItem {{if subsection.isHighlighted 'is-highlighted'}} {{if subsection.isActive 'is-active'}}"
+                id="{{this.elementIdPrefix}}-item-{{subsection.flatIndex}}"
+              >
+                <LinkTo @query={{hash f=null s=entry.section.name ss=subsection.name}} class="FreestyleMenu-submenuItemLink">
+                  {{subsection.name}}
+                </LinkTo>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</nav>
