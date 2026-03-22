@@ -6,6 +6,15 @@ All notable changes to this project will be documented in this file.
 
 
 
+
+## v0.23.0 (2026-03-22)
+
+#### :rocket: Enhancement
+* [#1025](https://github.com/chrislopresto/ember-freestyle/pull/1025) feat: enhanced FreestyleMenu with collapsible sections, search, keyboard nav, and scroll spy ([@mattmcmanus](https://github.com/mattmcmanus))
+
+#### Committers: 1
+- Matt McManus ([@mattmcmanus](https://github.com/mattmcmanus))
+
 ## v0.22.0 (2025-03-18)
 
 ## v0.21.0 (2024-09-27)
