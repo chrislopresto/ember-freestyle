@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import EmberFreestyleService from '../../services/ember-freestyle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 interface Signature {
   Element: HTMLDivElement;

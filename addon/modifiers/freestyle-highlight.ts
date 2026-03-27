@@ -1,6 +1,6 @@
 import Modifier from 'ember-modifier';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import type EmberFreestyleService from '../services/ember-freestyle';
 
 export default class FreestyleHighlight extends Modifier {

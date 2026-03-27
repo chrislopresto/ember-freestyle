@@ -4,7 +4,7 @@ import Owner from '@ember/owner';
 import { isBlank } from '@ember/utils';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { reads } from 'macro-decorators';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';

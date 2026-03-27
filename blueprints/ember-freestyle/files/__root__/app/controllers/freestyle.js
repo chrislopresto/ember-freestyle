@@ -1,5 +1,5 @@
 import BaseFreestyleController from 'ember-freestyle/controllers/freestyle';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 export default class FreestyleController extends BaseFreestyleController {
   @service emberFreestyle;

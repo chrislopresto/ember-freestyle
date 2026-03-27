@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import type EmberFreestyleService from '../../services/ember-freestyle';
 import type { WithBoundArgs } from '@glint/template';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import FreestyleSubsection from '../freestyle-subsection';
 import Owner from '@ember/owner';
 

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Component from '@glimmer/component';
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { action } from '@ember/object';
 /* eslint-enable @typescript-eslint/no-unused-vars */
 import type EmberFreestyleService from '../../../services/ember-freestyle';

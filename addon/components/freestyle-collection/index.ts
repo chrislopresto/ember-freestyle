@@ -5,7 +5,7 @@ import { TrackedArray } from 'tracked-built-ins';
 import type { WithBoundArgs } from '@glint/template';
 import type FreestyleVariant from '../freestyle-variant';
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { and, not, reads } from 'macro-decorators';
 import { action } from '@ember/object';

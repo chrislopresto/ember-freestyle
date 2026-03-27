@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { reads } from 'macro-decorators';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

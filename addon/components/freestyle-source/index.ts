@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import EmberFreestyleService from '../../services/ember-freestyle';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { reads } from 'macro-decorators';
 import { get } from '@ember/object';
 import { modifier } from 'ember-modifier';

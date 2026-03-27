@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import type EmberFreestyleService from 'ember-freestyle/services/ember-freestyle';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { alias } from '@ember/object/computed';
 /* eslint-enable @typescript-eslint/no-unused-vars */

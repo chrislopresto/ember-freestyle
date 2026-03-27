@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { schedule } from '@ember/runloop';
 import { capitalize } from '@ember/string';
 import type EmberFreestyleService from '../../services/ember-freestyle';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { action, get, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
