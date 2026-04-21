@@ -39,13 +39,11 @@
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "ember-auto-import": "^2.4.3",
-    "ember-cached-decorator-polyfill": "^1.0.2",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-typescript": "^5.1.1",
     "ember-focus-trap": "^1.0.1",
     "ember-modifier": "^3.2.7 || ^4.0.0",
-    "ember-named-blocks-polyfill": "^0.2.5",
     "ember-truth-helpers": "^4.0.3",
     "json-formatter-js": "^2.3.4",
     "macro-decorators": "^0.1.2",
@@ -146,7 +144,7 @@
     }
   },
   "engines": {
-    "node": ">= 18"
+    "node": ">= 20"
   },
   "volta": {
     "node": "20.14.0",
@@ -162,11 +160,8 @@
     "configPath": "tests/dummy/config",
     "demoURL": "https://chrislopresto.github.io/ember-freestyle/",
     "versionCompatibility": {
-      "ember": ">= 2.4.0"
-    },
-    "after": [
-      "ember-named-blocks-polyfill"
-    ]
+      "ember": ">= 4.4.0"
+    }
   },
   "release-it": {
     "plugins": {
@@ -183,7 +178,7 @@
       "tokenRef": "GITHUB_AUTH"
     },
     "hooks": {
-      "after:release": "ember deploy production"
+      "after:release": "./node_modules/.bin/ember deploy production"
     }
   }
 }
