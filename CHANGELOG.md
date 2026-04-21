@@ -8,6 +8,18 @@ All notable changes to this project will be documented in this file.
 
 
 
+
+## v0.24.0 (2026-04-21)
+
+#### :boom: Breaking Change
+* [#1028](https://github.com/chrislopresto/ember-freestyle/pull/1028) Raise floor to Ember 4.4 / Node 20 and drop stale polyfills ([@lukemelia](https://github.com/lukemelia))
+
+#### :memo: Documentation
+* [#1028](https://github.com/chrislopresto/ember-freestyle/pull/1028) Raise floor to Ember 4.4 / Node 20 and drop stale polyfills ([@lukemelia](https://github.com/lukemelia))
+
+#### Committers: 1
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+
 ## v0.23.1 (2026-04-21)
 
 #### :house: Internal
