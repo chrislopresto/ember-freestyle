@@ -178,7 +178,7 @@
       "tokenRef": "GITHUB_AUTH"
     },
     "hooks": {
-      "after:release": "./node_modules/.bin/ember deploy production"
+      "after:release": "./script/deploy-production.sh"
     }
   }
 }
