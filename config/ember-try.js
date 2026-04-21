@@ -74,7 +74,7 @@ module.exports = async function () {
         },
       },
       {
-        name: 'ember-beta',
+        name: 'ember-beta-failing',
         npm: {
           dependencies: {
             'ember-auto-import': '^2.0.0',
@@ -87,7 +87,7 @@ module.exports = async function () {
         allowedToFail: true,
       },
       {
-        name: 'ember-canary',
+        name: 'ember-canary-failing',
         npm: {
           dependencies: {
             'ember-auto-import': '^2.0.0',

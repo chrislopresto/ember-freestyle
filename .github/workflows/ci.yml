@@ -62,8 +62,8 @@ jobs:
           - ember-lts-5.12
           - ember-6.12
           - ember-release
-          - ember-beta
-          - ember-canary
+          - ember-beta-failing
+          - ember-canary-failing
           - ember-classic
           - embroider-safe
           - embroider-optimized
@@ -76,4 +76,4 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
-        continue-on-error: ${{ matrix.try-scenario == 'ember-beta' || matrix.try-scenario == 'ember-canary' }}
+        continue-on-error: ${{ endsWith(matrix.try-scenario, '-failing') }}
