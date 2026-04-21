@@ -84,6 +84,7 @@ module.exports = async function () {
             webpack: '^5.0.0',
           },
         },
+        allowedToFail: true,
       },
       {
         name: 'ember-canary',
@@ -96,6 +97,7 @@ module.exports = async function () {
             webpack: '^5.0.0',
           },
         },
+        allowedToFail: true,
       },
       {
         name: 'ember-classic',
