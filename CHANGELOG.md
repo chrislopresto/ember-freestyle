@@ -7,6 +7,16 @@ All notable changes to this project will be documented in this file.
 
 
 
+
+## v0.23.1 (2026-04-21)
+
+#### :house: Internal
+* [#1027](https://github.com/chrislopresto/ember-freestyle/pull/1027) Fix CI: pin testem and tolerate beta/canary Ember 7 breakage ([@lukemelia](https://github.com/lukemelia))
+* [#1026](https://github.com/chrislopresto/ember-freestyle/pull/1026) Widen @ember/string peer dep and add modern ember-try scenarios ([@lukemelia](https://github.com/lukemelia))
+
+#### Committers: 1
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+
 ## v0.23.0 (2026-03-22)
 
 #### :rocket: Enhancement
