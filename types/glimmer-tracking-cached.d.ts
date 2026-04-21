@@ -1,4 +1,5 @@
-// Type augmentation for @cached (provided at runtime by ember-cached-decorator-polyfill)
+// Type augmentation for @cached. Runtime is provided natively by @glimmer/tracking
+// on Ember 4.4+, but the standalone @glimmer/tracking@1.1.2 types don't yet export it.
 import '@glimmer/tracking';
 
 declare module '@glimmer/tracking' {

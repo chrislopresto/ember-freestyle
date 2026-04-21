@@ -23,9 +23,9 @@ To see Ember Freestyle in action, visit [https://chrislopresto.github.io/ember-f
 
 ## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v18 or above
+* Ember.js v4.4 or above
+* Ember CLI v4.4 or above
+* Node.js v20 or above
 * Ember Auto Import v2 or above
 
 ember-freestyle includes TypeScript types, and provides a template registry that can be imported from `ember-freestyle/template-registry` for Glint usage.
