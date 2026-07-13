@@ -59,6 +59,7 @@ jobs:
           - ember-lts-4.12
           - ember-lts-5.12
           - ember-6.12
+          - ember-6.12-glimmer-v2
           - ember-release
           - ember-beta-failing
           - ember-canary-failing
