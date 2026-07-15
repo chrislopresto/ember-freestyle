@@ -40,7 +40,7 @@
     "@glimmer/tracking": "^1.1.2",
     "ember-auto-import": "^2.4.3",
     "ember-cli-babel": "^8.2.0",
-    "ember-cli-htmlbars": "^6.3.0",
+    "ember-cli-htmlbars": "^7.0.1",
     "ember-cli-typescript": "^5.1.1",
     "ember-focus-trap": "^1.0.1",
     "ember-modifier": "^3.2.7 || ^4.0.0",
