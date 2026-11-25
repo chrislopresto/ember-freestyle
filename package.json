@@ -36,7 +36,7 @@
     "postpack": "ember ts:clean"
   },
   "dependencies": {
-    "@glimmer/component": "^1.1.2",
+    "@glimmer/component": "^2.1.1",
     "@glimmer/tracking": "^1.1.2",
     "ember-auto-import": "^2.4.3",
     "ember-cli-babel": "^8.2.0",
